@@ -1,0 +1,66 @@
+'use client';
+import { useFetchReward } from '@/hooks/useFetchReward';
+import { useWalletStore } from '@dodoex/wallet-web3';
+import { Trans } from '@lingui/macro';
+import Link from 'next/link';
+
+export default function RewardEntry({
+  initialDataTokenList,
+}: {
+  initialDataTokenList?: Parameters<
+    typeof useFetchReward
+  >[0]['initialDataTokenList'];
+}) {
+  const { account, chainId } = useWalletStore();
+  const rewardQuery = useFetchReward({
+    account,
+    chainId,
+    initialDataTokenList,
+  });
+  const hasAirdrop = !!rewardQuery.data?.length;
+  return (
+    <Link
+      className="btn gap-2 bg-paperDarkContrast text-sm hover:opacity-70"
+      href="/airdrop"
+    >
+      <div className="relative">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="relative"
+        >
+          <path
+            d="M12.0003 2C6.71216 2 2.40997 6.3023 2.40997 11.5903C2.40997 11.7713 2.48751 11.9333 2.6099 12.048C2.61427 12.0521 2.6149 12.0549 2.6197 12.0592L6.6263 15.6402V21.3711C6.6263 21.7184 6.9079 22 7.25517 22H16.7454C17.0927 22 17.3742 21.7184 17.3742 21.3711V15.6402C17.3742 15.6402 21.4215 12.0168 21.4246 12.0129C21.5267 11.9011 21.5906 11.7537 21.5906 11.5903C21.5906 6.3023 17.2884 2 12.0003 2ZM11.3745 11.5903V14.7299H10.0098L8.16411 11.4507C8.23622 10.628 8.92111 9.97805 9.76224 9.97805C10.6512 9.97805 11.3745 10.7013 11.3745 11.5903ZM3.69384 11.3322C3.81837 10.5662 4.47939 9.97809 5.28001 9.97809C6.16896 9.97809 6.89228 10.7014 6.89228 11.5904C6.89228 11.6352 6.89634 11.672 6.90365 11.7032C6.91493 11.7654 6.93665 11.8233 6.96474 11.8776C6.96849 11.8853 8.56657 14.73 8.56657 14.73H7.49536L3.69384 11.3322ZM12.6322 14.7299V11.5903C12.6322 10.7013 13.3555 9.97801 14.2445 9.97801C15.0847 9.97801 15.7689 10.6264 15.8423 11.4478L13.9598 14.7298L12.6322 14.7299ZM16.1165 20.7423H14.9529V15.9877H16.1165V20.7423ZM16.5052 14.7299H15.4097C15.4097 14.7299 17.0389 11.8843 17.0442 11.8737C17.0876 11.7882 17.1145 11.6929 17.1145 11.5903C17.1145 10.7013 17.8377 9.97801 18.7267 9.97801C19.5243 9.97801 20.1827 10.5662 20.3068 11.332L16.5052 14.7299Z"
+            fill="currentColor"
+          />
+        </svg>
+        {hasAirdrop && (
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute -right-1"
+          >
+            <circle
+              cx="6"
+              cy="6"
+              r="5"
+              fill="#ED5AD5"
+              stroke="#DEDFE0"
+              strokeWidth="2"
+            />
+          </svg>
+        )}
+      </div>
+
+      <div className="hidden md:inline-block">
+        <Trans>Airdrop</Trans>
+      </div>
+    </Link>
+  );
+}

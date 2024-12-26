@@ -1,0 +1,42 @@
+{
+  "short_name": "Unagiswap",
+  "name": "Unagiswap",
+  "description": "Take your first bite of unagi on Taiko",
+  "iconPath": "./favicon.svg",
+  "icons": [
+    {
+      "src": "./favicon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "./favicon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "./favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "id": "com.unagiswap.pwa",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ED5AD5",
+  "background_color": "#F4F5F6",
+  "providedBy": {
+    "name": "Unagiswap",
+    "url": "https://unagiswap.xyz"
+  }
+}

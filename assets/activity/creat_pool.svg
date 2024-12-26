@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>creat_pool_24dp</title>
+    <g id="交易首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PC-dark" transform="translate(-20.000000, -529.000000)">
+            <g id="creat_pool_24dp" transform="translate(20.000000, 529.000000)">
+                <polygon id="路径" points="0 0 24 0 24 24 0 24"></polygon>
+                <path d="M8,9 L4.99,9 L4.99,16 L9,16 C9,17.66 10.35,19 12,19 C13.65,19 15,17.66 15,16 L15,16 L19,16 L19,9 L16,9 L16,7 L19,7 C20.1,7 21,7.9 21,9 L21,9 L21,19 C21,20.1 20.1,21 19,21 L19,21 L4.99,21 C3.88,21 3,20.1 3,19 L3,19 L3.01,9 C3.01,7.9 3.88,7 4.99,7 L4.99,7 L8,7 L8,9 Z" id="形状结合" fill="currentColor" fill-rule="nonzero"></path>
+                <path d="M12,3.77473684 L12,12.7368421 C9.93125,12.7368421 8.25,11.0757895 8.25,9.02947368 C8.25,8.04421053 8.6375,7.11578947 9.34375,6.41473684 L12,3.77473684 M8.46875,5.51157895 L8.46875,5.51157895 C7.5625,6.41473684 7,7.65894737 7,9.02947368 C7,11.7768421 9.2375,14 12,14 C14.7625,14 17,11.7768421 17,9.02947368 C17,7.65894737 16.4375,6.41473684 15.53125,5.51157895 L15.53125,5.51157895 L12,2 L8.46875,5.51157895 Z" id="形状" fill="currentColor" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

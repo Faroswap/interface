@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  color-scheme: light;
+  font-weight: 500;
+}
+
+svg {
+  display: inline-block;
+}
+
+* {
+  outline: 0;
+}
+
+wcm-modal {
+  --wcm-z-index: 999999;
+}
+
+@layer components {
+  .btn {
+    @apply flex px-2 md:px-4 py-1 md:py-[6px] items-center justify-center rounded-lg font-medium hover:enabled:opacity-70;
+  }
+  .btn.primary {
+    @apply bg-primary text-primary-contrastText disabled:bg-paperDarkContrast disabled:text-disabled;
+  }
+  .btn.secondary {
+    @apply border;
+  }
+
+  .highlight-color-transparent {
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* ... */
+}

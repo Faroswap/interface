@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>createmining_24dp</title>
+    <g id="交易首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="createmining_24dp">
+            <rect id="矩形" x="0" y="0" width="24" height="24"></rect>
+            <g id="编组" transform="translate(2.380000, 3.000000)" fill="currentColor" fill-rule="nonzero">
+                <polygon id="路径" points="9.78 0 9.46 0 6.83 5.25 12.41 5.25"></polygon>
+                <polygon id="路径" points="14.08 5.25 19.24 5.25 16.62 0 11.46 0"></polygon>
+                <polygon id="路径" points="19 6.75 10.37 6.75 10.37 17.1"></polygon>
+                <polygon id="路径" points="8.87 17.1 8.87 6.75 0.24 6.75"></polygon>
+                <polygon id="路径" points="5.16 5.25 7.78 0 2.62 0 0 5.25"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

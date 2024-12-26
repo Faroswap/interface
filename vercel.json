@@ -1,0 +1,62 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "base-uri 'self'; frame-ancestors 'self' https://safe.taiko.xyz/ https://safe.global/ https://*.safe.global/ https://gnosis-safe.io/ https://*.gnosis-safe.io/ https://platform-apps.ledger.com https://dapp-browser.apps.ledger.com/ https://dev.openblock.vip https://openblock.com http://localhost:3000 https://magic.store https://cms.magic.store https://wallet-sandbox.cyber.co  https://cyberwallet-sandbox-cyberconnect.vercel.app https://next.wallet.cyber.co https://wallet.cyber.co"
+        },
+        {
+          "key": "Vary",
+          "value": "Accept-Encoding"
+        }
+      ]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000,immutable"
+        }
+      ]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000,immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000,immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000,immutable"
+        }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    }
+  ]
+}
