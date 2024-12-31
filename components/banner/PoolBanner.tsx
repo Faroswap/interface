@@ -46,7 +46,7 @@ export default function PoolBanner() {
   });
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden max-md:pb-4 max-md:border-b">
       <Scroll ref={scrollRef}>
         {bannerDataList.map((item) => {
           const isOuterLink = !!item.url && validUri(item.url);
@@ -55,7 +55,7 @@ export default function PoolBanner() {
               key={item.title}
               className="flex-shrink-0 px-5 md:px-10 w-full leading-tight overflow-hidden"
             >
-              <div className="flex justify-between max-md:flex-col-reverse gap-4 md:gap-11 pt-5 pb-4 md:py-7 border-b">
+              <div className="flex justify-between max-md:flex-col-reverse max-md:items-center gap-4 md:gap-11 pt-5 pb-4 md:py-7 md:border-b">
                 <div
                   className={clsx(
                     'flex flex-col gap-2 max-md:items-center',
@@ -99,13 +99,11 @@ export default function PoolBanner() {
                     </a>
                   )}
                 </div>
-                <div>
-                  <img
-                    src={item.bannerImg}
-                    alt="image"
-                    className="h-12 md:h-[200px]"
-                  />
-                </div>
+                <img
+                  src={item.bannerImg}
+                  alt="image"
+                  className="h-12 md:h-[200px]"
+                />
               </div>
             </div>
           );
@@ -114,7 +112,7 @@ export default function PoolBanner() {
       <SwiperPagination
         length={length}
         activeIndex={activeIndex}
-        className="md:absolute md:bottom-7 md:right-10 md:-translate-y-full"
+        className="md:absolute md:bottom-7 md:right-10 md:-translate-y-full max-md:mx-auto w-max"
         slideTo={slideTo}
       />
     </div>
@@ -146,38 +144,40 @@ function SwiperPagination({
 }) {
   if (length <= 1) return null;
   return (
-    <div className={clsx('flex gap-2 items-center', className)}>
-      {increaseArray(length).map((_, i) => {
-        let width = '0%';
-        if (activeIndex >= i) {
-          width = '100%';
-        }
-        return (
-          <div
-            key={i}
-            className="relative rounded-sm w-8 h-1 flex-shrink-0 bg-text/30 overflow-hidden cursor-pointer"
-            onClick={() => slideTo(i)}
-          >
-            {i === 0 ? (
-              <PaginationProgress
-                className="absolute inset-0 bg-text transition-width"
-                width={width}
-                full={activeIndex > 0}
-              />
-            ) : (
-              <div
-                className={clsx('absolute inset-0 bg-text transition-width', {
-                  'duration-[4000ms]': activeIndex === i,
-                })}
-                style={{
-                  width,
-                }}
-              />
-            )}
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <div className={clsx('flex gap-2 items-center', className)}>
+        {increaseArray(length).map((_, i) => {
+          let width = '0%';
+          if (activeIndex >= i) {
+            width = '100%';
+          }
+          return (
+            <div
+              key={i}
+              className="relative rounded-sm w-8 h-1 flex-shrink-0 bg-text/30 overflow-hidden cursor-pointer"
+              onClick={() => slideTo(i)}
+            >
+              {i === 0 ? (
+                <PaginationProgress
+                  className="absolute inset-0 bg-text transition-width"
+                  width={width}
+                  full={activeIndex > 0}
+                />
+              ) : (
+                <div
+                  className={clsx('absolute inset-0 bg-text transition-width', {
+                    'duration-[4000ms]': activeIndex === i,
+                  })}
+                  style={{
+                    width,
+                  }}
+                />
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
 
