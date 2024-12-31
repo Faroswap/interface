@@ -9,6 +9,8 @@ export const MESSAGE_SOURCE = '';
 export const ERC20_DOMAIN = '';
 export const LOGO_URL = `https://${ERC20_DOMAIN}favicon.svg`;
 export const TWITTER_URL = '';
+export const COMMUNITY_URL = '';
+export const DOCUMENT_URL = '';
 export const SAFE_URL = '';
 export const SHOW_AIRDROP = false;
 

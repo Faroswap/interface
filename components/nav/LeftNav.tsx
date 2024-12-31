@@ -6,12 +6,15 @@ import { getMenuList } from '@/constants/menuList';
 import ProgressLink from '../ProgressLink';
 import { ArrowTopRightBorder, Error } from '@dodoex/icons';
 import { Trans } from '@lingui/macro';
-import { TWITTER_URL } from '@/constants/config';
+import { COMMUNITY_URL, TWITTER_URL, DOCUMENT_URL } from '@/constants/config';
 import LogoAndText from '@/assets/logo/logo-and-text.svg';
 
 export default function LeftNav({ onClose }: { onClose?: () => void }) {
   const menuList = getMenuList();
   const pathname = usePathname();
+  const onlySingleSocialLink =
+    // @ts-ignore
+    !!TWITTER_URL + !!COMMUNITY_URL + !!DOCUMENT_URL === 1;
 
   return (
     <div className="flex flex-col justify-between h-full bg-paper md:min-w-[236px]">
@@ -31,19 +34,74 @@ export default function LeftNav({ onClose }: { onClose?: () => void }) {
           <ul className="flex flex-col">
             {menuList.map((menu) => {
               const key = menu.url;
+
+              if (menu.isOuterLink) {
+                return (
+                  <li
+                    className="relative p-3 [&:hover_.hover-bg]:inline-block"
+                    key={key}
+                  >
+                    {!!menu.hoverBgImage && (
+                      <div className="hover-bg absolute inset-3 hidden">
+                        {menu.hoverBgImage}
+                      </div>
+                    )}
+                    <a
+                      href={menu.url}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      className={clsx(
+                        'relative z-[1] flex items-center justify-between p-2 font-semibold rounded-lg text-secondary [&:hover_.outer-icon]:inline-block',
+                        menu.hoverBgImage
+                          ? 'hover:text-contrastText'
+                          : 'hover:bg-hover hover:text-primary',
+                      )}
+                    >
+                      <div className="flex items-center gap-2">
+                        {menu.icon}
+                        {menu.name}
+                      </div>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="outer-icon hidden"
+                      >
+                        <path
+                          d="M4.22703 12.7122L10.6811 6.25812L4.75206 6.25812L4.75736 4.75729H13.2426V13.2426H11.7471L11.7418 7.31878L5.28769 13.7729L4.22703 12.7122Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                );
+              }
               if (menu.url) {
                 const active =
                   pathname === menu.url ||
                   (pathname === '/' && menu.url === '/swap') ||
                   pathname?.startsWith(menu.url);
                 return (
-                  <li className="p-3" key={key}>
+                  <li
+                    className="relative p-3 [&:hover_.hover-bg]:inline-block"
+                    key={key}
+                  >
+                    {!!menu.hoverBgImage && (
+                      <div className="hover-bg absolute inset-3 hidden">
+                        {menu.hoverBgImage}
+                      </div>
+                    )}
                     <ProgressLink
                       href={menu.url}
                       className={clsx(
-                        'flex gap-2 p-2 font-semibold rounded-lg hover:bg-hover hover:text-primary',
+                        'relative z-[1] flex items-center gap-2 p-2 font-semibold rounded-lg',
                         active ? 'text-primary' : 'text-secondary',
                         { '[&_.active-color]:text-active': active },
+                        menu.hoverBgImage
+                          ? 'hover:text-contrastText'
+                          : 'hover:bg-hover hover:text-primary',
                       )}
                     >
                       {menu.icon}
@@ -58,30 +116,110 @@ export default function LeftNav({ onClose }: { onClose?: () => void }) {
         </nav>
       </div>
       <div className="px-4">
-        <a
-          className="flex justify-between items-center p-3 border rounded-lg text-secondary text-sm hover:bg-hover hover:text-primary"
-          rel="noopener noreferrer"
-          target="_blank"
-          href={TWITTER_URL}
+        <div
+          className={clsx('flex flex-col gap-2', {
+            'py-2 border-t border-b': !onlySingleSocialLink,
+          })}
         >
-          <div className="flex items-center gap-2">
-            <svg
-              width="18"
-              height="19"
-              viewBox="0 0 18 19"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          {!!TWITTER_URL && (
+            <a
+              className={clsx(
+                'flex justify-between items-center  rounded-lg text-secondary  hover:text-primary',
+                onlySingleSocialLink
+                  ? 'p-3 border text-sm hover:bg-hover'
+                  : 'p-1 text-xs font-semibold',
+              )}
+              rel="noopener noreferrer"
+              target="_blank"
+              href={TWITTER_URL}
             >
-              <path
-                d="M16 4.92063C15.4849 5.16181 14.9313 5.32424 14.3503 5.39746C14.9436 5.02276 15.3992 4.42904 15.6132 3.72149C15.0585 4.0685 14.4437 4.32075 13.7892 4.45673C13.2659 3.86792 12.5187 3.5 11.6927 3.5C9.83825 3.5 8.47558 5.32486 8.89442 7.21924C6.508 7.09311 4.39167 5.8872 2.97475 4.05435C2.22225 5.41591 2.5845 7.19709 3.86317 8.09906C3.393 8.08306 2.94967 7.94709 2.56292 7.72006C2.53142 9.12346 3.48517 10.4364 4.8665 10.7287C4.46225 10.8443 4.0195 10.8714 3.56917 10.7804C3.93433 11.9838 4.99483 12.8593 6.2525 12.8839C5.045 13.8825 3.52367 14.3285 2 14.139C3.27108 14.9986 4.78133 15.5 6.403 15.5C11.7358 15.5 14.7487 10.7496 14.5667 6.48893C15.1279 6.06132 15.615 5.52789 16 4.92063Z"
-                fill="currentColor"
-              />
-            </svg>
-            Twitter
-          </div>
-          <ArrowTopRightBorder className="w-4 h-4" />
-        </a>
-        <div className="mt-[10px] mx-auto h-[1px] w-11/12 bg-border" />
+              <div className="flex items-center gap-2">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g>
+                    <path
+                      d="M8.30188 5.92402L13.399 -0.000976562H12.1912L7.76531 5.14362L4.23041 -0.000976562H0.15332L5.49879 7.77856L0.15332 13.9918H1.36125L6.03504 8.55897L9.76816 13.9918H13.8453L8.30158 5.92402H8.30188ZM6.64746 7.8471L6.10585 7.07244L1.79648 0.908332H3.65178L7.1295 5.88296L7.6711 6.65763L12.1917 13.1239H10.3364L6.64746 7.8474V7.8471Z"
+                      fill="currentColor"
+                    />
+                  </g>
+                </svg>
+                X (Twitter)
+              </div>
+              <ArrowTopRightBorder className="w-4 h-4" />
+            </a>
+          )}
+          {!!COMMUNITY_URL && (
+            <a
+              className={clsx(
+                'flex justify-between items-center  rounded-lg text-secondary  hover:text-primary',
+                onlySingleSocialLink
+                  ? 'p-3 border text-sm hover:bg-hover'
+                  : 'px-1 py-2 text-xs font-semibold',
+              )}
+              rel="noopener noreferrer"
+              target="_blank"
+              href={COMMUNITY_URL}
+            >
+              <div className="flex items-center gap-2">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.4987 2.78786L2.2012 7.91561C1.2937 8.28011 1.29895 8.78636 2.0347 9.01211L5.4487 10.0771L13.3477 5.09336C13.7212 4.86611 14.0625 4.98836 13.782 5.23736L7.3822 11.0131H7.3807L7.3822 11.0139L7.1467 14.5329C7.4917 14.5329 7.64395 14.3746 7.83745 14.1879L9.4957 12.5754L12.945 15.1231C13.581 15.4734 14.0377 15.2934 14.196 14.5344L16.4602 3.86336C16.692 2.93411 16.1055 2.51336 15.4987 2.78786Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <Trans>Community</Trans>
+              </div>
+              <ArrowTopRightBorder className="w-4 h-4" />
+            </a>
+          )}
+          {!!DOCUMENT_URL && (
+            <a
+              className={clsx(
+                'flex justify-between items-center  rounded-lg text-secondary  hover:text-primary',
+                onlySingleSocialLink
+                  ? 'p-3 border text-sm hover:bg-hover'
+                  : 'px-1 py-2 text-xs font-semibold',
+              )}
+              rel="noopener noreferrer"
+              target="_blank"
+              href={DOCUMENT_URL}
+            >
+              <div className="flex items-center gap-2">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.75 15.75C3.3375 15.75 2.98438 15.6031 2.69063 15.3094C2.39687 15.0156 2.25 14.6625 2.25 14.25V3.75C2.25 3.3375 2.39687 2.98438 2.69063 2.69063C2.98438 2.39687 3.3375 2.25 3.75 2.25H14.25C14.6625 2.25 15.0156 2.39687 15.3094 2.69063C15.6031 2.98438 15.75 3.3375 15.75 3.75V14.25C15.75 14.6625 15.6031 15.0156 15.3094 15.3094C15.0156 15.6031 14.6625 15.75 14.25 15.75H3.75ZM5.25 12.75H10.5V11.25H5.25V12.75ZM5.25 9.75H12.75V8.25H5.25V9.75ZM5.25 6.75H12.75V5.25H5.25V6.75Z"
+                    fill="currentColor"
+                  />
+                </svg>
+
+                <Trans>Documents</Trans>
+              </div>
+              <ArrowTopRightBorder className="w-4 h-4" />
+            </a>
+          )}
+        </div>
+        <div
+          className={clsx('mt-[10px] mx-auto h-[1px] w-11/12 bg-border', {
+            hidden: !onlySingleSocialLink,
+          })}
+        />
         <div className="py-[14px] text-secondary text-xs">
           <Trans>Powered by DODO DEXpert</Trans>
         </div>

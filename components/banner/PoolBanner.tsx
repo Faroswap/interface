@@ -12,32 +12,6 @@ export default function PoolBanner() {
   const fetchBannerQuery = useGetBannerBrandSite({
     position: 'pool',
   });
-  // const bannerDataList = [
-  //   {
-  //     title: 'Tittle Tittle Tittle Tittle Tittle Tittle 2',
-  //     describe:
-  //       'Description Description Description Description Description Description Description Description Description Description2',
-  //     bannerImg:
-  //       'https://images.dodoex.io/vsyYicP0GKRtqu7tRvMWgKBYqxdv199K67n7d-aNzeo/g:no/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2RvZG8tbWVkaWEtc3RhZ2luZy9kZXYvdXBsb2FkX2ltZ181MjE5OTM0XzIwMjQxMjMwMDM0NDE4NjE4LnN2Zw.svg',
-  //     url: 'https://google.com',
-  //   },
-  //   {
-  //     title: 'Tittle T',
-  //     describe:
-  //       'Description Description Description Description Description Description Description Description Description Description',
-  //     bannerImg:
-  //       'https://images.dodoex.io/vsyYicP0GKRtqu7tRvMWgKBYqxdv199K67n7d-aNzeo/g:no/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2RvZG8tbWVkaWEtc3RhZ2luZy9kZXYvdXBsb2FkX2ltZ181MjE5OTM0XzIwMjQxMjMwMDM0NDE4NjE4LnN2Zw.svg',
-  //     url: 'https://google.com',
-  //   },
-  //   {
-  //     title: '333',
-  //     describe:
-  //       'Description Description Description Description Description Description Description Description Description Description',
-  //     bannerImg:
-  //       'https://images.dodoex.io/vsyYicP0GKRtqu7tRvMWgKBYqxdv199K67n7d-aNzeo/g:no/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2RvZG8tbWVkaWEtc3RhZ2luZy9kZXYvdXBsb2FkX2ltZ181MjE5OTM0XzIwMjQxMjMwMDM0NDE4NjE4LnN2Zw.svg',
-  //     url: 'https://google.com',
-  //   },
-  // ];
   const bannerDataList = fetchBannerQuery.bannerList;
   const length = bannerDataList.length;
   const scrollRef = React.useRef<HTMLDivElement>(null);
@@ -46,7 +20,7 @@ export default function PoolBanner() {
   });
 
   return (
-    <div className="relative overflow-hidden max-md:pb-4 max-md:border-b">
+    <div className="relative overflow-hidden max-md:pb-4 flex-shrink-0">
       <Scroll ref={scrollRef}>
         {bannerDataList.map((item) => {
           const isOuterLink = !!item.url && validUri(item.url);
@@ -112,9 +86,10 @@ export default function PoolBanner() {
       <SwiperPagination
         length={length}
         activeIndex={activeIndex}
-        className="md:absolute md:bottom-7 md:right-10 md:-translate-y-full max-md:mx-auto w-max"
+        className="md:absolute md:bottom-7 md:right-10 max-md:mx-auto w-max"
         slideTo={slideTo}
       />
+      <div className="md:hidden absolute bottom-0 left-5 right-5 h-[1px] bg-border" />
     </div>
   );
 }

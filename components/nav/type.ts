@@ -5,4 +5,6 @@ export interface MenuItem {
   url?: string;
   comingSoon?: boolean;
   icon: NonNullable<React.ReactNode>;
+  isOuterLink?: boolean;
+  hoverBgImage?: React.ReactNode;
 }
