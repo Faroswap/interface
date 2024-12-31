@@ -2,11 +2,14 @@
   "name": "widgets-single-chain-template",
   "version": "0.1.0",
   "private": true,
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "dev": "next dev",
     "build": "yarn extract && yarn compile && next build",
     "start": "next start",
     "lint": "next lint",
+    "schema:compile": "export $(cat .env | xargs) && env graphql-codegen",
+    "schema:watch": "export $(cat .env | xargs) && env graphql-codegen -w",
     "extract": "lingui extract --clean",
     "compile": "lingui compile --typescript"
   },
@@ -48,6 +51,8 @@
     "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.3",
+    "@graphql-codegen/client-preset": "^4.5.1",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@lingui/cli": "^4.11.4",
     "@lingui/loader": "^4.11.4",

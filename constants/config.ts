@@ -5,7 +5,7 @@ export const DESCRIPTION = '';
 
 export const SINGLE_CHAIN_ID = 11155111;
 export const SINGLE_CHAIN_NAME = '';
-export const MESSAGE_SOURCE = '';
+export const MESSAGE_SOURCE = 'momo';
 export const ERC20_DOMAIN = '';
 export const LOGO_URL = `https://${ERC20_DOMAIN}favicon.svg`;
 export const TWITTER_URL = '';

@@ -2,12 +2,16 @@
 
 import { Swap, SwapOrderHistory } from '@dodoex/widgets';
 import React from 'react';
+import { SwapBanner } from './banner/SwapBanner';
 
 export default function SwapWidget() {
   return (
     <>
-      <div className="relative pb-2 bg-paper overflow-hidden w-full md:w-[450px] min-h-[450px] rounded-2xl">
-        <Swap />
+      <div className="flex flex-col gap-3">
+        <SwapBanner />
+        <div className="relative pb-2 bg-paper overflow-hidden w-full md:w-[450px] min-h-[450px] rounded-2xl">
+          <Swap />
+        </div>
       </div>
       <div className="relative w-full bg-paper rounded-2xl [&&&_th]:bg-paperContrast [&&&_th]:py-[14px] overflow-hidden">
         <div className="p-5 font-semibold border-b">Order History</div>

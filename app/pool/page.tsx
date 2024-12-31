@@ -1,4 +1,5 @@
 'use client';
+import PoolBanner from '@/components/banner/PoolBanner';
 import Widget from '@/components/Widget';
 import { PageType, PoolList, useRouterStore, Page } from '@dodoex/widgets';
 import React from 'react';
@@ -24,6 +25,7 @@ export default function PoolPage({
   }, [searchParams]);
   return (
     <div className="pb-10 overflow-hidden flex flex-col [&_.widget-module-container]:pb-0">
+      <PoolBanner />
       <Widget>
         <PoolList
           params={
