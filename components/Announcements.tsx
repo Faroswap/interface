@@ -110,7 +110,7 @@ function Scroll({
       {len > 1 ? (
         <div
           className={clsx(
-            'absolute left-7 z-10',
+            'absolute left-4 z-10',
             len === 2 ? 'top-[14px] md:top-[17px]' : 'top-[10px] md:top-3',
           )}
         >
@@ -222,9 +222,9 @@ function AnnouncementsItemText({ msg }: { msg: MessageItem }) {
 
   return (
     <Tooltip title={`${msg.title}${lastPublishTime}`} arrow maxWidth={240}>
-      <div className="max-w-full line-clamp-2">
+      <div className="md:flex max-w-full line-clamp-2">
         <span
-          className="truncate [&>.link-text]:text-primary"
+          className="max-md:break-all md:truncate max-w-full [&>.link-text]:text-primary"
           dangerouslySetInnerHTML={{
             __html: msg.title,
           }}

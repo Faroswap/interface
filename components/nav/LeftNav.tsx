@@ -56,6 +56,7 @@ export default function LeftNav({ onClose }: { onClose?: () => void }) {
                           ? 'hover:text-contrastText'
                           : 'hover:bg-hover hover:text-primary',
                       )}
+                      onClick={() => onClose?.()}
                     >
                       <div className="flex items-center gap-2">
                         {menu.icon}
@@ -103,6 +104,7 @@ export default function LeftNav({ onClose }: { onClose?: () => void }) {
                           ? 'hover:text-contrastText'
                           : 'hover:bg-hover hover:text-primary',
                       )}
+                      onClick={() => onClose?.()}
                     >
                       {menu.icon}
                       {menu.name}
