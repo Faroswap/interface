@@ -17,12 +17,14 @@ export function SwapBanner({ className }: { className?: string }) {
       target={isOuterLink ? '_blank' : '_top'}
       rel={isOuterLink ? 'noopener noreferrer' : undefined}
       className={clsx(
-        'relative flex flex-col justify-center pl-4 pr-[100px] py-[18px] bg-cover bg-right transition-all	text-[#1A1A1B] md:rounded-2xl leading-snug',
-        hasBanner ? 'max-h-[200px] min-h-[70px]' : 'max-h-0',
-        className,
+        'relative flex flex-col justify-center bg-cover bg-right transition-all	text-[#1A1A1B] md:rounded-2xl leading-snug',
+        hasBanner
+          ? ' pl-4 pr-[100px] py-[18px] max-h-[200px] min-h-[70px]'
+          : 'max-h-0',
+        hasBanner ? className : undefined,
       )}
       style={{
-        backgroundImage: `url(${bannerImg})`,
+        backgroundImage: bannerImg ? `url(${bannerImg})` : undefined,
       }}
     >
       <div className="text-sm font-bold max-md:max-w-[63vw]">{title}</div>
