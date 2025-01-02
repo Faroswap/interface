@@ -37,13 +37,11 @@ export default async function Page({
   }
 
   return (
-    <div className="flex flex-col gap-10 items-center pb-5 md:pb-10 px-5 md:px-10 pt-7">
-      <WidgetServer
-        defaultFromToken={defaultFromToken}
-        defaultToToken={defaultToToken}
-      >
-        <SwapWidget />
-      </WidgetServer>
-    </div>
+    <WidgetServer
+      defaultFromToken={defaultFromToken}
+      defaultToToken={defaultToToken}
+    >
+      <SwapWidget />
+    </WidgetServer>
   );
 }

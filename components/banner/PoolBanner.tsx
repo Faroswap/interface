@@ -20,7 +20,12 @@ export default function PoolBanner() {
   });
 
   return (
-    <div className="relative overflow-hidden max-md:pb-4 flex-shrink-0">
+    <div
+      className={clsx(
+        'relative overflow-hidden flex-shrink-0 transition-all',
+        !!length ? 'max-md:pb-4 max-h-[500px]' : 'max-h-0',
+      )}
+    >
       <Scroll ref={scrollRef}>
         {bannerDataList.map((item) => {
           const isOuterLink = !!item.url && validUri(item.url);
@@ -89,7 +94,9 @@ export default function PoolBanner() {
         className="md:absolute md:bottom-7 md:right-10 max-md:mx-auto w-max"
         slideTo={slideTo}
       />
-      <div className="md:hidden absolute bottom-0 left-5 right-5 h-[1px] bg-border" />
+      {!!length && (
+        <div className="md:hidden absolute bottom-0 left-5 right-5 h-[1px] bg-border" />
+      )}
     </div>
   );
 }
