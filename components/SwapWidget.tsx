@@ -8,7 +8,7 @@ export default function SwapWidget() {
   return (
     <div className="flex flex-col gap-10 items-center pb-5 md:pb-10 pt-7">
       <div>
-        <SwapBanner className="md:mx-10 mb-3" />
+        <SwapBanner className="md:mx-10 mb-3 md:w-[450px]" />
         <div className="px-5 md:px-10 ">
           <div className="relative pb-2 bg-paper overflow-hidden w-full md:w-[450px] min-h-[450px] rounded-2xl">
             <Swap />
