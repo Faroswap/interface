@@ -51,7 +51,7 @@ export default function LeftNav({ onClose }: { onClose?: () => void }) {
                       rel="noopener noreferrer"
                       target="_blank"
                       className={clsx(
-                        'relative z-[1] flex items-center justify-between p-2 font-semibold rounded-lg text-secondary [&:hover_.outer-icon]:inline-block',
+                        'relative z-[1] flex items-center justify-between p-2 font-semibold rounded-lg text-secondary [&:hover_.outer-icon]:visible',
                         menu.hoverBgImage
                           ? 'hover:text-contrastText'
                           : 'hover:bg-hover hover:text-primary',
@@ -68,7 +68,7 @@ export default function LeftNav({ onClose }: { onClose?: () => void }) {
                         viewBox="0 0 18 18"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="outer-icon hidden"
+                        className="outer-icon invisible"
                       >
                         <path
                           d="M4.22703 12.7122L10.6811 6.25812L4.75206 6.25812L4.75736 4.75729H13.2426V13.2426H11.7471L11.7418 7.31878L5.28769 13.7729L4.22703 12.7122Z"
