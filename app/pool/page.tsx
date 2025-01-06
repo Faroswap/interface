@@ -1,4 +1,5 @@
 'use client';
+import PoolBanner from '@/components/banner/PoolBanner';
 import Widget from '@/components/Widget';
 import { PageType, PoolList, useRouterStore, Page } from '@dodoex/widgets';
 import React from 'react';
@@ -22,10 +23,17 @@ export default function PoolPage({
       } as Page<PageType.Pool>);
     }
   }, [searchParams]);
+
+  const scrollRef = React.useRef<HTMLDivElement>(null);
   return (
-    <div className="pb-10 overflow-hidden flex flex-col [&_.widget-module-container]:pb-0">
+    <div
+      className="pb-10 overflow-y-auto flex flex-col [&_.widget-module-container]:pb-0  max-md:[&_.widget-module-container]:h-max  [&_.widget-module-container]:overflow-visible md:[&_.widget-module-container]:max-h-full"
+      ref={scrollRef}
+    >
+      <PoolBanner />
       <Widget>
         <PoolList
+          scrollRef={scrollRef}
           params={
             searchParams.tab
               ? {

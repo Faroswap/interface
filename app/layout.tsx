@@ -20,6 +20,7 @@ import NavDialog from '@/components/nav/NavDialog';
 import Logo from '@/assets/logo/logo.svg';
 import RewardEntry from '@/components/reward/RewardEntry';
 import { fetchTokenList } from '@/constants/apiServer';
+import Announcements from '@/components/Announcements';
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -53,33 +54,36 @@ export default async function RootLayout({
                   <LeftNav />
                 </div>
                 <div className="flex-1 flex flex-col overflow-hidden">
-                  <header className="flex justify-between md:justify-end items-center px-5 md:px-6 py-3 border-b text-sm md:text-base">
-                    {/* mobile */}
-                    <div className="md:hidden">
-                      <Logo />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {SHOW_AIRDROP && (
-                        <RewardEntry
-                          initialDataTokenList={initialDataTokenList}
-                        />
-                      )}
-
-                      <button
-                        className="btn gap-2 bg-paperDarkContrast text-sm"
-                        disabled
-                      >
-                        <SingleChainLogo />
-                        <div className="hidden md:inline-block">
-                          {SINGLE_CHAIN_NAME}
-                        </div>
-                      </button>
-                      <ConnectWalletBtn />
+                  <div className="flex flex-col-reverse md:flex-col">
+                    <Announcements />
+                    <header className="flex justify-between md:justify-end items-center px-5 md:px-6 py-3 border-b text-sm md:text-base">
+                      {/* mobile */}
                       <div className="md:hidden">
-                        <NavDialog />
+                        <Logo />
                       </div>
-                    </div>
-                  </header>
+                      <div className="flex items-center gap-2">
+                        {SHOW_AIRDROP && (
+                          <RewardEntry
+                            initialDataTokenList={initialDataTokenList}
+                          />
+                        )}
+
+                        <button
+                          className="btn gap-2 bg-paperDarkContrast text-sm"
+                          disabled
+                        >
+                          <SingleChainLogo />
+                          <div className="hidden md:inline-block">
+                            {SINGLE_CHAIN_NAME}
+                          </div>
+                        </button>
+                        <ConnectWalletBtn />
+                        <div className="md:hidden">
+                          <NavDialog />
+                        </div>
+                      </div>
+                    </header>
+                  </div>
                   <main className="flex-1 flex flex-col overflow-y-auto">
                     {children}
                   </main>

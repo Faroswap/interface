@@ -18,6 +18,7 @@ module.exports = {
     extend: {
       textColor: {
         primary: '#1A1A1B',
+        contrastText: '#FFF',
         secondary: 'rgba(26, 26, 27, 0.5)',
         disabled: 'rgba(26, 26, 27, 0.3)',
         active: '#ED5AD5',
@@ -44,12 +45,25 @@ module.exports = {
         backdrop: 'rgba(0, 0, 0, 0.9)',
         skeleton: 'rgba(25, 26, 27, 0.11)',
         input: '#F0F0F0',
+        error: '#EC5A7D',
+        warning: '#B15600',
+        success: '#2FBA90',
+        text: '#1A1A1B',
+        contrastText: '#FFF',
       },
       zIndex: {
         modal: '1300',
       },
       height: {
         17: '4.25rem',
+      },
+      transitionProperty: {
+        height: 'height',
+        width: 'width',
+        spacing: 'margin, padding',
+      },
+      transitionDelay: {
+        600: '600ms',
       },
     },
   },

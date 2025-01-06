@@ -2,35 +2,56 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+Fork 仓库之后,修改当前链配置
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+##### 增加环境变量
+
+按照 `.env.sample` 文件夹增加 `.env` 文件
+
+##### 修改图片
+
+1. 替换 `public/favicon.svg` 图片后,使用 rsvg-covert 生成图片
+
+```Bash
+cd public
+
+rsvg-convert favicon.svg -o ../app/icon.png
+rsvg-convert --width=192 --height=192 favicon.svg -o favicon-192x192.png
+rsvg-convert --width=512 --height=512 favicon.svg -o favicon-512x512.png
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 替换 `assets/logo` 文件夹下 logo 和 chain 的图片
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. 模板没有背景图片,如果页面有背景图片需要另外加
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+##### 修改当前链配置
 
-## Learn More
+1. 修改 `manifest.json` 文件中的以下字段 (Safe 钱包需要用到)
 
-To learn more about Next.js, take a look at the following resources:
+```JSON
+{
+  "short_name": "",
+  "name": "",
+  "description": "",
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  "id": "com.momo.pwa",
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  "theme_color": "#ED5AD5",
+  "background_color": "#F4F5F6",
+  "providedBy": {
+    "name": "MOMO",
+    "url": "https://momoswap.io"
+  }
+}
+```
 
-## Deploy on Vercel
+2. 修改 `constants/config.ts` 文件配置
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+##### 修改主题
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. 修改 widget 主题配置 `constants/theme.ts`
+2. 修改 `tailwind.config.js`
+
+## License
+
+- [GPL-3.0 ](https://github.com/DODOEX/widgets-single-chain-template/blob/main/LICENSE)
