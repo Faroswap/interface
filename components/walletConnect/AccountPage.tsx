@@ -119,6 +119,12 @@ export default function AccountPage({
           <button
             className="flex items-center justify-center h-full px-2 border-l text-error hover:bg-tag"
             onClick={() => {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              const provider = (useWalletStore.getState().provider as any)
+                ?.provider;
+              if (provider._handleDisconnect) {
+                provider._handleDisconnect();
+              }
               walletWeb3?.disconnectWallet();
             }}
           >
