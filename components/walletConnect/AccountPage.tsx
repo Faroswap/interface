@@ -24,6 +24,7 @@ import { useHasBalanceTokenList } from '@/hooks/useHasBalanceTokenList';
 import ActivityList from './ActivityList';
 import { SINGLE_CHAIN_ID } from '@/constants/config';
 import { useTransactionList } from '@/hooks/useTransactionList';
+import { walletWeb3 } from '@/utils/web3';
 
 enum ListTab {
   tokens = 'tokens',
@@ -118,7 +119,7 @@ export default function AccountPage({
           <button
             className="flex items-center justify-center h-full px-2 border-l text-error hover:bg-tag"
             onClick={() => {
-              useWalletStore.getState().disconnect();
+              walletWeb3?.disconnectWallet();
             }}
           >
             <Disconnect className="w-[18px] h-[18px]" />
