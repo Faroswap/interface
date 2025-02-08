@@ -16,15 +16,6 @@ export function useInitContractRequest() {
       getProvider: (chainId) => {
         if (chainId === currentChainId) {
           const provider = useWalletStore.getState().provider;
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const injectProvider = (provider as any).provider || provider;
-          if (injectProvider?._metamask?.requestBatch) {
-            return {
-              ...provider,
-              batchRequest: injectProvider?._metamask?.requestBatch,
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            } as any;
-          }
           if (provider) {
             return provider;
           }

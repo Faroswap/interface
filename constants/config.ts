@@ -3,7 +3,7 @@ import type { WidgetProps } from '@dodoex/widgets';
 export const TITLE = '';
 export const DESCRIPTION = '';
 
-export const SINGLE_CHAIN_ID = 11155111;
+export const SINGLE_CHAIN_ID = 42161;
 export const SINGLE_CHAIN_NAME = '';
 export const MESSAGE_SOURCE = '';
 export const ERC20_DOMAIN = '';
