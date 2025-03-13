@@ -44,50 +44,58 @@ export type TokenListInitialData = ReturnType<
 export async function fetchTokenList() {
   const chainId = SINGLE_CHAIN_ID;
   const token = await getServerAuth();
-  const res = await axios.post(
-    `${GRAPHQL_URL}?opname=FetchErc20SwapCrossChainList`,
-    {
-      query: TokenApi.graphql.fetchErc20SwapCrossList.toString(),
-      variables: {
-        where: {
-          chainId,
-          page: 1,
-          pageSize: 1000,
+  try {
+    const res = await axios.post(
+      `${GRAPHQL_URL}?opname=FetchErc20SwapCrossChainList`,
+      {
+        query: TokenApi.graphql.fetchErc20SwapCrossList.toString(),
+        variables: {
+          where: {
+            chainId,
+            page: 1,
+            pageSize: 1000,
+          },
         },
       },
-    },
-    {
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 DODO/lite-ssr',
-        'Access-Token': token,
+      {
+        headers: {
+          'User-Agent':
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 DODO/lite-ssr',
+          'Access-Token': token,
+        },
       },
-    },
-  );
-  const data = (await res.data.data) as TokenListInitialData;
-  const tokenList =
-    data?.erc20_swapCrossChainList
-      ?.filter(
-        (token) =>
-          !!token &&
-          (!token.domains?.length ||
-            token.domains?.some(
-              (domain: any) => domain?.name === ERC20_DOMAIN,
-            )),
-      )
-      ?.map(
-        (token) =>
-          ({
-            address: token?.address,
-            name: token?.name,
-            symbol: token?.symbol,
-            decimals: token?.decimals,
-            logoURI: token?.logoImg,
-          }) as TokenInfo,
-      ) ?? [];
+    );
+    const data = (await res.data.data) as TokenListInitialData;
+    const tokenList =
+      data?.erc20_swapCrossChainList
+        ?.filter(
+          (token) =>
+            !!token &&
+            (!token.domains?.length ||
+              token.domains?.some(
+                (domain: any) => domain?.name === ERC20_DOMAIN,
+              )),
+        )
+        ?.map(
+          (token) =>
+            ({
+              address: token?.address,
+              name: token?.name,
+              symbol: token?.symbol,
+              decimals: token?.decimals,
+              logoURI: token?.logoImg,
+            }) as TokenInfo,
+        ) ?? [];
 
-  return {
-    data,
-    tokenList: tokenList as TokenInfo[],
-  };
+    return {
+      data,
+      tokenList: tokenList as TokenInfo[],
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      data: undefined,
+      tokenList: undefined,
+    };
+  }
 }

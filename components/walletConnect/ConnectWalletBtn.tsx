@@ -2,15 +2,31 @@
 import WalletIcon from '@/assets/icons/wallet.svg';
 import { truncatePoolAddress } from '@/utils/address';
 import { Trans } from '@lingui/macro';
-import WalletDialog from './WalletDialog';
 import React from 'react';
 import { useWalletStore } from '@dodoex/wallet-web3';
+import {
+  WalletDialog,
+  WalletConnectProvider,
+  LangProvider,
+} from '@dodoex/wallet-web3-react';
+import SingleChainLogo from '@/assets/logo/single-chain.svg';
+import SingleChainBCLogo from '@/assets/logo/single-chain-bc.svg';
 import { useGlobalStatus } from '@/utils/useGlobalStatus';
 import { Loading } from '@dodoex/icons';
 import Tooltip from '../Tooltip';
 import { TransactionList } from './ActivityList';
 import { useTransactionList } from '@/hooks/useTransactionList';
-import { SINGLE_CHAIN_ID } from '@/constants/config';
+import { SINGLE_CHAIN_ID, SINGLE_CHAIN_NAME } from '@/constants/config';
+import { walletWeb3 } from '@/utils/web3';
+import { graphQLRequests } from '@/constants/api';
+import SendTokenPage from './SendTokenPage';
+import { getEtherscanPage } from '@dodoex/widgets';
+import { basicTokenMap, ChainId } from '@dodoex/api';
+import { getTokenLogoUrl } from '../Widget';
+import { encryptFiatPriceToken } from '@dodoex/auth-web-sdk';
+import { useFetchTokenList } from '@/hooks/useFetchTokenList';
+import BigNumber from 'bignumber.js';
+import { RpcProxyProvider } from '@/constants/RpcProxyProvider';
 
 function WalletPendingBtn(props: React.PropsWithChildren) {
   const { account } = useWalletStore();
@@ -52,6 +68,7 @@ function WalletPendingBtn(props: React.PropsWithChildren) {
 export default function ConnectWalletBtn() {
   const account = useWalletStore((state) => state.account);
   const open = useGlobalStatus((state) => state.openConnectWallet);
+  const { tokenList } = useFetchTokenList();
 
   return (
     <>
@@ -68,10 +85,52 @@ export default function ConnectWalletBtn() {
           )}
         </button>
       </WalletPendingBtn>
-      <WalletDialog
-        open={open}
-        onClose={() => useGlobalStatus.setState({ openConnectWallet: false })}
-      />
+      {!!walletWeb3 && (
+        <WalletConnectProvider
+          value={{
+            chainId: SINGLE_CHAIN_ID,
+            graphQLRequests,
+            tokenList,
+            encryptFiatPriceToken,
+            SendTokenPage,
+            getChain: (chainId) => {
+              return {
+                name: SINGLE_CHAIN_NAME,
+                scanUrl: getEtherscanPage(chainId),
+                gasToken: basicTokenMap[chainId as ChainId],
+                logo: <SingleChainLogo />,
+                logoBg: <SingleChainBCLogo />,
+              };
+            },
+            getTokenLogoUrl,
+            loadAccountListEthBalance: async (accountList, chainId) => {
+              const balanceMap: Map<string, number | null> = new Map();
+              const provider = new RpcProxyProvider(undefined, chainId);
+              const promiseList = accountList.map(async (account) => {
+                const balance = await provider.getBalance(account);
+                const balanceRes = new BigNumber(balance.toString())
+                  .div(1e18)
+                  .toNumber();
+                balanceMap.set(account, balanceRes);
+              });
+              await Promise.all(promiseList);
+              return balanceMap;
+            },
+          }}
+        >
+          <React.Suspense>
+            <LangProvider locale="en">
+              <WalletDialog
+                open={open}
+                onClose={() =>
+                  useGlobalStatus.setState({ openConnectWallet: false })
+                }
+                walletWeb3={walletWeb3}
+              />
+            </LangProvider>
+          </React.Suspense>
+        </WalletConnectProvider>
+      )}
     </>
   );
 }

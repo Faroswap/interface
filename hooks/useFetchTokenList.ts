@@ -25,6 +25,7 @@ export function useFetchTokenList({
         ?.filter(
           (token) =>
             !token?.domains?.length ||
+            !ERC20_DOMAIN ||
             token?.domains?.some((domain) => domain?.name === ERC20_DOMAIN),
         )
         ?.map(

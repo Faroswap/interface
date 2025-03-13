@@ -20,7 +20,7 @@ export default async function Page({
     const chainId = Number(paramsArray[0]);
     const symbol = paramsArray[1];
     if (chainId && symbol) {
-      defaultFromToken = tokenList.find(
+      defaultFromToken = tokenList?.find(
         (item) => item.chainId === chainId && item.symbol === symbol,
       );
     }
@@ -30,7 +30,7 @@ export default async function Page({
     const chainId = Number(paramsArray[0]);
     const symbol = paramsArray[1];
     if (chainId && symbol) {
-      defaultToToken = tokenList.find(
+      defaultToToken = tokenList?.find(
         (item) => item.chainId === chainId && item.symbol === symbol,
       );
     }
