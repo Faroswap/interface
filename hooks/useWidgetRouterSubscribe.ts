@@ -35,6 +35,9 @@ export function useWidgetRouterSubscribe() {
         }
       } else if (state.page?.type === PageType.Pool) {
         router.push(`/pool${params?.tab ? `?tab=${params?.tab}` : ''}`);
+      } else if (state.page?.type === PageType.ModifyPool) {
+        const { chainId, address } = params;
+        router.push(`/pool/${chainId}/${address}/modify`);
       }
     });
     return unsubscribe;
