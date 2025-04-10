@@ -14,10 +14,8 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="pb-5">
-      <Widget>
-        <PoolCreate />
-      </Widget>
-    </div>
+    <Widget>
+      <PoolCreate />
+    </Widget>
   );
 }
