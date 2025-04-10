@@ -1350,10 +1350,10 @@
     "@babel/helper-string-parser" "^7.25.9"
     "@babel/helper-validator-identifier" "^7.25.9"
 
-"@binance/w3w-core@1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@binance/w3w-core/-/w3w-core-1.1.7.tgz#e7814fe5dc511841958ada177cfbf38d2f1297bb"
-  integrity sha512-Aipavg2sc8JyBsgvmdbpna0RmS1EVmaIIgZO3lQr+OV0Q2EKabAIZ5nZNQOEmhxAzOxcrCZAUaNu/tW17JfcGg==
+"@binance/w3w-core@1.1.8-alpha.0":
+  version "1.1.8-alpha.0"
+  resolved "https://registry.yarnpkg.com/@binance/w3w-core/-/w3w-core-1.1.8-alpha.0.tgz#422f06cfb988effbb1b67725dcebf3e1db93bc2d"
+  integrity sha512-fLTBqF4Yb7s4zFMhzHnmurQqszbiE9c8ZdmbELSkWgSwEHtEO7DAOAV61X9mCLLeCLpQkwz3sLULg/Agjr5iXA==
   dependencies:
     "@binance/w3w-qrcode-modal" "1.1.5"
     "@binance/w3w-socket-transport" "1.1.4"
@@ -1363,13 +1363,13 @@
     axios "^1.3.5"
     js-base64 "^3.7.5"
 
-"@binance/w3w-ethereum-provider@^1.0.0":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@binance/w3w-ethereum-provider/-/w3w-ethereum-provider-1.1.7.tgz#34f141911b45525223aefcce8b067210590ae16b"
-  integrity sha512-fHHifGDidtYaXoboe1FzLZ5wKk0FzIvgq8SCuEtibXZK3d+iITF28gmCKZnp7BCuCjvuNvOCp3GNHcvY4ARPJg==
+"@binance/w3w-ethereum-provider@^1.1.8-alpha.0":
+  version "1.1.8-alpha.0"
+  resolved "https://registry.yarnpkg.com/@binance/w3w-ethereum-provider/-/w3w-ethereum-provider-1.1.8-alpha.0.tgz#ee780544c2ae9ea234ef9284980a031db0e4f229"
+  integrity sha512-pmJWrv1npmqYYz1M3wtaXVY4rSJh2GYjNgRXoFb9SUJOklO8zHqKUjRoPWcHtWQTnEHmwzE4e/dIzE3tecRAjg==
   dependencies:
     "@binance/w3w-http-client" "1.1.4"
-    "@binance/w3w-sign-client" "1.1.7"
+    "@binance/w3w-sign-client" "1.1.8-alpha.0"
     "@binance/w3w-types" "1.1.4"
     "@binance/w3w-utils" "1.1.4"
     eip1193-provider "^1.0.1"
@@ -1398,12 +1398,12 @@
     react-dom "18.2.0"
     tailwindcss "^3.3.1"
 
-"@binance/w3w-sign-client@1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@binance/w3w-sign-client/-/w3w-sign-client-1.1.7.tgz#8c104d62cabe074794f4bc239d922d9be61eda39"
-  integrity sha512-KmuQCJ6g0L2LS0LEUQWbugqWiB6Nx+GMCEVuyRhl1AxzAiDybolpx8bIYAIinUeWoO2NcDJdzn971tX+QkhjoQ==
+"@binance/w3w-sign-client@1.1.8-alpha.0":
+  version "1.1.8-alpha.0"
+  resolved "https://registry.yarnpkg.com/@binance/w3w-sign-client/-/w3w-sign-client-1.1.8-alpha.0.tgz#33d363312b409e794060397be31d403c00ca81f0"
+  integrity sha512-p/p/aN6bwCko6X6SGvHGIEW/8ePx/2FWecnAwZaqWmglOdc3u632MWYgTj814Vn6tM36kntY5GoYbGVPMPtQ2w==
   dependencies:
-    "@binance/w3w-core" "1.1.7"
+    "@binance/w3w-core" "1.1.8-alpha.0"
     "@binance/w3w-types" "1.1.4"
     "@binance/w3w-utils" "1.1.4"
 
@@ -2507,10 +2507,10 @@
     viem "^1.19.11"
     wagmi "^1.4.12"
 
-"@dodoex/api@3.0.3-morph.7":
-  version "3.0.3-morph.7"
-  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.0.3-morph.7.tgz#8e3fbcaa5d9d130e4d425243f70281886838240f"
-  integrity sha512-MDSA8MGGHFVL/kU4TqWNl2+G02p+EsNwIZgVFFylecQjommLnnv8cgOqzhEbkejL2OSuc4qBTFLLnW9OnKkRqg==
+"@dodoex/api@3.0.3-beta.3":
+  version "3.0.3-beta.3"
+  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.0.3-beta.3.tgz#c2237be4b365c8600c047bf104bc6e390503456a"
+  integrity sha512-Kj6c8iFaQc++MkaVFY7He/G6q4KbK8VNPwrRQjLqPTnx5QA4YoAn5qdWht+k2mS1uY/uuym60cTievOMlUftWA==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/properties" "^5.7.0"
@@ -2564,10 +2564,10 @@
     ethers "^6.13.2"
     https-proxy-agent "^7.0.5"
 
-"@dodoex/dodo-contract-request@^1.9.0-alpha.9":
-  version "1.9.0-alpha.9"
-  resolved "https://registry.yarnpkg.com/@dodoex/dodo-contract-request/-/dodo-contract-request-1.9.0-alpha.9.tgz#a308bf38d44a780d41ea214250ac2efd286b25a2"
-  integrity sha512-zP9eFRU3gCOzS0MiBEVLE9MtRVnZhy0B5lGk7KYQfxnI4IWV3blR+O02D9C0jxrWS4+D/3Wj95tYkivsb1avxQ==
+"@dodoex/dodo-contract-request@1.10.0-alpha.4":
+  version "1.10.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@dodoex/dodo-contract-request/-/dodo-contract-request-1.10.0-alpha.4.tgz#5d5bf075dabf49725c43b994aa0f2b0b84d200ac"
+  integrity sha512-ySJ9CCli4Ot/49yUY2CXNShVuZA5BmgN5yxzI+tXGGApel146iDYSYo4Qeb1nmoB6EJZmp0cG0ZkqOMDLy3BWg==
   dependencies:
     typescript "^5"
 
@@ -2597,10 +2597,10 @@
   dependencies:
     "@dodoex/message-ws-common" "^0.0.3"
 
-"@dodoex/wallet-web3-react@0.0.1-beta.9":
-  version "0.0.1-beta.9"
-  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3-react/-/wallet-web3-react-0.0.1-beta.9.tgz#2d3950f00b16ff9948d9d3a56fec4f8ce4c90dec"
-  integrity sha512-3EM70KioX8VSm6PuxWutre9UbhPeCUnvi1h+CSw43ypju4v5FjAQNP6M6wAEqu+Wgreg7Azd1NsmoReLR4Fvew==
+"@dodoex/wallet-web3-react@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3-react/-/wallet-web3-react-0.0.5.tgz#bdbae747f1c5a3e1f33a4dc748cd966b8b15a9a8"
+  integrity sha512-TYM37I6ZghWZ3c9art5t9jMQvFkawBEZelESqMH24hV6r3o1d9GvFzcG5jmzcu083vzmVZHqYL8yQ7PIpHqqBg==
   dependencies:
     "@dodoex/api" "^3.0.2"
     "@dodoex/components" "^3.0.3"
@@ -2614,17 +2614,17 @@
     qrcode.react "^4.2.0"
     react-infinite-scroller "^1.2.6"
 
-"@dodoex/wallet-web3@0.0.61-beta.0":
-  version "0.0.61-beta.0"
-  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3/-/wallet-web3-0.0.61-beta.0.tgz#146598145af4a0f7a517f3680fdd9298f803cff3"
-  integrity sha512-3KVCcvKZsSiw+qAtplDrYkZHzl0BIzaNmuNcZFtpIK3UTqhkcFpPNPGvAQV712xA7JRvW6Ml1qY3vpezItjk7w==
+"@dodoex/wallet-web3@0.0.63":
+  version "0.0.63"
+  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3/-/wallet-web3-0.0.63.tgz#37de3d2220531b56949ad6625f87d0d483d77ada"
+  integrity sha512-C6LFAgQurt5a+O3O7tVEaHEReeYkpZ0sw8ODgSBoP9vWHFbScAW0ig2YxA2PlqNSNRR0mhiPwNriR3Vg3+Vs+w==
   dependencies:
     "@alchemy/aa-accounts" "3.18.2"
     "@alchemy/aa-alchemy" "3.18.2"
     "@alchemy/aa-core" "3.18.2"
     "@alchemy/aa-ethers" "3.18.2"
     "@alchemy/aa-signers" "3.18.2"
-    "@binance/w3w-ethereum-provider" "^1.0.0"
+    "@binance/w3w-ethereum-provider" "^1.1.8-alpha.0"
     "@blocto/sdk" "^0.9.1"
     "@coinbase/wallet-sdk" "4.0.2"
     "@cyberlab/cyber-app-sdk" "^2.0.0"
@@ -2653,16 +2653,16 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.0.2-beta.10":
-  version "3.0.2-beta.10"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.0.2-beta.10.tgz#a4f85ceb1ad2e345bb23dbfcb66ec5bf0f859f35"
-  integrity sha512-fSZk8/O+n0I82Vu5u6LD8oOAGMMNwE1qszKzlzD4ZGFodtgdFH+WxXKJliH1Vmw6qxQRTZSdGQKTO5VimkuNbw==
+"@dodoex/widgets@3.0.2-beta.18":
+  version "3.0.2-beta.18"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.0.2-beta.18.tgz#7b85e5a9eb1d0ca67da5ac8d10c20ef73d519bab"
+  integrity sha512-2b4pR3CRqF7ZlbI5rvD49SnybGmARUOrGtnx4CoV+gN3QgYAChCzaSNplnRZHWYtLEw6EODXVwSn9Sff/Qucwg==
   dependencies:
     "@babel/runtime" "^7.17.0"
-    "@dodoex/api" "3.0.3-morph.7"
+    "@dodoex/api" "3.0.3-beta.3"
     "@dodoex/components" "3.0.3"
     "@dodoex/contract-request" "^1.3.0"
-    "@dodoex/dodo-contract-request" "^1.9.0-alpha.9"
+    "@dodoex/dodo-contract-request" "1.10.0-alpha.4"
     "@dodoex/icons" "^2.0.2"
     "@emotion/react" "^11.10.0"
     "@emotion/styled" "^11.10.0"
