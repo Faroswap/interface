@@ -42,7 +42,12 @@ export default async function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml"></link>
         <link rel="manifest" href="/manifest.json"></link>
       </head>
-      <body className={clsx(manropeFont.className, 'bg-main')}>
+      <body
+        className={clsx(
+          manropeFont.className,
+          'bg-main bg-[length:40px_40px] bg-[radial-gradient(circle_at_30px_30px,#E0E0E0_4px,transparent_0)]',
+        )}
+      >
         <LinguiClientProvider
           initialLocale={lang}
           initialMessages={i18n.messages}
@@ -50,13 +55,13 @@ export default async function RootLayout({
           <Suspense>
             <ClientProvider>
               <div className="flex h-screen overflow-hidden">
-                <div className="hidden md:block">
+                <div className="hidden md:block pl-5 py-5 h-screen">
                   <LeftNav />
                 </div>
                 <div className="flex-1 flex flex-col overflow-hidden">
                   <div className="flex flex-col-reverse md:flex-col">
                     <Announcements />
-                    <header className="flex justify-between md:justify-end items-center px-5 md:px-6 py-3 border-b text-sm md:text-base">
+                    <header className="flex justify-between md:justify-end items-center px-5 md:px-6 py-3 max-md:border-b text-sm md:text-base">
                       {/* mobile */}
                       <div className="md:hidden">
                         <Logo />

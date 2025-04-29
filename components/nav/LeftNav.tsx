@@ -17,7 +17,7 @@ export default function LeftNav({ onClose }: { onClose?: () => void }) {
     !!TWITTER_URL + !!COMMUNITY_URL + !!DOCUMENT_URL === 1;
 
   return (
-    <div className="flex flex-col justify-between h-full bg-paper md:min-w-[236px]">
+    <div className="flex flex-col justify-between h-full bg-paper md:w-[240px] md:rounded-3xl md:overflow-hidden">
       <div>
         <div className="flex justify-between items-center px-4 h-[68px]">
           <LogoAndText />
@@ -35,6 +35,7 @@ export default function LeftNav({ onClose }: { onClose?: () => void }) {
             {menuList.map((menu) => {
               const key = menu.url;
 
+              // TODO: need replace
               if (menu.isOuterLink) {
                 return (
                   <li
@@ -86,7 +87,7 @@ export default function LeftNav({ onClose }: { onClose?: () => void }) {
                   pathname?.startsWith(menu.url);
                 return (
                   <li
-                    className="relative p-3 [&:hover_.hover-bg]:inline-block"
+                    className="relative px-4 py-2 [&:hover_.hover-bg]:inline-block"
                     key={key}
                   >
                     {!!menu.hoverBgImage && (
@@ -97,9 +98,13 @@ export default function LeftNav({ onClose }: { onClose?: () => void }) {
                     <ProgressLink
                       href={menu.url}
                       className={clsx(
-                        'relative z-[1] flex items-center gap-2 p-2 font-semibold rounded-lg',
+                        'relative z-[1] p-3 flex flex-col font-semibold rounded-lg',
+                        {
+                          '[&_.active-color]:fill-[url(#left-nav-linear)]':
+                            active,
+                        },
+                        { 'bg-hover': active },
                         active ? 'text-primary' : 'text-secondary',
-                        { '[&_.active-color]:text-active': active },
                         menu.hoverBgImage
                           ? 'hover:text-contrastText'
                           : 'hover:bg-hover hover:text-primary',
@@ -107,13 +112,31 @@ export default function LeftNav({ onClose }: { onClose?: () => void }) {
                       onClick={() => onClose?.()}
                     >
                       {menu.icon}
-                      {menu.name}
+                      <div className={clsx('mt-2 leading-none font-semibold')}>
+                        {menu.name}
+                      </div>
+                      <div className="mt-1 text-xs text-secondary">
+                        {' '}
+                        {menu.description}
+                      </div>
                     </ProgressLink>
                   </li>
                 );
               }
               return null;
             })}
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <linearGradient id="left-nav-linear">
+                <stop stopColor="#FEE94F" offset="0%" />
+                <stop stopColor="#326AFD" offset="100%" />
+              </linearGradient>
+            </svg>
           </ul>
         </nav>
       </div>

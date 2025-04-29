@@ -1,11 +1,11 @@
 export const palette = {
   mode: 'light',
   primary: {
-    main: '#ED5AD5',
+    main: '#000',
     contrastText: '#FFFFFF',
   },
   secondary: {
-    main: '#ED5AD5',
+    main: '#326AFD',
     contrastText: '#FFFFFF',
   },
   error: {
@@ -25,11 +25,13 @@ export const palette = {
     contrastText: '#1A1A1B',
   },
   background: {
-    default: '#F4F5F6',
+    default: '#FFF',
+    paper: '#F2F2F2',
     paperContrast: '#F6F6F6',
+    input: '#FFF',
   },
   tabActive: {
-    main: 'rgba(237, 90, 213, 0.10)',
-    contrastText: '#ED5AD5',
+    main: 'rgba(50, 106, 253, 0.10)',
+    contrastText: '#326AFD',
   },
 };

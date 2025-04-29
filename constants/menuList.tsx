@@ -6,8 +6,18 @@ import { Trans } from '@lingui/macro';
 
 export function getMenuList() {
   return [
-    { name: <Trans>Swap</Trans>, url: '/swap', icon: <SwapIcon /> },
-    { name: <Trans>Pool</Trans>, url: '/pool', icon: <PoolIcon /> },
+    {
+      name: <Trans>Swap</Trans>,
+      url: '/swap',
+      icon: <SwapIcon />,
+      description: <Trans>Guiding your trades through DeFi waters</Trans>,
+    },
+    {
+      name: <Trans>Pool</Trans>,
+      url: '/pool',
+      icon: <PoolIcon />,
+      description: <Trans>Anchor assets safely in DeFi harbor</Trans>,
+    },
     // { name: <Trans>Mining</Trans>, url: '/mining', icon: <MiningIcon /> },
   ] as Array<MenuItem>;
 }

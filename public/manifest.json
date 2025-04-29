@@ -1,7 +1,7 @@
 {
-  "short_name": "Unagiswap",
-  "name": "Unagiswap",
-  "description": "Take your first bite of unagi on Taiko",
+  "short_name": "FaroSwap",
+  "name": "FaroSwap",
+  "description": "",
   "iconPath": "./favicon.svg",
   "icons": [
     {
@@ -30,13 +30,14 @@
     }
   ],
   "orientation": "portrait",
-  "id": "com.unagiswap.pwa",
+  "id": "com.faroswap.pwa",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#ED5AD5",
-  "background_color": "#F4F5F6",
+  "theme_color": "#326AFD",
+  "background_color": "#FFF",
   "providedBy": {
-    "name": "Unagiswap",
-    "url": "https://unagiswap.xyz"
+    "name": "FaroSwap",
+    "url": "https://faroswap.xyz"
   }
 }
+

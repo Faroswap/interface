@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: components/walletConnect/AccountPage.tsx:61
+#: components/walletConnect/AccountPage.tsx:62
 msgid "Activity"
 msgstr "Activity"
 
@@ -29,11 +29,15 @@ msgstr "Airdrop"
 msgid "Airdrop Rewards"
 msgstr "Airdrop Rewards"
 
+#: constants/menuList.tsx:19
+msgid "Anchor assets safely in DeFi harbor"
+msgstr "Anchor assets safely in DeFi harbor"
+
 #: submission/module.tsx:41
 msgid "Approve"
 msgstr "Approve"
 
-#: components/walletConnect/AccountPage.tsx:185
+#: components/walletConnect/AccountPage.tsx:192
 msgid "Balance"
 msgstr "Balance"
 
@@ -45,8 +49,12 @@ msgstr "Claim"
 msgid "Claim Rewards"
 msgstr "Claim Rewards"
 
+#: components/nav/LeftNav.tsx:206
+msgid "Community"
+msgstr "Community"
+
 #: components/reward/index.tsx:92
-#: components/walletConnect/ConnectWalletBtn.tsx:67
+#: components/walletConnect/ConnectWalletBtn.tsx:84
 msgid "Connect a wallet"
 msgstr "Connect a wallet"
 
@@ -54,7 +62,7 @@ msgstr "Connect a wallet"
 msgid "Connect Wallet"
 msgstr "Connect Wallet"
 
-#: components/walletConnect/AccountPage.tsx:101
+#: components/walletConnect/AccountPage.tsx:102
 #: components/walletConnect/HasBalanceTokenList.tsx:66
 #: components/walletConnect/ReceiveTokenPage.tsx:43
 msgid "Copied"
@@ -67,6 +75,10 @@ msgstr "Copy wallet address"
 #: submission/module.tsx:77
 msgid "Create Liquidity Mining"
 msgstr "Create Liquidity Mining"
+
+#: components/nav/LeftNav.tsx:237
+msgid "Documents"
+msgstr "Documents"
 
 #: submission/module.tsx:72
 msgid "End mining\\n"
@@ -84,6 +96,10 @@ msgstr "Gas price is too low, please adjust in your wallet and try again"
 msgid "Go back"
 msgstr "Go back"
 
+#: constants/menuList.tsx:13
+msgid "Guiding your trades through DeFi waters"
+msgstr "Guiding your trades through DeFi waters"
+
 #: submission/getExecutionErrorMsg.ts:12
 msgid "Insufficient funds - Please retry after depositing more {EtherTokenSymbol} into your wallet"
 msgstr "Insufficient funds - Please retry after depositing more {EtherTokenSymbol} into your wallet"
@@ -92,7 +108,7 @@ msgstr "Insufficient funds - Please retry after depositing more {EtherTokenSymbo
 msgid "Invalid wallet address"
 msgstr "Invalid wallet address"
 
-#: components/walletConnect/ActivityList.tsx:145
+#: components/walletConnect/ActivityList.tsx:144
 msgid "Loading more"
 msgstr "Loading more"
 
@@ -112,7 +128,7 @@ msgstr "No rewards"
 msgid "No tokens"
 msgstr "No tokens"
 
-#: components/walletConnect/AccountPage.tsx:59
+#: components/walletConnect/AccountPage.tsx:60
 msgid "On-chain transaction records"
 msgstr "On-chain transaction records"
 
@@ -120,11 +136,11 @@ msgstr "On-chain transaction records"
 msgid "Pending"
 msgstr "Pending"
 
-#: components/walletConnect/ConnectWalletBtn.tsx:45
+#: components/walletConnect/ConnectWalletBtn.tsx:61
 msgid "pending..."
 msgstr "pending..."
 
-#: constants/menuList.tsx:10
+#: constants/menuList.tsx:16
 msgid "Pool"
 msgstr "Pool"
 
@@ -132,7 +148,7 @@ msgstr "Pool"
 msgid "Pool Creation"
 msgstr "Pool Creation"
 
-#: components/nav/LeftNav.tsx:86
+#: components/nav/LeftNav.tsx:249
 msgid "Powered by DODO DEXpert"
 msgstr "Powered by DODO DEXpert"
 
@@ -140,7 +156,7 @@ msgstr "Powered by DODO DEXpert"
 msgid "Pre-allocation Rewards"
 msgstr "Pre-allocation Rewards"
 
-#: components/walletConnect/AccountPage.tsx:211
+#: components/walletConnect/AccountPage.tsx:218
 #: components/walletConnect/ReceiveTokenPage.tsx:26
 msgid "Receive"
 msgstr "Receive"
@@ -166,7 +182,7 @@ msgstr "RPC node data exception"
 msgid "SafeERC20: low-level call failed. Please log a Zendesk support ticket or contact the DODO team."
 msgstr "SafeERC20: low-level call failed. Please log a Zendesk support ticket or contact the DODO team."
 
-#: components/walletConnect/AccountPage.tsx:203
+#: components/walletConnect/AccountPage.tsx:210
 #: components/walletConnect/SendTokenPage.tsx:100
 #: components/walletConnect/SendTokenPage.tsx:167
 #: submission/module.tsx:80
@@ -181,16 +197,16 @@ msgstr "Stake"
 msgid "Succeeded"
 msgstr "Succeeded"
 
-#: constants/menuList.tsx:9
+#: constants/menuList.tsx:10
 #: submission/module.tsx:54
 msgid "Swap"
 msgstr "Swap"
 
-#: components/walletConnect/ActivityList.tsx:90
+#: components/walletConnect/ActivityList.tsx:89
 msgid "This is empty"
 msgstr "This is empty"
 
-#: components/walletConnect/AccountPage.tsx:55
+#: components/walletConnect/AccountPage.tsx:56
 msgid "Token"
 msgstr "Token"
 
@@ -209,3 +225,7 @@ msgstr "User denied transaction signature."
 #: components/reward/RewardCard.tsx:73
 msgid "vDODO Airdrop"
 msgstr "vDODO Airdrop"
+
+#: components/banner/PoolBanner.tsx:60
+msgid "View More Details"
+msgstr "View More Details"
