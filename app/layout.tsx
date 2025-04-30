@@ -61,7 +61,7 @@ export default async function RootLayout({
                 <div className="flex-1 flex flex-col overflow-hidden">
                   <div className="flex flex-col-reverse md:flex-col">
                     <Announcements />
-                    <header className="flex justify-between md:justify-end items-center px-5 md:px-6 py-3 max-md:border-b text-sm md:text-base max-md:bg-paper">
+                    <header className="flex justify-between md:justify-end items-center px-5 md:px-6 py-3 max-md:border-b text-sm md:text-base max-md:bg-white">
                       {/* mobile */}
                       <div className="md:hidden">
                         <Logo />
