@@ -27,7 +27,7 @@ export default function PoolPage({
   const scrollRef = React.useRef<HTMLDivElement>(null);
   return (
     <div
-      className="pb-10 overflow-y-auto flex flex-col [&_.widget-module-container]:bg-transparent md:[&_.widget-module-container]:p-0 md:[&_.widget-module-container]:pl-5 max-md:[&_.widget-module-container]:h-max  [&_.widget-module-container]:overflow-visible md:[&_.widget-module-container]:max-h-full"
+      className="pb-10 overflow-y-auto flex flex-col [&_.widget-module-container]:bg-transparent md:[&_.widget-module-container]:p-0 md:[&_.widget-module-container]:px-5 max-md:[&_.widget-module-container]:h-max  [&_.widget-module-container]:overflow-visible md:[&_.widget-module-container]:max-h-full"
       ref={scrollRef}
     >
       <PoolBanner />
