@@ -38,7 +38,7 @@ export default function NavDialog() {
         className="justify-end"
       >
         <div className="w-[225px]">
-          <LeftNav onClose={onClose} />
+          <LeftNav onClose={onClose} isMobile />
         </div>
       </DialogBase>
     </nav>

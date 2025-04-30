@@ -45,7 +45,7 @@ export default async function RootLayout({
       <body
         className={clsx(
           manropeFont.className,
-          'bg-main bg-[length:40px_40px] bg-[radial-gradient(circle_at_30px_30px,#E0E0E0_4px,transparent_0)]',
+          'bg-main bg-[length:40px_40px] bg-[radial-gradient(circle_at_30px_30px,#E0E0E0_2px,transparent_0)]',
         )}
       >
         <LinguiClientProvider
@@ -56,12 +56,12 @@ export default async function RootLayout({
             <ClientProvider>
               <div className="flex h-screen overflow-hidden">
                 <div className="hidden md:block pl-5 py-5 h-screen">
-                  <LeftNav />
+                  <LeftNav isMobile={false} />
                 </div>
                 <div className="flex-1 flex flex-col overflow-hidden">
                   <div className="flex flex-col-reverse md:flex-col">
                     <Announcements />
-                    <header className="flex justify-between md:justify-end items-center px-5 md:px-6 py-3 max-md:border-b text-sm md:text-base">
+                    <header className="flex justify-between md:justify-end items-center px-5 md:px-6 py-3 max-md:border-b text-sm md:text-base max-md:bg-paper">
                       {/* mobile */}
                       <div className="md:hidden">
                         <Logo />

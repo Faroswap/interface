@@ -1,7 +1,7 @@
 export const palette = {
   mode: 'light',
   primary: {
-    main: '#000',
+    main: '#326AFD',
     contrastText: '#FFFFFF',
   },
   secondary: {
@@ -27,7 +27,7 @@ export const palette = {
   background: {
     default: '#FFF',
     paper: '#F2F2F2',
-    paperContrast: '#F6F6F6',
+    paperContrast: 'rgba(26, 26, 27, 0.06)',
     input: '#FFF',
   },
   tabActive: {

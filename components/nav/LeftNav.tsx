@@ -8,14 +8,23 @@ import { ArrowTopRightBorder, Error } from '@dodoex/icons';
 import { Trans } from '@lingui/macro';
 import { COMMUNITY_URL, TWITTER_URL, DOCUMENT_URL } from '@/constants/config';
 import LogoAndText from '@/assets/logo/logo-and-text.svg';
+import { useMediaDevices } from '@dodoex/components';
 
-export default function LeftNav({ onClose }: { onClose?: () => void }) {
+export default function LeftNav({
+  onClose,
+  isMobile,
+}: {
+  onClose?: () => void;
+  isMobile: boolean;
+}) {
   const menuList = getMenuList();
   const pathname = usePathname();
+  const { isMobile: isMediaMobile } = useMediaDevices();
   const onlySingleSocialLink =
     // @ts-ignore
     !!TWITTER_URL + !!COMMUNITY_URL + !!DOCUMENT_URL === 1;
 
+  if (isMediaMobile !== isMobile) return null;
   return (
     <div className="flex flex-col justify-between h-full bg-paper md:w-[240px] md:rounded-3xl md:overflow-hidden">
       <div>

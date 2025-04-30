@@ -36,7 +36,7 @@ export default function Page() {
   }, [params]);
 
   return (
-    <div className="pb-5">
+    <div className="[&_.widget-module-container]:bg-transparent md:[&_.widget-module-container]:pt-2 md:[&_.widget-module-container]:px-5">
       <Widget>
         <AddLiquidityV3
           handleGoBack={() => back()}
