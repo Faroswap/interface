@@ -156,8 +156,6 @@ export default function Widget({
         height="100%"
         crossChain
         provider={walletProvider}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         graphQLRequests={graphQLRequests}
         defaultChainId={SINGLE_CHAIN_ID}
         onlyChainId={SINGLE_CHAIN_ID}

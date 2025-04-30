@@ -2521,45 +2521,15 @@
     graphql-request "^6.1.0"
     qs "^6.11.2"
 
-"@dodoex/api@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.0.2.tgz#51024d541cfe986df4427d122e63e8cfd163b230"
-  integrity sha512-LCYswFkbxNjJ8Ltd53OahK8Lq5Kf4JDNmQqcscP3VNRsNWHW9vwCMDn2G/MVrhZD0VgjG3kzsHoAM5mgAH6pQg==
-  dependencies:
-    "@ethersproject/abi" "^5.7.0"
-    "@ethersproject/properties" "^5.7.0"
-    "@ethersproject/providers" "^5.7.2"
-    "@ethersproject/web" "^5.7.1"
-    cross-fetch "^4.0.0"
-    graphql "^16.8.1"
-    graphql-request "^6.1.0"
-    qs "^6.11.2"
-
 "@dodoex/auth-web-sdk@1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@dodoex/auth-web-sdk/-/auth-web-sdk-1.0.5.tgz#7f127a917695088bc33172e5d3d3754a65fd800a"
   integrity sha512-Ko6MW6gvQsdoo4vXVxdyPsTfrMwYddMtfZu0EG6b0SA0dj3GXF6HM4Qld589tG4iO80KvaiqDtG2mtSEgamPqQ==
 
-"@dodoex/components@3.0.4-beta.1":
-  version "3.0.4-beta.1"
-  resolved "https://registry.yarnpkg.com/@dodoex/components/-/components-3.0.4-beta.1.tgz#42adb3846db40b8e2b5a84ea320425d821e7a934"
-  integrity sha512-kEQureDuHDBiPPQICO2JT9LGaoq/3i61R3WXB5kExvGBIENIsrnLnGCMUCu80syJyQimlGO4LD65YTJ2aM6/5Q==
-  dependencies:
-    "@babel/runtime" "^7.17.0"
-    "@dodoex/icons" "^2.0.2"
-    "@emotion/react" "^11.10.0"
-    "@emotion/styled" "^11.10.0"
-    "@mui/base" "5.0.0-beta.58"
-    "@mui/system" "5.8.4"
-    "@szhsin/react-accordion" "^1.2.1"
-    any-touch "^2.2.0"
-    clsx "^1.2.1"
-    lottie-web "^5.12.2"
-
-"@dodoex/components@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@dodoex/components/-/components-3.0.3.tgz#fd507effd4c7d5778ca118316c285b9ee6b0cf2e"
-  integrity sha512-uFKaHl7vocfnwytWD1ufQZPreJTd1L5sHSObCCdTt/NyuOoAVzdxO0Gh+074lfCQJUhS1Zxl5BWYxbX8F06D/g==
+"@dodoex/components@3.0.4", "@dodoex/components@^3.x":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@dodoex/components/-/components-3.0.4.tgz#1c4c143f2037ec63a23170ae73a6f6deeafe0e65"
+  integrity sha512-eJzNmqHSyOvVvZQzNZhyAYl45WOx3DT+PxKJUmMuhiGByGjVwUjbuu7OBTYqR2FU2S9tx/weWNWyi/UkfeoKnw==
   dependencies:
     "@babel/runtime" "^7.17.0"
     "@dodoex/icons" "^2.0.2"
@@ -2606,13 +2576,11 @@
   dependencies:
     "@dodoex/message-ws-common" "^0.0.3"
 
-"@dodoex/wallet-web3-react@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3-react/-/wallet-web3-react-0.0.5.tgz#bdbae747f1c5a3e1f33a4dc748cd966b8b15a9a8"
-  integrity sha512-TYM37I6ZghWZ3c9art5t9jMQvFkawBEZelESqMH24hV6r3o1d9GvFzcG5jmzcu083vzmVZHqYL8yQ7PIpHqqBg==
+"@dodoex/wallet-web3-react@^0.x":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3-react/-/wallet-web3-react-0.0.6.tgz#102f5859792110df1862ea48f165cea4684fc69b"
+  integrity sha512-OVSYvBwPl+N/2OJqolEXC4kqsEZeuFgzgmSP3sulZiesRKV9wSgexlROV6XLYQzx7/f4YoF88ttOW1rZHjBODg==
   dependencies:
-    "@dodoex/api" "^3.0.2"
-    "@dodoex/components" "^3.0.3"
     "@lingui/macro" "^4.11.4"
     "@lingui/react" "^4.11.4"
     "@tanstack/react-query" "^5.18.1"
@@ -2662,14 +2630,14 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.0.2-beta.23":
-  version "3.0.2-beta.23"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.0.2-beta.23.tgz#4652ea18ab5ebfa6fef4410df77f9fdbbbb67736"
-  integrity sha512-FSOWitUmbsQq661FguD1RFFjsuxwiTO/VmzeVdIOpXkf1wwZ+dB+4s9G9VcSTmNNexmraS23kuOm+HMvvjjLag==
+"@dodoex/widgets@3.0.2-beta.24":
+  version "3.0.2-beta.24"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.0.2-beta.24.tgz#d6d3b1ecc4c85df98b09c90d8f8989dc75694876"
+  integrity sha512-Sn8ntGyfMOaVICdB/mJ7Tl7B/Rl2oqB8fiv+8wEAnIE/+JXGMYDV5WSTjA+uEoVmq/wqeOGtwA/LzHg2wXJxlg==
   dependencies:
     "@babel/runtime" "^7.17.0"
     "@dodoex/api" "3.0.3-beta.5"
-    "@dodoex/components" "3.0.4-beta.1"
+    "@dodoex/components" "3.0.4"
     "@dodoex/contract-request" "^1.3.0"
     "@dodoex/dodo-contract-request" "1.12.0-alpha.6"
     "@dodoex/icons" "^2.0.2"
