@@ -37,7 +37,7 @@ msgstr "Anchor assets safely in DeFi harbor"
 msgid "Approve"
 msgstr "Approve"
 
-#: components/walletConnect/AccountPage.tsx:192
+#: components/walletConnect/AccountPage.tsx:175
 msgid "Balance"
 msgstr "Balance"
 
@@ -49,7 +49,7 @@ msgstr "Claim"
 msgid "Claim Rewards"
 msgstr "Claim Rewards"
 
-#: components/nav/LeftNav.tsx:206
+#: components/nav/LeftNav.tsx:215
 msgid "Community"
 msgstr "Community"
 
@@ -76,7 +76,7 @@ msgstr "Copy wallet address"
 msgid "Create Liquidity Mining"
 msgstr "Create Liquidity Mining"
 
-#: components/nav/LeftNav.tsx:237
+#: components/nav/LeftNav.tsx:246
 msgid "Documents"
 msgstr "Documents"
 
@@ -148,7 +148,7 @@ msgstr "Pool"
 msgid "Pool Creation"
 msgstr "Pool Creation"
 
-#: components/nav/LeftNav.tsx:249
+#: components/nav/LeftNav.tsx:258
 msgid "Powered by DODO DEXpert"
 msgstr "Powered by DODO DEXpert"
 
@@ -156,7 +156,7 @@ msgstr "Powered by DODO DEXpert"
 msgid "Pre-allocation Rewards"
 msgstr "Pre-allocation Rewards"
 
-#: components/walletConnect/AccountPage.tsx:218
+#: components/walletConnect/AccountPage.tsx:201
 #: components/walletConnect/ReceiveTokenPage.tsx:26
 msgid "Receive"
 msgstr "Receive"
@@ -182,7 +182,7 @@ msgstr "RPC node data exception"
 msgid "SafeERC20: low-level call failed. Please log a Zendesk support ticket or contact the DODO team."
 msgstr "SafeERC20: low-level call failed. Please log a Zendesk support ticket or contact the DODO team."
 
-#: components/walletConnect/AccountPage.tsx:210
+#: components/walletConnect/AccountPage.tsx:193
 #: components/walletConnect/SendTokenPage.tsx:100
 #: components/walletConnect/SendTokenPage.tsx:167
 #: submission/module.tsx:80

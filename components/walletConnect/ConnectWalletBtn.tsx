@@ -89,6 +89,7 @@ export default function ConnectWalletBtn() {
         <WalletConnectProvider
           value={{
             chainId: SINGLE_CHAIN_ID,
+            // @ts-ignore
             graphQLRequests,
             tokenList,
             encryptFiatPriceToken,

@@ -139,29 +139,12 @@ export default function AccountPage({
           allFiatPriceBalance={allFiatPriceBalance}
           allFiatPriceBalanceLoading={allFiatPriceBalanceLoading}
         />
-        <Tabs
-          value={listTab}
-          onChange={(_, v) => setListTab(v as ListTab)}
-          placeholder=""
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
-        >
+        <Tabs value={listTab} onChange={(_, v) => setListTab(v as ListTab)}>
           <TabsGroup tabs={tabs} />
-          <TabPanel
-            value={ListTab.tokens}
-            placeholder=""
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}}
-          >
+          <TabPanel value={ListTab.tokens}>
             <HasBalanceTokenList balanceListData={balanceListData} />
           </TabPanel>
-          <TabPanel
-            value={ListTab.activity}
-            className="pt-2"
-            placeholder=""
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}}
-          >
+          <TabPanel value={ListTab.activity} className="pt-2">
             <ActivityList
               fetchTransactionQuery={fetchTransactionQuery}
               getScrollParent={() => scrollRef.current}
