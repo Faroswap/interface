@@ -21,6 +21,7 @@ import Logo from '@/assets/logo/logo.svg';
 import RewardEntry from '@/components/reward/RewardEntry';
 import { fetchTokenList } from '@/constants/apiServer';
 import Announcements from '@/components/Announcements';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -41,6 +42,15 @@ export default async function RootLayout({
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml"></link>
         <link rel="manifest" href="/manifest.json"></link>
+        <Script id="ms-clarity" strategy="beforeInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", ${process.env.CLARITY_PROJECT_ID});
+          `}
+        </Script>
       </head>
       <body className={clsx(manropeFont.className, 'bg-main')}>
         <LinguiClientProvider
