@@ -23,7 +23,7 @@
     "@dodoex/message-ws": "^0.1.5",
     "@dodoex/wallet-web3": "0.0.63",
     "@dodoex/wallet-web3-react": "^0.x",
-    "@dodoex/widgets": "3.0.2-pharos.1",
+    "@dodoex/widgets": "3.0.2-pharos.3",
     "@lingui/macro": "^4.11.4",
     "@lingui/react": "^4.11.4",
     "@mui/base": "^5.0.0-beta.58",
