@@ -2507,10 +2507,10 @@
     viem "^1.19.11"
     wagmi "^1.4.12"
 
-"@dodoex/api@3.0.3-pharos.2":
-  version "3.0.3-pharos.2"
-  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.0.3-pharos.2.tgz#45777294e5779b508374088ee6730a2f2a522e9b"
-  integrity sha512-QZ3Pm4TYNCL6IQJXafmDEZ2ouoBRhDwayjmtsYgMv0I9tDnTdRHPXnSC48mmex76iWiZpmsNtTsaYzOJVZ886Q==
+"@dodoex/api@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.0.3.tgz#a436cec69f36ca5f947be21b4fe1f443444847c0"
+  integrity sha512-WWfHtfHb7dE8fAjSS/8AhOaRd02yJGvpa4+EiAVY1Kp7HLIJUOzJowK1Zq+eGKJ+hq8yTZC4LQJELDruCBYvrA==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/properties" "^5.7.0"
@@ -2526,7 +2526,23 @@
   resolved "https://registry.yarnpkg.com/@dodoex/auth-web-sdk/-/auth-web-sdk-1.0.5.tgz#7f127a917695088bc33172e5d3d3754a65fd800a"
   integrity sha512-Ko6MW6gvQsdoo4vXVxdyPsTfrMwYddMtfZu0EG6b0SA0dj3GXF6HM4Qld589tG4iO80KvaiqDtG2mtSEgamPqQ==
 
-"@dodoex/components@3.0.5", "@dodoex/components@^3.x":
+"@dodoex/components@3.0.9":
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/@dodoex/components/-/components-3.0.9.tgz#4c7a941b3c28f58e2eec310a2f097677ecffce36"
+  integrity sha512-R83M5n6HFgtAWqGs34MYveeXbaZDSHLU5pdRsQMIWO0euZCCrzBlEDqW98QaE9mMsoz+zampx4INI6ha3YEMzA==
+  dependencies:
+    "@babel/runtime" "^7.17.0"
+    "@dodoex/icons" "^2.0.2"
+    "@emotion/react" "^11.10.0"
+    "@emotion/styled" "^11.10.0"
+    "@mui/base" "5.0.0-beta.58"
+    "@mui/system" "5.8.4"
+    "@szhsin/react-accordion" "^1.2.1"
+    any-touch "^2.2.0"
+    clsx "^1.2.1"
+    lottie-web "^5.12.2"
+
+"@dodoex/components@^3.x":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@dodoex/components/-/components-3.0.5.tgz#796eb467a2a7a1e352d77de38373e46aab0d8d0d"
   integrity sha512-6S41c5yq57SOLh3fiTBZl3B3OK86n1b+fyEHYm3aoW0HjDrSPIKQQY4s1KSxObRyNIPRgwjjMgYFExjm6MeoBQ==
@@ -2550,10 +2566,10 @@
     ethers "^6.13.2"
     https-proxy-agent "^7.0.5"
 
-"@dodoex/dodo-contract-request@1.16.0", "@dodoex/dodo-contract-request@^1.16.0":
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/@dodoex/dodo-contract-request/-/dodo-contract-request-1.16.0.tgz#aa498b646f8cb8cdf227a30429cc2ba8368956fb"
-  integrity sha512-c4E14VrKg2lXloEYDUh0AiRYimLJNW/nImjVhzvGKERAzO8wmcbOoC/4Q7E7KudAV1YSaowMHKjCKl6k3tFF8Q==
+"@dodoex/dodo-contract-request@1.17.0", "@dodoex/dodo-contract-request@^1.17.0":
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/@dodoex/dodo-contract-request/-/dodo-contract-request-1.17.0.tgz#b9e92d6929c6dafd2bd2d4be2d9edfc86cb4b80d"
+  integrity sha512-XhspgqvYHBfILYI1gqNE17sEj9M1qMExaApr+AzGJ5u5LRfQzA+3SYaZJ8f2Yjm9tTaAkIk27o0HSLDv8Zcjsw==
   dependencies:
     typescript "^5"
 
@@ -2630,16 +2646,16 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.0.2-pharos.4":
-  version "3.0.2-pharos.4"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.0.2-pharos.4.tgz#a3b7c48bd1c42d8425cec4ed54b2422d451831a1"
-  integrity sha512-H2Be8iQGnwGwJccAFzV7rMXDL8qPxB0vubR15+mghULicMahHIpIgB8M2XCAjdKXOgnG/zEnHgwyBxzZlWWbzA==
+"@dodoex/widgets@3.1.3":
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.1.3.tgz#20e51d661a04b4d25574e4561dbe1833c474a9b2"
+  integrity sha512-tzogH7aprWt8i2isJgi60kCrtmCzkO7gJebAEDnOpY3N11jlH71wtBGXS6ZTUwH11w4rCkYNM+BUIOQlJAAi5Q==
   dependencies:
     "@babel/runtime" "^7.17.0"
-    "@dodoex/api" "3.0.3-pharos.2"
-    "@dodoex/components" "3.0.5"
+    "@dodoex/api" "3.0.3"
+    "@dodoex/components" "3.0.9"
     "@dodoex/contract-request" "^1.3.0"
-    "@dodoex/dodo-contract-request" "1.16.0"
+    "@dodoex/dodo-contract-request" "1.17.0"
     "@dodoex/icons" "^2.0.2"
     "@emotion/react" "^11.10.0"
     "@emotion/styled" "^11.10.0"
