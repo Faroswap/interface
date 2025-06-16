@@ -14,7 +14,7 @@
     "compile": "lingui compile --typescript"
   },
   "dependencies": {
-    "@dodoex/api": "3.0.3",
+    "@dodoex/api": "3.0.3-pharos.4",
     "@dodoex/auth-web-sdk": "1.0.5",
     "@dodoex/components": "^3.x",
     "@dodoex/contract-request": "^1.x",
@@ -23,7 +23,7 @@
     "@dodoex/message-ws": "^0.1.5",
     "@dodoex/wallet-web3": "0.0.63",
     "@dodoex/wallet-web3-react": "^0.x",
-    "@dodoex/widgets": "3.1.3",
+    "@dodoex/widgets": "3.1.3-pharos.1",
     "@lingui/macro": "^4.11.4",
     "@lingui/react": "^4.11.4",
     "@mui/base": "^5.0.0-beta.58",
