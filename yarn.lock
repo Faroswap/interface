@@ -2507,10 +2507,10 @@
     viem "^1.19.11"
     wagmi "^1.4.12"
 
-"@dodoex/api@3.0.3-pharos.5":
-  version "3.0.3-pharos.5"
-  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.0.3-pharos.5.tgz#ca17590f6efefef6535e6e8065a66e74271038f6"
-  integrity sha512-kXLk7EIeG8p+1TgTN9yYuJodbSSsrpBvUpEZYgjES4ZryDVhM6LD7/kIUv2Q2RC467tdiyMLNSpCz4/9b9xbhg==
+"@dodoex/api@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.0.5.tgz#cda66f4c679122ab8767e64e6c7c627d4cf51d7c"
+  integrity sha512-nqQi/3vHUUvJjmt5J2uB42Xh3XdUiirjjB6qUVoUCn0dJRvRIhzJPes6nVppoPepQA+COMpY/jesBjkHb5U07g==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/properties" "^5.7.0"
@@ -2550,7 +2550,14 @@
     ethers "^6.13.2"
     https-proxy-agent "^7.0.5"
 
-"@dodoex/dodo-contract-request@1.18.0", "@dodoex/dodo-contract-request@^1.18.0":
+"@dodoex/dodo-contract-request@1.18.1":
+  version "1.18.1"
+  resolved "https://registry.yarnpkg.com/@dodoex/dodo-contract-request/-/dodo-contract-request-1.18.1.tgz#d0fd1f15cb6b7a70d1411d9a3eaefa29fa18f811"
+  integrity sha512-3Ak397qsICBHQCt2qkfly1LaFCdiGedeUmFp5aaHxV6TEBQnHYSGhz4YO66xJ7vXLbHzjrB979lrzjB3CZpFzg==
+  dependencies:
+    typescript "^5"
+
+"@dodoex/dodo-contract-request@^1.18.0":
   version "1.18.0"
   resolved "https://registry.yarnpkg.com/@dodoex/dodo-contract-request/-/dodo-contract-request-1.18.0.tgz#9676a05accce6d1ca392d3fc31bd24a5d67faaad"
   integrity sha512-t0azg2+dO54tEY3f8FiRUqmL6u2LqydpwsBrfMGOEi/RwnAUiyjtuohAFc5AsCiD+O9HbC8AsYnmVPMk5HaMfA==
@@ -2630,16 +2637,16 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.1.3-pharos.3":
-  version "3.1.3-pharos.3"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.1.3-pharos.3.tgz#c6fa5db9f482e10b29aff20c07d7201f004cddd8"
-  integrity sha512-mnR2xZR2ld9tLBa0CiwWzelPZrHNetU+t8b7MF4eOFxgPGTIGRExMFqH9BzFuUo0O94Z02dNwUOy7QyqJaIDZg==
+"@dodoex/widgets@3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.1.6.tgz#f0907f08bcbc5de1e75e8beee150b55c51a2a664"
+  integrity sha512-AeEMh09QDkmansRVWgdlnK9XT8QmRhM857Bius2Pj1h8LghqzCglDU11Zn99JxTPteE+WlPTafIzkJKK1bSpRQ==
   dependencies:
     "@babel/runtime" "^7.17.0"
-    "@dodoex/api" "3.0.3-pharos.5"
+    "@dodoex/api" "3.0.5"
     "@dodoex/components" "3.0.9"
     "@dodoex/contract-request" "^1.3.0"
-    "@dodoex/dodo-contract-request" "1.18.0"
+    "@dodoex/dodo-contract-request" "1.18.1"
     "@dodoex/icons" "^2.0.2"
     "@emotion/react" "^11.10.0"
     "@emotion/styled" "^11.10.0"
