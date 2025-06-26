@@ -7,7 +7,7 @@ import { MessageGQLClientEndpoint } from '@/constants/api';
 import { getClientAuth } from '@/utils/auth';
 
 // How often to send ping pong to ensure connection
-export const MESSAGE_CLIENT_KEEP_ALIVE = 10000;
+export const MESSAGE_CLIENT_KEEP_ALIVE = 30000;
 
 export function getMessageClient({
   account,
@@ -31,6 +31,7 @@ export function getMessageClient({
       },
       // Optional parameters
       keepAlive: MESSAGE_CLIENT_KEEP_ALIVE, // How often to send ping pong to ensure connection, default 0
+      lazyCloseTimeout: 20000, // 最后一个订阅结束后20秒再关闭连接
       lazy: true, // Controls whether to connect immediately or when subscribing for the first time. Default is true.
       onNonLazyError: (errorOrCloseEvent) => {
         console.error('[@dodoex/message-ws createClient onNonLazyError]');
