@@ -36,6 +36,6 @@ export const tokenApi = new TokenApi({
   contractRequests: contractRequests,
 });
 
-export const MessageGQLClientEndpoint = `wss://api.${API_DOMAIN}/frontend-message/graphql`;
+export const MessageGQLClientEndpoint = `wss://message.${API_DOMAIN}/graphql`;
 export const TOKEN_LOGO_URL = `https://token-img.dodoex.io`;
 export const IMAGE_PROXY_URL = `https://images.dodoex.io`;
