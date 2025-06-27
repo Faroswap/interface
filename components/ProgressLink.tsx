@@ -10,6 +10,7 @@ const ProgressLink = forwardRef<
   return (
     <Link
       {...rest}
+      prefetch={rest.prefetch ?? false}
       onClick={(evt) => {
         if (
           rest.href &&
