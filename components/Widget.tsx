@@ -260,7 +260,9 @@ export default function Widget({
           }
         }}
         onTxFail={async (error, data) => {
+          // @ts-ignore
           if (typeof window !== "undefined" && window.clarity) {
+            // @ts-ignore
             window.clarity('tx fail', `error: ${error.message} data: ${JSON.stringify(data)}`)
           }
         }}
@@ -273,11 +275,4 @@ export default function Widget({
       </UnstyleWidget>
     </React.Suspense>
   );
-}
-
-declare global {
-    interface Window { clarity: any; }
-}
-if (typeof window !== "undefined") {
-  window.clarity = window.clarity || {};
 }
