@@ -259,6 +259,11 @@ export default function Widget({
           if (res) {
           }
         }}
+        onTxFail={async (error, data) => {
+          if (typeof window !== "undefined" && window.clarity) {
+            window.clarity('tx fail', `error: ${error.message} data: ${JSON.stringify(data)}`)
+          }
+        }}
         getTokenLogoUrl={getTokenLogoUrl}
         {...props}
         {...WIDGET_CURRENT_CONFIG}
@@ -268,4 +273,11 @@ export default function Widget({
       </UnstyleWidget>
     </React.Suspense>
   );
+}
+
+declare global {
+    interface Window { clarity: any; }
+}
+if (typeof window !== "undefined") {
+  window.clarity = window.clarity || {};
 }
