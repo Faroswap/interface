@@ -19,6 +19,7 @@ import {
   WidgetProps,
   MetadataFlag as MetadataFlagWidget,
   UnstyleWidget,
+  Message,
 } from '@dodoex/widgets';
 import React from 'react';
 
@@ -262,6 +263,7 @@ export default function Widget({
         {...props}
         {...WIDGET_CURRENT_CONFIG}
       >
+        <Message />
         {children}
       </UnstyleWidget>
     </React.Suspense>
