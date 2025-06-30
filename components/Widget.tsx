@@ -259,7 +259,7 @@ export default function Widget({
           if (res) {
           }
         }}
-        onTxFail={async (error, data) => {
+        onTxFail={async (_error, _data) => {
           // @ts-ignore
           if (typeof window !== "undefined" && window.clarity) {
             // @ts-ignore
