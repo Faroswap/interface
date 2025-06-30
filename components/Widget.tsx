@@ -263,7 +263,7 @@ export default function Widget({
           // @ts-ignore
           if (typeof window !== "undefined" && window.clarity) {
             // @ts-ignore
-            window.clarity('tx fail', `error: ${error.message} data: ${JSON.stringify(data)}`)
+            window.clarity('event', `tx failed`)
           }
         }}
         getTokenLogoUrl={getTokenLogoUrl}
