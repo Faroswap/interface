@@ -55,3 +55,5 @@ rsvg-convert --width=512 --height=512 favicon.svg -o favicon-512x512.png
 ## License
 
 - [GPL-3.0 ](https://github.com/DODOEX/widgets-single-chain-template/blob/main/LICENSE)
+
+## emit build
