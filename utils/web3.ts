@@ -80,7 +80,7 @@ if (typeof window !== 'undefined') {
         'Rabby',
         'Alchemy',
       ],
-      excludes: [WalletType.Portis, WalletType.Alchemy],
+      excludes: [WalletType.Portis, WalletType.Alchemy, WalletType.Holdstation],
       excludeNames: ['GameStop Wallet'],
       showAllInjected: true,
       showNotSupport: true,

@@ -21,7 +21,7 @@
     "@dodoex/dodo-contract-request": "^1.18.0",
     "@dodoex/icons": "^2.x",
     "@dodoex/message-ws": "^0.1.5",
-    "@dodoex/wallet-web3": "0.0.63",
+    "@dodoex/wallet-web3": "0.0.64",
     "@dodoex/wallet-web3-react": "^0.x",
     "@dodoex/widgets": "v3.2.0-beta.1",
     "@lingui/macro": "^4.11.4",
