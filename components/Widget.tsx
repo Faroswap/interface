@@ -196,7 +196,7 @@ export default function Widget({
           const submitUserTxTrackingOptions = {
             key,
             hash: tx,
-            chainId: useWalletStore.getState().chainId,
+            chainId: data.chainId ?? useWalletStore.getState().chainId,
             from: data.from || account,
             account,
             to,
@@ -220,7 +220,7 @@ export default function Widget({
           const submitUserTxTrackingOptions = {
             key,
             hash: tx,
-            chainId: useWalletStore.getState().chainId,
+            chainId: data.chainId ?? useWalletStore.getState().chainId,
             from: data.from || account,
             account,
             nonce: data.nonce as number,
@@ -244,7 +244,7 @@ export default function Widget({
           const submitUserTxTrackingOptions = {
             key,
             hash: tx,
-            chainId: useWalletStore.getState().chainId,
+            chainId: data.chainId ?? useWalletStore.getState().chainId,
             from: data.from || account,
             account,
             to,
@@ -261,9 +261,9 @@ export default function Widget({
         }}
         onTxFail={async () => {
           // @ts-ignore
-          if (typeof window !== "undefined" && window.clarity) {
+          if (typeof window !== 'undefined' && window.clarity) {
             // @ts-ignore
-            window.clarity('event', `tx failed`)
+            window.clarity('event', `tx failed`);
           }
         }}
         getTokenLogoUrl={getTokenLogoUrl}
