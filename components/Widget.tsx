@@ -171,6 +171,7 @@ export default function Widget({
         noPowerBy
         noUI
         noAutoConnect
+        showSubmissionSubmittedDialog
         dappMetadata={{
           name: TITLE,
           logoUrl: LOGO_URL,
