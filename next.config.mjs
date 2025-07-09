@@ -87,6 +87,37 @@ const nextConfig = {
     // Important: return the modified config
     return config;
   },
+  async headers() {
+    return [
+      {
+        source: '/manifest.json',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'max-age=31536000,immutable', // Cache for 1 year
+          },
+        ],
+      },
+      {
+        source: '/favicon-192x192.png',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'max-age=31536000,immutable', // Cache for 1 year
+          },
+        ],
+      },
+      {
+        source: '/favicon-512x512.png',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'max-age=31536000,immutable', // Cache for 1 year
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
