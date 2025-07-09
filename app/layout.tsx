@@ -41,6 +41,7 @@ export default async function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml"></link>
+        {/* If the file is updated, an update request is required to refresh the cache */}
         <link rel="manifest" href="/manifest.json"></link>
         <Script id="ms-clarity" strategy="beforeInteractive">
           {`
