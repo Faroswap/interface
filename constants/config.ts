@@ -10,6 +10,7 @@ export const ERC20_DOMAIN = 'faroswap.xyz';
 export const LOGO_URL = `https://${ERC20_DOMAIN}favicon.svg`;
 export const TWITTER_URL = 'https://x.com/FaroSwap';
 export const COMMUNITY_URL = '';
+export const TELEGRAM_URL = 'https://t.me/faroswapofficial';
 export const DOCUMENT_URL = '';
 export const SAFE_URL = '';
 export const SHOW_AIRDROP = false;

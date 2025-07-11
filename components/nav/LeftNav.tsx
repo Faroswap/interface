@@ -6,7 +6,12 @@ import { getMenuList } from '@/constants/menuList';
 import ProgressLink from '../ProgressLink';
 import { ArrowTopRightBorder, Error } from '@dodoex/icons';
 import { Trans } from '@lingui/macro';
-import { COMMUNITY_URL, TWITTER_URL, DOCUMENT_URL } from '@/constants/config';
+import {
+  COMMUNITY_URL,
+  TWITTER_URL,
+  DOCUMENT_URL,
+  TELEGRAM_URL,
+} from '@/constants/config';
 import LogoAndText from '@/assets/logo/logo-and-text.svg';
 import { useMediaDevices } from '@dodoex/components';
 
@@ -22,7 +27,7 @@ export default function LeftNav({
   const { isMobile: isMediaMobile } = useMediaDevices();
   const onlySingleSocialLink =
     // @ts-ignore
-    !!TWITTER_URL + !!COMMUNITY_URL + !!DOCUMENT_URL === 1;
+    !!TWITTER_URL + !!COMMUNITY_URL + !!DOCUMENT_URL + !!TELEGRAM_URL === 1;
 
   if (isMediaMobile !== isMobile) return null;
   return (
@@ -244,6 +249,37 @@ export default function LeftNav({
                 </svg>
 
                 <Trans>Documents</Trans>
+              </div>
+              <ArrowTopRightBorder className="w-4 h-4" />
+            </a>
+          )}
+          {!!TELEGRAM_URL && (
+            <a
+              className={clsx(
+                'flex justify-between items-center  rounded-lg text-secondary  hover:text-primary',
+                onlySingleSocialLink
+                  ? 'p-3 border text-sm hover:bg-hover'
+                  : 'px-1 py-2 text-xs font-semibold',
+              )}
+              rel="noopener noreferrer"
+              target="_blank"
+              href={TELEGRAM_URL}
+            >
+              <div className="flex items-center gap-2">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.75 15.75C3.3375 15.75 2.98438 15.6031 2.69063 15.3094C2.39687 15.0156 2.25 14.6625 2.25 14.25V3.75C2.25 3.3375 2.39687 2.98438 2.69063 2.69063C2.98438 2.39687 3.3375 2.25 3.75 2.25H14.25C14.6625 2.25 15.0156 2.39687 15.3094 2.69063C15.6031 2.98438 15.75 3.3375 15.75 3.75V14.25C15.75 14.6625 15.6031 15.0156 15.3094 15.3094C15.0156 15.6031 14.6625 15.75 14.25 15.75H3.75ZM5.25 12.75H10.5V11.25H5.25V12.75ZM5.25 9.75H12.75V8.25H5.25V9.75ZM5.25 6.75H12.75V5.25H5.25V6.75Z"
+                    fill="currentColor"
+                  />
+                </svg>
+
+                <Trans>Telegram</Trans>
               </div>
               <ArrowTopRightBorder className="w-4 h-4" />
             </a>
