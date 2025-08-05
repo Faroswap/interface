@@ -48,7 +48,7 @@ export default function PointsRankList({ open, onClose }: { open: boolean; onClo
       <div className="flex px-6 py-5 bg-main rounded-lg items-center justify-center text-secondary cursor-pointer">
         <div className="mr-1">Load more</div>
         <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M11.4248 6.04565L10.5082 5.12903L7.30001 8.3372L4.09185 5.12903L3.17523 6.04565L7.30002 10.1704L11.4248 6.04565Z" fill="#1A1A1B" fill-opacity="0.5"/>
+          <path d="M11.4248 6.04565L10.5082 5.12903L7.30001 8.3372L4.09185 5.12903L3.17523 6.04565L7.30002 10.1704L11.4248 6.04565Z" fill="#1A1A1B" fillOpacity="0.5"/>
         </svg>
       </div>
     </div>
