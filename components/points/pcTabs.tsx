@@ -3,7 +3,14 @@ import PoolIcon from '@/assets/nav/pool.svg';
 import ReferralIcon from '@/assets/nav/referral.svg';
 import SocialIcon from '@/assets/nav/social.svg';
 import clsx from 'clsx';
-import { Tab } from '@/app/points/page';
+
+export enum Tab {
+	Total,
+	Swap,
+	Liquidity,
+	Referral,
+	Social
+}
 
 export default function PCTabs({ activeTab, setActiveTab }: { activeTab: Tab; setActiveTab: (tab: Tab) => void }) {
 	

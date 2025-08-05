@@ -1,6 +1,6 @@
 
 import clsx from 'clsx';
-import { Tab } from '@/app/points/page';
+import { Tab } from './pcTabs';
 
 export default function MobileTabs({ activeTab, setActiveTab }: { activeTab: Tab; setActiveTab: (tab: Tab) => void }) {
   

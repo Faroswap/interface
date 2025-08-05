@@ -5,17 +5,9 @@ import Total from '@/components/points/total';
 import Swap from '@/components/points/swap';
 import Liquidity from '@/components/points/liquidity';
 import Referral from '@/components/points/referral';
-import PCTabs from "@/components/points/pcTabs";
+import PCTabs, { Tab } from "@/components/points/pcTabs";
 import { useMediaDevices } from "@dodoex/components";
 import MobileTabs from "@/components/points/mobileTabs";
-
-export enum Tab {
-	Total,
-	Swap,
-	Liquidity,
-	Referral,
-	Social
-}
 
 export default function Page() {
   const { isMobile } = useMediaDevices();
