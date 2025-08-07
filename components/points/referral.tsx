@@ -8,7 +8,7 @@ enum ICodeInvalid {
 }
 
 export default function Referral({ urlICode }: { urlICode?: string }) {
-  const [rCode, setRCode] = useState('INIT11');
+  const [rCode, setRCode] = useState('');
   const [iCode, setICode] = useState('');
   const [iCodeInvalid, setICodeInvalid] = useState<ICodeInvalid>();
   const [copyCodeText, setCopyCodeText] = useState('Copy Code');
@@ -16,6 +16,10 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
   useEffect(() => {
     if(urlICode) setICode(urlICode)
   }, [urlICode])
+
+  useEffect(() => {
+    setRCode('INIT11')
+  }, [])
 
   useEffect(() => {
     if (iCode.length !== 6) setICodeInvalid(ICodeInvalid.LengthInvalid)
