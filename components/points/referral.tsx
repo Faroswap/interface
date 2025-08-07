@@ -1,8 +1,28 @@
-import { useState } from "react";
+import clsx from "clsx";
+import { useEffect, useState } from "react";
+import copy from 'copy-to-clipboard';
 
-export default function Referral() {
-  const [rCode, setRCode] = useState('');
+enum ICodeInvalid {
+  LengthInvalid,
+  FormatInvalid
+}
+
+export default function Referral({ urlICode }: { urlICode?: string }) {
+  const [rCode, setRCode] = useState('INIT11');
   const [iCode, setICode] = useState('');
+  const [iCodeInvalid, setICodeInvalid] = useState<ICodeInvalid>();
+  const [copyCodeText, setCopyCodeText] = useState('Copy Code');
+  const [focusInput, setFocusInput] = useState(false);
+  useEffect(() => {
+    if(urlICode) setICode(urlICode)
+  }, [urlICode])
+
+  useEffect(() => {
+    if (iCode.length !== 6) setICodeInvalid(ICodeInvalid.LengthInvalid)
+    else setICodeInvalid(undefined)
+  }, [iCode])
+  
+  
   return <div className="flex md:flex-row flex-col flex-1 md:m-0 m-[-20px]">
     <div className="flex flex-1 flex-col gap-3">
       <div className="flex flex-col md:rounded-3xl p-5 bg-[#20356D] bg-no-repeat bg-right-bottom bg-[url('/points_referral_bg.png')] bg-contain">
@@ -65,12 +85,23 @@ export default function Referral() {
         <div className="mb-4 flex relative gap-2">
           {
             Array.from({ length: 6 }, (_, i) => i).map(index => {
-              return <div key={index} className="rounded-lg h-16 flex-1 bg-white flex items-center justify-center text-active text-lg font-extrabold">{iCode[index]}</div>
+              return <div key={index} className="rounded-lg h-16 flex-1 bg-white flex items-center justify-center text-active text-lg font-extrabold">{rCode[index]}</div>
             })
           }
-          <input className="absolute opacity-0 w-full h-full" maxLength={6} onChange={(e) => setICode(e.target.value.toUpperCase())}/>
+          <input className="absolute opacity-0 w-full h-full" maxLength={6} value={rCode}/>
         </div>
-        <div><button className="bg-primary flex w-full h-12 items-center justify-center text-white rounded-lg mt-4 font-semibold">Copy Code</button></div>
+        <div>
+          <button 
+            className="bg-primary flex w-full h-12 items-center justify-center text-white rounded-lg mt-4 font-semibold"
+            onClick={() => {
+              copy(rCode);
+              setCopyCodeText('Copied');
+              setTimeout(() => setCopyCodeText('Copy Code'), 2000)
+            }}
+          >
+            {copyCodeText}
+          </button>
+        </div>
         <div className="mt-6 flex justify-between">
           <div className="text-sm text-secondary w-[178px]">
             Share your referral link and earn more points!
@@ -87,12 +118,18 @@ export default function Referral() {
         <div className="mb-4 flex relative gap-2">
           {
             Array.from({ length: 6 }, (_, i) => i).map(index => {
-              return <div key={index} className="rounded-lg h-16 flex-1 bg-white flex items-center justify-center text-active text-lg font-extrabold">{rCode[index]}</div>
+              return <div key={index} className={clsx("rounded-lg h-16 flex-1 bg-white flex items-center justify-center text-active text-lg font-extrabold border", focusInput && iCode.length - 1 === index ? 'border-[#326AFD]' : '')}>{iCode[index]}</div>
             })
           }
-          <input className="absolute opacity-0 w-full h-full" maxLength={6} onChange={(e) => setRCode(e.target.value.toUpperCase())}/>
+          <input className="absolute opacity-0 w-full h-full" maxLength={6} value={iCode} onFocus={() => setFocusInput(true)} onBlur={() => setFocusInput(false)} onChange={(e) => setICode(e.target.value.toUpperCase())}/>
         </div>
-        <div><button className="bg-[#1A1A1B1A] flex w-full h-12 items-center justify-center text-white rounded-lg mt-4 font-semibold">Confirm</button></div>
+        <div>
+          <button 
+            className={clsx("flex w-full h-12 items-center justify-center text-white rounded-lg mt-4 font-semibold", iCodeInvalid !== undefined ? 'bg-[#1A1A1B1A]' : 'bg-primary')}
+          >
+            Confirm
+          </button>
+        </div>
       </div>
     </div>
     <div className="md:hidden flex flex-col rounded-3xl bg-paper mx-5 md:m-0">

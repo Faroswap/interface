@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Total from '@/components/points/total';
 import Swap from '@/components/points/swap';
 import Liquidity from '@/components/points/liquidity';
@@ -8,10 +8,17 @@ import Referral from '@/components/points/referral';
 import PCTabs, { Tab } from "@/components/points/pcTabs";
 import { useMediaDevices } from "@dodoex/components";
 import MobileTabs from "@/components/points/mobileTabs";
+import { useSearchParams } from 'next/navigation';
 
 export default function Page() {
   const { isMobile } = useMediaDevices();
   const [activeTab, setActiveTab] = useState(Tab.Total);
+  const searchParams = useSearchParams();
+  const urlICode = searchParams.get('icode') ?? undefined;
+  useEffect(() => {
+    if (urlICode) setActiveTab(Tab.Referral)
+  }, [urlICode])
+
   return <>
     <div className="md:hidden flex">
       <MobileTabs activeTab={activeTab} setActiveTab={setActiveTab}/>
@@ -23,12 +30,12 @@ export default function Page() {
         <PCTabs activeTab={activeTab} setActiveTab={setActiveTab} />
         {(activeTab === Tab.Swap || activeTab === Tab.Total) && <Swap />}
         {activeTab === Tab.Liquidity && <Liquidity />}
-        {activeTab === Tab.Referral && <Referral />}
+        {activeTab === Tab.Referral && <Referral urlICode={urlICode}/>}
       </div>
       <div className="md:hidden flex">
         {activeTab === Tab.Swap && <Swap />}
         {activeTab === Tab.Liquidity && <Liquidity />}
-        {activeTab === Tab.Referral && <Referral />}
+        {activeTab === Tab.Referral && <Referral urlICode={urlICode}/>}
       </div>
     </div>
   </>
