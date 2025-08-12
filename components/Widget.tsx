@@ -134,11 +134,11 @@ function ExecutionDialogExtra() {
     account,
     chainId,
   });
-  if (fetchTransactionQuery.list && fetchTransactionQuery.list.length > 0) {
-    return null
-  }
-  
-  return <div className='flex items-center p-3 w-[300px] justify-between bg-[#326AFD1A] rounded-xl cursor-pointer' onClick={() => window.open(TWITTER_URL, '_blank')}>
+  // if (fetchTransactionQuery.list && fetchTransactionQuery.list.length > 0) {
+  //   return null
+  // }
+
+  return <div className='flex items-center p-3 w-[300px] justify-between bg-[#326AFD1A] rounded-xl cursor-pointer mt-6' onClick={() => window.open(TWITTER_URL, '_blank')}>
     <div className='flex flex-col'>
       <div className='text-sm text-active mb-[2px]'>Follow FaroSwap</div>
       <div className='text-xs text-secondary'>For upcoming Points&Rewards</div>
