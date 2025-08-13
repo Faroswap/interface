@@ -127,13 +127,20 @@ export function getTokenLogoUrl({
   return logoUrl;
 }
 
+const ShownFollowXKey = 'ShownFollowXKey'
 function ExecutionDialogExtra() {
-  const { showFollowX } = useGlobalStatus();
-  if (!showFollowX) {
+  const shownFollowX = window.localStorage.getItem(ShownFollowXKey);
+  if (shownFollowX) {
     return null
   }
 
-  return <div className='flex items-center p-3 w-[300px] justify-between bg-[#326AFD1A] rounded-xl cursor-pointer mt-6' onClick={() => window.open(TWITTER_URL, '_blank')}>
+  return <div 
+    className='flex items-center p-3 w-[300px] justify-between bg-[#326AFD1A] rounded-xl cursor-pointer mt-6' 
+    onClick={() => {
+      window.localStorage.setItem(ShownFollowXKey, '1');
+      window.open(TWITTER_URL, '_blank')
+    }}
+  >
     <div className='flex flex-col'>
       <div className='text-sm text-active mb-[2px]'>Follow FaroSwap</div>
       <div className='text-xs text-secondary'>For upcoming Points&Rewards</div>
