@@ -129,8 +129,7 @@ export function getTokenLogoUrl({
 
 function ExecutionDialogExtra() {
   const { showFollowX } = useGlobalStatus();
-  
-  if (showFollowX) {
+  if (!showFollowX) {
     return null
   }
 
