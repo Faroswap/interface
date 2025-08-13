@@ -3,6 +3,7 @@ import { persist, createJSONStorage } from 'zustand/middleware';
 
 interface GlobalStatusState {
   openConnectWallet: boolean;
+  showFollowX: boolean;
   announcementReadTime: {
     [lastPublishTime: string]: string;
   };
@@ -18,7 +19,7 @@ export const useGlobalStatus = create<GlobalStatusState>()(
     (set) => ({
       openConnectWallet: false,
       announcementReadTime: {},
-
+      showFollowX: true,
       addAnnouncementReadTime: ({ lang, lastPublishTime }) => {
         set((state) => {
           return {

@@ -10,7 +10,6 @@ import {
   WIDGET_CURRENT_CONFIG,
 } from '@/constants/config';
 import { useFetchTokenList } from '@/hooks/useFetchTokenList';
-import { useTransactionList } from '@/hooks/useTransactionList';
 import { useWidgetRouterSubscribe } from '@/hooks/useWidgetRouterSubscribe';
 import { submitUserTxTracking } from '@/submission/submitTx/submitUserTxTracking';
 import { StateText } from '@/submission/types';
@@ -129,14 +128,11 @@ export function getTokenLogoUrl({
 }
 
 function ExecutionDialogExtra() {
-  const { account, chainId } = useWalletStore();
-  const fetchTransactionQuery = useTransactionList({
-    account,
-    chainId,
-  });
-  // if (fetchTransactionQuery.list && fetchTransactionQuery.list.length > 0) {
-  //   return null
-  // }
+  const { showFollowX } = useGlobalStatus();
+  
+  if (showFollowX) {
+    return null
+  }
 
   return <div className='flex items-center p-3 w-[300px] justify-between bg-[#326AFD1A] rounded-xl cursor-pointer mt-6' onClick={() => window.open(TWITTER_URL, '_blank')}>
     <div className='flex flex-col'>

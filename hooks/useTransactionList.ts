@@ -4,6 +4,7 @@ import { SystemApi } from '@dodoex/api';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useSyncOrderPendingList } from './useSyncOrderPendingList';
 import React from 'react';
+import { useGlobalStatus } from '@/utils/useGlobalStatus';
 
 export type NoticeTransactionList = NonNullable<
   NonNullable<
@@ -61,7 +62,7 @@ export function useTransactionList({
     });
     const pendingList =
       list.filter((item) => item?.extend.status === StateText.Running) ?? [];
-
+    useGlobalStatus.setState({ showFollowX: list.length === 0 })
     return [list, pendingList];
   }, [fetchQuery.data]);
 
