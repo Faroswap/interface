@@ -1,18 +1,22 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+This is the public repository for Faroswap front-end interfaces, including the Web App, Wallet Mobile App（about Wallet Connection references other public repositories.Faroswap is a protocol for decentralized exchange of pharos-based assets.
+
 ## Getting Started
 
-Fork 仓库之后,修改当前链配置
+After forking the repository, modify the current chain configuration.
 
-##### 增加环境变量
+##### Add Environment Variables
 
-按照 `.env.sample` 文件夹增加 `.env` 文件
+Create a `.env` file based on the `.env.sample` file.
 
-##### 修改图片
+##### Modify Images
 
-1. 替换 `public/favicon.svg` 图片后,使用 rsvg-covert 生成图片
+1.  After replacing the `public/favicon.svg` image, use `rsvg-convert` to generate the other icon files.
 
-```Bash
+<!-- end list -->
+
+```bash
 cd public
 
 rsvg-convert favicon.svg -o ../app/icon.png
@@ -20,15 +24,17 @@ rsvg-convert --width=192 --height=192 favicon.svg -o favicon-192x192.png
 rsvg-convert --width=512 --height=512 favicon.svg -o favicon-512x512.png
 ```
 
-2. 替换 `assets/logo` 文件夹下 logo 和 chain 的图片
+2.  Replace the logo and chain images in the `assets/logo` folder.
 
-3. 模板没有背景图片,如果页面有背景图片需要另外加
+3.  The template does not have a background image. If your page requires a background image, you will need to add it.
 
-##### 修改当前链配置
+##### Modify the Current Chain Configuration
 
-1. 修改 `manifest.json` 文件中的以下字段 (Safe 钱包需要用到)
+1.  Modify the following fields in the `manifest.json` file (this is required for the Safe wallet):
 
-```JSON
+<!-- end list -->
+
+```json
 {
   "short_name": "",
   "name": "",
@@ -45,14 +51,18 @@ rsvg-convert --width=512 --height=512 favicon.svg -o favicon-512x512.png
 }
 ```
 
-2. 修改 `constants/config.ts` 文件配置
+2.  Modify the configuration in the `constants/config.ts` file.
 
-##### 修改主题
+##### Modify the Theme
 
-1. 修改 widget 主题配置 `constants/theme.ts`
-2. 修改 `tailwind.config.js`
+1.  Modify the widget theme configuration in `constants/theme.ts`.
+2.  Modify `tailwind.config.js`.
+
+## Relevant Links
+Website: https://faroswap.xyz/
+
+Docs: https://docs.faroswap.xyz/
 
 ## License
 
-- [GPL-3.0 ](https://github.com/DODOEX/widgets-single-chain-template/blob/main/LICENSE)
-
+  - [GPL-3.0 ](https://github.com/DODOEX/widgets-single-chain-template/blob/main/LICENSE)
