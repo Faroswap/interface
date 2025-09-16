@@ -9,6 +9,11 @@ export async function getServerAuth() {
     throw new Error('getServerAuth need server side');
   }
   const secret = process.env.GATEWAY_SERVER_SECRET ?? '';
+  const id = process.env.GATEWAY_SERVER_ID;
+  if (!secret || !id) {
+    console.error('no GATEWAY_SERVER_SECRET or GATEWAY_SERVER_ID');
+    return null;
+  }
   const date = new Date().getTime();
   const hash = crypto.createHash('md5');
   const token = hash.update(secret + date).digest('hex');
@@ -17,7 +22,7 @@ export async function getServerAuth() {
     const res = await axios.post(url, {
       token,
       date,
-      id: process.env.GATEWAY_SERVER_ID,
+      id,
     });
     if (res.data?.data) {
       return res.data.data;
