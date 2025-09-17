@@ -84,6 +84,7 @@ export async function fetchTokenList() {
               symbol: token?.symbol,
               decimals: token?.decimals,
               logoURI: token?.logoImg,
+              chainId: token?.chainId,
             }) as TokenInfo,
         ) ?? [];
 

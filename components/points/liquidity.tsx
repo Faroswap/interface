@@ -1,182 +1,159 @@
-import SwapPointsIcon from '@/assets/icons/swap-points.svg';
-import { useState } from 'react';
+import { Trans } from '@lingui/macro';
+import TokenLogo from '../TokenLogo';
+import { Point } from './Points';
 
 export default function Swap() {
-  const [collapseList, setCollapseList] = useState(false);
-  return <div className='flex md:flex-row flex-col'>
-    <div className="bg-paper flex flex-1 flex-col rounded-3xl p-5">
-      <div className="text-primary text-[32px] font-semibold mb-3 leading-none">Title about swap mining</div>
-      <div className="text-primary mb-7">How to swap to get points,How to swap to get points,How to swap to get points,How to swap to get points,How to swap to get points,How to swap to get points,</div>
-      <div><button className="bg-primary w-[200px] h-[48px] flex items-center justify-center text-white rounded-lg mb-12 font-semibold">Swap now</button></div>
-      <div className="text-xl font-semibold mb-1">Title about time-limited event, bonus points trading pairs</div>
-      <div className="text-[#1A1A1B80] text-sm mb-3">Description description description description description description description description description description description </div>
-      <div className="flex flex-wrap gap-3">
-        <div className="bg-white rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex cursor-pointer pl-3">
-          <div></div>
-          <div>USDC/CAKE</div>
-          <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center w-12 h-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">20%</div>
-          <div className="swap absolute right-0 bg-[#1A1A1B1A] text-[#326AFD] items-center justify-center h-full w-[60px] hidden rounded-r-lg">Swap</div>
+  const specialBoost = [
+    { baseToken: WPHRC, quoteToken: USDC, tag: 50 },
+    { baseToken: WPHRC, quoteToken: USDT, tag: 200 },
+    { baseToken: USDC, quoteToken: USDT, tag: 100 },
+    { baseToken: WPHRC, quoteToken: WETH, tag: 200 },
+    { baseToken: AUTO, quoteToken: WPHRC, tag: 50 },
+    { baseToken: AUTO, quoteToken: USDC, tag: 100 },
+  ];
+
+  return (
+    <div className="flex md:flex-row flex-col">
+      <div className="md:bg-paper flex flex-1 flex-col rounded-3xl md:p-5">
+        <div className="text-primary text-[32px] font-semibold mb-3 leading-none">
+          <Trans>Add Liquidity</Trans>
         </div>
-        <div className="bg-white rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex cursor-pointer pl-3">
-          <div></div>
-          <div>USDC/CAKE</div>
-          <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center w-12 h-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">20%</div>
-          <div className="swap absolute right-0 bg-[#1A1A1B1A] text-[#326AFD] items-center justify-center h-full w-[60px] hidden rounded-r-lg">Swap</div>
-        </div>
-        <div className="bg-white rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex cursor-pointer pl-3">
-          <div></div>
-          <div>USDC/CAKE</div>
-          <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center w-12 h-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">20%</div>
-          <div className="swap absolute right-0 bg-[#1A1A1B1A] text-[#326AFD] items-center justify-center h-full w-[60px] hidden rounded-r-lg">Swap</div>
-        </div>
-        <div className="bg-white rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex cursor-pointer pl-3">
-          <div></div>
-          <div>USDC/CAKE</div>
-          <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center w-12 h-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">20%</div>
-          <div className="swap absolute right-0 bg-[#1A1A1B1A] text-[#326AFD] items-center justify-center h-full w-[60px] hidden rounded-r-lg">Swap</div>
-        </div>
-        <div className="bg-white rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex cursor-pointer pl-3">
-          <div></div>
-          <div>USDC/CAKE</div>
-          <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center w-12 h-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">20%</div>
-          <div className="swap absolute right-0 bg-[#1A1A1B1A] text-[#326AFD] items-center justify-center h-full w-[60px] hidden rounded-r-lg">Swap</div>
-        </div>
-        <div className="bg-white rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex cursor-pointer pl-3">
-          <div></div>
-          <div>USDC/CAKE</div>
-          <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center w-12 h-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">20%</div>
-          <div className="swap absolute right-0 bg-[#1A1A1B1A] text-[#326AFD] items-center justify-center h-full w-[60px] hidden rounded-r-lg">Swap</div>
-        </div> 
-      </div>
-    </div>
-    <div className='md:hidden flex md:flex-row flex-col fixed bottom-0 left-0 right-0 w-full'>
-      <div className="flex flex-1 items-center justify-between bg-paper rounded-t-3xl p-5 relative z-10">
-        <div className='flex'>
-          {collapseList && <div className="flex items-center mr-5">
-            <SwapPointsIcon />
-          </div>}
-          <div className="flex flex-col">
-            <div className="text-xs font-semibold mb-2">My Swap Points</div>
-            <div className="text-2xl font-semibold">200</div>
-          </div>
-        </div>
-        <div onClick={() => setCollapseList(!collapseList)}>
-          {collapseList ? <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0.5" y="0.5" width="39" height="39" rx="7.5" stroke="#454851" stroke-opacity="0.1"/>
-            <g clip-path="url(#clip0_145_29735)">
-            <path d="M22.41 28.41L24.71 26.11L27.58 29L29 27.58L26.11 24.71L28.41 22.41L22.41 22.41L22.41 28.41Z" fill="#1A1A1B" fill-opacity="0.5"/>
-            <path d="M11.59 22.41L13.89 24.71L11 27.58L12.42 29L15.29 26.11L17.59 28.41L17.59 22.41L11.59 22.41Z" fill="#1A1A1B" fill-opacity="0.5"/>
-            <path d="M17.59 11.59L15.29 13.89L12.42 11L11 12.42L13.89 15.29L11.59 17.59H17.59V11.59Z" fill="#1A1A1B" fill-opacity="0.5"/>
-            <path d="M22.41 11.59L24.71 13.89L27.58 11L29 12.42L26.11 15.29L28.41 17.59H22.41V11.59Z" fill="#1A1A1B" fill-opacity="0.5"/>
-            </g>
-            <defs>
-            <clipPath id="clip0_145_29735">
-            <rect width="24" height="24" fill="white" transform="translate(8 8)"/>
-            </clipPath>
-            </defs>
-          </svg> : 
-          <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0.5" y="1" width="39" height="39" rx="7.5" stroke="#454851" strokeOpacity="0.1"/>
-            <g clipPath="url(#clip0_145_35585)">
-            <path d="M23 11.5L25.3 13.8L22.41 16.67L23.83 18.09L26.7 15.2L29 17.5V11.5H23ZM11 17.5L13.3 15.2L16.17 18.09L17.59 16.67L14.7 13.8L17 11.5H11V17.5ZM17 29.5L14.7 27.2L17.59 24.33L16.17 22.91L13.3 25.8L11 23.5V29.5H17ZM29 23.5L26.7 25.8L23.83 22.91L22.41 24.33L25.3 27.2L23 29.5H29V23.5Z" fill="#1A1A1B" fillOpacity="0.5"/>
-            </g>
-            <defs>
-            <clipPath id="clip0_145_35585">
-            <rect width="24" height="24" fill="white" transform="translate(8 8.5)"/>
-            </clipPath>
-            </defs>
-          </svg>}
-        </div>
-      </div>
-      {collapseList && <div className='relative'>
-        <div className="relative z-10 flex bg-paper flex-col">
-          <div className="flex justify-between flex-1 p-5">
-            <div className="text-lg font-semibold">History</div>
-          </div>
-          <div className="flex justify-between flex-1 text-sm px-6 py-[14px] bg-[#1A1A1B1A] text-[#1A1A1B80]">
-            <div>Points</div>
-            <div>Receive date</div>
-          </div>
-          <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-            <div>+50</div>
-            <div>2022/07/01 17:19:39</div>
-          </div>
-          <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-            <div>+50</div>
-            <div>2022/07/01 17:19:39</div>
-          </div>
-          <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-            <div>+50</div>
-            <div>2022/07/01 17:19:39</div>
-          </div>
-          <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-            <div>+50</div>
-            <div>2022/07/01 17:19:39</div>
-          </div>
-          <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-            <div>+50</div>
-            <div>2022/07/01 17:19:39</div>
-          </div>
-          <div className="border-t py-5 flex items-center justify-center text-secondary cursor-pointer">
-            <div className="mr-1">Load more</div>
-            <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M11.4248 6.04565L10.5082 5.12903L7.30001 8.3372L4.09185 5.12903L3.17523 6.04565L7.30002 10.1704L11.4248 6.04565Z" fill="#1A1A1B" fillOpacity="0.5"/>
+        <ul className="flex flex-col gap-2 text-lg list-disc list-inside">
+          <li>
+            <Trans>
+              Users who provide liquidity to the protocol will earn points based
+              on both the amount and the holding duration.
+            </Trans>
+          </li>
+          <li className="font-bold">
+            <Trans>Rule: USD 1 / 3 days = 1 point</Trans>
+          </li>
+        </ul>
+        <div className="mt-2 px-5 py-3 rounded-lg bg-success/10">
+          <div className="flex items-center gap-2 font-semibold text-success">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 28 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M23.3419 11.6356C23.3214 11.4956 23.1198 11.4238 23.0584 11.4033C18.5376 11.3961 18.2216 12.9558 16.7184 15.1438C16.4071 15.5088 16.0072 15.7876 15.557 15.9534C15.5797 16.9832 15.452 18.0109 15.1778 19.0038C15.5834 19.0097 15.9886 18.9742 16.387 18.8979C17.5982 18.6465 18.7549 18.1816 19.803 17.5247C19.961 17.4356 20.1139 17.3375 20.2607 17.2309C21.9721 15.9909 22.8841 13.6544 22.8944 13.6305C23.2211 13.0182 23.3757 12.3288 23.3419 11.6356Z"
+                fill="currentColor"
+              />
+              <path
+                d="M16.4861 19.4411C16.4007 19.4582 16.3153 19.4718 16.2299 19.4855C16.3666 20.2075 16.3077 20.9529 16.0591 21.6444C15.9409 21.9955 15.784 22.3323 15.5911 22.6487C15.5202 22.731 15.4729 22.831 15.4543 22.9381C15.4356 23.0451 15.4463 23.1552 15.4852 23.2567C15.6826 23.7267 16.2957 23.7219 16.7184 23.6051C19.5447 23.026 20.6635 18.4705 20.6842 17.5964C20.4983 17.7469 20.2994 17.8807 20.0899 17.9962C18.9832 18.6864 17.7631 19.1756 16.4861 19.4411Z"
+                fill="currentColor"
+              />
+              <path
+                d="M15.1847 15.506C15.5977 15.3717 15.9709 15.1369 16.2709 14.8228C16.5228 14.4915 16.75 14.1421 16.9507 13.7776C17.3365 13.0432 17.8872 12.4083 18.5596 11.9227C18.604 11.8817 20.0216 10.7886 22.7783 10.8433C22.7507 10.7556 22.708 10.6735 22.6519 10.6007C20.9234 8.28815 16.2846 10.0508 16.2402 10.0679C15.0173 10.5461 12.9677 12.1209 12.9472 12.1379C12.4993 12.4752 11.9865 12.7161 11.4409 12.8454C10.8953 12.9748 10.3289 12.9897 9.77726 12.8894C7.32952 12.3752 7.54914 9.6793 7.90877 8.65364C7.92211 8.61447 7.94407 8.57879 7.97303 8.54923C8.00199 8.51968 8.03722 8.49699 8.07611 8.48286C9.91048 7.80308 10.1701 5.87992 10.1837 4.93371C9.81577 5.21813 9.37049 5.38482 8.9062 5.41194C8.66171 5.3881 8.41552 5.43498 8.1969 5.54701C7.97829 5.65904 7.79646 5.8315 7.67303 6.04389C7.64864 6.09499 7.60926 6.13743 7.56013 6.16557C7.511 6.19371 7.45446 6.20619 7.39805 6.20137C7.34164 6.19654 7.28804 6.17463 7.24441 6.13856C7.20077 6.10249 7.16917 6.05397 7.15382 5.99947C7.06353 5.71021 6.87631 5.4609 6.6237 5.29354C6.37109 5.12617 6.06852 5.05097 5.76695 5.0806C5.67813 5.084 5.25794 5.04985 4.64992 4.3291C4.63967 5.49051 4.78657 7.61522 5.99581 8.23351C6.04994 8.26049 6.09366 8.30456 6.12021 8.35891C6.14677 8.41325 6.15466 8.47483 6.14268 8.53411C6.06755 8.88252 4.4518 16.9168 10.744 19.1372C10.8368 18.7178 10.8553 18.2854 10.7986 17.8596C10.7819 17.7885 10.7941 17.7137 10.8325 17.6515C10.8709 17.5894 10.9325 17.5451 11.0036 17.5283C11.0386 17.5193 11.075 17.5174 11.1108 17.5227C11.1465 17.528 11.1808 17.5404 11.2117 17.5592C11.2426 17.578 11.2694 17.6028 11.2906 17.6321C11.3117 17.6613 11.3268 17.6946 11.3349 17.7298C11.3554 17.8152 11.8063 19.8135 9.53472 23.1167C9.65296 23.1342 9.77342 23.1296 9.88996 23.1031C10.0403 23.0928 12.7662 22.9357 14.4024 19.5403C14.4007 19.538 14.4753 19.385 14.5493 19.1645C14.8985 18.0704 15.0511 16.9232 15.0002 15.7759C14.9982 15.7171 15.015 15.6593 15.0482 15.6107C15.0813 15.5622 15.1292 15.5255 15.1847 15.506ZM15.6014 12.623C15.7467 12.6246 15.8855 12.6834 15.9876 12.7867C16.0898 12.89 16.1471 13.0294 16.1471 13.1747C16.1471 13.3199 16.0898 13.4593 15.9876 13.5626C15.8854 13.6659 15.7467 13.7247 15.6014 13.7263C15.4561 13.7247 15.3174 13.6659 15.2152 13.5626C15.113 13.4593 15.0557 13.3199 15.0557 13.1746C15.0557 13.0294 15.113 12.8899 15.2152 12.7867C15.3174 12.6834 15.4562 12.6246 15.6014 12.623Z"
+                fill="currentColor"
+              />
+              <path
+                d="M13.9977 0C15.934 3.03998e-05 17.7539 0.367739 19.4576 1.10256C21.1614 1.83743 22.6438 2.83429 23.904 4.09401C25.1642 5.35369 26.1617 6.83531 26.8971 8.53827C27.6322 10.2414 28.0002 12.0615 28.0002 13.9977C28.0001 15.9339 27.6324 17.7539 26.8976 19.4576C26.1627 21.1614 25.1654 22.6438 23.9056 23.904C22.6459 25.1642 21.1644 26.1617 19.4614 26.8971C17.7583 27.6322 15.9387 28.0002 14.0025 28.0002C12.0661 28.0002 10.2458 27.6325 8.54204 26.8976C6.83829 26.1627 5.35637 25.1653 4.09617 23.9056C2.83593 22.6459 1.83793 21.1645 1.10256 19.4614C0.367478 17.7583 0 15.9386 0 14.0025C7.73363e-06 12.0661 0.367695 10.2458 1.10256 8.54204C1.8374 6.83839 2.83438 5.35632 4.09401 4.09617C4.09566 4.09451 4.09721 4.09242 4.09886 4.09077L4.09724 4.32391C4.09196 4.92304 4.1259 5.79811 4.32877 6.61755C4.36803 6.77612 4.41556 6.93843 4.47232 7.10002C3.82064 7.99554 3.30331 8.96437 2.91913 10.0057C2.44684 11.286 2.21055 12.6173 2.21053 13.9998C2.21053 17.291 3.35274 20.079 5.63695 22.3632C7.9211 24.6473 10.7087 25.7896 13.9998 25.7897C15.3824 25.7897 16.7141 25.5557 17.9945 25.0881C19.2746 24.6204 20.4448 23.9437 21.5046 23.0578L19.9579 21.5111C20.0638 21.3238 20.1617 21.1362 20.2509 20.9509C20.5195 20.3928 20.7271 19.8307 20.8813 19.3281L23.0578 21.5046C23.9437 20.4448 24.6204 19.2746 25.0881 17.9945C25.5557 16.7141 25.7897 15.3824 25.7897 13.9998C25.7896 10.7087 24.6473 7.9211 22.3632 5.63695C20.079 3.35274 17.291 2.21053 13.9998 2.21053C12.6139 2.21055 11.2792 2.44213 9.99594 2.90509C8.81639 3.3305 7.73544 3.93913 6.75247 4.73029C6.44931 4.5743 6.1086 4.50312 5.76647 4.52683C5.71534 4.51591 5.46585 4.43885 5.07245 3.97258L4.69791 3.52842C5.8201 2.53285 7.0998 1.72369 8.53827 1.10256C10.2414 0.367442 12.0615 0 13.9977 0ZM20.436 18.8828C20.2527 19.5426 19.962 20.3455 19.551 21.1042L17.5957 19.1489C18.3454 18.9098 19.0679 18.591 19.7512 18.198L20.436 18.8828ZM19.3459 17.7927C18.6514 18.1791 17.9156 18.4853 17.1526 18.7058L15.5244 17.0776C15.556 16.7054 15.5681 16.3312 15.559 15.9567C15.978 15.788 16.3575 15.5323 16.6707 15.2044L16.6917 15.1817L16.7101 15.1569L19.3459 17.7927ZM16.315 14.7618C16.3001 14.7819 16.2859 14.8024 16.2708 14.8223C15.9708 15.1364 15.5975 15.3712 15.1844 15.5055C15.129 15.525 15.081 15.5617 15.0479 15.6102C15.0148 15.6587 14.9979 15.7167 14.9998 15.7754C15.0114 16.0357 15.0118 16.2961 15.0025 16.5557L11.3176 12.8708C11.3587 12.8624 11.3998 12.8546 11.4407 12.8449C11.9862 12.7156 12.499 12.4746 12.9469 12.1374C12.9527 12.1326 13.1151 12.0077 13.3727 11.8195L16.315 14.7618ZM12.9782 11.425C12.7947 11.56 12.6648 11.6578 12.615 11.6965L12.6145 11.6959C12.2275 11.9873 11.7846 12.1957 11.3133 12.3074C11.1545 12.345 10.9936 12.37 10.8319 12.3851L8.25008 9.80327C8.2706 9.47543 8.32815 9.17595 8.39525 8.9495C8.91816 8.73473 9.32517 8.43378 9.64191 8.08871L12.9782 11.425ZM4.64988 4.32877C5.18192 4.95943 5.57023 5.06428 5.71844 5.07838L5.76701 5.08C6.06843 5.05043 6.37097 5.12595 6.62348 5.29317C6.87601 5.46049 7.06312 5.70994 7.15345 5.99907C7.16878 6.05349 7.20058 6.10226 7.24411 6.13831L7.27865 6.1626C7.31476 6.18421 7.35563 6.19728 7.39792 6.20091C7.44023 6.20453 7.48278 6.1988 7.52205 6.18364L7.55983 6.1653C7.59279 6.14642 7.62075 6.12042 7.64348 6.09028L9.24902 7.69583C8.95631 8.02008 8.57473 8.29777 8.07576 8.48268L8.02071 8.50966C8.0034 8.5208 7.98718 8.53426 7.97268 8.54906C7.94384 8.57855 7.92177 8.61418 7.90846 8.65322C7.84727 8.82772 7.79041 9.05075 7.74979 9.30299L4.94238 6.49558C4.92356 6.51834 4.90489 6.54126 4.88626 6.56412C4.68181 5.78925 4.64457 4.92992 4.64988 4.32877Z"
+                fill="currentColor"
+              />
             </svg>
+            <Trans>Anti-Whale Rule</Trans>
+          </div>
+          <div className="mt-2 text-sm text-secondary">
+            <Trans>
+              For any single address providing more than 
+              <b className="font-bold">1M USD value of LP in a single pool</b>,
+              the team must be contacted directly to obtain a customized
+              annualized points scheme.
+            </Trans>
           </div>
         </div>
-        <div className='z-0 bg-backdrop w-full h-full fixed top-0 left-0 right-0'></div>
-      </div>}
-    </div>
-    <div className="w-[375px] ml-3 md:flex flex-col hidden">
-      <div className="flex bg-paper rounded-3xl p-5 mb-3">
-        <div className="flex items-center mr-5">
-          <SwapPointsIcon/>
-        </div>
-        <div className="flex flex-col">
-          <div className="text-lg font-semibold mb-2">My Swap Points</div>
-          <div className="text-2xl font-semibold">200</div>
-        </div>
-      </div>
-      <div className="flex bg-paper rounded-3xl flex-col">
-        <div className="flex justify-between flex-1 p-5">
-          <div className="text-lg font-semibold">History</div>
-          <div>
-            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 14.855L17.355 16.5L12 11.1567L6.645 16.5L5 14.855L12 7.855L19 14.855Z" fill="#1A1A1B" fillOpacity="0.5"/>
-            </svg>
+        <button
+          className="mt-7 relative bg-primary w-[280px] h-[48px] flex items-center justify-center text-white rounded-lg mb-12 font-semibold disabled:bg-paperDarkContrast disabled:text-disabled"
+          disabled
+        >
+          <div className="absolute top-0 right-0 rounded-tr-lg rounded-bl-lg py-1 px-2 text-xs font-semibold bg-paperDarkContrast text-white">
+            Soon
           </div>
+          Add liquidity now
+        </button>
+        <div className="text-xl font-semibold mb-1">
+          <Trans>Special Boost</Trans>
         </div>
-        <div className="flex justify-between flex-1 text-sm px-6 py-[14px] bg-[#1A1A1B1A] text-[#1A1A1B80]">
-          <div>Points</div>
-          <div>Receive date</div>
+        <div className="text-secondary text-sm mb-3">
+          <Trans>
+            FaroSwap will feature special trading pairs and selected pools from
+            key partners. Providing liquidity to these pairs will allow
+            participants to earn additional — and in some cases double — points
+          </Trans>
         </div>
-        <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-          <div>+50</div>
-          <div>2022/07/01 17:19:39</div>
-        </div>
-        <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-          <div>+50</div>
-          <div>2022/07/01 17:19:39</div>
-        </div>
-        <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-          <div>+50</div>
-          <div>2022/07/01 17:19:39</div>
-        </div>
-        <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-          <div>+50</div>
-          <div>2022/07/01 17:19:39</div>
-        </div>
-        <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-          <div>+50</div>
-          <div>2022/07/01 17:19:39</div>
-        </div>
-        <div className="border-t py-5 flex items-center justify-center text-secondary cursor-pointer">
-          <div className="mr-1">Load more</div>
-          <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.4248 6.04565L10.5082 5.12903L7.30001 8.3372L4.09185 5.12903L3.17523 6.04565L7.30002 10.1704L11.4248 6.04565Z" fill="#1A1A1B" fillOpacity="0.5"/>
-          </svg>
+        <div className="flex flex-wrap gap-3">
+          {specialBoost.map((item, i) => (
+            <div
+              className="bg-paper md:bg-main rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex pl-3"
+              key={i}
+            >
+              <div className="flex items-center">
+                <TokenLogo
+                  address={item.baseToken.address}
+                  chainId={item.baseToken.chainId}
+                  width={24}
+                  height={24}
+                  marginRight={-6}
+                />
+                <TokenLogo
+                  address={item.quoteToken.address}
+                  chainId={item.quoteToken.chainId}
+                  width={24}
+                  height={24}
+                  marginRight={9}
+                />
+              </div>
+              <div>
+                {item.baseToken.symbol}/{item.quoteToken.symbol}
+              </div>
+              <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center px-2 leading-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">
+                +{item.tag}%
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+      <Point title={<Trans>My Liquidity Points</Trans>} />
     </div>
-  </div>
+  );
 }
+
+const WPHRC = {
+  name: 'Wrapped PHRS',
+  address: '0x3019B247381c850ab53Dc0EE53bCe7A07Ea9155f',
+  symbol: 'WPHRS',
+  decimals: 18,
+  chainId: 688688,
+};
+const USDC = {
+  name: 'USD Coin',
+  address: '0x72df0bcd7276f2dFbAc900D1CE63c272C4BCcCED',
+  symbol: 'USDC',
+  decimals: 6,
+  chainId: 688688,
+};
+const USDT = {
+  name: 'Tether USD',
+  address: '0xD4071393f8716661958F766DF660033b3d35fD29',
+  symbol: 'USDT',
+  decimals: 6,
+  chainId: 688688,
+};
+const WETH = {
+  name: 'Wrapped ETH',
+  address: '0x4E28826d32F1C398DED160DC16Ac6873357d048f',
+  symbol: 'WETH',
+  decimals: 18,
+  chainId: 688688,
+};
+const AUTO = {
+  name: 'AutoStaking',
+  address: '0x1A0588a167bB4868Da407d32F09e3C41a2e2EE93',
+  symbol: 'AUTO',
+  decimals: 6,
+  chainId: 688688,
+};
