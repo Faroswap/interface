@@ -1,6 +1,5 @@
 import { Trans } from '@lingui/macro';
 import TokenLogo from '../TokenLogo';
-import Link from 'next/link';
 import { Point } from './Points';
 
 export default function Swap() {
