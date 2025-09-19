@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@dodoex/api": "3.0.5",
-    "@dodoex/auth-web-sdk": "1.0.5",
+    "@dodoex/auth-web-sdk": "1.0.6",
     "@dodoex/components": "^3.x",
     "@dodoex/contract-request": "^1.x",
     "@dodoex/dodo-contract-request": "^1.18.0",

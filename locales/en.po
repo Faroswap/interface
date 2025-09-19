@@ -17,6 +17,7 @@ msgstr ""
 msgid "Activity"
 msgstr "Activity"
 
+#: components/points/liquidity.tsx:19
 #: submission/module.tsx:60
 msgid "Add Liquidity"
 msgstr "Add Liquidity"
@@ -29,9 +30,13 @@ msgstr "Airdrop"
 msgid "Airdrop Rewards"
 msgstr "Airdrop Rewards"
 
-#: constants/menuList.tsx:19
+#: constants/menuList.tsx:20
 msgid "Anchor assets safely in DeFi harbor"
 msgstr "Anchor assets safely in DeFi harbor"
+
+#: components/points/liquidity.tsx:58
+msgid "Anti-Whale Rule"
+msgstr "Anti-Whale Rule"
 
 #: submission/module.tsx:41
 msgid "Approve"
@@ -45,13 +50,24 @@ msgstr "Balance"
 msgid "Claim"
 msgstr "Claim"
 
+#: components/points/total.tsx:33
 #: submission/module.tsx:75
 msgid "Claim Rewards"
 msgstr "Claim Rewards"
 
-#: components/nav/LeftNav.tsx:215
+#: components/points/Points.tsx:201
+#: components/points/referral.tsx:230
+#: components/points/total.tsx:35
+msgid "Coming Soon"
+msgstr "Coming Soon"
+
+#: components/nav/LeftNav.tsx:218
 msgid "Community"
 msgstr "Community"
+
+#: components/points/referral.tsx:202
+msgid "Confirm"
+msgstr "Confirm"
 
 #: components/reward/index.tsx:92
 #: components/walletConnect/ConnectWalletBtn.tsx:84
@@ -76,9 +92,13 @@ msgstr "Copy wallet address"
 msgid "Create Liquidity Mining"
 msgstr "Create Liquidity Mining"
 
-#: components/nav/LeftNav.tsx:246
+#: components/nav/LeftNav.tsx:249
 msgid "Documents"
 msgstr "Documents"
+
+#: components/points/swap.tsx:24
+msgid "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
+msgstr "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
 
 #: submission/module.tsx:72
 msgid "End mining\\n"
@@ -88,6 +108,18 @@ msgstr "End mining\\n"
 msgid "Failed"
 msgstr "Failed"
 
+#: components/points/swap.tsx:48
+msgid "FaroSwap will feature <0>special trading pairs / selected</0> pools from our key partners, where trading these pairs allows you to earn <1>additional — and even double — points.</1>"
+msgstr "FaroSwap will feature <0>special trading pairs / selected</0> pools from our key partners, where trading these pairs allows you to earn <1>additional — and even double — points.</1>"
+
+#: components/points/liquidity.tsx:82
+msgid "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
+msgstr "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
+
+#: components/points/liquidity.tsx:61
+msgid "For any single address providing more than <0>1M USD value of LP in a single pool</0>, the team must be contacted directly to obtain a customized annualized points scheme."
+msgstr "For any single address providing more than <0>1M USD value of LP in a single pool</0>, the team must be contacted directly to obtain a customized annualized points scheme."
+
 #: submission/getExecutionErrorMsg.ts:36
 msgid "Gas price is too low, please adjust in your wallet and try again"
 msgstr "Gas price is too low, please adjust in your wallet and try again"
@@ -96,9 +128,13 @@ msgstr "Gas price is too low, please adjust in your wallet and try again"
 msgid "Go back"
 msgstr "Go back"
 
-#: constants/menuList.tsx:13
+#: constants/menuList.tsx:14
 msgid "Guiding your trades through DeFi waters"
 msgstr "Guiding your trades through DeFi waters"
+
+#: components/points/Points.tsx:177
+msgid "History"
+msgstr "History"
 
 #: submission/getExecutionErrorMsg.ts:12
 msgid "Insufficient funds - Please retry after depositing more {EtherTokenSymbol} into your wallet"
@@ -107,6 +143,18 @@ msgstr "Insufficient funds - Please retry after depositing more {EtherTokenSymbo
 #: components/walletConnect/SendTokenPage.tsx:132
 msgid "Invalid wallet address"
 msgstr "Invalid wallet address"
+
+#: components/points/referral.tsx:34
+msgid "Invite Friends, <0/>Boost Your Rewards"
+msgstr "Invite Friends, <0/>Boost Your Rewards"
+
+#: components/points/referral.tsx:99
+msgid "Invited users"
+msgstr "Invited users"
+
+#: components/points/total.tsx:64
+msgid "Liquidity"
+msgstr "Liquidity"
 
 #: components/walletConnect/ActivityList.tsx:144
 msgid "Loading more"
@@ -119,6 +167,22 @@ msgstr "Locked"
 #: components/reward/index.tsx:49
 msgid "My Airdrop"
 msgstr "My Airdrop"
+
+#: components/points/liquidity.tsx:120
+msgid "My Liquidity Points"
+msgstr "My Liquidity Points"
+
+#: components/points/referral.tsx:111
+msgid "My referral link"
+msgstr "My referral link"
+
+#: components/points/referral.tsx:77
+msgid "My referral Points"
+msgstr "My referral Points"
+
+#: components/points/swap.tsx:96
+msgid "My Swap Points"
+msgstr "My Swap Points"
 
 #: components/reward/index.tsx:84
 msgid "No rewards"
@@ -140,7 +204,11 @@ msgstr "Pending"
 msgid "pending..."
 msgstr "pending..."
 
-#: constants/menuList.tsx:16
+#: constants/menuList.tsx:23
+msgid "Points"
+msgstr "Points"
+
+#: constants/menuList.tsx:17
 msgid "Pool"
 msgstr "Pool"
 
@@ -148,7 +216,7 @@ msgstr "Pool"
 msgid "Pool Creation"
 msgstr "Pool Creation"
 
-#: components/nav/LeftNav.tsx:258
+#: components/nav/LeftNav.tsx:292
 msgid "Powered by DODO DEXpert"
 msgstr "Powered by DODO DEXpert"
 
@@ -165,6 +233,10 @@ msgstr "Receive"
 msgid "Receiver address"
 msgstr "Receiver address"
 
+#: components/points/total.tsx:69
+msgid "Referral"
+msgstr "Referral"
+
 #: submission/module.tsx:64
 msgid "Remove Liquidity"
 msgstr "Remove Liquidity"
@@ -178,6 +250,14 @@ msgstr "Reset"
 msgid "RPC node data exception"
 msgstr "RPC node data exception"
 
+#: components/points/liquidity.tsx:29
+msgid "Rule: USD 1 / 3 days = 1 point"
+msgstr "Rule: USD 1 / 3 days = 1 point"
+
+#: components/points/swap.tsx:30
+msgid "Rule: USD 1 = 3 points"
+msgstr "Rule: USD 1 = 3 points"
+
 #: submission/getExecutionErrorMsg.ts:17
 msgid "SafeERC20: low-level call failed. Please log a Zendesk support ticket or contact the DODO team."
 msgstr "SafeERC20: low-level call failed. Please log a Zendesk support ticket or contact the DODO team."
@@ -189,6 +269,15 @@ msgstr "SafeERC20: low-level call failed. Please log a Zendesk support ticket or
 msgid "Send"
 msgstr "Send"
 
+#: components/points/total.tsx:74
+msgid "Social media"
+msgstr "Social media"
+
+#: components/points/liquidity.tsx:79
+#: components/points/swap.tsx:45
+msgid "Special Boost"
+msgstr "Special Boost"
+
 #: submission/module.tsx:70
 msgid "Stake"
 msgstr "Stake"
@@ -197,10 +286,31 @@ msgstr "Stake"
 msgid "Succeeded"
 msgstr "Succeeded"
 
-#: constants/menuList.tsx:10
+#: components/points/swap.tsx:20
+#: constants/menuList.tsx:11
 #: submission/module.tsx:54
 msgid "Swap"
 msgstr "Swap"
+
+#: components/points/total.tsx:59
+msgid "Swaps"
+msgstr "Swaps"
+
+#: components/nav/LeftNav.tsx:280
+msgid "Telegram"
+msgstr "Telegram"
+
+#: components/points/referral.tsx:47
+msgid "The invitee, by entering the referral code, will earn their normal points plus an extra 20% bonus."
+msgstr "The invitee, by entering the referral code, will earn their normal points plus an extra 20% bonus."
+
+#: components/points/referral.tsx:53
+msgid "The inviter receives 10% rewards of 1 friend, KOL will get more. Apply as a KOL→"
+msgstr "The inviter receives 10% rewards of 1 friend, KOL will get more. Apply as a KOL→"
+
+#: components/points/referral.tsx:41
+msgid "The inviter will receive all points generated by the invitee’s future swap & liquidity activities."
+msgstr "The inviter will receive all points generated by the invitee’s future swap & liquidity activities."
 
 #: components/walletConnect/ActivityList.tsx:89
 msgid "This is empty"
@@ -214,6 +324,10 @@ msgstr "Token"
 msgid "Total:"
 msgstr "Total:"
 
+#: constants/menuList.tsx:26
+msgid "Track your loyalty points & unlock rewards"
+msgstr "Track your loyalty points & unlock rewards"
+
 #: submission/module.tsx:56
 msgid "Transfer"
 msgstr "Transfer"
@@ -221,6 +335,10 @@ msgstr "Transfer"
 #: submission/getExecutionErrorMsg.ts:21
 msgid "User denied transaction signature."
 msgstr "User denied transaction signature."
+
+#: components/points/liquidity.tsx:23
+msgid "Users who provide liquidity to the protocol will earn points based on both the amount and the holding duration."
+msgstr "Users who provide liquidity to the protocol will earn points based on both the amount and the holding duration."
 
 #: components/reward/RewardCard.tsx:73
 msgid "vDODO Airdrop"

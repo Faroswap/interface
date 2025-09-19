@@ -18,7 +18,7 @@ export default function Swap() {
         <div className="text-primary text-[32px] font-semibold mb-3 leading-none">
           <Trans>Add Liquidity</Trans>
         </div>
-        <ul className="flex flex-col gap-2 text-lg list-disc list-inside">
+        <ul className="flex flex-col gap-2 text-lg list-disc pl-5">
           <li>
             <Trans>
               Users who provide liquidity to the protocol will earn points based
@@ -107,7 +107,7 @@ export default function Swap() {
                   marginRight={9}
                 />
               </div>
-              <div>
+              <div className='text-sm'>
                 {item.baseToken.symbol}/{item.quoteToken.symbol}
               </div>
               <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center px-2 leading-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">

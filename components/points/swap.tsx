@@ -19,7 +19,7 @@ export default function Swap() {
         <div className="text-primary text-[32px] font-semibold mb-3 leading-none">
           <Trans>Swap</Trans>
         </div>
-        <ul className="flex flex-col gap-2 text-lg mb-7 list-disc list-inside">
+        <ul className="flex flex-col gap-2 text-lg mb-7 list-disc pl-5">
           <li>
             <Trans>
               Earn corresponding points by performing 
@@ -59,9 +59,9 @@ export default function Swap() {
         </div>
         <div className="flex flex-wrap gap-3">
           {specialBoost.map((item, i) => (
-            <Link
-              href={`/swap/${item.baseToken.chainId}-${item.baseToken.symbol}/${item.quoteToken.chainId}-${item.quoteToken.symbol}`}
-              className="bg-paper md:bg-main rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex cursor-pointer pl-3"
+            <div
+              // href={`/swap/${item.baseToken.chainId}-${item.baseToken.symbol}/${item.quoteToken.chainId}-${item.quoteToken.symbol}`}
+              className="bg-paper md:bg-main rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex pl-3"
               key={i}
             >
               <div className="flex items-center">
@@ -80,16 +80,16 @@ export default function Swap() {
                   marginRight={9}
                 />
               </div>
-              <div>
+              <div className="text-sm">
                 {item.baseToken.symbol}/{item.quoteToken.symbol}
               </div>
               <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center px-2 leading-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">
                 +{item.tag}%
               </div>
-              <div className="swap absolute right-0 bg-[#1A1A1B1A] text-[#326AFD] items-center justify-center h-full w-[60px] hidden rounded-r-lg">
+              <div className="swap absolute right-0 bg-[#1A1A1B1A] text-disabled items-center justify-center h-full w-[60px] hidden rounded-r-lg">
                 Swap
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

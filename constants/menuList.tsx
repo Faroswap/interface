@@ -23,7 +23,7 @@ export function getMenuList() {
       name: <Trans>Points</Trans>,
       url: '/points',
       icon: <PointsIcon />,
-      description: <Trans>Track your loyalty points & unlock rewards</Trans>,
+      description: <Trans>Track your loyalty points & unlock rewards on Pharos mainnet</Trans>,
     },
     // { name: <Trans>Mining</Trans>, url: '/mining', icon: <MiningIcon /> },
   ] as Array<MenuItem>;

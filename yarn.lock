@@ -2521,10 +2521,10 @@
     graphql-request "^6.1.0"
     qs "^6.11.2"
 
-"@dodoex/auth-web-sdk@1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@dodoex/auth-web-sdk/-/auth-web-sdk-1.0.5.tgz#7f127a917695088bc33172e5d3d3754a65fd800a"
-  integrity sha512-Ko6MW6gvQsdoo4vXVxdyPsTfrMwYddMtfZu0EG6b0SA0dj3GXF6HM4Qld589tG4iO80KvaiqDtG2mtSEgamPqQ==
+"@dodoex/auth-web-sdk@1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@dodoex/auth-web-sdk/-/auth-web-sdk-1.0.6.tgz#102f595dc1488564ec5af13f81012fee934499e1"
+  integrity sha512-oFaRqWfp+r8naIDaDLRA2W5D/jTlnDAr+aK0nbaAYKiEIxI8TJTZKnJtpd2X7gSoyIyCSwicbwb32BYAOsfU4A==
 
 "@dodoex/components@3.0.9", "@dodoex/components@^3.x":
   version "3.0.9"

@@ -16,7 +16,7 @@ export default function PointsRankList({
     <Dialog open={open} onClose={onClose}>
       <div className="flex flex-col gap-2 p-5">
         <div className="flex justify-between mb-3">
-          <div>Leaderboard</div>
+          <div className='text-xl font-semibold'>Leaderboard</div>
           <div className="cursor-pointer" onClick={onClose}>
             <svg
               width="24"

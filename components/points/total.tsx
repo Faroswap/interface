@@ -29,9 +29,9 @@ export default function Total() {
           <div className="mb-2 h-[22px] flex items-center">My Total Points</div>
           <div className="flex md:flex-col items-center md:justify-center gap-2">
             <div className="text-[32px] font-semibold md:leading-[44px]">-</div>
-            <button className="flex flex-col px-3 py-[6px] rounded-lg text-sm font-semibold bg-primary text-primary-contrastText">
+            <button className="flex flex-col px-3 py-1 md:py-[6px] rounded-lg text-xs md:text-sm font-semibold bg-primary text-primary-contrastText">
               <Trans>Claim Rewards</Trans>
-              <div className="text-[10px] text-primary-contrastText/50">
+              <div className="text-[10px] leading-[14px] text-primary-contrastText/50">
                 (<Trans>Coming Soon</Trans>)
               </div>
             </button>
@@ -83,7 +83,7 @@ export default function Total() {
           onClose={() => setIsShowRankList(false)}
         />
         <div className="flex justify-between items-center mb-3">
-          <div>Leaderboard</div>
+          <div className='text-xl font-semibold'>Leaderboard</div>
           <div
             className="cursor-pointer md:flex hidden text-secondary hover:text-primary"
             onClick={() => setIsShowRankList(true)}
