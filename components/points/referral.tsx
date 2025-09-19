@@ -131,7 +131,7 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
                 setTimeout(() => setCopyCodeText('Copy Code'), 2000);
               }}
             >
-              <div className="absolute top-0 right-0 rounded-tr-lg rounded-bl-lg py-1 px-2 text-xs font-semibold bg-white text-disabled">
+              <div className="absolute top-0 right-0 rounded-tr-lg rounded-bl-lg py-1 px-2 text-xs font-semibold bg-paperDarkContrast text-white">
                 Soon
               </div>
               {copyCodeText}
@@ -190,7 +190,7 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
               className="relative bg-primary w-full h-12 flex items-center justify-center text-white rounded-lg font-semibold disabled:bg-paperDarkContrast disabled:text-disabled"
               disabled={iCodeInvalid !== undefined}
             >
-              <div className="absolute top-0 right-0 rounded-tr-lg rounded-bl-lg py-1 px-2 text-xs font-semibold bg-white text-disabled">
+              <div className="absolute top-0 right-0 rounded-tr-lg rounded-bl-lg py-1 px-2 text-xs font-semibold bg-paperDarkContrast text-white">
                 Soon
               </div>
               <Trans>Confirm</Trans>

@@ -15,7 +15,7 @@ export default function Swap() {
   return (
     <div className="flex md:flex-row flex-col">
       <div className="md:bg-paper flex flex-1 flex-col rounded-3xl md:p-5">
-        <div className="text-primary text-[32px] font-semibold mb-3 leading-none">
+        <div className="text-primary text-[32px] font-semibold mb-3 leading-[44px]">
           <Trans>Swap</Trans>
         </div>
         <ul className="flex flex-col gap-2 text-lg mb-7 list-disc pl-5">
@@ -40,10 +40,10 @@ export default function Swap() {
             Swap now
           </button>
         </div>
-        <div className="text-xl font-semibold mb-1">
+        <div className="text-xl font-semibold mb-2">
           <Trans>Special Boost</Trans>
         </div>
-        <div className="text-secondary mb-3">
+        <div className="text-secondary mb-5">
           <Trans>
             FaroSwap will feature 
             <span className="font-bold">
@@ -85,7 +85,7 @@ export default function Swap() {
               <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center px-2 leading-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">
                 +{item.tag}%
               </div>
-              <div className="swap absolute right-0 bg-[#1A1A1B1A] text-disabled items-center justify-center h-full w-[60px] hidden rounded-r-lg">
+              <div className="swap absolute right-0 bg-[#1A1A1B1A] text-disabled text-sm items-center justify-center h-full w-[60px] hidden rounded-r-lg">
                 Swap
               </div>
             </div>
