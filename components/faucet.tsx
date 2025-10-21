@@ -200,7 +200,7 @@ export default function Faucet() {
               </Trans>
             )}
           </Button>
-          <a
+          {/* <a
             href=""
             rel="noopener"
             target="_blank"
@@ -224,7 +224,7 @@ export default function Faucet() {
                 fill="#326AFD"
               />
             </svg>
-          </a>
+          </a> */}
         </div>
       </div>
       <footer className="flex items-center gap-2 mt-4 text-xs">
