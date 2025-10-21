@@ -1,7 +1,7 @@
 'use client';
 import FaucetIcon from '@/assets/nav/faucet.svg';
 import WalletIcon from '@/assets/icons/wallet.svg';
-import { Trans } from '@lingui/macro';
+import { t, Trans } from '@lingui/macro';
 import { isAddress, useWalletStore } from '@dodoex/wallet-web3';
 import React from 'react';
 import { Button } from '@dodoex/components';
@@ -9,10 +9,11 @@ import LogoAndText from '@/assets/logo/logo-and-text.svg';
 import clsx from 'clsx';
 import { useRecaptcha } from '@/hooks/useRecaptcha';
 import { useMutation } from '@tanstack/react-query';
-import { ArrowTopRightBorderButton, Done } from '@dodoex/icons';
+import { ArrowTopRightBorder, ArrowTopRightBorderButton, Done, DoneBorder } from '@dodoex/icons';
 import { getEtherscanPage } from '@dodoex/widgets';
 import { SINGLE_CHAIN_ID, TWITTER_NAME } from '@/constants/config';
 import { FAUCET_URL } from '@/constants/url';
+import { truncatePoolAddress } from '@/utils/address';
 
 export default function Faucet() {
   const { account } = useWalletStore();
@@ -64,7 +65,7 @@ export default function Faucet() {
   });
 
   return (
-    <div className="pt-7 md:pt-9 max-md:px-5 pb-5 md:w-[700px] md:mx-auto flex flex-col items-center">
+    <div className="pt-7 md:pt-9 max-md:px-5 pb-5 md:w-[608px] md:mx-auto flex flex-col items-center">
       <h1 className="flex items-center gap-5">
         <FaucetIcon className="relative top-[6px] w-9 h-9 md:w-10 md:h-10" />
         <div
@@ -81,7 +82,7 @@ export default function Faucet() {
       <div
         className="mt-4 md:mt-7 p-1 rounded-3xl w-full"
         style={{
-          backgroundImage: 'linear-gradient(90deg, #0f6BD1 -30%, #FEE94F)',
+          backgroundImage: 'linear-gradient(90deg, rgba(15, 107, 209, 0.3) -30%, rgba(254, 233, 79, 0.3))',
         }}
       >
         <div className="p-7 rounded-3xl bg-paper">
@@ -99,6 +100,7 @@ export default function Faucet() {
               <input
                 className="absolute inset-0 px-12 rounded-lg"
                 value={address}
+                placeholder={t`Enter wallet address`}
                 onChange={(evt) => {
                   changed.current = true;
                   const { value } = evt.target;
@@ -108,7 +110,7 @@ export default function Faucet() {
                 }}
               />
             </div>
-            <button
+            {!!address && <button
               className="relative z-[1] flex items-center justify-center p-1 rounded-full bg-paperDarkContrast text-secondary hover:text-primary"
               onClick={() => {
                 resetRecaptchElement();
@@ -128,7 +130,7 @@ export default function Faucet() {
                   fill="currentColor"
                 />
               </svg>
-            </button>
+            </button>}
           </div>
           {isError && (
             <div className="mt-2 text-sm text-[#ff6187]">
@@ -137,14 +139,14 @@ export default function Faucet() {
           )}
           {claimMutation.isSuccess && (
             <div className="flex items-center gap-5 mt-2 px-5 py-3 rounded-lg bg-success/10 text-success text-sm">
-              <Done className="flex-shrink-0" />
-              <div className="w-[1px] h-[46px] bg-border flex-shrink-0" />
+              <DoneBorder className="flex-shrink-0 max-md:hidden" />
+              <div className="w-[1px] h-[46px] bg-border flex-shrink-0 max-md:hidden" />
               <div>
-                <div className="font-semibold">
+                <div className="font-semibold break-words">
                   <Trans>Claim successful! 🎉 Tnx Hash:</Trans>
                 </div>
                 <a
-                  className="mt-2 flex items-center gap-1"
+                  className="mt-2 flex items-center gap-1 break-all"
                   href={getEtherscanPage(
                     SINGLE_CHAIN_ID,
                     claimMutation.data.txHash,
@@ -153,8 +155,8 @@ export default function Faucet() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="underline">{claimMutation.data.txHash}</span>
-                  <ArrowTopRightBorderButton />
+                  <span className="underline">{truncatePoolAddress(claimMutation.data.txHash)}</span>
+                  <ArrowTopRightBorder className='w-4 h-4' />
                 </a>
               </div>
             </div>
@@ -178,7 +180,7 @@ export default function Faucet() {
             isLoading={claimMutation.isPending}
             disabled={
               claimMutation.isError ||
-              claimMutation.isError ||
+              claimMutation.isSuccess ||
               !address ||
               isError
             }
