@@ -13,8 +13,8 @@ export const getClientAuth = async ({
   if (!account) {
     return null;
   }
-  const isDev = API_DOMAIN !== 'dodoex.io';
-  const url = isDev ? `https://api.${API_DOMAIN}/frontend-auth` : undefined;
+  const isDev = API_DOMAIN !== '.dodoex.io';
+  const url = isDev ? `https://api${API_DOMAIN}/frontend-auth` : undefined;
   try {
     const appId = 'appId1';
     const chainId = 1;

@@ -15,14 +15,14 @@
     "install-optional-dependencies": "tsx scripts/mockOptionalDependencies/index.ts"
   },
   "dependencies": {
-    "@dodoex/api": "3.0.5",
+    "@dodoex/api": "3.1.0-atlantic.1",
     "@dodoex/components": "^3.x",
     "@dodoex/contract-request": "^1.x",
-    "@dodoex/dodo-contract-request": "^1.18.0",
+    "@dodoex/dodo-contract-request": "^1.25.0-alpha.1",
     "@dodoex/icons": "^2.x",
-    "@dodoex/wallet-web3": "0.2.0",
+    "@dodoex/wallet-web3": "0.2.1",
     "@dodoex/wallet-web3-react": "^0.x",
-    "@dodoex/widgets": "3.2.0-beta.9",
+    "@dodoex/widgets": "3.3.0-atlantic.2",
     "@lingui/macro": "^4.11.4",
     "@lingui/react": "^4.11.4",
     "@mui/base": "^5.0.0-beta.58",
@@ -51,7 +51,7 @@
     "zustand": "^5.0.0-rc.2"
   },
   "optionalDependencies": {
-    "@dodoex/auth-web-sdk": "1.0.5",
+    "@dodoex/auth-web-sdk": "1.0.6",
     "@dodoex/message-ws": "^0.1.5"
   },
   "devDependencies": {

@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/faucet.tsx:76
+msgid "$PHRS Faucet"
+msgstr "$PHRS Faucet"
+
 #: components/walletConnect/AccountPage.tsx:62
 msgid "Activity"
 msgstr "Activity"
@@ -29,7 +33,7 @@ msgstr "Airdrop"
 msgid "Airdrop Rewards"
 msgstr "Airdrop Rewards"
 
-#: constants/menuList.tsx:19
+#: constants/menuList.tsx:20
 msgid "Anchor assets safely in DeFi harbor"
 msgstr "Anchor assets safely in DeFi harbor"
 
@@ -45,11 +49,23 @@ msgstr "Balance"
 msgid "Claim"
 msgstr "Claim"
 
+#: components/faucet.tsx:87
+msgid "Claim Pharos New Testnet Tokens:"
+msgstr "Claim Pharos New Testnet Tokens:"
+
 #: submission/module.tsx:75
 msgid "Claim Rewards"
 msgstr "Claim Rewards"
 
-#: components/nav/LeftNav.tsx:215
+#: components/faucet.tsx:136
+msgid "Claim successful! 🎉 Tnx Hash:"
+msgstr "Claim successful! 🎉 Tnx Hash:"
+
+#: components/faucet.tsx:184
+msgid "Claimed, try later"
+msgstr "Claimed, try later"
+
+#: components/nav/LeftNav.tsx:220
 msgid "Community"
 msgstr "Community"
 
@@ -76,7 +92,7 @@ msgstr "Copy wallet address"
 msgid "Create Liquidity Mining"
 msgstr "Create Liquidity Mining"
 
-#: components/nav/LeftNav.tsx:246
+#: components/nav/LeftNav.tsx:251
 msgid "Documents"
 msgstr "Documents"
 
@@ -88,21 +104,37 @@ msgstr "End mining\\n"
 msgid "Failed"
 msgstr "Failed"
 
+#: constants/menuList.tsx:23
+msgid "Faucet"
+msgstr "Faucet"
+
+#: components/faucet.tsx:188
+msgid "Follow<0>FaroSwap</0>to claim"
+msgstr "Follow<0>FaroSwap</0>to claim"
+
 #: submission/getExecutionErrorMsg.ts:36
 msgid "Gas price is too low, please adjust in your wallet and try again"
 msgstr "Gas price is too low, please adjust in your wallet and try again"
+
+#: constants/menuList.tsx:26
+msgid "Get PHRS and start your voyage"
+msgstr "Get PHRS and start your voyage"
 
 #: components/GoBack.tsx:22
 msgid "Go back"
 msgstr "Go back"
 
-#: constants/menuList.tsx:13
+#: constants/menuList.tsx:14
 msgid "Guiding your trades through DeFi waters"
 msgstr "Guiding your trades through DeFi waters"
 
 #: submission/getExecutionErrorMsg.ts:12
 msgid "Insufficient funds - Please retry after depositing more {EtherTokenSymbol} into your wallet"
 msgstr "Insufficient funds - Please retry after depositing more {EtherTokenSymbol} into your wallet"
+
+#: components/faucet.tsx:127
+msgid "Invalid address. Please enter again."
+msgstr "Invalid address. Please enter again."
 
 #: components/walletConnect/SendTokenPage.tsx:132
 msgid "Invalid wallet address"
@@ -116,9 +148,17 @@ msgstr "Loading more"
 msgid "Locked"
 msgstr "Locked"
 
+#: components/faucet.tsx:160
+msgid "Maximum <0>0.01 PHRS</0> every 12 hours"
+msgstr "Maximum <0>0.01 PHRS</0> every 12 hours"
+
 #: components/reward/index.tsx:49
 msgid "My Airdrop"
 msgstr "My Airdrop"
+
+#: components/faucet.tsx:199
+msgid "Need more tokens"
+msgstr "Need more tokens"
 
 #: components/reward/index.tsx:84
 msgid "No rewards"
@@ -140,7 +180,7 @@ msgstr "Pending"
 msgid "pending..."
 msgstr "pending..."
 
-#: constants/menuList.tsx:16
+#: constants/menuList.tsx:17
 msgid "Pool"
 msgstr "Pool"
 
@@ -148,13 +188,25 @@ msgstr "Pool"
 msgid "Pool Creation"
 msgstr "Pool Creation"
 
-#: components/nav/LeftNav.tsx:258
+#: components/faucet.tsx:221
+msgid "Powered By"
+msgstr "Powered By"
+
+#: components/nav/LeftNav.tsx:312
 msgid "Powered by DODO DEXpert"
 msgstr "Powered by DODO DEXpert"
 
 #: components/reward/RewardCard.tsx:62
 msgid "Pre-allocation Rewards"
 msgstr "Pre-allocation Rewards"
+
+#: components/faucet.tsx:182
+msgid "Processing..."
+msgstr "Processing..."
+
+#: components/faucet.tsx:186
+msgid "Reached limit, try later"
+msgstr "Reached limit, try later"
 
 #: components/walletConnect/AccountPage.tsx:201
 #: components/walletConnect/ReceiveTokenPage.tsx:26
@@ -197,10 +249,14 @@ msgstr "Stake"
 msgid "Succeeded"
 msgstr "Succeeded"
 
-#: constants/menuList.tsx:10
+#: constants/menuList.tsx:11
 #: submission/module.tsx:54
 msgid "Swap"
 msgstr "Swap"
+
+#: components/nav/LeftNav.tsx:282
+msgid "Telegram"
+msgstr "Telegram"
 
 #: components/walletConnect/ActivityList.tsx:89
 msgid "This is empty"

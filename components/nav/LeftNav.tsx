@@ -11,8 +11,10 @@ import {
   TWITTER_URL,
   DOCUMENT_URL,
   TELEGRAM_URL,
+  PHAROS_TESTNET_URL,
 } from '@/constants/config';
 import LogoAndText from '@/assets/logo/logo-and-text.svg';
+import LogoGray from '@/assets/logo/logo-gray.svg';
 import { useMediaDevices } from '@dodoex/components';
 
 export default function LeftNav({
@@ -27,7 +29,7 @@ export default function LeftNav({
   const { isMobile: isMediaMobile } = useMediaDevices();
   const onlySingleSocialLink =
     // @ts-ignore
-    !!TWITTER_URL + !!COMMUNITY_URL + !!DOCUMENT_URL + !!TELEGRAM_URL === 1;
+    !!TWITTER_URL + !!COMMUNITY_URL + !!DOCUMENT_URL + !!TELEGRAM_URL + !!PHAROS_TESTNET_URL === 1;
 
   if (isMediaMobile !== isMobile) return null;
   return (
@@ -282,6 +284,24 @@ export default function LeftNav({
               <ArrowTopRightBorder className="w-4 h-4" />
             </a>
           )}
+<a
+              className={clsx(
+                'flex justify-between items-center  rounded-lg text-secondary  hover:text-primary',
+                onlySingleSocialLink
+                  ? 'p-3 border text-sm hover:bg-hover'
+                  : 'px-1 py-2 text-xs font-semibold',
+              )}
+              rel="noopener noreferrer"
+              target="_blank"
+              href={PHAROS_TESTNET_URL}
+            >
+              <div className="flex items-center gap-2">
+                <LogoGray />
+                Pharos Testnet
+              </div>
+              <ArrowTopRightBorder className="w-4 h-4" />
+            </a>
+
         </div>
         <div
           className={clsx('mt-[10px] mx-auto h-[1px] w-11/12 bg-border', {
