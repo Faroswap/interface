@@ -9,7 +9,7 @@ import LogoAndText from '@/assets/logo/logo-and-text.svg';
 import clsx from 'clsx';
 import { useRecaptcha } from '@/hooks/useRecaptcha';
 import { useMutation } from '@tanstack/react-query';
-import { ArrowTopRightBorder, ArrowTopRightBorderButton, Done, DoneBorder } from '@dodoex/icons';
+import { ArrowTopRightBorder, DoneBorder } from '@dodoex/icons';
 import { getEtherscanPage } from '@dodoex/widgets';
 import { SINGLE_CHAIN_ID, TWITTER_NAME } from '@/constants/config';
 import { FAUCET_URL } from '@/constants/url';
