@@ -51,7 +51,7 @@
     "zustand": "^5.0.0-rc.2"
   },
   "optionalDependencies": {
-    "@dodoex/auth-web-sdk": "1.0.5",
+    "@dodoex/auth-web-sdk": "1.0.6",
     "@dodoex/message-ws": "^0.1.5"
   },
   "devDependencies": {

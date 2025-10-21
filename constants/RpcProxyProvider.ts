@@ -22,7 +22,7 @@ function getResult(payload: {
 
 export function getRpcUrl(chainId: number) {
   return getRpcUrlProps(chainId, {
-    domain: API_DOMAIN,
+    url: `https://api${API_DOMAIN}`,
   });
 }
 

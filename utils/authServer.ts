@@ -17,7 +17,7 @@ export async function getServerAuth() {
   const date = new Date().getTime();
   const hash = crypto.createHash('md5');
   const token = hash.update(secret + date).digest('hex');
-  const url = `https://gateway.${API_DOMAIN}/ssr/getAuthToken`;
+  const url = `https://gateway${API_DOMAIN}/ssr/getAuthToken`;
   try {
     const res = await axios.post(url, {
       token,

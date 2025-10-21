@@ -12,6 +12,7 @@ import { useMutation } from '@tanstack/react-query';
 import { ArrowTopRightBorderButton, Done } from '@dodoex/icons';
 import { getEtherscanPage } from '@dodoex/widgets';
 import { SINGLE_CHAIN_ID, TWITTER_NAME } from '@/constants/config';
+import { FAUCET_URL } from '@/constants/url';
 
 export default function Faucet() {
   const { account } = useWalletStore();
@@ -29,23 +30,24 @@ export default function Faucet() {
     useRecaptcha();
   const claimMutation = useMutation({
     mutationFn: async () => {
-      window.open(`https://x.com/intent/user?screen_name=${TWITTER_NAME}`, '_blank', 'menubar=no,toolbar=no')
+      window.open(
+        `https://x.com/intent/user?screen_name=${TWITTER_NAME}`,
+        '_blank',
+        'menubar=no,toolbar=no',
+      );
       resetRecaptchElement();
       const recaptcha = await renderRecaptcha();
-      const response = await fetch(
-        `https://api-staging.dxd.ink/gas-faucet-server/faucet/claim`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            chainId: SINGLE_CHAIN_ID,
-            address,
-            recaptchaToken: recaptcha,
-          }),
+      const response = await fetch(FAUCET_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          chainId: SINGLE_CHAIN_ID,
+          address,
+          recaptchaToken: recaptcha,
+        }),
+      });
 
       const result = await response.json();
 
@@ -62,7 +64,7 @@ export default function Faucet() {
   });
 
   return (
-    <div className="pt-9 pb-5 md:w-[600px] md:mx-auto flex flex-col items-center">
+    <div className="pt-9 pb-5 md:w-[700px] md:mx-auto flex flex-col items-center">
       <h1 className="flex items-center gap-5 text-[40px] font-bold">
         <FaucetIcon className="relative top-[6px] w-10 h-10" />
         <div
@@ -100,13 +102,19 @@ export default function Faucet() {
                 onChange={(evt) => {
                   changed.current = true;
                   const { value } = evt.target;
+                  resetRecaptchElement();
+                  claimMutation.reset();
                   setAddress(value);
                 }}
               />
             </div>
             <button
               className="relative z-[1] flex items-center justify-center p-1 rounded-full bg-paperDarkContrast text-secondary hover:text-primary"
-              onClick={() => setAddress('')}
+              onClick={() => {
+                resetRecaptchElement();
+                claimMutation.reset();
+                setAddress('');
+              }}
             >
               <svg
                 width="16"
@@ -129,8 +137,8 @@ export default function Faucet() {
           )}
           {claimMutation.isSuccess && (
             <div className="flex items-center gap-5 mt-2 px-5 py-3 rounded-lg bg-success/10 text-success text-sm">
-              <Done />
-              <div className="w-[1px] h-[46px] bg-border" />
+              <Done className="flex-shrink-0" />
+              <div className="w-[1px] h-[46px] bg-border flex-shrink-0" />
               <div>
                 <div className="font-semibold">
                   <Trans>Claim successful! 🎉 Tnx Hash:</Trans>
