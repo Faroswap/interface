@@ -1,5 +1,6 @@
 import SwapIcon from '@/assets/nav/swap.svg';
 import PoolIcon from '@/assets/nav/pool.svg';
+import FaucetIcon from '@/assets/nav/faucet.svg';
 // import MiningIcon from '@/assets/nav/mining.svg';
 import { MenuItem } from '@/components/nav/type';
 import { Trans } from '@lingui/macro';
@@ -17,6 +18,12 @@ export function getMenuList() {
       url: '/pool',
       icon: <PoolIcon />,
       description: <Trans>Anchor assets safely in DeFi harbor</Trans>,
+    },
+    {
+      name: <Trans>Faucet</Trans>,
+      url: '/faucet',
+      icon: <FaucetIcon />,
+      description: <Trans>Get PHRS and start your voyage</Trans>,
     },
     // { name: <Trans>Mining</Trans>, url: '/mining', icon: <MiningIcon /> },
   ] as Array<MenuItem>;
