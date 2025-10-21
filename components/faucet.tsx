@@ -1,7 +1,7 @@
 'use client';
 import FaucetIcon from '@/assets/nav/faucet.svg';
 import WalletIcon from '@/assets/icons/wallet.svg';
-import { t, Trans } from '@lingui/macro';
+import { Trans } from '@lingui/macro';
 import { isAddress, useWalletStore } from '@dodoex/wallet-web3';
 import React from 'react';
 import { Button } from '@dodoex/components';
@@ -100,7 +100,7 @@ export default function Faucet() {
               <input
                 className="absolute inset-0 px-12 rounded-lg"
                 value={address}
-                placeholder={t`Enter wallet address`}
+                placeholder="Enter wallet address"
                 onChange={(evt) => {
                   changed.current = true;
                   const { value } = evt.target;
