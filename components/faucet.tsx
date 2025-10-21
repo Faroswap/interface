@@ -64,11 +64,11 @@ export default function Faucet() {
   });
 
   return (
-    <div className="pt-9 pb-5 md:w-[700px] md:mx-auto flex flex-col items-center">
-      <h1 className="flex items-center gap-5 text-[40px] font-bold">
-        <FaucetIcon className="relative top-[6px] w-10 h-10" />
+    <div className="pt-7 md:pt-9 max-md:px-5 pb-5 md:w-[700px] md:mx-auto flex flex-col items-center">
+      <h1 className="flex items-center gap-5">
+        <FaucetIcon className="relative top-[6px] w-9 h-9 md:w-10 md:h-10" />
         <div
-          className="bg-clip-text leading-[55px]"
+          className="bg-clip-text text-[28px] md:text-[40px] leading-[38px] md:leading-[55px] font-bold"
           style={{
             backgroundImage:
               'linear-gradient(90deg, #1A1A1B 51.44%, #326AFD 79.33%, #FEE94F 100%)',
@@ -79,7 +79,7 @@ export default function Faucet() {
         </div>
       </h1>
       <div
-        className="mt-7 p-1 rounded-3xl w-full"
+        className="mt-4 md:mt-7 p-1 rounded-3xl w-full"
         style={{
           backgroundImage: 'linear-gradient(90deg, #0f6BD1 -30%, #FEE94F)',
         }}
