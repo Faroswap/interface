@@ -49,7 +49,7 @@ msgstr "Claim"
 msgid "Claim Rewards"
 msgstr "Claim Rewards"
 
-#: components/nav/LeftNav.tsx:215
+#: components/nav/LeftNav.tsx:218
 msgid "Community"
 msgstr "Community"
 
@@ -76,7 +76,7 @@ msgstr "Copy wallet address"
 msgid "Create Liquidity Mining"
 msgstr "Create Liquidity Mining"
 
-#: components/nav/LeftNav.tsx:246
+#: components/nav/LeftNav.tsx:249
 msgid "Documents"
 msgstr "Documents"
 
@@ -148,7 +148,7 @@ msgstr "Pool"
 msgid "Pool Creation"
 msgstr "Pool Creation"
 
-#: components/nav/LeftNav.tsx:258
+#: components/nav/LeftNav.tsx:292
 msgid "Powered by DODO DEXpert"
 msgstr "Powered by DODO DEXpert"
 
@@ -201,6 +201,10 @@ msgstr "Succeeded"
 #: submission/module.tsx:54
 msgid "Swap"
 msgstr "Swap"
+
+#: components/nav/LeftNav.tsx:280
+msgid "Telegram"
+msgstr "Telegram"
 
 #: components/walletConnect/ActivityList.tsx:89
 msgid "This is empty"
