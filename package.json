@@ -1,5 +1,5 @@
 {
-  "name": "widgets-single-chain-template",
+  "name": "FaroSwap",
   "version": "0.1.0",
   "private": true,
   "license": "GPL-3.0-or-later",
@@ -11,19 +11,19 @@
     "schema:compile": "export $(cat .env | xargs) && env graphql-codegen",
     "schema:watch": "export $(cat .env | xargs) && env graphql-codegen -w",
     "extract": "lingui extract --clean",
-    "compile": "lingui compile --typescript"
+    "compile": "lingui compile --typescript",
+    "install-optional-dependencies": "tsx scripts/mockOptionalDependencies/index.ts"
   },
   "dependencies": {
     "@dodoex/api": "3.0.5",
     "@dodoex/auth-web-sdk": "1.0.6",
     "@dodoex/components": "^3.x",
     "@dodoex/contract-request": "^1.x",
-    "@dodoex/dodo-contract-request": "^1.18.0",
+    "@dodoex/dodo-contract-request": "^1.25.0-alpha.1",
     "@dodoex/icons": "^2.x",
-    "@dodoex/message-ws": "^0.1.5",
-    "@dodoex/wallet-web3": "0.0.64",
+    "@dodoex/wallet-web3": "0.2.1",
     "@dodoex/wallet-web3-react": "^0.x",
-    "@dodoex/widgets": "3.2.0-pharos.2",
+    "@dodoex/widgets": "3.3.0-atlantic.2",
     "@lingui/macro": "^4.11.4",
     "@lingui/react": "^4.11.4",
     "@mui/base": "^5.0.0-beta.58",
@@ -51,6 +51,10 @@
     "redux": "^5.0.1",
     "zustand": "^5.0.0-rc.2"
   },
+  "optionalDependencies": {
+    "@dodoex/auth-web-sdk": "1.0.6",
+    "@dodoex/message-ws": "^0.1.5"
+  },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.3",
     "@graphql-codegen/client-preset": "^4.5.1",
@@ -60,6 +64,7 @@
     "@lingui/swc-plugin": "4.0.6",
     "@types/axios": "^0.14.0",
     "@types/crypto-js": "^4.2.2",
+    "@types/fs-extra": "^11.0.4",
     "@types/identicon.js": "^2.3.5",
     "@types/lodash": "^4.17.9",
     "@types/node": "^20",
@@ -71,10 +76,12 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^8",
     "eslint-config-next": "14.2.13",
+    "fs-extra": "^11.3.1",
     "pino-pretty": "^11.2.2",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.13",
+    "tsx": "^4.20.5",
     "typescript": "^5"
   }
 }

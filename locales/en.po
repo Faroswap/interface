@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/faucet.tsx:79
+msgid "$PHRS Faucet"
+msgstr "$PHRS Faucet"
+
 #: components/walletConnect/AccountPage.tsx:62
 msgid "Activity"
 msgstr "Activity"
@@ -30,7 +34,7 @@ msgstr "Airdrop"
 msgid "Airdrop Rewards"
 msgstr "Airdrop Rewards"
 
-#: constants/menuList.tsx:20
+#: constants/menuList.tsx:21
 msgid "Anchor assets safely in DeFi harbor"
 msgstr "Anchor assets safely in DeFi harbor"
 
@@ -48,12 +52,24 @@ msgstr "Balance"
 
 #: components/reward/RewardCard.tsx:185
 msgid "Claim"
-msgstr "Claim"
+msgstr "Claim<<<<<<< HEAD"
+
+#: components/faucet.tsx:90
+msgid "Claim Pharos New Testnet Tokens:"
+msgstr "Claim Pharos New Testnet Tokens:>>>>>>> main"
 
 #: components/points/total.tsx:33
 #: submission/module.tsx:75
 msgid "Claim Rewards"
-msgstr "Claim Rewards"
+msgstr "Claim Rewards<<<<<<< HEAD"
+
+#: components/faucet.tsx:146
+msgid "Claim successful! 🎉 Tnx Hash:"
+msgstr "Claim successful! 🎉 Tnx Hash:"
+
+#: components/faucet.tsx:194
+msgid "Claimed, try later"
+msgstr "Claimed, try later"
 
 #: components/points/Points.tsx:201
 #: components/points/referral.tsx:232
@@ -61,7 +77,7 @@ msgstr "Claim Rewards"
 msgid "Coming Soon"
 msgstr "Coming Soon"
 
-#: components/nav/LeftNav.tsx:218
+#: components/nav/LeftNav.tsx:220
 msgid "Community"
 msgstr "Community"
 
@@ -90,9 +106,9 @@ msgstr "Copy wallet address"
 
 #: submission/module.tsx:77
 msgid "Create Liquidity Mining"
-msgstr "Create Liquidity Mining"
+msgstr "Create Liquidity Mining<<<<<<< HEAD"
 
-#: components/nav/LeftNav.tsx:249
+#: components/nav/LeftNav.tsx:251
 msgid "Documents"
 msgstr "Documents"
 
@@ -106,7 +122,7 @@ msgstr "End mining\\n"
 
 #: submission/module.tsx:91
 msgid "Failed"
-msgstr "Failed"
+msgstr "Failed<<<<<<< HEAD"
 
 #: components/points/swap.tsx:47
 msgid "FaroSwap will feature <0>special trading pairs / selected</0> pools from our key partners, where trading these pairs allows you to earn <1>additional — and even double — points.</1>"
@@ -116,19 +132,31 @@ msgstr "FaroSwap will feature <0>special trading pairs / selected</0> pools fr
 msgid "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 msgstr "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 
+#: constants/menuList.tsx:28
+msgid "Faucet"
+msgstr "Faucet"
+
+#: components/faucet.tsx:198
+msgid "Follow<0>FaroSwap</0>to claim"
+msgstr "Follow<0>FaroSwap</0>to claim>>>>>>> main"
+
 #: components/points/liquidity.tsx:61
 msgid "For any single address providing more than <0>1M USD value of LP in a single pool</0>, the team must be contacted directly to obtain a customized annualized points scheme."
-msgstr "For any single address providing more than <0>1M USD value of LP in a single pool</0>, the team must be contacted directly to obtain a customized annualized points scheme."
+msgstr "For any single address providing more than <0>1M USD value of LP in a single pool</0>, the team must be contacted directly to obtain a customized annualized points scheme.======="
 
 #: submission/getExecutionErrorMsg.ts:36
 msgid "Gas price is too low, please adjust in your wallet and try again"
 msgstr "Gas price is too low, please adjust in your wallet and try again"
 
+#: constants/menuList.tsx:31
+msgid "Get PHRS and start your voyage"
+msgstr "Get PHRS and start your voyage"
+
 #: components/GoBack.tsx:22
 msgid "Go back"
 msgstr "Go back"
 
-#: constants/menuList.tsx:14
+#: constants/menuList.tsx:15
 msgid "Guiding your trades through DeFi waters"
 msgstr "Guiding your trades through DeFi waters"
 
@@ -139,6 +167,10 @@ msgstr "History"
 #: submission/getExecutionErrorMsg.ts:12
 msgid "Insufficient funds - Please retry after depositing more {EtherTokenSymbol} into your wallet"
 msgstr "Insufficient funds - Please retry after depositing more {EtherTokenSymbol} into your wallet"
+
+#: components/faucet.tsx:137
+msgid "Invalid address. Please enter again."
+msgstr "Invalid address. Please enter again."
 
 #: components/walletConnect/SendTokenPage.tsx:132
 msgid "Invalid wallet address"
@@ -164,9 +196,13 @@ msgstr "Loading more"
 msgid "Locked"
 msgstr "Locked"
 
+#: components/faucet.tsx:170
+msgid "Maximum <0>0.01 PHRS</0> every 12 hours"
+msgstr "Maximum <0>0.01 PHRS</0> every 12 hours"
+
 #: components/reward/index.tsx:49
 msgid "My Airdrop"
-msgstr "My Airdrop"
+msgstr "My Airdrop<<<<<<< HEAD"
 
 #: components/points/liquidity.tsx:120
 msgid "My Liquidity Points"
@@ -182,7 +218,7 @@ msgstr "My referral Points"
 
 #: components/points/swap.tsx:95
 msgid "My Swap Points"
-msgstr "My Swap Points"
+msgstr "My Swap Points======="
 
 #: components/reward/index.tsx:84
 msgid "No rewards"
@@ -202,27 +238,39 @@ msgstr "Pending"
 
 #: components/walletConnect/ConnectWalletBtn.tsx:61
 msgid "pending..."
-msgstr "pending..."
+msgstr "pending...<<<<<<< HEAD"
 
-#: constants/menuList.tsx:23
+#: constants/menuList.tsx:24
 msgid "Points"
-msgstr "Points"
+msgstr "Points=======>>>>>>> main"
 
-#: constants/menuList.tsx:17
+#: constants/menuList.tsx:18
 msgid "Pool"
 msgstr "Pool"
 
 #: submission/module.tsx:68
 msgid "Pool Creation"
-msgstr "Pool Creation"
+msgstr "Pool Creation<<<<<<< HEAD"
 
-#: components/nav/LeftNav.tsx:292
+#: components/faucet.tsx:231
+msgid "Powered By"
+msgstr "Powered By"
+
+#: components/nav/LeftNav.tsx:312
 msgid "Powered by DODO DEXpert"
 msgstr "Powered by DODO DEXpert"
 
 #: components/reward/RewardCard.tsx:62
 msgid "Pre-allocation Rewards"
 msgstr "Pre-allocation Rewards"
+
+#: components/faucet.tsx:192
+msgid "Processing..."
+msgstr "Processing..."
+
+#: components/faucet.tsx:196
+msgid "Reached limit, try later"
+msgstr "Reached limit, try later"
 
 #: components/walletConnect/AccountPage.tsx:201
 #: components/walletConnect/ReceiveTokenPage.tsx:26
@@ -284,21 +332,21 @@ msgstr "Stake"
 
 #: submission/module.tsx:90
 msgid "Succeeded"
-msgstr "Succeeded"
+msgstr "Succeeded<<<<<<< HEAD"
 
 #: components/points/swap.tsx:19
-#: constants/menuList.tsx:11
+#: constants/menuList.tsx:12
 #: submission/module.tsx:54
 msgid "Swap"
-msgstr "Swap"
+msgstr "Swap<<<<<<< HEAD"
 
 #: components/points/total.tsx:59
 msgid "Swaps"
 msgstr "Swaps"
 
-#: components/nav/LeftNav.tsx:280
+#: components/nav/LeftNav.tsx:282
 msgid "Telegram"
-msgstr "Telegram"
+msgstr "Telegram>>>>>>> main"
 
 #: components/points/referral.tsx:47
 msgid "The invitee, by entering the referral code, will earn their normal points plus an extra 20% bonus."
@@ -306,7 +354,7 @@ msgstr "The invitee, by entering the referral code, will earn their normal poin
 
 #: components/points/referral.tsx:41
 msgid "The inviter will receive all points generated by the invitee’s future swap & liquidity activities."
-msgstr "The inviter will receive all points generated by the invitee’s future swap & liquidity activities."
+msgstr "The inviter will receive all points generated by the invitee’s future swap & liquidity activities.======="
 
 #: components/walletConnect/ActivityList.tsx:89
 msgid "This is empty"
@@ -320,7 +368,7 @@ msgstr "Token"
 msgid "Total:"
 msgstr "Total:"
 
-#: constants/menuList.tsx:26
+#: constants/menuList.tsx:27
 msgid "Track your loyalty points & unlock rewards on Pharos mainnet"
 msgstr "Track your loyalty points & unlock rewards on Pharos mainnet"
 

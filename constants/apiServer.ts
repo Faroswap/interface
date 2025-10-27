@@ -44,6 +44,7 @@ export type TokenListInitialData = ReturnType<
 export async function fetchTokenList() {
   const chainId = SINGLE_CHAIN_ID;
   const token = await getServerAuth();
+  if (!token) return { data: undefined, tokenList: undefined };
   try {
     const res = await axios.post(
       `${GRAPHQL_URL}?opname=FetchErc20SwapCrossChainList`,

@@ -1,7 +1,7 @@
 /**
  * @see node_modules/next/image-types/global.d.ts
  */
-declare module "*.svg?url" {
+declare module '*.svg?url' {
   /**
    * Use `any` to avoid conflicts with
    * `@svgr/webpack` plugin or
@@ -11,4 +11,8 @@ declare module "*.svg?url" {
   const content: any;
 
   export default content;
+}
+
+declare interface Window {
+  grecaptcha: any;
 }

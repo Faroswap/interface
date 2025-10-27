@@ -18,7 +18,6 @@ export const useGlobalStatus = create<GlobalStatusState>()(
     (set) => ({
       openConnectWallet: false,
       announcementReadTime: {},
-
       addAnnouncementReadTime: ({ lang, lastPublishTime }) => {
         set((state) => {
           return {

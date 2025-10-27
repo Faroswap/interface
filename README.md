@@ -1,58 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FAROSWAP
 
-## Getting Started
+## Installation
 
-Fork 仓库之后,修改当前链配置
-
-##### 增加环境变量
-
-按照 `.env.sample` 文件夹增加 `.env` 文件
-
-##### 修改图片
-
-1. 替换 `public/favicon.svg` 图片后,使用 rsvg-covert 生成图片
+Some npm packages in this project are private and optional. You can skip installing `optionalDependencies` and use mock mode for development.
 
 ```Bash
-cd public
+yarn install --ignore-optional
 
-rsvg-convert favicon.svg -o ../app/icon.png
-rsvg-convert --width=192 --height=192 favicon.svg -o favicon-192x192.png
-rsvg-convert --width=512 --height=512 favicon.svg -o favicon-512x512.png
+# mock
+yarn install-optional-dependencies
 ```
 
-2. 替换 `assets/logo` 文件夹下 logo 和 chain 的图片
+## Development
 
-3. 模板没有背景图片,如果页面有背景图片需要另外加
+1. Environment Variables  
+   Refer to the `.env.sample` file and create a `.env` file in the project root directory. All configuration items are optional; missing configurations will not affect project operation.
 
-##### 修改当前链配置
+2. Start the Project
 
-1. 修改 `manifest.json` 文件中的以下字段 (Safe 钱包需要用到)
-
-```JSON
-{
-  "short_name": "",
-  "name": "",
-  "description": "",
-
-  "id": "com.momo.pwa",
-
-  "theme_color": "#ED5AD5",
-  "background_color": "#F4F5F6",
-  "providedBy": {
-    "name": "MOMO",
-    "url": "https://momoswap.io"
-  }
-}
+```Bash
+yarn dev
 ```
-
-2. 修改 `constants/config.ts` 文件配置
-
-##### 修改主题
-
-1. 修改 widget 主题配置 `constants/theme.ts`
-2. 修改 `tailwind.config.js`
 
 ## License
 
-- [GPL-3.0 ](https://github.com/DODOEX/widgets-single-chain-template/blob/main/LICENSE)
-
+- [GPL-3.0 ](https://github.com/Faroswap/interface/blob/main/LICENSE)
