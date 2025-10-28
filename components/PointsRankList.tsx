@@ -1,8 +1,10 @@
 import { useWalletStore } from '@dodoex/wallet-web3';
 import Dialog from './Dialog';
 import { truncatePoolAddress } from '@/utils/address';
-import { increaseArray } from '@/utils/utils';
 import clsx from 'clsx';
+import { usePointLeaderboard } from './points/hooks/usePointsLeaderboard';
+import LoadingSkeleton from './Skeleton/LoadingSkeleton';
+import { formatReadableNumber, formatTokenAmountNumber } from '@dodoex/widgets';
 
 export default function PointsRankList({
   open,
@@ -12,11 +14,17 @@ export default function PointsRankList({
   onClose: () => void;
 }) {
   const { account } = useWalletStore();
+  const fetchLeader = usePointLeaderboard();
+  const overallRanks =
+    fetchLeader.data?.points_activity_leaderboard?.overallRanks;
+  const userRank =
+    fetchLeader.data?.points_activity_leaderboard?.currentUserRank?.rank;
+
   return (
     <Dialog open={open} onClose={onClose}>
       <div className="flex flex-col gap-2 p-5">
         <div className="flex justify-between mb-3">
-          <div className='text-xl font-semibold'>Leaderboard</div>
+          <div className="text-xl font-semibold">Leaderboard</div>
           <div className="cursor-pointer" onClick={onClose}>
             <svg
               width="24"
@@ -39,30 +47,73 @@ export default function PointsRankList({
             Points
           </div>
         </div>
-        {account && (
+        {account && (!userRank || userRank > 3) && (
           <div className="flex px-6 py-5 rounded-lg bg-primary/5 text-active">
-            <div className="basis-1/3">-(You)</div>
+            <div className="basis-1/3">
+              <LoadingSkeleton
+                loading={fetchLeader.isLoading}
+                loadingClassName="w-5"
+              >
+                {userRank}
+              </LoadingSkeleton>
+              (You)
+            </div>
             <div className="basis-1/3">{truncatePoolAddress(account)}</div>
-            <div className="basis-1/3 flex justify-end">-</div>
+            <LoadingSkeleton className="basis-1/3 flex justify-end">
+              {formatTokenAmountNumber({
+                input:
+                  fetchLeader.data?.points_activity_leaderboard?.currentUserRank
+                    ?.totalPoints,
+              })}
+            </LoadingSkeleton>
           </div>
         )}
-        {increaseArray(4).map((_, i) => {
-          const level = i + 1;
+
+        {overallRanks?.map((currentRank, i) => {
+          const rank = i + 1;
           const bg = leaderboardBackgroundColorMap[i] || '';
+          const active = rank == userRank;
+
           return (
-            <div className="flex px-6 py-5 bg-main rounded-lg" key={i}>
-              <div className="basis-1/3">
+            <div
+              className={clsx('flex px-6 py-5 bg-main rounded-lg', {
+                'bg-primary/5 text-active': active,
+              })}
+              key={i}
+            >
+              <LoadingSkeleton
+                className="basis-1/3 flex items-center md:gap-1"
+                loading={fetchLeader.isLoading}
+                loadingClassName="w-5"
+              >
                 <div
                   className={clsx(
                     'rounded-full flex items-center justify-center w-6 h-6 text-primary',
                     bg,
                   )}
                 >
-                  {level}
+                  {rank}
                 </div>
-              </div>
-              <div className="basis-1/3">-</div>
-              <div className="basis-1/3 flex justify-end">-</div>
+                {active && <span className="max-md:text-secondary">(You)</span>}
+              </LoadingSkeleton>
+              <LoadingSkeleton
+                className="basis-1/3"
+                loading={fetchLeader.isLoading}
+                loadingClassName="w-5"
+              >
+                {currentRank?.user
+                  ? truncatePoolAddress(currentRank?.user)
+                  : undefined}
+              </LoadingSkeleton>
+              <LoadingSkeleton
+                className="basis-1/3 flex justify-end"
+                loading={fetchLeader.isLoading}
+                loadingClassName="w-5"
+              >
+                {formatReadableNumber({
+                  input: currentRank?.totalPoints ?? '',
+                })}
+              </LoadingSkeleton>
             </div>
           );
         })}
@@ -93,4 +144,3 @@ export const leaderboardBackgroundColorMap = {
 } as {
   [key: number]: string;
 };
-

@@ -12,10 +12,22 @@ import { useWalletStore } from '@dodoex/wallet-web3';
 import { Trans } from '@lingui/macro';
 import { increaseArray } from '@/utils/utils';
 import clsx from 'clsx';
+import { usePointUserSummary } from './hooks/usePointsUserSummary';
+import { formatReadableNumber, formatTokenAmountNumber } from '@dodoex/widgets';
+import LoadingSkeleton from '../Skeleton/LoadingSkeleton';
+import { usePointLeaderboard } from './hooks/usePointsLeaderboard';
 
 export default function Total() {
   const { account } = useWalletStore();
   const [isShowRankList, setIsShowRankList] = useState(false);
+  const fetchUserSummary = usePointUserSummary();
+  const fetchLeader = usePointLeaderboard();
+  const canClaim = true;
+  const overallRanks =
+    fetchLeader.data?.points_activity_leaderboard?.overallRanks;
+  const userRank =
+    fetchLeader.data?.points_activity_leaderboard?.currentUserRank?.rank;
+
   return (
     <div className="flex gap-3 flex-1 md:flex-row flex-col">
       <div
@@ -28,28 +40,51 @@ export default function Total() {
         <div className="flex flex-col md:items-center md:justify-center md:py-5 gap-2">
           <div className="mb-2 h-[22px] flex items-center">My Total Points</div>
           <div className="flex md:flex-col items-center md:justify-center gap-2">
-            <div className="text-[32px] font-semibold md:leading-[44px]">-</div>
-            <button className="flex flex-col px-3 py-1 md:py-[6px] rounded-lg text-xs md:text-sm font-semibold bg-primary text-primary-contrastText">
-              <Trans>Claim Rewards</Trans>
-              <div className="text-[10px] leading-[14px] text-primary-contrastText/50">
-                (<Trans>Coming Soon</Trans>)
-              </div>
-            </button>
-            {/* <button className="bg-[##FEE94F] py-2 px-5 flex items-center justify-center h-[35px] rounded-lg bg-[#FEE94F]"> */}
-            {/*   <svg */}
-            {/*     width="19" */}
-            {/*     height="19" */}
-            {/*     viewBox="0 0 19 19" */}
-            {/*     fill="none" */}
-            {/*     xmlns="http://www.w3.org/2000/svg" */}
-            {/*   > */}
-            {/*     <path */}
-            {/*       d="M5.52549 11.0002H3.50049C2.67549 11.0002 2.00049 11.6752 2.00049 12.5002V16.2502C2.00049 16.6252 2.37549 17.0002 2.75049 17.0002H5.52549C5.90049 17.0002 6.27549 16.6252 6.27549 16.2502V11.7502C6.27549 11.3002 5.90049 11.0002 5.52549 11.0002ZM10.4755 8.00016H8.45049C7.62549 8.00016 6.95049 8.67516 6.95049 9.50016V16.2502C6.95049 16.6252 7.25049 17.0002 7.70049 17.0002H11.2255C11.6755 17.0002 11.9755 16.6252 11.9755 16.2502V9.50016C11.9755 8.67516 11.3005 8.00016 10.4755 8.00016ZM15.5005 13.2502H13.4755C13.1005 13.2502 12.7255 13.6252 12.7255 14.0002V16.2502C12.7255 16.6252 13.1005 17.0002 13.4755 17.0002H16.2505C16.7005 17.0002 17.0005 16.6252 17.0005 16.2502V14.7502C17.0005 13.9252 16.3255 13.2502 15.5005 13.2502ZM11.7505 4.17516C11.9755 3.95016 12.0505 3.65016 11.9755 3.42516C11.9005 3.20016 11.6755 3.05016 11.3005 2.97516L10.5505 2.82516L10.4755 2.75016L10.1005 1.92516C9.80049 1.32516 9.12549 1.32516 8.82549 1.92516L8.45049 2.75016L8.37549 2.82516L7.62549 2.97516C7.32549 2.97516 7.10049 3.12516 7.02549 3.42516C6.95049 3.65016 7.02549 3.95016 7.25049 4.17516L7.77549 4.77516C7.77549 4.77516 7.85049 4.85016 7.85049 4.92516L7.70049 5.52516C7.55049 6.05016 7.77549 6.27516 7.92549 6.35016C8.00049 6.50016 8.30049 6.57516 8.75049 6.35016L9.42549 5.97516H9.57549L10.2505 6.35016C10.4755 6.42516 10.6255 6.50016 10.7755 6.50016C10.9255 6.50016 11.0755 6.42516 11.0755 6.42516C11.2255 6.35016 11.3755 6.12516 11.3005 5.60016L11.1505 4.92516C11.1505 4.92516 11.1505 4.77516 11.2255 4.77516L11.7505 4.17516Z" */}
-            {/*       fill="currentColor" */}
-            {/*     /> */}
-            {/*   </svg> */}
-            {/*   <span className="ml-1">44</span> */}
-            {/* </button> */}
+            <LoadingSkeleton
+              className="text-[32px] font-semibold md:leading-[44px]"
+              loading={fetchUserSummary.isLoading}
+              loadingClassName="w-20"
+            >
+              {formatTokenAmountNumber({
+                input:
+                  fetchUserSummary.data?.points_activity_userSummary
+                    ?.totalPoints,
+              })}
+            </LoadingSkeleton>
+            {canClaim ? (
+              <button className="flex flex-col px-3 py-1 md:py-[6px] rounded-lg text-xs md:text-sm font-semibold bg-primary text-primary-contrastText">
+                <Trans>Claim Rewards</Trans>
+                <div className="text-[10px] leading-[14px] text-primary-contrastText/50">
+                  (<Trans>Coming Soon</Trans>)
+                </div>
+              </button>
+            ) : (
+              <button className="bg-[##FEE94F] py-2 px-5 flex items-center justify-center h-[35px] rounded-lg bg-[#FEE94F] hover:opacity-70">
+                <svg
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.52549 11.0002H3.50049C2.67549 11.0002 2.00049 11.6752 2.00049 12.5002V16.2502C2.00049 16.6252 2.37549 17.0002 2.75049 17.0002H5.52549C5.90049 17.0002 6.27549 16.6252 6.27549 16.2502V11.7502C6.27549 11.3002 5.90049 11.0002 5.52549 11.0002ZM10.4755 8.00016H8.45049C7.62549 8.00016 6.95049 8.67516 6.95049 9.50016V16.2502C6.95049 16.6252 7.25049 17.0002 7.70049 17.0002H11.2255C11.6755 17.0002 11.9755 16.6252 11.9755 16.2502V9.50016C11.9755 8.67516 11.3005 8.00016 10.4755 8.00016ZM15.5005 13.2502H13.4755C13.1005 13.2502 12.7255 13.6252 12.7255 14.0002V16.2502C12.7255 16.6252 13.1005 17.0002 13.4755 17.0002H16.2505C16.7005 17.0002 17.0005 16.6252 17.0005 16.2502V14.7502C17.0005 13.9252 16.3255 13.2502 15.5005 13.2502ZM11.7505 4.17516C11.9755 3.95016 12.0505 3.65016 11.9755 3.42516C11.9005 3.20016 11.6755 3.05016 11.3005 2.97516L10.5505 2.82516L10.4755 2.75016L10.1005 1.92516C9.80049 1.32516 9.12549 1.32516 8.82549 1.92516L8.45049 2.75016L8.37549 2.82516L7.62549 2.97516C7.32549 2.97516 7.10049 3.12516 7.02549 3.42516C6.95049 3.65016 7.02549 3.95016 7.25049 4.17516L7.77549 4.77516C7.77549 4.77516 7.85049 4.85016 7.85049 4.92516L7.70049 5.52516C7.55049 6.05016 7.77549 6.27516 7.92549 6.35016C8.00049 6.50016 8.30049 6.57516 8.75049 6.35016L9.42549 5.97516H9.57549L10.2505 6.35016C10.4755 6.42516 10.6255 6.50016 10.7755 6.50016C10.9255 6.50016 11.0755 6.42516 11.0755 6.42516C11.2255 6.35016 11.3755 6.12516 11.3005 5.60016L11.1505 4.92516C11.1505 4.92516 11.1505 4.77516 11.2255 4.77516L11.7505 4.17516Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <LoadingSkeleton
+                  className="ml-1"
+                  loading={fetchLeader.isLoading}
+                  loadingClassName="w-5"
+                >
+                  {formatReadableNumber({
+                    input:
+                      fetchLeader.data?.points_activity_leaderboard
+                        ?.currentUserRank?.rank ?? '',
+                  })}
+                </LoadingSkeleton>
+              </button>
+            )}
           </div>
         </div>
 
@@ -57,22 +92,36 @@ export default function Total() {
           <DashboardItem
             icon={<SwapIcon />}
             label={<Trans>Swaps</Trans>}
-            value="-"
+            value={formatTokenAmountNumber({
+              input:
+                fetchUserSummary.data?.points_activity_userSummary?.swapPoints,
+            })}
+            loading={fetchUserSummary.isLoading}
           />
           <DashboardItem
             icon={<PoolIcon />}
             label={<Trans>Liquidity</Trans>}
-            value="-"
+            value={formatTokenAmountNumber({
+              input:
+                fetchUserSummary.data?.points_activity_userSummary?.lpPoints,
+            })}
+            loading={fetchUserSummary.isLoading}
           />
           <DashboardItem
             icon={<ReferralIcon />}
             label={<Trans>Referral</Trans>}
-            value="-"
+            value={formatTokenAmountNumber({
+              input:
+                fetchUserSummary.data?.points_activity_userSummary
+                  ?.invitePoints,
+            })}
+            loading={fetchUserSummary.isLoading}
           />
           <DashboardItem
             icon={<SocialIcon />}
             label={<Trans>Social media</Trans>}
             value="-"
+            loading={fetchUserSummary.isLoading}
           />
         </div>
       </div>
@@ -83,7 +132,7 @@ export default function Total() {
           onClose={() => setIsShowRankList(false)}
         />
         <div className="flex justify-between items-center mb-3">
-          <div className='text-xl font-semibold'>Leaderboard</div>
+          <div className="text-xl font-semibold">Leaderboard</div>
           <div
             className="cursor-pointer md:flex hidden text-secondary hover:text-primary"
             onClick={() => setIsShowRankList(true)}
@@ -111,39 +160,85 @@ export default function Total() {
             Points
           </div>
         </div>
-        {account && (
+
+        {account && (!userRank || userRank > 3) && (
           <div className="flex px-6 md:py-5 py-3 bg-main rounded-lg justify-between bg-primary/5 text-active items-center text-sm">
             <div className="flex flex-col-reverse md:flex-row md:basis-2/3 basis-1/2">
-              <div className="basis-1/2 md:text-active text-secondary">
-                -(You)
+              <div className="flex items-center basis-1/2 md:text-active text-secondary">
+                <LoadingSkeleton
+                  loading={fetchLeader.isLoading}
+                  loadingClassName="w-5"
+                >
+                  {userRank}
+                </LoadingSkeleton>
+                (You)
               </div>
               <div className="basis-1/2">{truncatePoolAddress(account)}</div>
             </div>
-            <div className="flex md:basis-1/3 basis-1/2 justify-end">-</div>
+            <LoadingSkeleton
+              className="flex md:basis-1/3 basis-1/2 justify-end"
+              loading={fetchLeader.isLoading}
+              loadingClassName="w-5"
+            >
+              {formatTokenAmountNumber({
+                input:
+                  fetchLeader.data?.points_activity_leaderboard?.currentUserRank
+                    ?.totalPoints,
+              })}
+            </LoadingSkeleton>
           </div>
         )}
-        {increaseArray(3).map((_, i) => (
-          <div
-            className="flex px-6 md:py-5 py-3 bg-main rounded-lg justify-between items-center text-sm"
-            key={i}
-          >
-            <div className="flex flex-col-reverse md:flex-row md:basis-2/3 basis-1/2">
-              <div className="basis-1/2">
-                <div
-                  className={clsx(
-                    'rounded-full flex items-center md:justify-center md:w-6 md:h-6 md:text-primary text-secondary',
-                    leaderboardBackgroundColorMap[i],
-                  )}
-                >
-                  <span className="md:hidden">#</span>
-                  {i + 1}
+        {increaseArray(3).map((_, i) => {
+          const rank = i + 1;
+          const currentRank = overallRanks?.find((item) => item?.rank == rank);
+          const active = rank == userRank;
+          return (
+            <div
+              className={clsx(
+                'flex px-6 md:py-5 py-3 bg-main rounded-lg justify-between items-center text-sm',
+                { 'bg-primary/5 text-active': active },
+              )}
+              key={i}
+            >
+              <div className="flex flex-col-reverse md:flex-row md:basis-2/3 basis-1/2">
+                <div className="basis-1/2">
+                  <div className="flex items-center md:gap-1">
+                    <div
+                      className={clsx(
+                        'rounded-full flex items-center md:justify-center md:w-6 md:h-6 md:text-primary text-secondary',
+                        leaderboardBackgroundColorMap[i],
+                      )}
+                    >
+                      <span className="md:hidden">#</span>
+                      {rank}
+                    </div>
+                    {active && (
+                      <span className="max-md:text-secondary">(You)</span>
+                    )}
+                  </div>
                 </div>
+                <LoadingSkeleton
+                  className="basis-1/2"
+                  loading={fetchLeader.isLoading}
+                  loadingClassName="w-5"
+                >
+                  {currentRank?.user
+                    ? truncatePoolAddress(currentRank.user)
+                    : '-'}
+                </LoadingSkeleton>
               </div>
-              <div className="basis-1/2">-</div>
+              <LoadingSkeleton
+                className="flex md:basis-1/3 basis-1/2 justify-end"
+                loading={fetchLeader.isLoading}
+                loadingClassName="w-5"
+              >
+                {formatReadableNumber({
+                  input: currentRank?.totalPoints ?? '',
+                })}
+              </LoadingSkeleton>
             </div>
-            <div className="flex md:basis-1/3 basis-1/2 justify-end">-</div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
@@ -153,10 +248,12 @@ function DashboardItem({
   icon,
   label,
   value,
+  loading,
 }: {
   icon: React.ReactNode;
   label: React.ReactNode;
   value: React.ReactNode;
+  loading?: boolean;
 }) {
   return (
     <div className="flex rounded-lg flex-1 items-center px-5 py-3 bg-main">
@@ -165,9 +262,14 @@ function DashboardItem({
       </div>
       <div className="md:ml-5">
         <div className="text-sm text-secondary mb-1">{label}</div>
-        <div className="text-xl font-semibold">{value}</div>
+        <LoadingSkeleton
+          className="text-xl font-semibold"
+          loading={loading}
+          loadingClassName="w-20"
+        >
+          {value}
+        </LoadingSkeleton>
       </div>
     </div>
   );
 }
-

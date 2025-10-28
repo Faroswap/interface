@@ -1,14 +1,47 @@
-import { EmptyDataIcon, useMediaDevices } from '@dodoex/components';
+import {
+  EmptyDataIcon,
+  RotatingIcon,
+  useMediaDevices,
+} from '@dodoex/components';
 import { Trans } from '@lingui/macro';
 import Dialog from '../Dialog';
 import Image from 'next/image';
 import swapPointsImage from '@/assets/points/swap-points.png';
 import clsx from 'clsx';
 import React from 'react';
+import { Tab } from './pcTabs';
+import { usePointsHistory } from './hooks/usePointsHistory';
+import dayjs from 'dayjs';
+import LoadingSkeleton from '../Skeleton/LoadingSkeleton';
+import { FailedList } from '@dodoex/widgets';
+import { usePointUserSummary } from './hooks/usePointsUserSummary';
 
-export function Point({ title }: { title: React.ReactNode }) {
+export function Point({
+  title,
+  sourceType,
+}: {
+  title: React.ReactNode;
+  sourceType: Tab;
+}) {
   const { isMobile } = useMediaDevices();
   const [collapseList, setCollapseList] = React.useState(!isMobile);
+  const fetchHistory = usePointsHistory({
+    sourceType,
+  });
+  const fetchUserSummary = usePointUserSummary();
+  const userSummary = fetchUserSummary.data?.points_activity_userSummary;
+  let totalPoint = '0';
+  switch (sourceType) {
+    case Tab.Swap:
+      totalPoint = userSummary?.swapPoints ?? '';
+      break;
+    case Tab.Liquidity:
+      totalPoint = userSummary?.lpPoints ?? '';
+      break;
+    case Tab.Referral:
+      totalPoint = userSummary?.invitePoints ?? '';
+      break;
+  }
 
   return (
     <>
@@ -18,7 +51,13 @@ export function Point({ title }: { title: React.ReactNode }) {
           <div className="flex">
             <div className="flex flex-col">
               <div className="text-xs font-semibold mb-2">{title}</div>
-              <div className="text-2xl font-semibold">-</div>
+              <LoadingSkeleton
+                className="text-2xl font-semibold"
+                loading={fetchUserSummary.isLoading}
+                loadingClassName="w-5"
+              >
+                {totalPoint}
+              </LoadingSkeleton>
             </div>
           </div>
           <button
@@ -53,6 +92,16 @@ export function Point({ title }: { title: React.ReactNode }) {
             open={collapseList}
             onClose={() => setCollapseList(false)}
             title={title}
+            fetchHistory={fetchHistory}
+            totalPoint={
+              <LoadingSkeleton
+                className="text-2xl font-semibold"
+                loading={fetchUserSummary.isLoading}
+                loadingClassName="w-5"
+              >
+                {totalPoint}
+              </LoadingSkeleton>
+            }
           />
         )}
       </div>
@@ -68,7 +117,13 @@ export function Point({ title }: { title: React.ReactNode }) {
           </div>
           <div className="flex flex-col">
             <div className="text-lg font-semibold mb-2">{title}</div>
-            <div className="text-2xl font-semibold">-</div>
+            <LoadingSkeleton
+              className="text-2xl font-semibold"
+              loading={fetchUserSummary.isLoading}
+              loadingClassName="w-5"
+            >
+              {totalPoint}
+            </LoadingSkeleton>
           </div>
         </div>
         <div className="flex bg-paper rounded-3xl flex-col">
@@ -102,7 +157,7 @@ export function Point({ title }: { title: React.ReactNode }) {
               collapseList ? 'max-h-[9999px]' : 'max-h-0',
             )}
           >
-            <PointList />
+            <PointList fetchHistory={fetchHistory} />
           </div>
         </div>
       </div>
@@ -114,10 +169,14 @@ function PointListDialog({
   open,
   onClose,
   title,
+  fetchHistory,
+  totalPoint,
 }: {
   open: boolean;
   onClose: () => void;
   title: React.ReactNode;
+  fetchHistory: ReturnType<typeof usePointsHistory>;
+  totalPoint: React.ReactNode;
 }) {
   return (
     <Dialog open={open}>
@@ -134,7 +193,7 @@ function PointListDialog({
             </div>
             <div className="flex flex-col">
               <div className="text-xs font-semibold mb-2">{title}</div>
-              <div className="text-2xl font-semibold">-</div>
+              {totalPoint}
             </div>
           </div>
           <button onClick={onClose} className="text-secondary">
@@ -176,74 +235,97 @@ function PointListDialog({
         <div className="p-5 bg-paper text-lg font-semibold leading-[25px]">
           <Trans>History</Trans>
         </div>
-        <PointList />
+        <PointList fetchHistory={fetchHistory} />
       </div>
     </Dialog>
   );
 }
 
-function PointList() {
+function PointList({
+  fetchHistory,
+}: {
+  fetchHistory: ReturnType<typeof usePointsHistory>;
+}) {
   return (
     <>
       <div className="flex justify-between flex-1 text-sm px-6 py-[14px] bg-paperDarkContrast text-secondary">
         <div>Points</div>
         <div>Receive date</div>
       </div>
-      <div className="flex justify-center items-center flex-col h-[320px] gap-3">
-        <EmptyDataIcon
+      {fetchHistory.isLoading ? (
+        <div className="flex justify-between flex-1 text-sm px-6 py-[14px] h-[320px]">
+          <div className="animate-pulse bg-skeleton rounded-[4px] w-8 h-[22px]" />
+          <div className="animate-pulse bg-skeleton rounded-[4px] w-20 h-[22px]" />
+        </div>
+      ) : fetchHistory.isError ? (
+        <FailedList
+          refresh={fetchHistory.refetch}
           sx={{
-            width: 60,
-            height: 60,
-            borderRadius: 8,
+            height: 320,
           }}
         />
-        <div className="text-secondary">
-          <Trans>Coming Soon</Trans>
-        </div>
-      </div>
-    </>
-  );
-  return (
-    <>
-      <div className="flex justify-between flex-1 text-sm px-6 py-[14px] bg-paperDarkContrast text-secondary">
-        <div>Points</div>
-        <div>Receive date</div>
-      </div>
-      <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-        <div>+50</div>
-        <div>2022/07/01 17:19:39</div>
-      </div>
-      <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-        <div>+50</div>
-        <div>2022/07/01 17:19:39</div>
-      </div>
-      <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-        <div>+50</div>
-        <div>2022/07/01 17:19:39</div>
-      </div>
-      <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-        <div>+50</div>
-        <div>2022/07/01 17:19:39</div>
-      </div>
-      <div className="flex justify-between flex-1 text-sm px-6 py-[14px]">
-        <div>+50</div>
-        <div>2022/07/01 17:19:39</div>
-      </div>
-      <div className="border-t py-5 flex items-center justify-center text-secondary cursor-pointer hover:text-primary">
-        <div className="mr-1">Load more</div>
-        <svg
-          width="15"
-          height="14"
-          viewBox="0 0 15 14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M11.4248 6.04565L10.5082 5.12903L7.30001 8.3372L4.09185 5.12903L3.17523 6.04565L7.30002 10.1704L11.4248 6.04565Z"
-            fill="currentColor"
+      ) : !fetchHistory.pointHistory?.length ? (
+        <div className="flex justify-center items-center flex-col h-[320px] gap-3">
+          <EmptyDataIcon
+            sx={{
+              width: 60,
+              height: 60,
+              borderRadius: 8,
+            }}
           />
-        </svg>
-      </div>
+          <div className="text-secondary">
+            <Trans>No Result</Trans>
+          </div>
+        </div>
+      ) : (
+        ''
+      )}
+      {!!fetchHistory.pointHistory?.length && (
+        <div className="max-h-[320px] overflow-y-auto">
+          {fetchHistory.pointHistory?.map((point) => {
+            return (
+              <div
+                className="flex justify-between flex-1 text-sm px-6 py-[14px]"
+                key={String(point?.activityId ?? '') + String(point?.id ?? '')}
+              >
+                <div>+{point?.points}</div>
+                <div>
+                  {point?.time
+                    ? dayjs(point?.time * 1000).format('YYYY-MM-DD HH:mm:ss')
+                    : '-'}
+                </div>
+              </div>
+            );
+          })}
+          {fetchHistory.hasNextPage && (
+            <div
+              className="border-t py-5 flex items-center justify-center text-secondary cursor-pointer hover:text-primary"
+              onClick={() => {
+                if (fetchHistory.isFetchingNextPage) return;
+                fetchHistory.fetchNextPage();
+              }}
+            >
+              <div className="mr-1">Load more</div>
+              {fetchHistory.isFetchingNextPage ? (
+                <RotatingIcon />
+              ) : (
+                <svg
+                  width="15"
+                  height="14"
+                  viewBox="0 0 15 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.4248 6.04565L10.5082 5.12903L7.30001 8.3372L4.09185 5.12903L3.17523 6.04565L7.30002 10.1704L11.4248 6.04565Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              )}
+            </div>
+          )}
+        </div>
+      )}
     </>
   );
 }

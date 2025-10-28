@@ -1,6 +1,7 @@
 import { Trans } from '@lingui/macro';
 import TokenLogo from '../TokenLogo';
 import { Point } from './Points';
+import { Tab } from './pcTabs';
 
 export default function Swap() {
   const specialBoost = [
@@ -92,7 +93,7 @@ export default function Swap() {
           ))}
         </div>
       </div>
-      <Point title={<Trans>My Swap Points</Trans>} />
+      <Point title={<Trans>My Swap Points</Trans>} sourceType={Tab.Swap} />
     </div>
   );
 }
