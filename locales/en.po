@@ -21,7 +21,7 @@ msgstr "$PHRS Faucet"
 msgid "Activity"
 msgstr "Activity"
 
-#: components/points/liquidity.tsx:19
+#: components/points/liquidity.tsx:21
 #: submission/module.tsx:60
 msgid "Add Liquidity"
 msgstr "Add Liquidity"
@@ -38,7 +38,7 @@ msgstr "Airdrop Rewards"
 msgid "Anchor assets safely in DeFi harbor"
 msgstr "Anchor assets safely in DeFi harbor"
 
-#: components/points/liquidity.tsx:58
+#: components/points/liquidity.tsx:60
 msgid "Anti-Whale Rule"
 msgstr "Anti-Whale Rule"
 
@@ -58,7 +58,7 @@ msgstr "Claim"
 msgid "Claim Pharos New Testnet Tokens:"
 msgstr "Claim Pharos New Testnet Tokens:"
 
-#: components/points/total.tsx:33
+#: components/points/total.tsx:89
 #: submission/module.tsx:75
 msgid "Claim Rewards"
 msgstr "Claim Rewards"
@@ -71,9 +71,11 @@ msgstr "Claim successful! 🎉 Tnx Hash:"
 msgid "Claimed, try later"
 msgstr "Claimed, try later"
 
-#: components/points/Points.tsx:201
-#: components/points/referral.tsx:232
-#: components/points/total.tsx:35
+#: components/ErrorMessageDialog.tsx:27
+msgid "Close"
+msgstr "Close"
+
+#: components/points/total.tsx:91
 msgid "Coming Soon"
 msgstr "Coming Soon"
 
@@ -81,9 +83,13 @@ msgstr "Coming Soon"
 msgid "Community"
 msgstr "Community"
 
-#: components/points/referral.tsx:196
+#: components/points/referral.tsx:308
 msgid "Confirm"
 msgstr "Confirm"
+
+#: components/points/referral.tsx:305
+msgid "Confirming..."
+msgstr "Confirming..."
 
 #: components/reward/index.tsx:92
 #: components/walletConnect/ConnectWalletBtn.tsx:84
@@ -94,6 +100,7 @@ msgstr "Connect a wallet"
 msgid "Connect Wallet"
 msgstr "Connect Wallet"
 
+#: components/points/referral.tsx:223
 #: components/walletConnect/AccountPage.tsx:102
 #: components/walletConnect/HasBalanceTokenList.tsx:66
 #: components/walletConnect/ReceiveTokenPage.tsx:43
@@ -112,7 +119,7 @@ msgstr "Create Liquidity Mining"
 msgid "Documents"
 msgstr "Documents"
 
-#: components/points/swap.tsx:23
+#: components/points/swap.tsx:25
 msgid "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
 msgstr "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
 
@@ -124,11 +131,15 @@ msgstr "End mining\\n"
 msgid "Failed"
 msgstr "Failed"
 
-#: components/points/swap.tsx:47
+#: components/points/hooks/useAcceptInvite.ts:63
+msgid "Failed to accept invitation"
+msgstr "Failed to accept invitation"
+
+#: components/points/swap.tsx:46
 msgid "FaroSwap will feature <0>special trading pairs / selected</0> pools from our key partners, where trading these pairs allows you to earn <1>additional — and even double — points.</1>"
 msgstr "FaroSwap will feature <0>special trading pairs / selected</0> pools from our key partners, where trading these pairs allows you to earn <1>additional — and even double — points.</1>"
 
-#: components/points/liquidity.tsx:82
+#: components/points/liquidity.tsx:81
 msgid "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 msgstr "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 
@@ -140,9 +151,9 @@ msgstr "Faucet"
 msgid "Follow<0>FaroSwap</0>to claim"
 msgstr "Follow<0>FaroSwap</0>to claim"
 
-#: components/points/liquidity.tsx:61
+#: components/points/liquidity.tsx:63
 msgid "For any single address providing more than <0>1M USD value of LP in a single pool</0>, the team must be contacted directly to obtain a customized annualized points scheme."
-msgstr "For any single address providing more than <0>1M USD value of LP in a single pool</0>, the team must be contacted directly to obtain a customized annualized points scheme.
+msgstr "For any single address providing more than <0>1M USD value of LP in a single pool</0>, the team must be contacted directly to obtain a customized annualized points scheme."
 
 #: submission/getExecutionErrorMsg.ts:36
 msgid "Gas price is too low, please adjust in your wallet and try again"
@@ -160,7 +171,7 @@ msgstr "Go back"
 msgid "Guiding your trades through DeFi waters"
 msgstr "Guiding your trades through DeFi waters"
 
-#: components/points/Points.tsx:177
+#: components/points/Points.tsx:236
 msgid "History"
 msgstr "History"
 
@@ -176,15 +187,15 @@ msgstr "Invalid address. Please enter again."
 msgid "Invalid wallet address"
 msgstr "Invalid wallet address"
 
-#: components/points/referral.tsx:34
+#: components/points/referral.tsx:68
 msgid "Invite Friends, <0/>Boost Your Rewards"
 msgstr "Invite Friends, <0/>Boost Your Rewards"
 
-#: components/points/referral.tsx:93
+#: components/points/referral.tsx:135
 msgid "Invited users"
 msgstr "Invited users"
 
-#: components/points/total.tsx:64
+#: components/points/total.tsx:136
 msgid "Liquidity"
 msgstr "Liquidity"
 
@@ -204,21 +215,26 @@ msgstr "Maximum <0>0.01 PHRS</0> every 12 hours"
 msgid "My Airdrop"
 msgstr "My Airdrop"
 
-#: components/points/liquidity.tsx:120
+#: components/points/liquidity.tsx:135
 msgid "My Liquidity Points"
 msgstr "My Liquidity Points"
 
-#: components/points/referral.tsx:105
+#: components/points/referral.tsx:157
 msgid "My referral link"
 msgstr "My referral link"
 
-#: components/points/referral.tsx:71
+#: components/points/referral.tsx:105
 msgid "My referral Points"
 msgstr "My referral Points"
 
-#: components/points/swap.tsx:95
+#: components/points/swap.tsx:105
 msgid "My Swap Points"
 msgstr "My Swap Points"
+
+#: components/points/Points.tsx:277
+#: components/points/referral.tsx:365
+msgid "No Result"
+msgstr "No Result"
 
 #: components/reward/index.tsx:84
 msgid "No rewards"
@@ -281,7 +297,7 @@ msgstr "Receive"
 msgid "Receiver address"
 msgstr "Receiver address"
 
-#: components/points/total.tsx:69
+#: components/points/total.tsx:147
 msgid "Referral"
 msgstr "Referral"
 
@@ -298,11 +314,11 @@ msgstr "Reset"
 msgid "RPC node data exception"
 msgstr "RPC node data exception"
 
-#: components/points/liquidity.tsx:29
+#: components/points/liquidity.tsx:31
 msgid "Rule: USD 1 / 3 days = 1 point"
 msgstr "Rule: USD 1 / 3 days = 1 point"
 
-#: components/points/swap.tsx:29
+#: components/points/swap.tsx:31
 msgid "Rule: USD 1 = 3 points"
 msgstr "Rule: USD 1 = 3 points"
 
@@ -317,12 +333,16 @@ msgstr "SafeERC20: low-level call failed. Please log a Zendesk support ticket or
 msgid "Send"
 msgstr "Send"
 
-#: components/points/total.tsx:74
+#: components/points/total.tsx:185
 msgid "Social media"
 msgstr "Social media"
 
-#: components/points/liquidity.tsx:79
-#: components/points/swap.tsx:44
+#: components/points/SocialMedia.tsx:16
+msgid "Social Media Missions — How to Join"
+msgstr "Social Media Missions — How to Join"
+
+#: components/points/liquidity.tsx:78
+#: components/points/swap.tsx:43
 msgid "Special Boost"
 msgstr "Special Boost"
 
@@ -334,13 +354,13 @@ msgstr "Stake"
 msgid "Succeeded"
 msgstr "Succeeded"
 
-#: components/points/swap.tsx:19
+#: components/points/swap.tsx:21
 #: constants/menuList.tsx:12
 #: submission/module.tsx:54
 msgid "Swap"
 msgstr "Swap"
 
-#: components/points/total.tsx:59
+#: components/points/total.tsx:125
 msgid "Swaps"
 msgstr "Swaps"
 
@@ -348,13 +368,13 @@ msgstr "Swaps"
 msgid "Telegram"
 msgstr "Telegram"
 
-#: components/points/referral.tsx:47
+#: components/points/referral.tsx:81
 msgid "The invitee, by entering the referral code, will earn their normal points plus an extra 20% bonus."
 msgstr "The invitee, by entering the referral code, will earn their normal points plus an extra 20% bonus."
 
-#: components/points/referral.tsx:41
+#: components/points/referral.tsx:75
 msgid "The inviter will receive all points generated by the invitee’s future swap & liquidity activities."
-msgstr "The inviter will receive all points generated by the invitee’s future swap & liquidity activities.
+msgstr "The inviter will receive all points generated by the invitee’s future swap & liquidity activities."
 
 #: components/walletConnect/ActivityList.tsx:89
 msgid "This is empty"
@@ -380,7 +400,7 @@ msgstr "Transfer"
 msgid "User denied transaction signature."
 msgstr "User denied transaction signature."
 
-#: components/points/liquidity.tsx:23
+#: components/points/liquidity.tsx:25
 msgid "Users who provide liquidity to the protocol will earn points based on both the amount and the holding duration."
 msgstr "Users who provide liquidity to the protocol will earn points based on both the amount and the holding duration."
 
@@ -388,6 +408,14 @@ msgstr "Users who provide liquidity to the protocol will earn points based on bo
 msgid "vDODO Airdrop"
 msgstr "vDODO Airdrop"
 
+#: components/points/total.tsx:177
+msgid "View more"
+msgstr "View more"
+
 #: components/banner/PoolBanner.tsx:60
 msgid "View More Details"
 msgstr "View More Details"
+
+#: components/points/SocialMedia.tsx:19
+msgid "We use our Discord tools to verify user activities and distribute points.Please follow the steps below to set up your account and start earning Social Media Points:"
+msgstr "We use our Discord tools to verify user activities and distribute points.Please follow the steps below to set up your account and start earning Social Media Points:"

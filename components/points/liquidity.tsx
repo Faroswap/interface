@@ -103,14 +103,14 @@ export default function Swap() {
               >
                 <div className="flex items-center">
                   <TokenLogo
-                    address={item?.baseToken!}
+                    address={item?.baseToken ?? ''}
                     chainId={chainId}
                     width={24}
                     height={24}
                     marginRight={-6}
                   />
                   <TokenLogo
-                    address={item?.quoteToken!}
+                    address={item?.quoteToken ?? ''}
                     chainId={chainId}
                     width={24}
                     height={24}

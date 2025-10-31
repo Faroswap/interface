@@ -18,14 +18,7 @@ import LoadingSkeleton from '../Skeleton/LoadingSkeleton';
 import { usePointLeaderboard } from './hooks/usePointsLeaderboard';
 import { Tab } from './pcTabs';
 import { ArrowRight } from '@dodoex/icons';
-import {
-  TabButton,
-  TabListButton,
-  TabPanel,
-  Tabs,
-  TabsButtonGroup,
-  TabsGroup,
-} from '@dodoex/components';
+import { TabPanel, Tabs, TabsButtonGroup } from '@dodoex/components';
 
 enum PointTab {
   trading = 1,
@@ -192,12 +185,9 @@ export default function Total({
                   <Trans>Social media</Trans>
                 </div>
                 <div className="text-sm text-secondary md:text-center">
-                  <Trans>
-                    These points are earned through verified social activities
-                    on Discord.  They are tracked separately and not combined
-                    with your other points such as Swap ,Liquidity or Referral
-                    Points.
-                  </Trans>
+                  These points are earned through verified social activities on
+                  Discord.  They are tracked separately and not combined with
+                  your other points such as Swap ,Liquidity or Referral Points.
                 </div>
               </div>
             </>
