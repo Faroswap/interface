@@ -2,16 +2,17 @@ import { Trans } from '@lingui/macro';
 import TokenLogo from '../TokenLogo';
 import { Point } from './Points';
 import { Tab } from './pcTabs';
+import { SINGLE_CHAIN_ID } from '@/constants/config';
+import { usePointSpecialBoost } from './hooks/usePointsSpecialBoost';
+import Link from 'next/link';
+import { SpecialBoostLoading } from './SpecialBoostLoading';
+import { FailedList } from '@dodoex/widgets';
 
 export default function Swap() {
-  const specialBoost = [
-    { baseToken: WPHRC, quoteToken: USDC, tag: 50 },
-    { baseToken: WPHRC, quoteToken: USDT, tag: 200 },
-    { baseToken: USDC, quoteToken: USDT, tag: 100 },
-    { baseToken: WPHRC, quoteToken: WETH, tag: 200 },
-    { baseToken: AUTO, quoteToken: WPHRC, tag: 50 },
-    { baseToken: AUTO, quoteToken: USDC, tag: 100 },
-  ];
+  const chainId = SINGLE_CHAIN_ID;
+  const fetchSpecialBoost = usePointSpecialBoost({
+    type: 'lp',
+  });
 
   return (
     <div className="flex md:flex-row flex-col">
@@ -67,15 +68,12 @@ export default function Swap() {
             </Trans>
           </div>
         </div>
-        <button
-          className="mt-7 relative bg-primary w-[280px] h-[48px] flex items-center justify-center text-white rounded-lg mb-12 font-semibold disabled:bg-paperDarkContrast disabled:text-disabled"
-          disabled
+        <Link
+          href="/pool"
+          className="mt-7 relative bg-primary w-[280px] h-[48px] flex items-center justify-center text-white rounded-lg mb-12 font-semibold disabled:bg-paperDarkContrast disabled:text-disabled hover:opacity-90"
         >
-          <div className="absolute top-0 right-0 rounded-tr-lg rounded-bl-lg py-1 px-2 text-xs font-semibold bg-paperDarkContrast text-white">
-            Soon
-          </div>
           Add liquidity now
-        </button>
+        </Link>
         <div className="text-xl font-semibold mb-2">
           <Trans>Special Boost</Trans>
         </div>
@@ -87,35 +85,50 @@ export default function Swap() {
           </Trans>
         </div>
         <div className="flex flex-wrap gap-3">
-          {specialBoost.map((item, i) => (
-            <div
-              className="bg-paper md:bg-main rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex pl-3"
-              key={i}
-            >
-              <div className="flex items-center">
-                <TokenLogo
-                  address={item.baseToken.address}
-                  chainId={item.baseToken.chainId}
-                  width={24}
-                  height={24}
-                  marginRight={-6}
-                />
-                <TokenLogo
-                  address={item.quoteToken.address}
-                  chainId={item.quoteToken.chainId}
-                  width={24}
-                  height={24}
-                  marginRight={9}
-                />
-              </div>
-              <div className="text-sm">
-                {item.baseToken.symbol}/{item.quoteToken.symbol}
-              </div>
-              <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center px-2 leading-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">
-                +{item.tag}%
-              </div>
+          {fetchSpecialBoost.isLoading ? (
+            <SpecialBoostLoading />
+          ) : fetchSpecialBoost.isError ? (
+            <div className="flex items-center justify-center h-[320px]">
+              <FailedList refresh={fetchSpecialBoost.refetch} />
             </div>
-          ))}
+          ) : (
+            ''
+          )}
+          {fetchSpecialBoost.data?.points_activity_specialBoost?.map(
+            (item, i) => (
+              <Link
+                href={`/swap/${chainId}-${item?.baseSymbol}/${chainId}-${item?.quoteSymbol}`}
+                className="bg-paper md:bg-main rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex pl-3"
+                key={i}
+              >
+                <div className="flex items-center">
+                  <TokenLogo
+                    address={item?.baseToken!}
+                    chainId={chainId}
+                    width={24}
+                    height={24}
+                    marginRight={-6}
+                  />
+                  <TokenLogo
+                    address={item?.quoteToken!}
+                    chainId={chainId}
+                    width={24}
+                    height={24}
+                    marginRight={9}
+                  />
+                </div>
+                <div className="text-sm">
+                  {item?.baseSymbol}/{item?.quoteSymbol}
+                </div>
+                <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center px-2 leading-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">
+                  +{item?.multiplierPercentage}%
+                </div>
+                <div className="swap absolute right-0 bg-[#1A1A1B1A] text-active text-sm items-center justify-center h-full w-[60px] hidden rounded-r-lg">
+                  Swap
+                </div>
+              </Link>
+            ),
+          )}
         </div>
       </div>
       <Point
@@ -125,39 +138,3 @@ export default function Swap() {
     </div>
   );
 }
-
-const WPHRC = {
-  name: 'Wrapped PHRS',
-  address: '0x3019B247381c850ab53Dc0EE53bCe7A07Ea9155f',
-  symbol: 'WPHRS',
-  decimals: 18,
-  chainId: 688688,
-};
-const USDC = {
-  name: 'USD Coin',
-  address: '0x72df0bcd7276f2dFbAc900D1CE63c272C4BCcCED',
-  symbol: 'USDC',
-  decimals: 6,
-  chainId: 688688,
-};
-const USDT = {
-  name: 'Tether USD',
-  address: '0xD4071393f8716661958F766DF660033b3d35fD29',
-  symbol: 'USDT',
-  decimals: 6,
-  chainId: 688688,
-};
-const WETH = {
-  name: 'Wrapped ETH',
-  address: '0x4E28826d32F1C398DED160DC16Ac6873357d048f',
-  symbol: 'WETH',
-  decimals: 18,
-  chainId: 688688,
-};
-const AUTO = {
-  name: 'AutoStaking',
-  address: '0x1A0588a167bB4868Da407d32F09e3C41a2e2EE93',
-  symbol: 'AUTO',
-  decimals: 6,
-  chainId: 688688,
-};

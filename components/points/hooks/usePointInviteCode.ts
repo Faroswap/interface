@@ -5,23 +5,31 @@ import { useWalletStore } from '@dodoex/wallet-web3';
 import { useQuery } from '@tanstack/react-query';
 
 const document = graphql(`
-  query FetchPointsUserSummary($where: Points_activityuserSummaryFilter) {
-    points_activity_userSummary(where: $where) {
-      activityId
-      activityName
-      inviteeCount
-      invitePoints
-      lpPoints
-      swapPoints
-      totalPoints
+  query FetchPointInviteCode(
+    $where: Points_activityinviteCodeFilter
+    $whereStatus: Points_activityinviteStatusFilter
+  ) {
+    points_activity_inviteCode(where: $where) {
+      inviteCode
+      inviteUrl
+    }
+    points_activity_inviteStatus(where: $whereStatus) {
+      inviterAddress
+      status
     }
   }
 `);
-export function usePointUserSummary() {
+
+export function usePointInviteCode() {
   const { account } = useWalletStore();
   // @ts-ignore
   const queryOptions = graphQLRequests.getQuery(document, {
     where: {
+      user: account?.toLowerCase(),
+      chainId: SINGLE_CHAIN_ID,
+      domain: ERC20_DOMAIN,
+    },
+    whereStatus: {
       user: account?.toLowerCase(),
       chainId: SINGLE_CHAIN_ID,
       domain: ERC20_DOMAIN,
@@ -31,6 +39,5 @@ export function usePointUserSummary() {
     ...queryOptions,
     enabled: !!account,
   });
-
   return fetchQuery;
 }

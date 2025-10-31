@@ -11296,8 +11296,10 @@ export type Points_ActivityActivityRankItem = {
 export type Points_ActivityHistoryItem = {
   activityId?: Maybe<Scalars['Int']['output']>;
   id?: Maybe<Scalars['Int']['output']>;
+  inviteeAddress?: Maybe<Scalars['String']['output']>;
   points?: Maybe<Scalars['String']['output']>;
   time?: Maybe<Scalars['Int']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
   user?: Maybe<Scalars['String']['output']>;
 };
 
@@ -11308,15 +11310,43 @@ export type Points_ActivityPointsActivityHistory = {
   pageSize?: Maybe<Scalars['Int']['output']>;
 };
 
+export type Points_ActivityPointsActivityInviteAccept = {
+  inviterAddress?: Maybe<Scalars['String']['output']>;
+  success?: Maybe<Scalars['Boolean']['output']>;
+};
+
+export type Points_ActivityPointsActivityInviteCode = {
+  inviteCode?: Maybe<Scalars['String']['output']>;
+  inviteUrl?: Maybe<Scalars['String']['output']>;
+};
+
+export type Points_ActivityPointsActivityInviteStatus = {
+  acceptedAt?: Maybe<Scalars['String']['output']>;
+  inviterAddress?: Maybe<Scalars['String']['output']>;
+  inviterCode?: Maybe<Scalars['String']['output']>;
+  status?: Maybe<Scalars['String']['output']>;
+};
+
 export type Points_ActivityPointsActivityLeaderboard = {
   currentUserRank?: Maybe<Points_ActivityActivityRankItem>;
   overallRanks?: Maybe<Array<Maybe<Points_ActivityActivityRankItem>>>;
+};
+
+export type Points_ActivityPointsActivitySpecialBoost = {
+  baseSymbol?: Maybe<Scalars['String']['output']>;
+  baseToken?: Maybe<Scalars['String']['output']>;
+  multiplier?: Maybe<Scalars['String']['output']>;
+  multiplierPercentage?: Maybe<Scalars['String']['output']>;
+  poolAddress?: Maybe<Scalars['String']['output']>;
+  quoteSymbol?: Maybe<Scalars['String']['output']>;
+  quoteToken?: Maybe<Scalars['String']['output']>;
 };
 
 export type Points_ActivityPointsActivitySummary = {
   activityId?: Maybe<Scalars['Int']['output']>;
   activityName?: Maybe<Scalars['String']['output']>;
   invitePoints?: Maybe<Scalars['String']['output']>;
+  inviteeCount?: Maybe<Scalars['Int']['output']>;
   lpPoints?: Maybe<Scalars['String']['output']>;
   swapPoints?: Maybe<Scalars['String']['output']>;
   totalPoints?: Maybe<Scalars['String']['output']>;
@@ -11333,6 +11363,32 @@ export type Points_ActivityhistoryFilter = {
   user?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Points_ActivityinviteAcceptFilter = {
+  chainId?: InputMaybe<Scalars['Int']['input']>;
+  domain?: InputMaybe<Scalars['String']['input']>;
+  inviteCode?: InputMaybe<Scalars['String']['input']>;
+  inviteMethod?: InputMaybe<Scalars['String']['input']>;
+  message?: InputMaybe<Scalars['String']['input']>;
+  refreshNow?: InputMaybe<Scalars['Boolean']['input']>;
+  signature?: InputMaybe<Scalars['String']['input']>;
+  timestamp?: InputMaybe<Scalars['Int']['input']>;
+  user?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Points_ActivityinviteCodeFilter = {
+  chainId?: InputMaybe<Scalars['Int']['input']>;
+  domain?: InputMaybe<Scalars['String']['input']>;
+  refreshNow?: InputMaybe<Scalars['Boolean']['input']>;
+  user?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Points_ActivityinviteStatusFilter = {
+  chainId?: InputMaybe<Scalars['Int']['input']>;
+  domain?: InputMaybe<Scalars['String']['input']>;
+  refreshNow?: InputMaybe<Scalars['Boolean']['input']>;
+  user?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type Points_ActivityleaderboardFilter = {
   chainId?: InputMaybe<Scalars['Int']['input']>;
   domain?: InputMaybe<Scalars['String']['input']>;
@@ -11340,6 +11396,13 @@ export type Points_ActivityleaderboardFilter = {
   pageSize?: InputMaybe<Scalars['Int']['input']>;
   refreshNow?: InputMaybe<Scalars['Boolean']['input']>;
   user?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Points_ActivityspecialBoostFilter = {
+  chainId?: InputMaybe<Scalars['Int']['input']>;
+  domain?: InputMaybe<Scalars['String']['input']>;
+  refreshNow?: InputMaybe<Scalars['Boolean']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Points_ActivityuserSummaryFilter = {
@@ -13270,7 +13333,13 @@ export type Query = {
   persistentStringArrays: Array<PersistentStringArray>;
   persistentStrings: Array<PersistentString>;
   points_activity_history?: Maybe<Points_ActivityPointsActivityHistory>;
+  points_activity_inviteAccept?: Maybe<Points_ActivityPointsActivityInviteAccept>;
+  points_activity_inviteCode?: Maybe<Points_ActivityPointsActivityInviteCode>;
+  points_activity_inviteStatus?: Maybe<Points_ActivityPointsActivityInviteStatus>;
   points_activity_leaderboard?: Maybe<Points_ActivityPointsActivityLeaderboard>;
+  points_activity_specialBoost?: Maybe<
+    Array<Maybe<Points_ActivityPointsActivitySpecialBoost>>
+  >;
   points_activity_userSummary?: Maybe<Points_ActivityPointsActivitySummary>;
   pool?: Maybe<Pool>;
   poolDayData?: Maybe<PoolDayData>;
@@ -15011,8 +15080,24 @@ export type QueryPoints_Activity_HistoryArgs = {
   where?: InputMaybe<Points_ActivityhistoryFilter>;
 };
 
+export type QueryPoints_Activity_InviteAcceptArgs = {
+  data?: InputMaybe<Points_ActivityinviteAcceptFilter>;
+};
+
+export type QueryPoints_Activity_InviteCodeArgs = {
+  where?: InputMaybe<Points_ActivityinviteCodeFilter>;
+};
+
+export type QueryPoints_Activity_InviteStatusArgs = {
+  where?: InputMaybe<Points_ActivityinviteStatusFilter>;
+};
+
 export type QueryPoints_Activity_LeaderboardArgs = {
   where?: InputMaybe<Points_ActivityleaderboardFilter>;
+};
+
+export type QueryPoints_Activity_SpecialBoostArgs = {
+  where?: InputMaybe<Points_ActivityspecialBoostFilter>;
 };
 
 export type QueryPoints_Activity_UserSummaryArgs = {
@@ -22071,6 +22156,33 @@ export type VDodo_OrderBy =
   | 'totalStakingPower'
   | 'totalUsers';
 
+export type AcceptInviteQueryVariables = Exact<{
+  data: Points_ActivityinviteAcceptFilter;
+}>;
+
+export type AcceptInviteQuery = {
+  points_activity_inviteAccept?: {
+    success?: boolean | null;
+    inviterAddress?: string | null;
+  } | null;
+};
+
+export type FetchPointInviteCodeQueryVariables = Exact<{
+  where?: InputMaybe<Points_ActivityinviteCodeFilter>;
+  whereStatus?: InputMaybe<Points_ActivityinviteStatusFilter>;
+}>;
+
+export type FetchPointInviteCodeQuery = {
+  points_activity_inviteCode?: {
+    inviteCode?: string | null;
+    inviteUrl?: string | null;
+  } | null;
+  points_activity_inviteStatus?: {
+    inviterAddress?: string | null;
+    status?: string | null;
+  } | null;
+};
+
 export type FetchPointsHistoryQueryVariables = Exact<{
   where?: InputMaybe<Points_ActivityhistoryFilter>;
 }>;
@@ -22085,6 +22197,8 @@ export type FetchPointsHistoryQuery = {
       activityId?: number | null;
       points?: string | null;
       time?: number | null;
+      type?: string | null;
+      inviteeAddress?: string | null;
     } | null> | null;
   } | null;
 };
@@ -22107,6 +22221,22 @@ export type FetchPointsLeaderboardQuery = {
   } | null;
 };
 
+export type FetchPointSpecialBoostQueryVariables = Exact<{
+  where?: InputMaybe<Points_ActivityspecialBoostFilter>;
+}>;
+
+export type FetchPointSpecialBoostQuery = {
+  points_activity_specialBoost?: Array<{
+    poolAddress?: string | null;
+    baseToken?: string | null;
+    quoteToken?: string | null;
+    multiplier?: string | null;
+    multiplierPercentage?: string | null;
+    baseSymbol?: string | null;
+    quoteSymbol?: string | null;
+  } | null> | null;
+};
+
 export type FetchPointsUserSummaryQueryVariables = Exact<{
   where?: InputMaybe<Points_ActivityuserSummaryFilter>;
 }>;
@@ -22115,6 +22245,7 @@ export type FetchPointsUserSummaryQuery = {
   points_activity_userSummary?: {
     activityId?: number | null;
     activityName?: string | null;
+    inviteeCount?: number | null;
     invitePoints?: string | null;
     lpPoints?: string | null;
     swapPoints?: string | null;
@@ -22180,6 +22311,32 @@ export class TypedDocumentString<TResult, TVariables>
   }
 }
 
+export const AcceptInviteDocument = new TypedDocumentString(`
+    query AcceptInvite($data: Points_activityinviteAcceptFilter!) {
+  points_activity_inviteAccept(data: $data) {
+    success
+    inviterAddress
+  }
+}
+    `) as unknown as TypedDocumentString<
+  AcceptInviteQuery,
+  AcceptInviteQueryVariables
+>;
+export const FetchPointInviteCodeDocument = new TypedDocumentString(`
+    query FetchPointInviteCode($where: Points_activityinviteCodeFilter, $whereStatus: Points_activityinviteStatusFilter) {
+  points_activity_inviteCode(where: $where) {
+    inviteCode
+    inviteUrl
+  }
+  points_activity_inviteStatus(where: $whereStatus) {
+    inviterAddress
+    status
+  }
+}
+    `) as unknown as TypedDocumentString<
+  FetchPointInviteCodeQuery,
+  FetchPointInviteCodeQueryVariables
+>;
 export const FetchPointsHistoryDocument = new TypedDocumentString(`
     query FetchPointsHistory($where: Points_activityhistoryFilter) {
   points_activity_history(where: $where) {
@@ -22188,6 +22345,8 @@ export const FetchPointsHistoryDocument = new TypedDocumentString(`
       activityId
       points
       time
+      type
+      inviteeAddress
     }
     page
     count
@@ -22216,11 +22375,28 @@ export const FetchPointsLeaderboardDocument = new TypedDocumentString(`
   FetchPointsLeaderboardQuery,
   FetchPointsLeaderboardQueryVariables
 >;
+export const FetchPointSpecialBoostDocument = new TypedDocumentString(`
+    query FetchPointSpecialBoost($where: Points_activityspecialBoostFilter) {
+  points_activity_specialBoost(where: $where) {
+    poolAddress
+    baseToken
+    quoteToken
+    multiplier
+    multiplierPercentage
+    baseSymbol
+    quoteSymbol
+  }
+}
+    `) as unknown as TypedDocumentString<
+  FetchPointSpecialBoostQuery,
+  FetchPointSpecialBoostQueryVariables
+>;
 export const FetchPointsUserSummaryDocument = new TypedDocumentString(`
     query FetchPointsUserSummary($where: Points_activityuserSummaryFilter) {
   points_activity_userSummary(where: $where) {
     activityId
     activityName
+    inviteeCount
     invitePoints
     lpPoints
     swapPoints

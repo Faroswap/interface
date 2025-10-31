@@ -2,7 +2,28 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import copy from 'copy-to-clipboard';
 import { Trans } from '@lingui/macro';
-import { EmptyDataIcon, useMediaDevices } from '@dodoex/components';
+import {
+  EmptyDataIcon,
+  RotatingIcon,
+  useMediaDevices,
+} from '@dodoex/components';
+import { usePointInviteCode } from './hooks/usePointInviteCode';
+import LoadingSkeleton from '../Skeleton/LoadingSkeleton';
+import { useWalletStore } from '@dodoex/wallet-web3';
+import { useAcceptInvite } from './hooks/useAcceptInvite';
+import { truncatePoolAddress } from '@/utils/address';
+import Tooltip from '../Tooltip';
+import { ArrowTopRightBorder, Copy } from '@dodoex/icons';
+import {
+  FailedList,
+  formatReadableNumber,
+  getEtherscanPage,
+} from '@dodoex/widgets';
+import { SINGLE_CHAIN_ID } from '@/constants/config';
+import { usePointUserSummary } from './hooks/usePointsUserSummary';
+import { usePointsHistory } from './hooks/usePointsHistory';
+import { Tab } from './pcTabs';
+import dayjs from 'dayjs';
 
 enum ICodeInvalid {
   LengthInvalid,
@@ -11,20 +32,33 @@ enum ICodeInvalid {
 
 export default function Referral({ urlICode }: { urlICode?: string }) {
   const { isMobile } = useMediaDevices();
-  const [rCode] = useState('******');
-  const [iCode, setICode] = useState('------');
+  const { account } = useWalletStore();
+  const fetchUserSummary = usePointUserSummary();
+  const userSummary = fetchUserSummary.data?.points_activity_userSummary;
+  const fetchInviteCode = usePointInviteCode();
+  const inviteCode =
+    fetchInviteCode.data?.points_activity_inviteCode?.inviteCode;
+  const inviteUrl = inviteCode
+    ? `${window.location.origin}/points?inviteCode=${inviteCode}`
+    : undefined;
+  const invitedByAddress =
+    fetchInviteCode.data?.points_activity_inviteStatus?.status === 'Invited'
+      ? fetchInviteCode.data?.points_activity_inviteStatus?.inviterAddress
+      : undefined;
+  const [iCode, setICode] = useState('');
   const [iCodeInvalid, setICodeInvalid] = useState<ICodeInvalid>();
   const [copyCodeText, setCopyCodeText] = useState('Copy Code');
-  const [focusInput, setFocusInput] = useState(false);
   useEffect(() => {
     if (urlICode) setICode(urlICode);
   }, [urlICode]);
 
   useEffect(() => {
-    if (iCode.length !== 6 || iCode === '------')
+    if (iCode.length !== 6 || !iCode)
       setICodeInvalid(ICodeInvalid.LengthInvalid);
     else setICodeInvalid(undefined);
   }, [iCode]);
+
+  const acceptInvite = useAcceptInvite();
 
   return (
     <div className="flex md:flex-row flex-col flex-1 md:m-0 m-[-20px] max-md:pb-5">
@@ -70,7 +104,15 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
                 <div className="text-[#FFFFFF80] text-sm">
                   <Trans>My referral Points</Trans>
                 </div>
-                <div className="text-white text-2xl font-semibold mt-1">-</div>
+                <LoadingSkeleton
+                  loading={fetchUserSummary.isLoading}
+                  className="text-white text-2xl font-semibold mt-1"
+                  loadingClassName="w-5"
+                >
+                  {formatReadableNumber({
+                    input: userSummary?.invitePoints ?? '0',
+                  })}
+                </LoadingSkeleton>
               </div>
             </div>
             <div className="bg-[#FFFFFF26] flex rounded-lg p-3 items-center md:w-[200px]">
@@ -92,7 +134,17 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
                 <div className="text-[#FFFFFF80] text-sm">
                   <Trans>Invited users</Trans>
                 </div>
-                <div className="text-white text-2xl font-semibold mt-1">-</div>
+                <LoadingSkeleton
+                  loading={fetchInviteCode.isLoading}
+                  className="text-white text-2xl font-semibold mt-1"
+                  loadingClassName="w-5"
+                >
+                  {formatReadableNumber({
+                    input:
+                      fetchUserSummary.data?.points_activity_userSummary
+                        ?.inviteeCount ?? 0,
+                  })}
+                </LoadingSkeleton>
               </div>
             </div>
           </div>
@@ -111,29 +163,23 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
                   key={index}
                   className="rounded-lg h-16 flex-1 bg-white flex items-center justify-center text-active text-lg font-extrabold"
                 >
-                  {rCode[index]}
+                  <LoadingSkeleton loading={fetchInviteCode.isLoading}>
+                    {inviteCode?.[index] || '*'}
+                  </LoadingSkeleton>
                 </div>
               );
             })}
-            <input
-              className="absolute opacity-0 w-full h-full"
-              maxLength={6}
-              value={rCode}
-            />
           </div>
           <div>
             <button
               className="relative bg-primary w-full h-12 flex items-center justify-center text-white rounded-lg font-semibold disabled:bg-paperDarkContrast disabled:text-disabled"
-              disabled
+              disabled={!inviteCode}
               onClick={() => {
-                copy(rCode);
+                copy(inviteCode!);
                 setCopyCodeText('Copied');
                 setTimeout(() => setCopyCodeText('Copy Code'), 2000);
               }}
             >
-              <div className="absolute top-0 right-0 rounded-tr-lg rounded-bl-lg py-1 px-2 text-xs font-semibold bg-paperDarkContrast text-white">
-                Soon
-              </div>
               {copyCodeText}
             </button>
           </div>
@@ -141,7 +187,15 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
             <div className="text-sm text-secondary max-w-[178px]">
               Share your referral link and earn more points!
             </div>
-            <div className="flex items-center justify-center bg-paperDarkContrast w-[120px] h-[44px] rounded-3xl text-disabled">
+            <button
+              className="flex items-center justify-center bg-primary text-white w-[120px] h-[44px] rounded-3xl disabled:text-disabled disabled:bg-paperDarkContrast"
+              disabled={!inviteUrl}
+              onClick={() => {
+                copy(inviteUrl!);
+                setCopyCodeText('Copied');
+                setTimeout(() => setCopyCodeText('Copy Code'), 2000);
+              }}
+            >
               <svg
                 width="20"
                 height="20"
@@ -154,48 +208,109 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
                   fill="currentColor"
                 />
               </svg>
-            </div>
+            </button>
           </div>
         </div>
         <div className="flex bg-paper rounded-3xl p-5 flex-col">
           <div className="text-lg font-semibold mb-5">Invited by</div>
-          <div className="mb-4 flex relative gap-2">
-            {Array.from({ length: 6 }, (_, i) => i).map((index) => {
-              return (
-                <div
-                  key={index}
-                  className={clsx(
-                    'rounded-lg h-16 flex-1 bg-white flex items-center justify-center text-disabled text-lg font-extrabold border',
-                    focusInput && iCode.length - 1 === index
-                      ? 'border-[#326AFD]'
-                      : '',
-                  )}
-                >
-                  {iCode[index]}
-                </div>
-              );
-            })}
-            <input
-              className="absolute opacity-0 w-full h-full"
-              maxLength={6}
-              value={iCode}
-              disabled
-              onFocus={() => setFocusInput(true)}
-              onBlur={() => setFocusInput(false)}
-              onChange={(e) => setICode(e.target.value.toUpperCase())}
-            />
-          </div>
-          <div>
-            <button
-              className="relative bg-primary w-full h-12 flex items-center justify-center text-white rounded-lg font-semibold disabled:bg-paperDarkContrast disabled:text-disabled"
-              disabled={iCodeInvalid !== undefined}
-            >
-              <div className="absolute top-0 right-0 rounded-tr-lg rounded-bl-lg py-1 px-2 text-xs font-semibold bg-paperDarkContrast text-white">
-                Soon
+          {invitedByAddress ? (
+            <div className="h-16 flex items-center justify-center gap-3 text-lg font-extrabold rounded-lg bg-paperDarkContrast">
+              {truncatePoolAddress(invitedByAddress)}
+              <Tooltip
+                onlyClick
+                arrow={false}
+                autoClose
+                title={<Trans>Copied</Trans>}
+              >
+                <Copy
+                  className="w-6 h-6 cursor-pointer text-secondary hover:text-primary"
+                  onClick={() => {
+                    copy(invitedByAddress);
+                  }}
+                />
+              </Tooltip>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href={getEtherscanPage(
+                  SINGLE_CHAIN_ID,
+                  invitedByAddress,
+                  'address',
+                )}
+                className="flex leading-none text-secondary hover:text-primary"
+              >
+                <ArrowTopRightBorder className="w-6 h-6" />
+              </a>
+            </div>
+          ) : (
+            <>
+              <div className="mb-4 flex relative gap-2">
+                <input
+                  className="absolute opacity-0 w-full h-full"
+                  maxLength={6}
+                  value={iCode}
+                  disabled={!account}
+                  onChange={(e) => setICode(e.target.value.toUpperCase())}
+                />
+                {Array.from({ length: 6 }, (_, i) => i).map((index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={clsx(
+                        'rounded-lg h-16 flex-1 bg-white flex items-center justify-center text-disabled text-lg font-extrabold border',
+                        iCode.length === index ||
+                          (index === 5 && index === iCode.length - 1)
+                          ? '[input:focus~&]:border-[#326AFD]'
+                          : '',
+                      )}
+                    >
+                      {iCode[index] || '-'}
+                    </div>
+                  );
+                })}
               </div>
-              <Trans>Confirm</Trans>
-            </button>
-          </div>
+              <div>
+                <button
+                  className="relative bg-primary w-full h-12 flex items-center justify-center text-white rounded-lg font-semibold gap-1 disabled:bg-paperDarkContrast disabled:text-disabled"
+                  disabled={
+                    iCodeInvalid !== undefined || acceptInvite.isPending
+                  }
+                  onClick={() => {
+                    acceptInvite.mutate(
+                      {
+                        account: account!,
+                        inviteCode: iCode,
+                      },
+                      {
+                        onSuccess: (result) => {
+                          if (!result) return;
+                          setICode('');
+                          setICodeInvalid(undefined);
+                          fetchInviteCode.refetch();
+                        },
+                        onError: (error) => {
+                          console.error(error);
+                        },
+                      },
+                    );
+                  }}
+                >
+                  {acceptInvite.isPending ? (
+                    <>
+                      <RotatingIcon
+                        sx={{
+                          color: 'text.disabled',
+                        }}
+                      />
+                      <Trans>Confirming...</Trans>
+                    </>
+                  ) : (
+                    <Trans>Confirm</Trans>
+                  )}
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
       {isMobile && <HistoryList className="mx-5 md:m-0" />}
@@ -205,6 +320,10 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
 
 function HistoryList({ className }: { className?: string }) {
   const { isMobile } = useMediaDevices();
+  const fetchHistory = usePointsHistory({
+    sourceType: Tab.Referral,
+  });
+
   return (
     <div className={clsx('flex-col rounded-3xl bg-paper', className)}>
       <div className="text-primary text-xl font-semibold p-5">History</div>
@@ -214,23 +333,113 @@ function HistoryList({ className }: { className?: string }) {
           <div className="basis-1/2 flex justify-end">Points</div>
         </div>
       ) : (
-        <div className="bg-paperDarkContrast text-secondary text-sm flex py-[10px] px-5">
-          <div className="basis-1/3">Invited address</div>
-          <div className="basis-1/3">Time</div>
-          <div className="basis-1/3 flex justify-end">Points</div>
+        <div className="bg-paperDarkContrast text-secondary text-sm flex gap-5 py-[10px] px-5">
+          <div className="basis-1/4">Invited address</div>
+          <div className="basis-1/4">Time</div>
+          <div className="basis-1/4">Earned from</div>
+          <div className="basis-1/4 flex justify-end">Points</div>
         </div>
       )}
-      <div className="flex flex-col gap-3 justify-center items-center h-[320px]">
-        <EmptyDataIcon
+      {fetchHistory.isLoading ? (
+        <div className="flex justify-between flex-1 text-sm px-6 py-[14px] h-[320px]">
+          <div className="animate-pulse bg-skeleton rounded-[4px] w-8 h-[22px]" />
+          <div className="animate-pulse bg-skeleton rounded-[4px] w-20 h-[22px]" />
+        </div>
+      ) : fetchHistory.isError ? (
+        <FailedList
+          refresh={fetchHistory.refetch}
           sx={{
-            width: 60,
-            height: 60,
-            borderRadius: 8,
+            height: 320,
           }}
         />
-        <div className="text-secondary">
-          <Trans>Coming Soon</Trans>
+      ) : !fetchHistory.pointHistory?.length ? (
+        <div className="flex justify-center items-center flex-col h-[320px] gap-3">
+          <EmptyDataIcon
+            sx={{
+              width: 60,
+              height: 60,
+              borderRadius: 8,
+            }}
+          />
+          <div className="text-secondary">
+            <Trans>No Result</Trans>
+          </div>
         </div>
+      ) : (
+        ''
+      )}
+      <div className="flex flex-col gap-3 max-h-[320px] overflow-y-auto">
+        {fetchHistory.pointHistory.map((point) => {
+          if (isMobile) {
+            return (
+              <div
+                key={point.id + point.activityId}
+                className="text-sm flex py-[10px] px-5"
+              >
+                <div className="basis-1/2">
+                  {point.inviteeAddress
+                    ? truncatePoolAddress(point.inviteeAddress)
+                    : ''}
+                </div>
+                <div className="basis-1/2 text-right">
+                  <div className="capitalize font-semibold">
+                    {point.type}: +{' '}
+                    {formatReadableNumber({ input: point.points })}
+                  </div>
+                  <div className="mt-1 text-secondary">
+                    {dayjs(point.time * 1000).format('YYYY-MM-DD HH:mm:ss')}
+                  </div>
+                </div>
+              </div>
+            );
+          }
+          return (
+            <div
+              key={point.id + point.activityId}
+              className="text-sm flex gap-5 py-[10px] px-5"
+            >
+              <div className="basis-1/3">
+                {point.inviteeAddress
+                  ? truncatePoolAddress(point.inviteeAddress)
+                  : ''}
+              </div>
+              <div className="basis-1/3">
+                {dayjs(point.time * 1000).format('YYYY-MM-DD HH:mm:ss')}
+              </div>
+              <div className="basis-1/3 capitalize">{point.type}</div>
+              <div className="basis-1/3 flex justify-end">
+                +{formatReadableNumber({ input: point.points })}
+              </div>
+            </div>
+          );
+        })}
+        {fetchHistory.hasNextPage && (
+          <div
+            className="border-t py-5 flex items-center justify-center text-secondary cursor-pointer hover:text-primary"
+            onClick={() => {
+              if (fetchHistory.isFetchingNextPage) return;
+              fetchHistory.fetchNextPage();
+            }}
+          >
+            <div className="mr-1">Load more</div>
+            {fetchHistory.isFetchingNextPage ? (
+              <RotatingIcon />
+            ) : (
+              <svg
+                width="15"
+                height="14"
+                viewBox="0 0 15 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.4248 6.04565L10.5082 5.12903L7.30001 8.3372L4.09185 5.12903L3.17523 6.04565L7.30002 10.1704L11.4248 6.04565Z"
+                  fill="currentColor"
+                />
+              </svg>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

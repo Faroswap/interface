@@ -15,6 +15,7 @@ export const COMMUNITY_URL = '';
 export const TELEGRAM_URL = 'https://t.me/faroswapofficial';
 export const DOCUMENT_URL = 'https://docs.faroswap.xyz';
 export const PHAROS_TESTNET_URL = 'https://testnet.faroswap.xyz';
+export const DISCORD_URL = 'https://discord.gg/nAdCuy3sZ7';
 export const SAFE_URL = '';
 export const SHOW_AIRDROP = false;
 

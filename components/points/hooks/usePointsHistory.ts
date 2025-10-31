@@ -14,6 +14,8 @@ const document = graphql(`
         activityId
         points
         time
+        type
+        inviteeAddress
       }
       page
       count
@@ -27,7 +29,8 @@ export type Point = {
   id: number;
   points: string;
   time: number;
-  user: string;
+  type: string;
+  inviteeAddress: string;
 };
 
 export function usePointsHistory({ sourceType }: { sourceType: Tab }) {

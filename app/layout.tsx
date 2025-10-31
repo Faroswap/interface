@@ -22,6 +22,7 @@ import RewardEntry from '@/components/reward/RewardEntry';
 import { fetchTokenList } from '@/constants/apiServer';
 import Announcements from '@/components/Announcements';
 import Script from 'next/script';
+import ErrorMessageDialog from '@/components/ErrorMessageDialog';
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -65,6 +66,7 @@ export default async function RootLayout({
         >
           <Suspense>
             <ClientProvider>
+              <ErrorMessageDialog />
               <div className="flex h-screen overflow-hidden">
                 <div className="hidden md:block pl-5 py-5 h-screen">
                   <LeftNav isMobile={false} />
