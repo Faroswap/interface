@@ -21,4 +21,5 @@ export const SHOW_AIRDROP = false;
 export const WIDGET_CURRENT_CONFIG = {
   supportAMMV2: true,
   supportAMMV3: true,
+  disableConnectedProviderRead: true,
 } as Partial<WidgetProps>;
