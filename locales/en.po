@@ -58,7 +58,7 @@ msgstr "Claim"
 msgid "Claim Pharos New Testnet Tokens:"
 msgstr "Claim Pharos New Testnet Tokens:"
 
-#: components/points/total.tsx:33
+#: components/points/total.tsx:70
 #: submission/module.tsx:75
 msgid "Claim Rewards"
 msgstr "Claim Rewards"
@@ -73,13 +73,9 @@ msgstr "Claimed, try later"
 
 #: components/points/Points.tsx:201
 #: components/points/referral.tsx:232
-#: components/points/total.tsx:35
+#: components/points/total.tsx:72
 msgid "Coming Soon"
 msgstr "Coming Soon"
-
-#: components/nav/LeftNav.tsx:220
-msgid "Community"
-msgstr "Community"
 
 #: components/points/referral.tsx:196
 msgid "Confirm"
@@ -108,10 +104,6 @@ msgstr "Copy wallet address"
 msgid "Create Liquidity Mining"
 msgstr "Create Liquidity Mining"
 
-#: components/nav/LeftNav.tsx:251
-msgid "Documents"
-msgstr "Documents"
-
 #: components/points/swap.tsx:23
 msgid "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
 msgstr "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
@@ -132,7 +124,7 @@ msgstr "FaroSwap will feature <0>special trading pairs / selected</0> pools fr
 msgid "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 msgstr "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 
-#: constants/menuList.tsx:28
+#: constants/menuList.tsx:34
 msgid "Faucet"
 msgstr "Faucet"
 
@@ -148,7 +140,7 @@ msgstr "For any single address providing more than <0>1M USD value of LP in a s
 msgid "Gas price is too low, please adjust in your wallet and try again"
 msgstr "Gas price is too low, please adjust in your wallet and try again"
 
-#: constants/menuList.tsx:31
+#: constants/menuList.tsx:37
 msgid "Get PHRS and start your voyage"
 msgstr "Get PHRS and start your voyage"
 
@@ -184,7 +176,7 @@ msgstr "Invite Friends, <0/>Boost Your Rewards"
 msgid "Invited users"
 msgstr "Invited users"
 
-#: components/points/total.tsx:64
+#: components/points/total.tsx:100
 msgid "Liquidity"
 msgstr "Liquidity"
 
@@ -202,7 +194,7 @@ msgstr "Maximum <0>0.01 PHRS</0> every 12 hours"
 
 #: components/reward/index.tsx:49
 msgid "My Airdrop"
-msgstr "My Airdrop
+msgstr "My Airdrop"
 
 #: components/points/liquidity.tsx:120
 msgid "My Liquidity Points"
@@ -256,7 +248,7 @@ msgstr "Pool Creation"
 msgid "Powered By"
 msgstr "Powered By"
 
-#: components/nav/LeftNav.tsx:312
+#: components/nav/LeftNav.tsx:311
 msgid "Powered by DODO DEXpert"
 msgstr "Powered by DODO DEXpert"
 
@@ -281,7 +273,7 @@ msgstr "Receive"
 msgid "Receiver address"
 msgstr "Receiver address"
 
-#: components/points/total.tsx:69
+#: components/points/total.tsx:105
 msgid "Referral"
 msgstr "Referral"
 
@@ -317,9 +309,14 @@ msgstr "SafeERC20: low-level call failed. Please log a Zendesk support ticket or
 msgid "Send"
 msgstr "Send"
 
-#: components/points/total.tsx:74
+#: components/points/total.tsx:110
+#: components/points/total.tsx:140
 msgid "Social media"
 msgstr "Social media"
+
+#: components/points/SocialMedia.tsx:16
+msgid "Social Media Missions — How to Join"
+msgstr "Social Media Missions — How to Join"
 
 #: components/points/liquidity.tsx:79
 #: components/points/swap.tsx:44
@@ -340,13 +337,9 @@ msgstr "Succeeded"
 msgid "Swap"
 msgstr "Swap"
 
-#: components/points/total.tsx:59
+#: components/points/total.tsx:95
 msgid "Swaps"
 msgstr "Swaps"
-
-#: components/nav/LeftNav.tsx:282
-msgid "Telegram"
-msgstr "Telegram"
 
 #: components/points/referral.tsx:47
 msgid "The invitee, by entering the referral code, will earn their normal points plus an extra 20% bonus."
@@ -368,7 +361,7 @@ msgstr "Token"
 msgid "Total:"
 msgstr "Total:"
 
-#: constants/menuList.tsx:27
+#: constants/menuList.tsx:28
 msgid "Track your loyalty points & unlock rewards on Pharos mainnet"
 msgstr "Track your loyalty points & unlock rewards on Pharos mainnet"
 
@@ -388,6 +381,14 @@ msgstr "Users who provide liquidity to the protocol will earn points based on bo
 msgid "vDODO Airdrop"
 msgstr "vDODO Airdrop"
 
+#: components/points/total.tsx:132
+msgid "View more"
+msgstr "View more"
+
 #: components/banner/PoolBanner.tsx:60
 msgid "View More Details"
 msgstr "View More Details"
+
+#: components/points/SocialMedia.tsx:19
+msgid "We use our Discord tools to verify user activities and distribute points.Please follow the steps below to set up your account and start earning Social Media Points:"
+msgstr "We use our Discord tools to verify user activities and distribute points.Please follow the steps below to set up your account and start earning Social Media Points:"
