@@ -24,7 +24,13 @@ export function getMenuList() {
       name: <Trans>Points</Trans>,
       url: '/points',
       icon: <PointsIcon />,
-      description: <Trans>Track your loyalty points & unlock rewards on Pharos mainnet</Trans>,
+      description: (
+        <Trans>
+          Track your loyalty points & unlock rewards on Pharos mainnet
+        </Trans>
+      ),
+    },
+    {
       name: <Trans>Faucet</Trans>,
       url: '/faucet',
       icon: <FaucetIcon />,

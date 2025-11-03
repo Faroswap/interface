@@ -13,7 +13,7 @@ import SocialMedia from '@/components/points/SocialMedia';
 
 export default function Page() {
   const { isMobile } = useMediaDevices();
-  const [activeTab, setActiveTab] = useState(Tab.Total);
+  const [activeTab, setActiveTab] = useState(Tab.Social);
   const searchParams = useSearchParams();
   const urlICode = searchParams.get('icode') ?? undefined;
   useEffect(() => {
@@ -26,7 +26,9 @@ export default function Page() {
         <MobileTabs activeTab={activeTab} setActiveTab={setActiveTab} />
       </div>
       <div className="md:p-3 p-5 text-primary max-md:bg-main">
-        {(activeTab === Tab.Total || isMobile === false) && <Total />}
+        {(activeTab === Tab.Total || isMobile === false) && (
+          <Total onChangeTab={setActiveTab} />
+        )}
         <div className="md:flex hidden h-[2px] my-7 bg-[#4548511A] w-full"></div>
         {isMobile ? (
           <div className="flex">
