@@ -15,14 +15,14 @@
     "install-optional-dependencies": "tsx scripts/mockOptionalDependencies/index.ts"
   },
   "dependencies": {
-    "@dodoex/api": "3.2.0",
+    "@dodoex/api": "3.3.0-beta.1",
     "@dodoex/components": "^3.x",
     "@dodoex/contract-request": "^1.x",
     "@dodoex/dodo-contract-request": "^1.25.0",
     "@dodoex/icons": "^2.x",
     "@dodoex/wallet-web3": "0.2.1",
     "@dodoex/wallet-web3-react": "^0.x",
-    "@dodoex/widgets": "3.4.0-beta.1",
+    "@dodoex/widgets": "3.5.0-beta.1",
     "@lingui/macro": "^4.11.4",
     "@lingui/react": "^4.11.4",
     "@mui/base": "^5.0.0-beta.58",
