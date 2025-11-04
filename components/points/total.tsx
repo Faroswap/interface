@@ -16,6 +16,7 @@ import { TabPanel, Tabs, TabsButtonGroup } from '@dodoex/components';
 import LoadingSkeleton from '../Skeleton/LoadingSkeleton';
 import { formatTokenAmountNumber } from '@dodoex/widgets';
 import { Tab } from './pcTabs';
+import { usePointUserSummary } from './hooks/usePointsUserSummary';
 
 enum PointTab {
   trading = 1,
@@ -30,6 +31,7 @@ export default function Total({
   const { account } = useWalletStore();
   const [isShowRankList, setIsShowRankList] = useState(false);
   const [pointTab, setPointTab] = useState(PointTab.social);
+  const fetchUserSummary = usePointUserSummary();
 
   return (
     <div className="flex gap-3 flex-1 md:flex-row flex-col">
@@ -118,11 +120,13 @@ export default function Total({
               <div className="flex md:flex-col items-center md:justify-center gap-2 max-md:mt-2">
                 <LoadingSkeleton
                   className="text-[32px] font-semibold md:leading-[44px]"
-                  loading={false}
+                  loading={fetchUserSummary.isLoading}
                   loadingClassName="w-20"
                 >
                   {formatTokenAmountNumber({
-                    input: '-',
+                    input:
+                      fetchUserSummary.data?.points_activity_userSummary
+                        ?.socialMediaPoints ?? 0,
                   })}
                 </LoadingSkeleton>
                 <button
