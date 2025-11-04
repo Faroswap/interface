@@ -126,7 +126,7 @@ export default function Total({
                   {formatTokenAmountNumber({
                     input:
                       fetchUserSummary.data?.points_activity_userSummary
-                        ?.socialMediaPoints ?? 0,
+                        ?.socialMediaPoints ?? '',
                   })}
                 </LoadingSkeleton>
                 <button

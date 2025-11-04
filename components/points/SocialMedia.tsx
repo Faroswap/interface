@@ -107,7 +107,7 @@ export default function SocialMedia() {
               {formatReadableNumber({
                 input:
                   fetchUserSummary.data?.points_activity_userSummary
-                    ?.socialMediaPoints ?? 0,
+                    ?.socialMediaPoints ?? '',
               })}
             </LoadingSkeleton>
           </div>
@@ -134,7 +134,7 @@ export default function SocialMedia() {
               {formatReadableNumber({
                 input:
                   fetchUserSummary.data?.points_activity_userSummary
-                    ?.socialMediaPoints ?? 0,
+                    ?.socialMediaPoints ?? '',
               })}
             </LoadingSkeleton>
           </div>
