@@ -2502,10 +2502,10 @@
     viem "^1.19.11"
     wagmi "^1.4.12"
 
-"@dodoex/api@3.3.0-beta.3", "@dodoex/api@3.3.0-beta.4":
-  version "3.3.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.3.0-beta.4.tgz#61ef54c9eb3a0d3ec41f618597cf7ee15a88433d"
-  integrity sha512-8yLkGcS7U8XNFOWr+XpU7NY1a40u2t7ounkH+VwW3m7fgKZ0D8B+ZYQS10YAHfUNLbPLZOT9leY8NwPcjmolzg==
+"@dodoex/api@3.3.0-beta.3", "@dodoex/api@3.3.0-beta.5":
+  version "3.3.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.3.0-beta.5.tgz#d2ef7b15b95b9f2708e5acc59e039866ab7f9c98"
+  integrity sha512-G1bjJLL6IHzcb2ONrnRAZ6jXTORUHmglKnuPQrDlpuS6k4Q9/WwtYc9V7+jAVh6fbPOy1gNsJ9GKQIKOl/Cqvw==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/properties" "^5.7.0"
