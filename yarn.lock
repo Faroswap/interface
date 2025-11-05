@@ -2502,24 +2502,10 @@
     viem "^1.19.11"
     wagmi "^1.4.12"
 
-"@dodoex/api@3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.2.0.tgz#b3fc018d3a1260a0ac143446696c1e10b154d979"
-  integrity sha512-g1DPf5+Yzly0y1lMBy6z8QH0rdyxnF8BDLDyyttDQPMNiph+v+mh/WkzlMdvS0RXHcP6d402AGOKwhLABkff4g==
-  dependencies:
-    "@ethersproject/abi" "^5.7.0"
-    "@ethersproject/properties" "^5.7.0"
-    "@ethersproject/providers" "^5.7.2"
-    "@ethersproject/web" "^5.7.1"
-    cross-fetch "^4.0.0"
-    graphql "^16.8.1"
-    graphql-request "^6.1.0"
-    qs "^6.11.2"
-
-"@dodoex/api@3.3.0-beta.1":
-  version "3.3.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.3.0-beta.1.tgz#89a4f40f4fc439854ff1e66540ffce860a109dc2"
-  integrity sha512-cXtLCKmd1pmnjXd/Gzif/v456E1vkLtCMHhUyQ/9OhxxFM4oazAaoWurTN5vEiDX4uoKiu2ATRCZGhgRrRyBpA==
+"@dodoex/api@3.3.0-beta.3", "@dodoex/api@3.3.0-beta.4":
+  version "3.3.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.3.0-beta.4.tgz#61ef54c9eb3a0d3ec41f618597cf7ee15a88433d"
+  integrity sha512-8yLkGcS7U8XNFOWr+XpU7NY1a40u2t7ounkH+VwW3m7fgKZ0D8B+ZYQS10YAHfUNLbPLZOT9leY8NwPcjmolzg==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/properties" "^5.7.0"
@@ -2646,13 +2632,13 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.5.0-beta.2":
-  version "3.5.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.5.0-beta.2.tgz#d38a45a0f078c4cd1c629ecf67804c1185e3a6a6"
-  integrity sha512-QTpkIykJWzAseUfCJYE5xd/3T9O9fuy2UcU26H1S0b1cPw9k1xSOJ5CbRbOyfvqaG4wYB2wXHprci3Sa/jNqVA==
+"@dodoex/widgets@3.5.0-beta.9":
+  version "3.5.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.5.0-beta.9.tgz#faa77a81fe8866d4cd6a5336102466bb7550e163"
+  integrity sha512-IXeCNb2rmK6aq3NWVC41kfRpJ1P5sHsH7wTAwZF31j7M+OU92J1OrDfL3No24j9FdY9SfNf1YXvaKS177bpcpA==
   dependencies:
     "@babel/runtime" "^7.17.0"
-    "@dodoex/api" "3.2.0"
+    "@dodoex/api" "3.3.0-beta.3"
     "@dodoex/components" "^3.1.0"
     "@dodoex/contract-request" "^1.3.0"
     "@dodoex/dodo-contract-request" "^1.25.0"
