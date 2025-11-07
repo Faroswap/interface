@@ -12,13 +12,13 @@ import { useWalletStore } from '@dodoex/wallet-web3';
 import { Trans } from '@lingui/macro';
 import { increaseArray } from '@/utils/utils';
 import clsx from 'clsx';
-import { usePointUserSummary } from './hooks/usePointsUserSummary';
 import { formatReadableNumber, formatTokenAmountNumber } from '@dodoex/widgets';
 import LoadingSkeleton from '../Skeleton/LoadingSkeleton';
 import { usePointLeaderboard } from './hooks/usePointsLeaderboard';
 import { Tab } from './pcTabs';
 import { ArrowRight } from '@dodoex/icons';
 import { TabPanel, Tabs, TabsButtonGroup } from '@dodoex/components';
+import { usePointUserSummary } from './hooks/usePointsUserSummary';
 
 enum PointTab {
   trading = 1,
@@ -167,7 +167,7 @@ export default function Total({
                   {formatTokenAmountNumber({
                     input:
                       fetchUserSummary.data?.points_activity_userSummary
-                        ?.totalPoints,
+                        ?.socialMediaPoints ?? '',
                   })}
                 </LoadingSkeleton>
                 <button
@@ -186,7 +186,7 @@ export default function Total({
                 </div>
                 <div className="text-sm text-secondary md:text-center">
                   These points are earned through verified social activities on
-                  Discord.  They are tracked separately and not combined with
+                  Discord. They are tracked separately and not combined with
                   your other points such as Swap ,Liquidity or Referral Points.
                 </div>
               </div>
@@ -201,7 +201,9 @@ export default function Total({
           onClose={() => setIsShowRankList(false)}
         />
         <div className="flex justify-between items-center mb-3">
-          <div className="text-xl font-semibold">Leaderboard</div>
+          <div className="text-xl font-semibold">
+            trading points leaderboard
+          </div>
           <div
             className="cursor-pointer md:flex hidden text-secondary hover:text-primary"
             onClick={() => setIsShowRankList(true)}

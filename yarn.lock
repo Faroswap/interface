@@ -2552,13 +2552,6 @@
   dependencies:
     typescript "^5"
 
-"@dodoex/dodo-contract-request@^1.25.0-alpha.1":
-  version "1.25.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@dodoex/dodo-contract-request/-/dodo-contract-request-1.25.0-alpha.1.tgz#10fd154940a543359c4a41ff97a845f59e7169f5"
-  integrity sha512-kxU/pSwPXtFF2ufwt+j3FPp3ImZKqor4xtOIDV3U+oGuK+IrLkJdpcJ+97c2cO4E8ZUBdJHrT5Uu2ihs4q7NJg==
-  dependencies:
-    typescript "^5"
-
 "@dodoex/icons@^2.0.2", "@dodoex/icons@^2.x":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@dodoex/icons/-/icons-2.0.2.tgz#b0df6d5fafc2466294738af9e3505375cd386c7a"
@@ -2639,10 +2632,10 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.4.0.tgz#affcfa9849b51f086d0023bc4748725880237e3a"
-  integrity sha512-K2PBUTKWSNW9ZbYH9W3oFy6pFcnuyFUdEHI9YXfpITJ3QjsbkMHcxXXG0PUtxUSagdyiUl0U4UnYgBK4hpHZJA==
+"@dodoex/widgets@3.4.0-beta.1":
+  version "3.4.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.4.0-beta.1.tgz#9b485686162e7212e6b635f30df8cf0d3d09c842"
+  integrity sha512-n0CxXSfGeVBES4x/O93SkL3w1DXqkPDmF2FkuGi5z+M5GPZh7KmI8wzS2vCrCj+UiEpJHBExZKAKoWFixFSWdg==
   dependencies:
     "@babel/runtime" "^7.17.0"
     "@dodoex/api" "3.2.0"

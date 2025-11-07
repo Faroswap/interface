@@ -4,11 +4,13 @@ import DiscordIcon from '@/assets/icons/discord.svg';
 import LoadingSkeleton from '../Skeleton/LoadingSkeleton';
 import Image from 'next/image';
 import swapPointsImage from '@/assets/points/socia-media-points.png';
+import { usePointUserSummary } from './hooks/usePointsUserSummary';
+import { formatReadableNumber } from '@dodoex/widgets';
 
 export default function SocialMedia() {
   const title = 'My Social Media Points';
-  const totalPoint = 0;
-  const isLoading = false;
+  const fetchUserSummary = usePointUserSummary();
+
   return (
     <div className="flex max-md:flex-col gap-3">
       <div className="md:p-5 rounded-3xl md:bg-paper">
@@ -99,10 +101,14 @@ export default function SocialMedia() {
             <div className="text-xs font-semibold mb-2">{title}</div>
             <LoadingSkeleton
               className="text-2xl font-semibold"
-              loading={isLoading}
-              loadingClassName="w-5"
+              loading={fetchUserSummary.isLoading}
+              loadingClassName="w-20"
             >
-              {totalPoint}
+              {formatReadableNumber({
+                input:
+                  fetchUserSummary.data?.points_activity_userSummary
+                    ?.socialMediaPoints ?? '',
+              })}
             </LoadingSkeleton>
           </div>
         </div>
@@ -122,10 +128,14 @@ export default function SocialMedia() {
             <div className="text-lg font-semibold mb-2">{title}</div>
             <LoadingSkeleton
               className="text-2xl font-semibold"
-              loading={isLoading}
-              loadingClassName="w-5"
+              loading={fetchUserSummary.isLoading}
+              loadingClassName="w-20"
             >
-              {totalPoint}
+              {formatReadableNumber({
+                input:
+                  fetchUserSummary.data?.points_activity_userSummary
+                    ?.socialMediaPoints ?? '',
+              })}
             </LoadingSkeleton>
           </div>
         </div>

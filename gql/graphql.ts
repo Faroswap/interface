@@ -2419,7 +2419,7 @@ export type Cross_Chain_TransferExplorerProject = {
   launchDate?: Maybe<Scalars['String']['output']>;
   projectLogo?: Maybe<Scalars['String']['output']>;
   projectName: Scalars['String']['output'];
-  sections: Array<Scalars['String']['output']>;
+  sections: Array<Cross_Chain_TransferExplorerSection>;
   sortOrder: Scalars['Int']['output'];
   supportedChains?: Maybe<Array<Cross_Chain_TransferSupportedChain>>;
   tags?: Maybe<Array<Scalars['String']['output']>>;
@@ -2429,17 +2429,83 @@ export type Cross_Chain_TransferExplorerProject = {
   websiteUrl?: Maybe<Scalars['String']['output']>;
 };
 
+export type Cross_Chain_TransferExplorerSection =
+  | 'HOT_PROJECTS'
+  | 'MAINNET_LAUNCHES'
+  | 'RECENT_AIRDROPS'
+  | 'TESTNET_LAUNCHES'
+  | 'UPCOMING_AIRDROPS';
+
 export type Cross_Chain_TransferExplorerSectionProjects = {
   projects: Array<Cross_Chain_TransferExplorerProject>;
-  section: Scalars['String']['output'];
+  section: Cross_Chain_TransferExplorerSection;
   sectionName: Scalars['String']['output'];
   total: Scalars['Int']['output'];
+};
+
+export type Cross_Chain_TransferFeeBreakdown = {
+  crossChainFee: Scalars['String']['output'];
+  crossChainFeeUsd?: Maybe<Scalars['String']['output']>;
+  sourceSwapFee: Scalars['String']['output'];
+  sourceSwapFeeUsd?: Maybe<Scalars['String']['output']>;
+  targetSwapFee: Scalars['String']['output'];
+  targetSwapFeeUsd?: Maybe<Scalars['String']['output']>;
+  totalFee: Scalars['String']['output'];
+  totalFeeUsd?: Maybe<Scalars['String']['output']>;
 };
 
 export type Cross_Chain_TransferFuncLabelV2 = {
   key?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Scalars['String']['output']>;
+};
+
+export type Cross_Chain_TransferHeterogeneousQuoteResponse = {
+  amount: Scalars['String']['output'];
+  amountFormatted: Scalars['String']['output'];
+  bestQuote: Scalars['String']['output'];
+  bestQuoteFormatted: Scalars['String']['output'];
+  crossChainSymbol: Scalars['String']['output'];
+  estimatedCompletionTime: Scalars['Int']['output'];
+  feeBreakdown?: Maybe<Cross_Chain_TransferFeeBreakdown>;
+  fixedFee: Scalars['String']['output'];
+  fixedFeeFormatted: Scalars['String']['output'];
+  fixedFeeUsd: Scalars['String']['output'];
+  gasFee: Scalars['String']['output'];
+  gasFeeFormatted: Scalars['String']['output'];
+  gasFeeUsd: Scalars['String']['output'];
+  gasTokenPrice: Scalars['String']['output'];
+  intermediateToken?: Maybe<Cross_Chain_TransferTokenInfo>;
+  isHeterogeneous: Scalars['Boolean']['output'];
+  minReceiveQuote: Scalars['String']['output'];
+  minReceiveQuoteFormatted: Scalars['String']['output'];
+  orderId: Scalars['String']['output'];
+  rateFee: Scalars['String']['output'];
+  rateFeeFormatted: Scalars['String']['output'];
+  rateFeeUsd: Scalars['String']['output'];
+  recipient: Scalars['String']['output'];
+  slippageTolerance?: Maybe<Scalars['Float']['output']>;
+  sourceChainId: Scalars['Int']['output'];
+  sourceSwap: Cross_Chain_TransferSwapInfo;
+  sourceTokenAddress: Scalars['String']['output'];
+  sourceTokenDecimals: Scalars['Int']['output'];
+  sourceTokenName: Scalars['String']['output'];
+  sourceTokenPrice: Scalars['String']['output'];
+  sourceTokenSymbol: Scalars['String']['output'];
+  targetChainId: Scalars['Int']['output'];
+  targetSwap: Cross_Chain_TransferSwapInfo;
+  targetTokenAddress: Scalars['String']['output'];
+  targetTokenDecimals: Scalars['Int']['output'];
+  targetTokenName: Scalars['String']['output'];
+  targetTokenSymbol: Scalars['String']['output'];
+  timestamp: Scalars['String']['output'];
+  totalFee: Scalars['String']['output'];
+  totalFeeFormatted: Scalars['String']['output'];
+  totalFeeUsd: Scalars['String']['output'];
+  totalPriceImpact: Scalars['Float']['output'];
+  transactionData: Cross_Chain_TransferQuoteResponseTransactionDataDto;
+  userAddress: Scalars['String']['output'];
+  version: Scalars['String']['output'];
 };
 
 export type Cross_Chain_TransferOrderDetailFilter = {
@@ -2500,12 +2566,17 @@ export type Cross_Chain_TransferQuoteResponse = {
 
 export type Cross_Chain_TransferQuoteResponseTransactionDataDto = {
   data: Scalars['String']['output'];
-  from: Scalars['String']['output'];
-  gas: Scalars['String']['output'];
-  maxFeePerGas?: Maybe<Scalars['String']['output']>;
-  maxPriorityFeePerGas?: Maybe<Scalars['String']['output']>;
   to: Scalars['String']['output'];
   value: Scalars['String']['output'];
+};
+
+export type Cross_Chain_TransferRouteStep = {
+  amountIn: Scalars['String']['output'];
+  amountOut: Scalars['String']['output'];
+  poolAddress: Scalars['String']['output'];
+  protocol: Scalars['String']['output'];
+  tokenIn: Scalars['String']['output'];
+  tokenOut: Scalars['String']['output'];
 };
 
 export type Cross_Chain_TransferSupportedChain = {
@@ -2513,10 +2584,62 @@ export type Cross_Chain_TransferSupportedChain = {
   chainName: Scalars['String']['output'];
 };
 
+export type Cross_Chain_TransferSwapExecuteData = {
+  data: Scalars['String']['output'];
+  to: Scalars['String']['output'];
+  value: Scalars['String']['output'];
+};
+
+export type Cross_Chain_TransferSwapInfo = {
+  estimatedGas?: Maybe<Scalars['String']['output']>;
+  executeData?: Maybe<Cross_Chain_TransferSwapExecuteData>;
+  fromToken?: Maybe<Cross_Chain_TransferTokenInfo>;
+  priceImpact?: Maybe<Scalars['Float']['output']>;
+  quote?: Maybe<Cross_Chain_TransferSwapQuoteInfo>;
+  required: Scalars['Boolean']['output'];
+  toToken?: Maybe<Cross_Chain_TransferTokenInfo>;
+};
+
+export type Cross_Chain_TransferSwapQuoteInfo = {
+  executionPrice: Scalars['Float']['output'];
+  fromAmount: Scalars['String']['output'];
+  fromToken: Cross_Chain_TransferTokenInfo;
+  gasEstimate: Scalars['String']['output'];
+  minReceiveAmount: Scalars['String']['output'];
+  priceImpact: Scalars['Float']['output'];
+  routePath: Array<Cross_Chain_TransferRouteStep>;
+  toAmount: Scalars['String']['output'];
+  toToken: Cross_Chain_TransferTokenInfo;
+};
+
+export type Cross_Chain_TransferTokenInfo = {
+  address: Scalars['String']['output'];
+  chainId: Scalars['Int']['output'];
+  crossChainSymbol: Scalars['String']['output'];
+  decimals: Scalars['Int']['output'];
+  id: Scalars['Int']['output'];
+  name: Scalars['String']['output'];
+  symbol: Scalars['String']['output'];
+};
+
 export type Cross_Chain_TransferTokenListV2 = {
   chainId?: Maybe<Scalars['Int']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   status?: Maybe<Scalars['String']['output']>;
+};
+
+export type Cross_Chain_TransferheterogeneousQuoteFilter = {
+  amount: Scalars['String']['input'];
+  /** 同币种跨链时必填 */
+  crossChainSymbol?: InputMaybe<Scalars['String']['input']>;
+  preferredIntermediateToken?: InputMaybe<Scalars['String']['input']>;
+  recipient: Scalars['String']['input'];
+  slippageTolerance?: InputMaybe<Scalars['Float']['input']>;
+  sourceChainId: Scalars['Int']['input'];
+  sourceTokenAddress: Scalars['String']['input'];
+  targetChainId: Scalars['Int']['input'];
+  targetTokenAddress: Scalars['String']['input'];
+  userAddress: Scalars['String']['input'];
 };
 
 export type Cross_Chain_TransferlistV2Filter = {
@@ -4435,6 +4558,13 @@ export type DashboardDataGroupByDate = {
   volumeUsd?: Maybe<Scalars['String']['output']>;
 };
 
+export type DashboardOrder = {
+  /** tvl apy volume */
+  orderBy?: InputMaybe<Scalars['String']['input']>;
+  /** desc asc' */
+  orderDirection?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type DashboardPairData = {
   /** transaction count  */
   txes?: Maybe<Scalars['String']['output']>;
@@ -4644,6 +4774,7 @@ export type Dashboardtype_List_Filter = {
   chainIds?: InputMaybe<Array<InputMaybe<Scalars['Int']['input']>>>;
   creator?: InputMaybe<Scalars['String']['input']>;
   limit?: InputMaybe<Scalars['Int']['input']>;
+  order?: InputMaybe<DashboardOrder>;
   owner?: InputMaybe<Scalars['String']['input']>;
   page?: InputMaybe<Scalars['Int']['input']>;
   refreshNow?: InputMaybe<Scalars['Boolean']['input']>;
@@ -7770,10 +7901,12 @@ export type LiquidityLqList = {
 };
 
 export type LiquidityOrder = {
-  /** updatedAt tvl apy liquidity */
+  /** updatedAt tvl apy liquidity volume */
   orderBy?: InputMaybe<Scalars['String']['input']>;
   /** desc asc' */
   orderDirection?: InputMaybe<Scalars['String']['input']>;
+  /** 1D 7D 14D 30D */
+  timeRange?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type LiquidityPair = {
@@ -11348,6 +11481,7 @@ export type Points_ActivityPointsActivitySummary = {
   invitePoints?: Maybe<Scalars['String']['output']>;
   inviteeCount?: Maybe<Scalars['Int']['output']>;
   lpPoints?: Maybe<Scalars['String']['output']>;
+  socialMediaPoints?: Maybe<Scalars['String']['output']>;
   swapPoints?: Maybe<Scalars['String']['output']>;
   totalPoints?: Maybe<Scalars['String']['output']>;
   user?: Maybe<Scalars['String']['output']>;
@@ -13043,6 +13177,7 @@ export type Query = {
   cross_chain_transfer_getTokenList?: Maybe<
     Array<Maybe<Cross_Chain_TransferErc20V2List>>
   >;
+  cross_chain_transfer_heterogeneousQuote: Cross_Chain_TransferHeterogeneousQuoteResponse;
   cross_chain_transfer_quote: Cross_Chain_TransferQuoteResponse;
   cross_chain_zetachain_token_list?: Maybe<
     Array<Maybe<Cross_Chain_Zetachain_TokenCrossChainTokenlist>>
@@ -13959,6 +14094,10 @@ export type QueryCross_Chain_Transfer_GetOrderListArgs = {
 
 export type QueryCross_Chain_Transfer_GetTokenListArgs = {
   where?: InputMaybe<Cross_Chain_TransferlistV2Filter>;
+};
+
+export type QueryCross_Chain_Transfer_HeterogeneousQuoteArgs = {
+  where?: InputMaybe<Cross_Chain_TransferheterogeneousQuoteFilter>;
 };
 
 export type QueryCross_Chain_Transfer_QuoteArgs = {
@@ -22250,6 +22389,7 @@ export type FetchPointsUserSummaryQuery = {
     lpPoints?: string | null;
     swapPoints?: string | null;
     totalPoints?: string | null;
+    socialMediaPoints?: string | null;
   } | null;
 };
 
@@ -22401,6 +22541,7 @@ export const FetchPointsUserSummaryDocument = new TypedDocumentString(`
     lpPoints
     swapPoints
     totalPoints
+    socialMediaPoints
   }
 }
     `) as unknown as TypedDocumentString<

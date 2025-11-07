@@ -79,10 +79,6 @@ msgstr "Close"
 msgid "Coming Soon"
 msgstr "Coming Soon"
 
-#: components/nav/LeftNav.tsx:220
-msgid "Community"
-msgstr "Community"
-
 #: components/points/referral.tsx:308
 msgid "Confirm"
 msgstr "Confirm"
@@ -115,10 +111,6 @@ msgstr "Copy wallet address"
 msgid "Create Liquidity Mining"
 msgstr "Create Liquidity Mining"
 
-#: components/nav/LeftNav.tsx:251
-msgid "Documents"
-msgstr "Documents"
-
 #: components/points/swap.tsx:25
 msgid "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
 msgstr "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
@@ -143,7 +135,7 @@ msgstr "FaroSwap will feature <0>special trading pairs / selected</0> pools fr
 msgid "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 msgstr "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 
-#: constants/menuList.tsx:30
+#: constants/menuList.tsx:34
 msgid "Faucet"
 msgstr "Faucet"
 
@@ -159,7 +151,7 @@ msgstr "For any single address providing more than <0>1M USD value of LP in a s
 msgid "Gas price is too low, please adjust in your wallet and try again"
 msgstr "Gas price is too low, please adjust in your wallet and try again"
 
-#: constants/menuList.tsx:33
+#: constants/menuList.tsx:37
 msgid "Get PHRS and start your voyage"
 msgstr "Get PHRS and start your voyage"
 
@@ -272,7 +264,7 @@ msgstr "Pool Creation"
 msgid "Powered By"
 msgstr "Powered By"
 
-#: components/nav/LeftNav.tsx:312
+#: components/nav/LeftNav.tsx:311
 msgid "Powered by DODO DEXpert"
 msgstr "Powered by DODO DEXpert"
 
@@ -337,7 +329,7 @@ msgstr "Send"
 msgid "Social media"
 msgstr "Social media"
 
-#: components/points/SocialMedia.tsx:16
+#: components/points/SocialMedia.tsx:18
 msgid "Social Media Missions — How to Join"
 msgstr "Social Media Missions — How to Join"
 
@@ -364,10 +356,6 @@ msgstr "Swap"
 msgid "Swaps"
 msgstr "Swaps"
 
-#: components/nav/LeftNav.tsx:282
-msgid "Telegram"
-msgstr "Telegram"
-
 #: components/points/referral.tsx:81
 msgid "The invitee, by entering the referral code, will earn their normal points plus an extra 20% bonus."
 msgstr "The invitee, by entering the referral code, will earn their normal points plus an extra 20% bonus."
@@ -388,7 +376,7 @@ msgstr "Token"
 msgid "Total:"
 msgstr "Total:"
 
-#: constants/menuList.tsx:27
+#: constants/menuList.tsx:28
 msgid "Track your loyalty points & unlock rewards on Pharos mainnet"
 msgstr "Track your loyalty points & unlock rewards on Pharos mainnet"
 
@@ -416,6 +404,6 @@ msgstr "View more"
 msgid "View More Details"
 msgstr "View More Details"
 
-#: components/points/SocialMedia.tsx:19
+#: components/points/SocialMedia.tsx:21
 msgid "We use our Discord tools to verify user activities and distribute points.Please follow the steps below to set up your account and start earning Social Media Points:"
 msgstr "We use our Discord tools to verify user activities and distribute points.Please follow the steps below to set up your account and start earning Social Media Points:"

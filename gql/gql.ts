@@ -23,7 +23,7 @@ const documents = {
     types.FetchPointsLeaderboardDocument,
   '\n  query FetchPointSpecialBoost($where: Points_activityspecialBoostFilter) {\n    points_activity_specialBoost(where: $where) {\n      poolAddress\n      baseToken\n      quoteToken\n      multiplier\n      multiplierPercentage\n      baseSymbol\n      quoteSymbol\n    }\n  }\n':
     types.FetchPointSpecialBoostDocument,
-  '\n  query FetchPointsUserSummary($where: Points_activityuserSummaryFilter) {\n    points_activity_userSummary(where: $where) {\n      activityId\n      activityName\n      inviteeCount\n      invitePoints\n      lpPoints\n      swapPoints\n      totalPoints\n    }\n  }\n':
+  '\n  query FetchPointsUserSummary($where: Points_activityuserSummaryFilter) {\n    points_activity_userSummary(where: $where) {\n      activityId\n      activityName\n      inviteeCount\n      invitePoints\n      lpPoints\n      swapPoints\n      totalPoints\n      socialMediaPoints\n    }\n  }\n':
     types.FetchPointsUserSummaryDocument,
   '\n  query FetchBrandAnnouncementList($where: Brand_site_announcementqueryilter) {\n    brand_site_announcement_list(where: $where) {\n      list {\n        id\n        brand\n        lastPublishTime\n        sort\n        title\n        type\n        url\n        metadata {\n          background\n          buttonType\n          icon\n          theme\n        }\n      }\n      lastPublishId\n      lastPublishTime\n    }\n  }\n':
     types.FetchBrandAnnouncementListDocument,
@@ -65,7 +65,7 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: '\n  query FetchPointsUserSummary($where: Points_activityuserSummaryFilter) {\n    points_activity_userSummary(where: $where) {\n      activityId\n      activityName\n      inviteeCount\n      invitePoints\n      lpPoints\n      swapPoints\n      totalPoints\n    }\n  }\n',
+  source: '\n  query FetchPointsUserSummary($where: Points_activityuserSummaryFilter) {\n    points_activity_userSummary(where: $where) {\n      activityId\n      activityName\n      inviteeCount\n      invitePoints\n      lpPoints\n      swapPoints\n      totalPoints\n      socialMediaPoints\n    }\n  }\n',
 ): typeof import('./graphql').FetchPointsUserSummaryDocument;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.

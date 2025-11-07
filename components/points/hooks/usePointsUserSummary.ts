@@ -14,6 +14,7 @@ const document = graphql(`
       lpPoints
       swapPoints
       totalPoints
+      socialMediaPoints
     }
   }
 `);
