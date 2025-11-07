@@ -21,7 +21,8 @@ export default async function Page({
     const symbol = paramsArray[1];
     if (chainId && symbol) {
       defaultFromToken = tokenList?.find(
-        (item) => item.chainId === chainId && item.symbol === symbol,
+        (item) =>
+          (!item.chainId || item.chainId === chainId) && item.symbol === symbol,
       );
     }
   }
@@ -31,7 +32,8 @@ export default async function Page({
     const symbol = paramsArray[1];
     if (chainId && symbol) {
       defaultToToken = tokenList?.find(
-        (item) => item.chainId === chainId && item.symbol === symbol,
+        (item) =>
+          (!item.chainId || item.chainId === chainId) && item.symbol === symbol,
       );
     }
   }

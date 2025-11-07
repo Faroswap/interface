@@ -127,39 +127,43 @@ export function getTokenLogoUrl({
   return logoUrl;
 }
 
-const ShownFollowXKey = 'ShownFollowXKey'
+const ShownFollowXKey = 'ShownFollowXKey';
 function ExecutionDialogExtra() {
   const shownFollowX = window.localStorage.getItem(ShownFollowXKey);
   if (shownFollowX) {
-    return null
+    return null;
   }
 
-  return <div 
-    className='flex items-center p-3 w-[300px] justify-between bg-[#326AFD1A] rounded-xl cursor-pointer mt-6' 
-    onClick={() => {
-      window.localStorage.setItem(ShownFollowXKey, '1');
-      window.open(TWITTER_URL, '_blank')
-    }}
-  >
-    <div className='flex flex-col'>
-      <div className='text-sm text-active mb-[2px]'>Follow FaroSwap</div>
-      <div className='text-xs text-secondary'>For upcoming Points&Rewards</div>
+  return (
+    <div
+      className="flex items-center p-3 w-[300px] justify-between bg-[#326AFD1A] rounded-xl cursor-pointer mt-6"
+      onClick={() => {
+        window.localStorage.setItem(ShownFollowXKey, '1');
+        window.open(TWITTER_URL, '_blank');
+      }}
+    >
+      <div className="flex flex-col">
+        <div className="text-sm text-active mb-[2px]">Follow FaroSwap</div>
+        <div className="text-xs text-secondary">
+          For upcoming Points&Rewards
+        </div>
+      </div>
+      <div className="flex items-center justify-center w-16 h-8 bg-primary rounded-3xl">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.3019 7.92451L15.399 1.99951H14.1912L9.76531 7.14411L6.23041 1.99951H2.15332L7.49879 9.77905L2.15332 15.9923H3.36125L8.03504 10.5595L11.7682 15.9923H15.8452L10.3016 7.92451H10.3019ZM8.64746 9.84759L8.10585 9.07292L3.79648 2.90882H5.65178L9.1295 7.88345L9.6711 8.65811L14.1917 15.1244H12.3364L8.64746 9.84789V9.84759Z"
+            fill="white"
+          />
+        </svg>
+      </div>
     </div>
-    <div className='flex items-center justify-center w-16 h-8 bg-primary rounded-3xl'>
-      <svg
-        width="18"
-        height="18"
-        viewBox="0 0 18 18"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M10.3019 7.92451L15.399 1.99951H14.1912L9.76531 7.14411L6.23041 1.99951H2.15332L7.49879 9.77905L2.15332 15.9923H3.36125L8.03504 10.5595L11.7682 15.9923H15.8452L10.3016 7.92451H10.3019ZM8.64746 9.84759L8.10585 9.07292L3.79648 2.90882H5.65178L9.1295 7.88345L9.6711 8.65811L14.1917 15.1244H12.3364L8.64746 9.84789V9.84759Z"
-          fill="white"
-        />
-      </svg>
-    </div>
-  </div>
+  );
 }
 
 export default function Widget({
@@ -193,6 +197,7 @@ export default function Widget({
         height="100%"
         crossChain
         provider={walletProvider}
+        // @ts-ignore
         graphQLRequests={graphQLRequests}
         defaultChainId={SINGLE_CHAIN_ID}
         onlyChainId={SINGLE_CHAIN_ID}
@@ -304,7 +309,7 @@ export default function Widget({
           }
         }}
         getTokenLogoUrl={getTokenLogoUrl}
-        executionDialogExtra={<ExecutionDialogExtra/>}
+        executionDialogExtra={<ExecutionDialogExtra />}
         {...props}
         {...WIDGET_CURRENT_CONFIG}
       >
