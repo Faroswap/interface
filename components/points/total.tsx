@@ -107,11 +107,6 @@ export default function Total({
                   label={<Trans>Referral</Trans>}
                   value="-"
                 />
-                <DashboardItem
-                  icon={<SocialIcon />}
-                  label={<Trans>Social media</Trans>}
-                  value="-"
-                />
               </div>
             </>
           </TabPanel>

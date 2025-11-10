@@ -14,7 +14,7 @@ export default function Swap() {
 
   return (
     <div className="flex md:flex-row flex-col">
-      <div className="md:bg-paper flex flex-1 flex-col rounded-3xl md:p-5">
+      <div className="md:bg-paper flex flex-1 flex-col rounded-3xl md:p-5 h-max">
         <div className="text-primary text-[32px] font-semibold mb-3 leading-[44px]">
           <Trans>Add Liquidity</Trans>
         </div>
@@ -25,9 +25,9 @@ export default function Swap() {
               on both the amount and the holding duration.
             </Trans>
           </li>
-          <li className="font-bold">
+          {/* <li className="font-bold">
             <Trans>Rule: USD 1 / 3 days = 1 point</Trans>
-          </li>
+          </li> */}
         </ul>
         <div className="mt-2 px-5 py-3 rounded-lg bg-success/10">
           <div className="flex items-center gap-2 font-semibold text-success">
@@ -78,43 +78,12 @@ export default function Swap() {
         <div className="text-xl font-semibold mb-2">
           <Trans>Special Boost</Trans>
         </div>
-        <div className="text-secondary text-sm mb-5">
+        <div className="text-secondary text-sm">
           <Trans>
             FaroSwap will feature special trading pairs and selected pools from
             key partners. Providing liquidity to these pairs will allow
             participants to earn additional — and in some cases double — points
           </Trans>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          {specialBoost.map((item, i) => (
-            <div
-              className="bg-paper md:bg-main rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex pl-3"
-              key={i}
-            >
-              <div className="flex items-center">
-                <TokenLogo
-                  address={item.baseToken.address}
-                  chainId={item.baseToken.chainId}
-                  width={24}
-                  height={24}
-                  marginRight={-6}
-                />
-                <TokenLogo
-                  address={item.quoteToken.address}
-                  chainId={item.quoteToken.chainId}
-                  width={24}
-                  height={24}
-                  marginRight={9}
-                />
-              </div>
-              <div className="text-sm">
-                {item.baseToken.symbol}/{item.quoteToken.symbol}
-              </div>
-              <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center px-2 leading-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">
-                +{item.tag}%
-              </div>
-            </div>
-          ))}
         </div>
       </div>
       <Point title={<Trans>My Liquidity Points</Trans>} />
