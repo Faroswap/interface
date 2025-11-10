@@ -2,7 +2,6 @@ import { truncatePoolAddress } from '@/utils/address';
 import SwapIcon from '@/assets/nav/swap.svg';
 import PoolIcon from '@/assets/nav/pool.svg';
 import ReferralIcon from '@/assets/nav/referral.svg';
-import SocialIcon from '@/assets/nav/social.svg';
 import bgImage from '@/assets/points/total-bg.png';
 import PointsRankList, {
   leaderboardBackgroundColorMap,
