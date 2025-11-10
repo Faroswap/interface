@@ -1,17 +1,8 @@
 import { Trans } from '@lingui/macro';
-import TokenLogo from '../TokenLogo';
+// import TokenLogo from '../TokenLogo';
 import { Point } from './Points';
 
 export default function Swap() {
-  const specialBoost = [
-    { baseToken: WPHRC, quoteToken: USDC, tag: 50 },
-    { baseToken: WPHRC, quoteToken: USDT, tag: 200 },
-    { baseToken: USDC, quoteToken: USDT, tag: 100 },
-    { baseToken: WPHRC, quoteToken: WETH, tag: 200 },
-    { baseToken: AUTO, quoteToken: WPHRC, tag: 50 },
-    { baseToken: AUTO, quoteToken: USDC, tag: 100 },
-  ];
-
   return (
     <div className="flex md:flex-row flex-col">
       <div className="md:bg-paper flex flex-1 flex-col rounded-3xl md:p-5 h-max">
@@ -61,39 +52,3 @@ export default function Swap() {
     </div>
   );
 }
-
-const WPHRC = {
-  name: 'Wrapped PHRS',
-  address: '0x3019B247381c850ab53Dc0EE53bCe7A07Ea9155f',
-  symbol: 'WPHRS',
-  decimals: 18,
-  chainId: 688688,
-};
-const USDC = {
-  name: 'USD Coin',
-  address: '0x72df0bcd7276f2dFbAc900D1CE63c272C4BCcCED',
-  symbol: 'USDC',
-  decimals: 6,
-  chainId: 688688,
-};
-const USDT = {
-  name: 'Tether USD',
-  address: '0xD4071393f8716661958F766DF660033b3d35fD29',
-  symbol: 'USDT',
-  decimals: 6,
-  chainId: 688688,
-};
-const WETH = {
-  name: 'Wrapped ETH',
-  address: '0x4E28826d32F1C398DED160DC16Ac6873357d048f',
-  symbol: 'WETH',
-  decimals: 18,
-  chainId: 688688,
-};
-const AUTO = {
-  name: 'AutoStaking',
-  address: '0x1A0588a167bB4868Da407d32F09e3C41a2e2EE93',
-  symbol: 'AUTO',
-  decimals: 6,
-  chainId: 688688,
-};
