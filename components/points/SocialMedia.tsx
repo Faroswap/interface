@@ -6,6 +6,7 @@ import Image from 'next/image';
 import swapPointsImage from '@/assets/points/socia-media-points.png';
 import { usePointUserSummary } from './hooks/usePointsUserSummary';
 import { formatReadableNumber } from '@dodoex/widgets';
+import UpdateTime from './UpdateTime';
 
 export default function SocialMedia() {
   const title = 'My Social Media Points';
@@ -100,7 +101,7 @@ export default function SocialMedia() {
           <div className="flex flex-col">
             <div className="text-xs font-semibold mb-2">{title}</div>
             <LoadingSkeleton
-              className="text-2xl font-semibold"
+              className="text-2xl font-semibold mb-1"
               loading={fetchUserSummary.isLoading}
               loadingClassName="w-20"
             >
@@ -110,6 +111,7 @@ export default function SocialMedia() {
                     ?.socialMediaPoints ?? '',
               })}
             </LoadingSkeleton>
+            <UpdateTime />
           </div>
         </div>
       </div>
@@ -127,7 +129,7 @@ export default function SocialMedia() {
           <div className="flex flex-col">
             <div className="text-lg font-semibold mb-2">{title}</div>
             <LoadingSkeleton
-              className="text-2xl font-semibold"
+              className="text-2xl font-semibold mb-1"
               loading={fetchUserSummary.isLoading}
               loadingClassName="w-20"
             >
@@ -137,6 +139,7 @@ export default function SocialMedia() {
                     ?.socialMediaPoints ?? '',
               })}
             </LoadingSkeleton>
+            <UpdateTime />
           </div>
         </div>
       </div>
