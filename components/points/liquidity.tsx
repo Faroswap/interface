@@ -1,5 +1,4 @@
 import { Trans } from '@lingui/macro';
-import TokenLogo from '../TokenLogo';
 import { Point } from './Points';
 import { Tab } from './pcTabs';
 import { SINGLE_CHAIN_ID } from '@/constants/config';
@@ -16,7 +15,7 @@ export default function Swap() {
 
   return (
     <div className="flex md:flex-row flex-col">
-      <div className="md:bg-paper flex flex-1 flex-col rounded-3xl md:p-5">
+      <div className="md:bg-paper flex flex-1 flex-col rounded-3xl md:p-5 h-max">
         <div className="text-primary text-[32px] font-semibold mb-3 leading-[44px]">
           <Trans>Add Liquidity</Trans>
         </div>
@@ -27,9 +26,9 @@ export default function Swap() {
               on both the amount and the holding duration.
             </Trans>
           </li>
-          <li className="font-bold">
+          {/* <li className="font-bold">
             <Trans>Rule: USD 1 / 3 days = 1 point</Trans>
-          </li>
+          </li> */}
         </ul>
         <div className="mt-2 px-5 py-3 rounded-lg bg-success/10">
           <div className="flex items-center gap-2 font-semibold text-success">
@@ -77,7 +76,7 @@ export default function Swap() {
         <div className="text-xl font-semibold mb-2">
           <Trans>Special Boost</Trans>
         </div>
-        <div className="text-secondary text-sm mb-5">
+        <div className="text-secondary text-sm">
           <Trans>
             FaroSwap will feature special trading pairs and selected pools from
             key partners. Providing liquidity to these pairs will allow

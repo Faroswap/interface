@@ -1,5 +1,5 @@
 import { Trans } from '@lingui/macro';
-import TokenLogo from '../TokenLogo';
+// import TokenLogo from '../TokenLogo';
 import { Point } from './Points';
 import { Tab } from './pcTabs';
 import { SINGLE_CHAIN_ID } from '@/constants/config';
@@ -16,7 +16,7 @@ export default function Swap() {
 
   return (
     <div className="flex md:flex-row flex-col">
-      <div className="md:bg-paper flex flex-1 flex-col rounded-3xl md:p-5">
+      <div className="md:bg-paper flex flex-1 flex-col rounded-3xl md:p-5 h-max">
         <div className="text-primary text-[32px] font-semibold mb-3 leading-[44px]">
           <Trans>Swap</Trans>
         </div>
@@ -27,9 +27,9 @@ export default function Swap() {
               <span className="font-bold">swaps and trades</span> on FaroSwap.
             </Trans>
           </li>
-          <li className="font-bold">
+          {/* <li className="font-bold">
             <Trans>Rule: USD 1 = 3 points</Trans>
-          </li>
+          </li> */}
         </ul>
         <div>
           <Link
@@ -42,7 +42,7 @@ export default function Swap() {
         <div className="text-xl font-semibold mb-2">
           <Trans>Special Boost</Trans>
         </div>
-        <div className="text-secondary mb-5">
+        <div className="text-secondary">
           <Trans>
             FaroSwap will feature 
             <span className="font-bold">

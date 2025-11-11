@@ -2,7 +2,6 @@ import { truncatePoolAddress } from '@/utils/address';
 import SwapIcon from '@/assets/nav/swap.svg';
 import PoolIcon from '@/assets/nav/pool.svg';
 import ReferralIcon from '@/assets/nav/referral.svg';
-import SocialIcon from '@/assets/nav/social.svg';
 import bgImage from '@/assets/points/total-bg.png';
 import PointsRankList, {
   leaderboardBackgroundColorMap,
@@ -19,6 +18,7 @@ import { Tab } from './pcTabs';
 import { ArrowRight } from '@dodoex/icons';
 import { TabPanel, Tabs, TabsButtonGroup } from '@dodoex/components';
 import { usePointUserSummary } from './hooks/usePointsUserSummary';
+import UpdateTime from './UpdateTime';
 
 enum PointTab {
   trading = 1,
@@ -158,7 +158,7 @@ export default function Total({
           </TabPanel>
           <TabPanel value={PointTab.social}>
             <>
-              <div className="flex md:flex-col items-center md:justify-center gap-2 max-md:mt-2">
+              <div className="flex flex-col md:items-center md:justify-center max-md:mt-2">
                 <LoadingSkeleton
                   className="text-[32px] font-semibold md:leading-[44px]"
                   loading={fetchUserSummary.isLoading}
@@ -170,20 +170,15 @@ export default function Total({
                         ?.socialMediaPoints ?? '',
                   })}
                 </LoadingSkeleton>
+                <UpdateTime className="mt-1" />
                 <button
-                  className="flex flex-col px-5 py-2 rounded-lg text-xs md:text-sm font-semibold border border-current text-active hover:opacity-70"
+                  className="flex flex-col px-5 py-2 rounded-lg text-xs md:text-sm font-semibold border border-current text-active hover:opacity-70 mt-2 w-max"
                   onClick={() => onChangeTab(Tab.Social)}
                 >
                   <Trans>View more</Trans>
                 </button>
               </div>
-              <div className="flex flex-col gap-3 md:items-center mt-5 md:mt-10 p-5 md:py-3 bg-white rounded-lg">
-                <div className="flex items-center gap-2 font-semibold">
-                  <div className="bg-primary/10 flex justify-center items-center w-10 h-10 rounded-lg text-active">
-                    <SocialIcon />
-                  </div>
-                  <Trans>Social media</Trans>
-                </div>
+              <div className="flex flex-col gap-3 md:items-center mt-5 md:mt-10 p-5 md:py-[35px] bg-white rounded-lg">
                 <div className="text-sm text-secondary md:text-center">
                   These points are earned through verified social activities on
                   Discord. They are tracked separately and not combined with
