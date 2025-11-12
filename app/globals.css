@@ -30,6 +30,17 @@ wcm-modal {
     @apply border;
   }
 
+  .active-hover {
+    &:not(:disabled):hover {
+      background: linear-gradient(
+          0deg,
+          rgba(26, 26, 27, 0.1),
+          rgba(26, 26, 27, 0.1)
+        ),
+        #326afd;
+    }
+  }
+
   .highlight-color-transparent {
     -webkit-tap-highlight-color: transparent;
   }
@@ -50,10 +61,10 @@ body {
   text-align: center;
   height: 40px;
   line-height: 40px;
-  background-color: #1E80FF;
+  background-color: #1e80ff;
   color: #fff;
   letter-spacing: 1px;
-  font-size: 16px
+  font-size: 16px;
 }
 
 .code-box {
@@ -87,5 +98,5 @@ body {
 }
 
 .active {
-  border: 3px solid #1E80FF !important;
+  border: 3px solid #1e80ff !important;
 }

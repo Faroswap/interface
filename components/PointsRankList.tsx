@@ -16,9 +16,19 @@ export default function PointsRankList({
   const { account } = useWalletStore();
   const fetchLeader = usePointLeaderboard();
   const overallRanks =
-    fetchLeader.data?.points_activity_leaderboard?.overallRanks;
+    fetchLeader.data?.points_activity_leaderboard?.overallRanks ?? [];
   const userRank =
     fetchLeader.data?.points_activity_leaderboard?.currentUserRank?.rank;
+
+  const len = 8 - (overallRanks?.length ?? 0);
+  if (len > 0) {
+    for (let i = 0; i < len; i++) {
+      overallRanks?.push({
+        totalPoints: '-',
+        user: '-',
+      });
+    }
+  }
 
   return (
     <Dialog open={open} onClose={onClose}>
@@ -49,7 +59,7 @@ export default function PointsRankList({
         </div>
         {account && (!userRank || userRank > 3) && (
           <div className="flex px-6 py-5 rounded-lg bg-primary/5 text-active">
-            <div className="basis-1/3">
+            <div className="flex items-center basis-1/3">
               <LoadingSkeleton
                 loading={fetchLeader.isLoading}
                 loadingClassName="w-5"

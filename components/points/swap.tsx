@@ -7,6 +7,7 @@ import { usePointSpecialBoost } from './hooks/usePointsSpecialBoost';
 import { SpecialBoostLoading } from './SpecialBoostLoading';
 import { FailedList } from '@dodoex/widgets';
 import Link from 'next/link';
+import TokenLogo from '../TokenLogo';
 
 export default function Swap() {
   const chainId = SINGLE_CHAIN_ID;
@@ -27,9 +28,9 @@ export default function Swap() {
               <span className="font-bold">swaps and trades</span> on FaroSwap.
             </Trans>
           </li>
-          {/* <li className="font-bold">
+           <li className="font-bold">
             <Trans>Rule: USD 1 = 3 points</Trans>
-          </li> */}
+          </li>
         </ul>
         <div>
           <Link
@@ -42,7 +43,7 @@ export default function Swap() {
         <div className="text-xl font-semibold mb-2">
           <Trans>Special Boost</Trans>
         </div>
-        <div className="text-secondary">
+        <div className="text-secondary mb-5">
           <Trans>
             FaroSwap will feature 
             <span className="font-bold">

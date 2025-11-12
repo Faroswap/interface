@@ -69,7 +69,7 @@ msgstr "Claim successful! 🎉 Tnx Hash:"
 
 #: components/faucet.tsx:194
 msgid "Claimed, try later"
-msgstr "Claimed, try later<<<<<<< HEAD"
+msgstr "Claimed, try later"
 
 #: components/ErrorMessageDialog.tsx:27
 msgid "Close"
@@ -109,7 +109,7 @@ msgstr "Copy wallet address"
 
 #: submission/module.tsx:77
 msgid "Create Liquidity Mining"
-msgstr "Create Liquidity Mining<<<<<<< HEAD"
+msgstr "Create Liquidity Mining"
 
 #: components/points/swap.tsx:25
 msgid "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
@@ -121,7 +121,7 @@ msgstr "End mining\\n"
 
 #: submission/module.tsx:91
 msgid "Failed"
-msgstr "Failed<<<<<<< HEAD"
+msgstr "Failed"
 
 #: components/points/hooks/useAcceptInvite.ts:63
 msgid "Failed to accept invitation"
@@ -141,7 +141,7 @@ msgstr "Faucet"
 
 #: components/faucet.tsx:198
 msgid "Follow<0>FaroSwap</0>to claim"
-msgstr "Follow<0>FaroSwap</0>to claim<<<<<<< HEAD"
+msgstr "Follow<0>FaroSwap</0>to claim"
 
 #: components/points/liquidity.tsx:62
 msgid "For any single address providing more than <0>1M USD value of LP in a single pool</0>, the team must be contacted directly to obtain a customized annualized points scheme."
@@ -185,7 +185,7 @@ msgstr "Invite Friends, <0/>Boost Your Rewards"
 
 #: components/points/referral.tsx:135
 msgid "Invited users"
-msgstr "Invited users<<<<<<< HEAD"
+msgstr "Invited users"
 
 #: components/points/total.tsx:136
 msgid "Liquidity"
@@ -205,7 +205,7 @@ msgstr "Maximum <0>0.01 PHRS</0> every 12 hours"
 
 #: components/reward/index.tsx:49
 msgid "My Airdrop"
-msgstr "My Airdrop<<<<<<< HEAD"
+msgstr "My Airdrop"
 
 #: components/points/liquidity.tsx:134
 msgid "My Liquidity Points"
@@ -217,7 +217,7 @@ msgstr "My referral link"
 
 #: components/points/referral.tsx:105
 msgid "My referral Points"
-msgstr "My referral Points<<<<<<< HEAD"
+msgstr "My referral Points"
 
 #: components/points/swap.tsx:105
 msgid "My Swap Points"
@@ -287,7 +287,7 @@ msgstr "Receive"
 
 #: components/walletConnect/SendTokenPage.tsx:107
 msgid "Receiver address"
-msgstr "Receiver address<<<<<<< HEAD"
+msgstr "Receiver address"
 
 #: components/points/total.tsx:147
 msgid "Referral"
@@ -304,7 +304,7 @@ msgstr "Reset"
 
 #: submission/getExecutionErrorMsg.ts:28
 msgid "RPC node data exception"
-msgstr "RPC node data exception<<<<<<< HEAD"
+msgstr "RPC node data exception"
 
 #: submission/getExecutionErrorMsg.ts:17
 msgid "SafeERC20: low-level call failed. Please log a Zendesk support ticket or contact the DODO team."
@@ -315,7 +315,7 @@ msgstr "SafeERC20: low-level call failed. Please log a Zendesk support ticket or
 #: components/walletConnect/SendTokenPage.tsx:167
 #: submission/module.tsx:80
 msgid "Send"
-msgstr "Send<<<<<<< HEAD"
+msgstr "Send"
 
 #: components/points/SocialMedia.tsx:19
 msgid "Social Media Missions — How to Join"
@@ -332,13 +332,13 @@ msgstr "Stake"
 
 #: submission/module.tsx:90
 msgid "Succeeded"
-msgstr "Succeeded<<<<<<< HEAD"
+msgstr "Succeeded"
 
 #: components/points/swap.tsx:21
 #: constants/menuList.tsx:12
 #: submission/module.tsx:54
 msgid "Swap"
-msgstr "Swap<<<<<<< HEAD"
+msgstr "Swap"
 
 #: components/points/total.tsx:125
 msgid "Swaps"
@@ -374,7 +374,7 @@ msgstr "Transfer"
 
 #: submission/getExecutionErrorMsg.ts:21
 msgid "User denied transaction signature."
-msgstr "User denied transaction signature.<<<<<<< HEAD"
+msgstr "User denied transaction signature."
 
 #: components/points/liquidity.tsx:24
 msgid "Users who provide liquidity to the protocol will earn points based on both the amount and the holding duration."
@@ -390,7 +390,7 @@ msgstr "View more"
 
 #: components/banner/PoolBanner.tsx:60
 msgid "View More Details"
-msgstr "View More Details<<<<<<< HEAD"
+msgstr "View More Details"
 
 #: components/points/SocialMedia.tsx:22
 msgid "We use our Discord tools to verify user activities and distribute points.Please follow the steps below to set up your account and start earning Social Media Points:"

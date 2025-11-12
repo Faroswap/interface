@@ -14,7 +14,7 @@ export default function SocialMedia() {
 
   return (
     <div className="flex max-md:flex-col gap-3">
-      <div className="md:p-5 rounded-3xl md:bg-paper">
+      <div className="md:p-5 rounded-3xl md:bg-paper flex-1">
         <h5 className="text-2xl font-semibold">
           💠 <Trans>Social Media Missions — How to Join</Trans>
         </h5>
@@ -116,7 +116,7 @@ export default function SocialMedia() {
         </div>
       </div>
 
-      <div className="w-[375px] ml-3 md:flex flex-col hidden">
+      <div className="w-[375px] md:flex flex-col hidden">
         <div className="bg-paper rounded-3xl p-5 mb-3 w-[375px] hidden md:flex">
           <div className="flex items-center mr-5">
             <Image

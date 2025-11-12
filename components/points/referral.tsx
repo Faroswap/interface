@@ -24,6 +24,7 @@ import { usePointUserSummary } from './hooks/usePointsUserSummary';
 import { usePointsHistory } from './hooks/usePointsHistory';
 import { Tab } from './pcTabs';
 import dayjs from 'dayjs';
+import { useGlobalStatus } from '@/utils/useGlobalStatus';
 
 enum ICodeInvalid {
   LengthInvalid,
@@ -48,6 +49,7 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
   const [iCode, setICode] = useState('');
   const [iCodeInvalid, setICodeInvalid] = useState<ICodeInvalid>();
   const [copyCodeText, setCopyCodeText] = useState('Copy Code');
+  const [copyLinkText, setCopyLinkText] = useState('');
   useEffect(() => {
     if (urlICode) setICode(urlICode);
   }, [urlICode]);
@@ -58,7 +60,11 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
     else setICodeInvalid(undefined);
   }, [iCode]);
 
-  const acceptInvite = useAcceptInvite();
+  const acceptInvite = useAcceptInvite({
+    onError: () => {
+      setICode('');
+    },
+  });
 
   return (
     <div className="flex md:flex-row flex-col flex-1 md:m-0 m-[-20px] max-md:pb-5">
@@ -161,10 +167,13 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
               return (
                 <div
                   key={index}
-                  className="rounded-lg h-16 flex-1 bg-white flex items-center justify-center text-active text-lg font-extrabold"
+                  className={clsx(
+                    'rounded-lg h-16 flex-1 bg-white flex items-center justify-center text-lg font-extrabold',
+                    account ? 'text-active' : 'text-disabled',
+                  )}
                 >
                   <LoadingSkeleton loading={fetchInviteCode.isLoading}>
-                    {inviteCode?.[index] || '*'}
+                    {inviteCode?.[index] || '-'}
                   </LoadingSkeleton>
                 </div>
               );
@@ -172,7 +181,7 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
           </div>
           <div>
             <button
-              className="relative bg-primary w-full h-12 flex items-center justify-center text-white rounded-lg font-semibold disabled:bg-paperDarkContrast disabled:text-disabled"
+              className="relative bg-primary w-full h-12 flex items-center justify-center text-white rounded-lg font-semibold disabled:bg-paperDarkContrast disabled:text-disabled active-hover"
               disabled={!inviteCode}
               onClick={() => {
                 copy(inviteCode!);
@@ -188,26 +197,30 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
               Share your referral link and earn more points!
             </div>
             <button
-              className="flex items-center justify-center bg-primary text-white w-[120px] h-[44px] rounded-3xl disabled:text-disabled disabled:bg-paperDarkContrast"
+              className="flex items-center justify-center bg-paperDarkContrast w-[120px] h-[44px] rounded-3xl disabled:text-disabled hover:text-secondary disabled:hover:text-disabled"
               disabled={!inviteUrl}
               onClick={() => {
                 copy(inviteUrl!);
-                setCopyCodeText('Copied');
-                setTimeout(() => setCopyCodeText('Copy Code'), 2000);
+                setCopyLinkText('Copied');
+                setTimeout(() => setCopyLinkText(''), 2000);
               }}
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9 15H5C3.61667 15 2.4375 14.5125 1.4625 13.5375C0.4875 12.5625 0 11.3833 0 10C0 8.61667 0.4875 7.4375 1.4625 6.4625C2.4375 5.4875 3.61667 5 5 5H9V7H5C4.16667 7 3.45833 7.29167 2.875 7.875C2.29167 8.45833 2 9.16667 2 10C2 10.8333 2.29167 11.5417 2.875 12.125C3.45833 12.7083 4.16667 13 5 13H9V15ZM6 11V9H14V11H6ZM11 15V13H15C15.8333 13 16.5417 12.7083 17.125 12.125C17.7083 11.5417 18 10.8333 18 10C18 9.16667 17.7083 8.45833 17.125 7.875C16.5417 7.29167 15.8333 7 15 7H11V5H15C16.3833 5 17.5625 5.4875 18.5375 6.4625C19.5125 7.4375 20 8.61667 20 10C20 11.3833 19.5125 12.5625 18.5375 13.5375C17.5625 14.5125 16.3833 15 15 15H11Z"
-                  fill="currentColor"
-                />
-              </svg>
+              {copyLinkText ? (
+                copyLinkText
+              ) : (
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 15H5C3.61667 15 2.4375 14.5125 1.4625 13.5375C0.4875 12.5625 0 11.3833 0 10C0 8.61667 0.4875 7.4375 1.4625 6.4625C2.4375 5.4875 3.61667 5 5 5H9V7H5C4.16667 7 3.45833 7.29167 2.875 7.875C2.29167 8.45833 2 9.16667 2 10C2 10.8333 2.29167 11.5417 2.875 12.125C3.45833 12.7083 4.16667 13 5 13H9V15ZM6 11V9H14V11H6ZM11 15V13H15C15.8333 13 16.5417 12.7083 17.125 12.125C17.7083 11.5417 18 10.8333 18 10C18 9.16667 17.7083 8.45833 17.125 7.875C16.5417 7.29167 15.8333 7 15 7H11V5H15C16.3833 5 17.5625 5.4875 18.5375 6.4625C19.5125 7.4375 20 8.61667 20 10C20 11.3833 19.5125 12.5625 18.5375 13.5375C17.5625 14.5125 16.3833 15 15 15H11Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              )}
             </button>
           </div>
         </div>
@@ -249,7 +262,7 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
                   className="absolute opacity-0 w-full h-full"
                   maxLength={6}
                   value={iCode}
-                  disabled={!account}
+                  disabled={!account || acceptInvite.isPending}
                   onChange={(e) => setICode(e.target.value.toUpperCase())}
                 />
                 {Array.from({ length: 6 }, (_, i) => i).map((index) => {
@@ -257,11 +270,12 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
                     <div
                       key={index}
                       className={clsx(
-                        'rounded-lg h-16 flex-1 bg-white flex items-center justify-center text-disabled text-lg font-extrabold border',
+                        'rounded-lg h-16 flex-1 bg-white flex items-center justify-center text-lg font-extrabold border',
                         iCode.length === index ||
                           (index === 5 && index === iCode.length - 1)
                           ? '[input:focus~&]:border-[#326AFD]'
                           : '',
+                        !!iCode[index] ? 'text-active' : 'text-disabled',
                       )}
                     >
                       {iCode[index] || '-'}
@@ -271,11 +285,15 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
               </div>
               <div>
                 <button
-                  className="relative bg-primary w-full h-12 flex items-center justify-center text-white rounded-lg font-semibold gap-1 disabled:bg-paperDarkContrast disabled:text-disabled"
+                  className="relative bg-primary w-full h-12 flex items-center justify-center text-white rounded-lg font-semibold gap-1 disabled:bg-paperDarkContrast disabled:text-disabled active-hover"
                   disabled={
                     iCodeInvalid !== undefined || acceptInvite.isPending
                   }
                   onClick={() => {
+                    if (!account) {
+                      useGlobalStatus.setState({ openConnectWallet: true });
+                      return;
+                    }
                     acceptInvite.mutate(
                       {
                         account: account!,
@@ -295,7 +313,9 @@ export default function Referral({ urlICode }: { urlICode?: string }) {
                     );
                   }}
                 >
-                  {acceptInvite.isPending ? (
+                  {urlICode && !account ? (
+                    <Trans>Connect a wallet</Trans>
+                  ) : acceptInvite.isPending ? (
                     <>
                       <RotatingIcon
                         sx={{

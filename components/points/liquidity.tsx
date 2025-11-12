@@ -5,7 +5,12 @@ import { SINGLE_CHAIN_ID } from '@/constants/config';
 import { usePointSpecialBoost } from './hooks/usePointsSpecialBoost';
 import Link from 'next/link';
 import { SpecialBoostLoading } from './SpecialBoostLoading';
-import { FailedList } from '@dodoex/widgets';
+import { FailedList, getEtherscanPage } from '@dodoex/widgets';
+import TokenLogo from '../TokenLogo';
+import { truncatePoolAddress } from '@/utils/address';
+import Tooltip from '../Tooltip';
+import { Copy } from '@dodoex/icons';
+import copy from 'copy-to-clipboard';
 
 export default function Swap() {
   const chainId = SINGLE_CHAIN_ID;
@@ -26,9 +31,9 @@ export default function Swap() {
               on both the amount and the holding duration.
             </Trans>
           </li>
-          {/* <li className="font-bold">
+          <li className="font-bold">
             <Trans>Rule: USD 1 / 3 days = 1 point</Trans>
-          </li> */}
+          </li>
         </ul>
         <div className="mt-2 px-5 py-3 rounded-lg bg-success/10">
           <div className="flex items-center gap-2 font-semibold text-success">
@@ -76,7 +81,7 @@ export default function Swap() {
         <div className="text-xl font-semibold mb-2">
           <Trans>Special Boost</Trans>
         </div>
-        <div className="text-secondary text-sm">
+        <div className="text-secondary text-sm mb-5">
           <Trans>
             FaroSwap will feature special trading pairs and selected pools from
             key partners. Providing liquidity to these pairs will allow
@@ -96,7 +101,7 @@ export default function Swap() {
           {fetchSpecialBoost.data?.points_activity_specialBoost?.map(
             (item, i) => (
               <Link
-                href={`/swap/${chainId}-${item?.baseSymbol}/${chainId}-${item?.quoteSymbol}`}
+                href={`/pool/${chainId}/${item?.poolAddress}`}
                 className="bg-paper md:bg-main rounded-lg w-full md:w-[224px] h-[48px] flex items-center relative [&:hover_.apy]:hidden [&:hover_.swap]:flex pl-3"
                 key={i}
               >
@@ -116,14 +121,48 @@ export default function Swap() {
                     marginRight={9}
                   />
                 </div>
-                <div className="text-sm">
-                  {item?.baseSymbol}/{item?.quoteSymbol}
+                <div>
+                  <div className="text-sm">
+                    {item?.baseSymbol}/{item?.quoteSymbol}
+                  </div>
+                  <div className="flex items-center justify-center gap-[2px] text-xs">
+                    <a
+                      className="underline text-secondary hover:text-primary"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      href={getEtherscanPage(
+                        SINGLE_CHAIN_ID,
+                        item?.poolAddress ?? '',
+                        'address',
+                      )}
+                      onClick={(evt) => {
+                        evt.stopPropagation();
+                      }}
+                    >
+                      {truncatePoolAddress(item?.poolAddress ?? '')}
+                    </a>
+                    <Tooltip
+                      onlyClick
+                      arrow={false}
+                      autoClose
+                      title={<Trans>Copied</Trans>}
+                    >
+                      <Copy
+                        className="w-[14px] h-[14px] cursor-pointer text-secondary hover:text-primary"
+                        onClick={(evt) => {
+                          evt.preventDefault();
+                          evt.stopPropagation();
+                          copy(item?.poolAddress ?? '');
+                        }}
+                      />
+                    </Tooltip>
+                  </div>
                 </div>
                 <div className="apy absolute top-0 right-0 bg-[#FEE94F] flex items-center justify-center px-2 leading-4 text-xs rounded-bl-lg rounded-tr-lg rounded-tl-sm rounded-br-sm font-bold">
                   +{item?.multiplierPercentage}%
                 </div>
                 <div className="swap absolute right-0 bg-[#1A1A1B1A] text-active text-sm items-center justify-center h-full w-[60px] hidden rounded-r-lg">
-                  Swap
+                  Add
                 </div>
               </Link>
             ),

@@ -4,7 +4,6 @@ import { ERC20_DOMAIN, SINGLE_CHAIN_ID } from '@/constants/config';
 import { graphql } from '@/gql';
 import { useGlobalStatus } from '@/utils/useGlobalStatus';
 import { personalSign } from '@dodoex/wallet-web3';
-import { t } from '@lingui/macro';
 import { useMutation } from '@tanstack/react-query';
 
 const document = graphql(`
@@ -16,7 +15,11 @@ const document = graphql(`
   }
 `);
 
-export function useAcceptInvite() {
+export function useAcceptInvite({
+  onError,
+}: {
+  onError?: () => void;
+} = {}) {
   const acceptInviteMutation = useMutation({
     mutationFn: async ({
       account,
@@ -58,9 +61,10 @@ export function useAcceptInvite() {
       } catch (error: any) {
         const errorMessage =
           error.response?.errors?.[0]?.message ?? error.message;
+        onError?.();
         if (errorMessage) {
           useGlobalStatus.getState().setErrorMessage({
-            title: t`Failed to accept invitation`,
+            title: `Failed to accept invitation`,
             message: errorMessage,
           });
           return null;
