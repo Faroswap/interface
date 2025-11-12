@@ -46,7 +46,7 @@ export default function Faucet() {
         body: JSON.stringify({
           chainId: SINGLE_CHAIN_ID,
           address,
-          recaptchaToken: recaptcha,
+          turnstileToken: recaptcha,
         }),
       });
 
