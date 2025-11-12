@@ -64,10 +64,22 @@ export const useTurnstile = () => {
         widgetIdRef.current = widgetId;
       };
 
-      if (window.turnstile?.ready) {
-        window.turnstile.ready(renderWidget);
+      const renderOrReject = () => {
+        if (window.turnstile) {
+          renderWidget();
+        } else {
+          reject(new Error('Cloudflare Turnstile script is not loaded'));
+        }
+      };
+
+      if (window.turnstile) {
+        renderOrReject();
       } else {
-        reject(new Error('Cloudflare Turnstile script is not loaded'));
+        const handleLoad = () => {
+          window.removeEventListener('load', handleLoad);
+          renderOrReject();
+        };
+        window.addEventListener('load', handleLoad);
       }
     });
   };
