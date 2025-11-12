@@ -7,6 +7,7 @@ import React from 'react';
 import { Button } from '@dodoex/components';
 import LogoAndText from '@/assets/logo/logo-and-text.svg';
 import clsx from 'clsx';
+import { useTurnstile } from '@/hooks/useTurnstile';
 import { useMutation } from '@tanstack/react-query';
 import { ArrowTopRightBorder, DoneBorder } from '@dodoex/icons';
 import { getEtherscanPage } from '@dodoex/widgets';
@@ -26,6 +27,8 @@ export default function Faucet() {
 
   const isError = !!address && !isAddress(address);
 
+  const { containerRef, renderTurnstile, resetTurnstileElement } =
+    useTurnstile();
   const claimMutation = useMutation({
     mutationFn: async () => {
       window.open(
@@ -33,6 +36,8 @@ export default function Faucet() {
         '_blank',
         'menubar=no,toolbar=no',
       );
+      resetTurnstileElement();
+      const recaptcha = await renderTurnstile();
       const response = await fetch(FAUCET_URL, {
         method: 'POST',
         headers: {
@@ -41,6 +46,7 @@ export default function Faucet() {
         body: JSON.stringify({
           chainId: SINGLE_CHAIN_ID,
           address,
+          recaptchaToken: recaptcha,
         }),
       });
 
@@ -99,7 +105,7 @@ export default function Faucet() {
                 onChange={(evt) => {
                   changed.current = true;
                   const { value } = evt.target;
-                  // resetRecaptchElement();
+                  resetTurnstileElement();
                   claimMutation.reset();
                   setAddress(value);
                 }}
@@ -109,7 +115,7 @@ export default function Faucet() {
               <button
                 className="relative z-[1] flex items-center justify-center p-1 rounded-full bg-paperDarkContrast text-secondary hover:text-primary"
                 onClick={() => {
-                  // resetRecaptchElement();
+                  resetTurnstileElement();
                   claimMutation.reset();
                   setAddress('');
                 }}
@@ -171,7 +177,7 @@ export default function Faucet() {
               hours
             </Trans>
           </div>
-          {/* <div ref={recaptchaContainer} className="mt-3" /> */}
+          <div ref={containerRef} className="mt-3" />
           <Button
             size={Button.Size.big}
             fullWidth
