@@ -54,7 +54,7 @@ msgstr "Balance"
 msgid "Claim"
 msgstr "Claim"
 
-#: components/faucet.tsx:90
+#: components/faucet.tsx:91
 msgid "Claim Pharos New Testnet Tokens:"
 msgstr "Claim Pharos New Testnet Tokens:"
 
@@ -63,11 +63,11 @@ msgstr "Claim Pharos New Testnet Tokens:"
 msgid "Claim Rewards"
 msgstr "Claim Rewards"
 
-#: components/faucet.tsx:146
+#: components/faucet.tsx:149
 msgid "Claim successful! 🎉 Tnx Hash:"
 msgstr "Claim successful! 🎉 Tnx Hash:"
 
-#: components/faucet.tsx:194
+#: components/faucet.tsx:199
 msgid "Claimed, try later"
 msgstr "Claimed, try later"
 
@@ -137,7 +137,7 @@ msgstr "FaroSwap will feature special trading pairs and selected pools from key 
 msgid "Faucet"
 msgstr "Faucet"
 
-#: components/faucet.tsx:198
+#: components/faucet.tsx:203
 msgid "Follow<0>FaroSwap</0>to claim"
 msgstr "Follow<0>FaroSwap</0>to claim"
 
@@ -169,7 +169,7 @@ msgstr "History"
 msgid "Insufficient funds - Please retry after depositing more {EtherTokenSymbol} into your wallet"
 msgstr "Insufficient funds - Please retry after depositing more {EtherTokenSymbol} into your wallet"
 
-#: components/faucet.tsx:137
+#: components/faucet.tsx:140
 msgid "Invalid address. Please enter again."
 msgstr "Invalid address. Please enter again."
 
@@ -197,7 +197,7 @@ msgstr "Loading more"
 msgid "Locked"
 msgstr "Locked"
 
-#: components/faucet.tsx:170
+#: components/faucet.tsx:175
 msgid "Maximum <0>0.01 PHRS</0> every 12 hours"
 msgstr "Maximum <0>0.01 PHRS</0> every 12 hours"
 
@@ -258,7 +258,7 @@ msgstr "Pool"
 msgid "Pool Creation"
 msgstr "Pool Creation"
 
-#: components/faucet.tsx:231
+#: components/faucet.tsx:236
 msgid "Powered By"
 msgstr "Powered By"
 
@@ -270,11 +270,11 @@ msgstr "Powered by DODO DEXpert"
 msgid "Pre-allocation Rewards"
 msgstr "Pre-allocation Rewards"
 
-#: components/faucet.tsx:192
+#: components/faucet.tsx:197
 msgid "Processing..."
 msgstr "Processing..."
 
-#: components/faucet.tsx:196
+#: components/faucet.tsx:201
 msgid "Reached limit, try later"
 msgstr "Reached limit, try later"
 

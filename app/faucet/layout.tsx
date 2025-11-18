@@ -5,7 +5,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Script
-        src={`https://www.google.com/recaptcha/api.js?render=explicit`}
+        src={
+          'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
+        }
         async
         defer
       />

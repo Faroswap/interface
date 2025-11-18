@@ -7,7 +7,7 @@ import React from 'react';
 import { Button } from '@dodoex/components';
 import LogoAndText from '@/assets/logo/logo-and-text.svg';
 import clsx from 'clsx';
-import { useRecaptcha } from '@/hooks/useRecaptcha';
+import { useTurnstile } from '@/hooks/useTurnstile';
 import { useMutation } from '@tanstack/react-query';
 import { ArrowTopRightBorder, DoneBorder } from '@dodoex/icons';
 import { getEtherscanPage } from '@dodoex/widgets';
@@ -27,8 +27,8 @@ export default function Faucet() {
 
   const isError = !!address && !isAddress(address);
 
-  const { recaptchaContainer, renderRecaptcha, resetRecaptchElement } =
-    useRecaptcha();
+  const { containerRef, renderTurnstile, resetTurnstileElement } =
+    useTurnstile();
   const claimMutation = useMutation({
     mutationFn: async () => {
       window.open(
@@ -36,8 +36,8 @@ export default function Faucet() {
         '_blank',
         'menubar=no,toolbar=no',
       );
-      resetRecaptchElement();
-      const recaptcha = await renderRecaptcha();
+      resetTurnstileElement();
+      const recaptcha = await renderTurnstile();
       const response = await fetch(FAUCET_URL, {
         method: 'POST',
         headers: {
@@ -46,7 +46,7 @@ export default function Faucet() {
         body: JSON.stringify({
           chainId: SINGLE_CHAIN_ID,
           address,
-          recaptchaToken: recaptcha,
+          turnstileToken: recaptcha,
         }),
       });
 
@@ -82,7 +82,8 @@ export default function Faucet() {
       <div
         className="mt-4 md:mt-7 p-1 rounded-3xl w-full"
         style={{
-          backgroundImage: 'linear-gradient(90deg, rgba(15, 107, 209, 0.3) -30%, rgba(254, 233, 79, 0.3))',
+          backgroundImage:
+            'linear-gradient(90deg, rgba(15, 107, 209, 0.3) -30%, rgba(254, 233, 79, 0.3))',
         }}
       >
         <div className="p-7 rounded-3xl bg-paper">
@@ -104,33 +105,35 @@ export default function Faucet() {
                 onChange={(evt) => {
                   changed.current = true;
                   const { value } = evt.target;
-                  resetRecaptchElement();
+                  resetTurnstileElement();
                   claimMutation.reset();
                   setAddress(value);
                 }}
               />
             </div>
-            {!!address && <button
-              className="relative z-[1] flex items-center justify-center p-1 rounded-full bg-paperDarkContrast text-secondary hover:text-primary"
-              onClick={() => {
-                resetRecaptchElement();
-                claimMutation.reset();
-                setAddress('');
-              }}
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            {!!address && (
+              <button
+                className="relative z-[1] flex items-center justify-center p-1 rounded-full bg-paperDarkContrast text-secondary hover:text-primary"
+                onClick={() => {
+                  resetTurnstileElement();
+                  claimMutation.reset();
+                  setAddress('');
+                }}
               >
-                <path
-                  d="M12.8896 4.36345L9.25302 8L12.8896 11.6365L11.6774 12.8487L8.04084 9.21218L4.40429 12.8487L3.19211 11.6365L6.82866 8L3.19211 4.36345L4.40429 3.15127L8.04084 6.78782L11.6774 3.15127L12.8896 4.36345Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </button>}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.8896 4.36345L9.25302 8L12.8896 11.6365L11.6774 12.8487L8.04084 9.21218L4.40429 12.8487L3.19211 11.6365L6.82866 8L3.19211 4.36345L4.40429 3.15127L8.04084 6.78782L11.6774 3.15127L12.8896 4.36345Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </button>
+            )}
           </div>
           {isError && (
             <div className="mt-2 text-sm text-[#ff6187]">
@@ -155,8 +158,10 @@ export default function Faucet() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="underline">{truncatePoolAddress(claimMutation.data.txHash)}</span>
-                  <ArrowTopRightBorder className='w-4 h-4' />
+                  <span className="underline">
+                    {truncatePoolAddress(claimMutation.data.txHash)}
+                  </span>
+                  <ArrowTopRightBorder className="w-4 h-4" />
                 </a>
               </div>
             </div>
@@ -172,7 +177,7 @@ export default function Faucet() {
               hours
             </Trans>
           </div>
-          <div ref={recaptchaContainer} className="mt-3" />
+          <div ref={containerRef} className="mt-3" />
           <Button
             size={Button.Size.big}
             fullWidth
