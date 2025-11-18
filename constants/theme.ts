@@ -27,7 +27,7 @@ export const palette = {
   background: {
     default: '#FFF',
     paper: '#F2F2F2',
-    paperContrast: 'rgba(26, 26, 27, 0.06)',
+    paperContrast: '#E8E8E8',
     input: '#FFF',
   },
   tabActive: {
