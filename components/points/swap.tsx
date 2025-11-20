@@ -28,8 +28,8 @@ export default function Swap() {
               <span className="font-bold">swaps and trades</span> on FaroSwap.
             </Trans>
           </li>
-           <li className="font-bold">
-            <Trans>Rule: USD 1 = 3 points</Trans>
+          <li className="font-bold">
+            <Trans>Rule: 1 USD = 3 points</Trans>
           </li>
         </ul>
         <div>

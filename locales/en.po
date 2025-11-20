@@ -305,12 +305,12 @@ msgid "RPC node data exception"
 msgstr "RPC node data exception"
 
 #: components/points/liquidity.tsx:35
-msgid "Rule: USD 1 / 3 days = 1 point"
-msgstr "Rule: USD 1 / 3 days = 1 point"
+msgid "Rule: 1 USD / 3 days = 1 point"
+msgstr "Rule: 1 USD / 3 days = 1 point"
 
 #: components/points/swap.tsx:32
-msgid "Rule: USD 1 = 3 points"
-msgstr "Rule: USD 1 = 3 points"
+msgid "Rule: 1 USD = 3 points"
+msgstr "Rule: 1 USD = 3 points"
 
 #: submission/getExecutionErrorMsg.ts:17
 msgid "SafeERC20: low-level call failed. Please log a Zendesk support ticket or contact the DODO team."

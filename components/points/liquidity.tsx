@@ -32,7 +32,7 @@ export default function Swap() {
             </Trans>
           </li>
           <li className="font-bold">
-            <Trans>Rule: USD 1 / 3 days = 1 point</Trans>
+            <Trans>Rule: 1 USD / 3 days = 1 point</Trans>
           </li>
         </ul>
         <div className="mt-2 px-5 py-3 rounded-lg bg-success/10">
