@@ -82,6 +82,7 @@ export default function Total({
                     input:
                       fetchUserSummary.data?.points_activity_userSummary
                         ?.totalPoints,
+                    decimals: 18,
                   })}
                 </LoadingSkeleton>
                 {canClaim ? (
@@ -127,6 +128,7 @@ export default function Total({
                     input:
                       fetchUserSummary.data?.points_activity_userSummary
                         ?.swapPoints,
+                    decimals: 18,
                   })}
                   loading={fetchUserSummary.isLoading}
                   onClick={() => onChangeTab(Tab.Swap)}
@@ -138,6 +140,7 @@ export default function Total({
                     input:
                       fetchUserSummary.data?.points_activity_userSummary
                         ?.lpPoints,
+                    decimals: 18,
                   })}
                   loading={fetchUserSummary.isLoading}
                   onClick={() => onChangeTab(Tab.Liquidity)}
@@ -149,6 +152,7 @@ export default function Total({
                     input:
                       fetchUserSummary.data?.points_activity_userSummary
                         ?.invitePoints,
+                    decimals: 18,
                   })}
                   loading={fetchUserSummary.isLoading}
                   onClick={() => onChangeTab(Tab.Referral)}
@@ -168,6 +172,7 @@ export default function Total({
                     input:
                       fetchUserSummary.data?.points_activity_userSummary
                         ?.socialMediaPoints ?? '',
+                    decimals: 18,
                   })}
                 </LoadingSkeleton>
                 <UpdateTime className="mt-1" />
@@ -250,6 +255,7 @@ export default function Total({
                 input:
                   fetchLeader.data?.points_activity_leaderboard?.currentUserRank
                     ?.totalPoints,
+                decimals: 18,
               })}
             </LoadingSkeleton>
           </div>
@@ -300,6 +306,7 @@ export default function Total({
               >
                 {formatReadableNumber({
                   input: currentRank?.totalPoints ?? '',
+                  showDecimals: 6,
                 })}
               </LoadingSkeleton>
             </div>
