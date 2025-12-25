@@ -288,7 +288,7 @@ export default function LeftNav({
               </svg>
             </a>
           )}
-          <a
+          {/* <a
             className={clsx(
               'flex justify-between items-center  rounded-lg text-secondary  hover:text-primary',
               onlySingleSocialLink
@@ -300,7 +300,7 @@ export default function LeftNav({
             href={PHAROS_TESTNET_URL}
           >
             <LogoGray />
-          </a>
+          </a> */}
         </div>
         <div
           className={clsx('mt-[10px] mx-auto h-[1px] w-11/12 bg-border', {
