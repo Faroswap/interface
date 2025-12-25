@@ -15,7 +15,7 @@ import {
   DISCORD_URL,
 } from '@/constants/config';
 import LogoAndText from '@/assets/logo/logo-and-text.svg';
-import LogoGray from '@/assets/logo/logo-gray.svg';
+// import LogoGray from '@/assets/logo/logo-gray.svg';
 import { useMediaDevices } from '@dodoex/components';
 import DiscordIcon from '@/assets/icons/discord.svg';
 
