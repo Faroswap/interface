@@ -9,6 +9,7 @@ import ApproveIcon from '@/assets/activity/token-approve.svg';
 import SwapIcon from '@/assets/logo/single-chain.svg';
 import PoolIcon from '@/assets/nav/pool.svg';
 import MiningIcon from '@/assets/nav/mining.svg';
+import LaunchpadIcon from '@/assets/nav/launchpad.svg';
 import { StateText } from './types';
 import { t } from '@lingui/macro';
 
@@ -75,6 +76,17 @@ export function getSubmitTitleByBrief(brief: string) {
       return t`Claim Rewards`;
     case 'nav.create-mining':
       return t`Create Liquidity Mining`;
+
+    case 'cp.my-list.launch-cp':
+      return t`Create Crowdpooling`;
+    case 'cp.join.tx-brief.add':
+      return t`Add to pool`;
+    case 'cp.join.claim':
+      return t`Claim`;
+    case 'cp.detail.settle.title':
+      return t`Settle`;
+    case 'cp.join.tx-brief.remove':
+      return t`Remove`;
 
     case 'wallet.account.card.operate.send':
       return t`Send`;
@@ -146,6 +158,11 @@ export function SubmissionTypeIcon({ brief }: { brief: string }) {
     'mining.deposit.receive-reward': MiningIcon,
     'mining.stake': MiningIcon,
     'mining.submit.remove-title': MiningIcon,
+    'cp.my-list.launch-cp': LaunchpadIcon,
+    'cp.join.tx-brief.add': LaunchpadIcon,
+    'cp.join.claim': LaunchpadIcon,
+    'cp.detail.settle.title': LaunchpadIcon,
+    'cp.join.tx-brief.remove': LaunchpadIcon,
   };
   const Icon = typeIconMap[brief];
   if (!Icon) return null;

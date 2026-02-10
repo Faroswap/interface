@@ -1,5 +1,6 @@
 import SwapIcon from '@/assets/nav/swap.svg';
 import PoolIcon from '@/assets/nav/pool.svg';
+import LaunchpadIcon from '@/assets/nav/launchpad.svg';
 import PointsIcon from '@/assets/nav/points.svg';
 import FaucetIcon from '@/assets/nav/faucet.svg';
 // import MiningIcon from '@/assets/nav/mining.svg';
@@ -19,6 +20,16 @@ export function getMenuList() {
       url: '/pool',
       icon: <PoolIcon />,
       description: <Trans>Anchor assets safely in DeFi harbor</Trans>,
+    },
+    {
+      name: <Trans>Launchpad</Trans>,
+      url: '/launchpad',
+      icon: <LaunchpadIcon />,
+      description: (
+        <Trans>
+          Easy project fundraising options and equal access for users to participate in token launches
+        </Trans>
+      ),
     },
     {
       name: <Trans>Points</Trans>,

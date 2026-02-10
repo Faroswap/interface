@@ -38,6 +38,20 @@ export function useWidgetRouterSubscribe() {
       } else if (state.page?.type === PageType.ModifyPool) {
         const { chainId, address } = params;
         router.push(`/pool/${chainId}/${address}/modify`);
+      } else if (state.page?.type === PageType.CrowdpoolingList) {
+        router.push(
+          `/launchpad${params?.tab ? `?tab=${params?.tab}` : ''}`,
+        );
+      } else if (state.page?.type === PageType.CrowdpoolingDetail) {
+        const { chainId, address } = params;
+        router.push(`/launchpad/${chainId}/${address}`);
+      } else if (state.page?.type === PageType.CreateCrowdpooling) {
+        router.push(`/launchpad/create`);
+      } else if (state.page?.type === PageType.CrowdpoolingPoolDetail) {
+        const { chainId, address } = params;
+        router.push(`/launchpad/pool/${chainId}/${address}`);
+      } else if (state.page?.type === PageType.MyCrowdpoolingList) {
+        router.push(`/launchpad/my`);
       }
     });
     return unsubscribe;

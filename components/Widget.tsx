@@ -87,6 +87,21 @@ function getSubmitTxKey(metadata: Record<string, any>, brief?: string) {
       case MetadataFlagWidget.claimAMMV3Pool:
         result = 'pool.amm-v3.receive-reward.title';
         return true;
+      case MetadataFlagWidget.createCrowdpooling:
+        result = 'cp.my-list.launch-cp';
+        return true;
+      case MetadataFlagWidget.bidCrowdpooling:
+        result = 'cp.join.tx-brief.add';
+        return true;
+      case MetadataFlagWidget.claimCrowdpooling:
+        result = 'cp.join.claim';
+        return true;
+      case MetadataFlagWidget.settleCrowdpooling:
+        result = 'cp.detail.settle.title';
+        return true;
+      case MetadataFlagWidget.removeCrowdpooling:
+        result = 'cp.join.tx-brief.remove';
+        return true;
 
       default:
         return false;
@@ -187,6 +202,13 @@ export default function Widget({
   });
   const tokenList = tokenListClient ?? tokenListProps;
 
+  const documentUrls: WidgetProps['documentUrls'] = {
+    termsOfService: 'https://docs.faroswap.xyz/en/introduction/join-our-community',
+    crowdpoolingCreate: '',
+    crowdpoolingList: '',
+    crowdpoolingWhitelist: '',
+  }
+
   return (
     <React.Suspense>
       <UnstyleWidget
@@ -217,6 +239,7 @@ export default function Widget({
           name: TITLE,
           logoUrl: LOGO_URL,
         }}
+        documentUrls={documentUrls}
         onTxSubmit={async (tx, data) => {
           const key = getSubmitTxKey(data.metadata, data.brief);
           console.log(tx, data);
