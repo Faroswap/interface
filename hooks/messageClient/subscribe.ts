@@ -11,7 +11,7 @@ export function messageClientSubscribe<TResult, TVariables>(
   clientProps?: Client | null,
 ) {
   const client = clientProps ?? useMessageClientStore.getState().getClient();
-  const gqlStr = document.toString();
+  const gqlStr = document?.toString();
   const operationName = getOperationName(gqlStr);
   const subscribeParams = {
     operationName,

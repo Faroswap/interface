@@ -22,9 +22,13 @@ msgid "Activity"
 msgstr "Activity"
 
 #: components/points/liquidity.tsx:9
-#: submission/module.tsx:60
+#: submission/module.tsx:61
 msgid "Add Liquidity"
 msgstr "Add Liquidity"
+
+#: submission/module.tsx:83
+msgid "Add to pool"
+msgstr "Add to pool"
 
 #: components/reward/RewardEntry.tsx:62
 msgid "Airdrop"
@@ -34,7 +38,7 @@ msgstr "Airdrop"
 msgid "Airdrop Rewards"
 msgstr "Airdrop Rewards"
 
-#: constants/menuList.tsx:21
+#: constants/menuList.tsx:22
 msgid "Anchor assets safely in DeFi harbor"
 msgstr "Anchor assets safely in DeFi harbor"
 
@@ -42,7 +46,7 @@ msgstr "Anchor assets safely in DeFi harbor"
 msgid "Anti-Whale Rule"
 msgstr "Anti-Whale Rule"
 
-#: submission/module.tsx:41
+#: submission/module.tsx:42
 msgid "Approve"
 msgstr "Approve"
 
@@ -51,6 +55,7 @@ msgid "Balance"
 msgstr "Balance"
 
 #: components/reward/RewardCard.tsx:185
+#: submission/module.tsx:85
 msgid "Claim"
 msgstr "Claim"
 
@@ -59,7 +64,7 @@ msgid "Claim Pharos New Testnet Tokens:"
 msgstr "Claim Pharos New Testnet Tokens:"
 
 #: components/points/total.tsx:72
-#: submission/module.tsx:75
+#: submission/module.tsx:76
 msgid "Claim Rewards"
 msgstr "Claim Rewards"
 
@@ -100,7 +105,11 @@ msgstr "Copied"
 msgid "Copy wallet address"
 msgstr "Copy wallet address"
 
-#: submission/module.tsx:77
+#: submission/module.tsx:81
+msgid "Create Crowdpooling"
+msgstr "Create Crowdpooling"
+
+#: submission/module.tsx:78
 msgid "Create Liquidity Mining"
 msgstr "Create Liquidity Mining"
 
@@ -108,11 +117,15 @@ msgstr "Create Liquidity Mining"
 msgid "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
 msgstr "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
 
-#: submission/module.tsx:72
+#: constants/menuList.tsx:29
+msgid "Easy project fundraising options and equal access for users to participate in token launches"
+msgstr "Easy project fundraising options and equal access for users to participate in token launches"
+
+#: submission/module.tsx:73
 msgid "End mining\\n"
 msgstr "End mining\\n"
 
-#: submission/module.tsx:91
+#: submission/module.tsx:103
 msgid "Failed"
 msgstr "Failed"
 
@@ -124,7 +137,7 @@ msgstr "FaroSwap will feature <0>special trading pairs / selected</0> pools fr
 msgid "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 msgstr "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 
-#: constants/menuList.tsx:34
+#: constants/menuList.tsx:45
 msgid "Faucet"
 msgstr "Faucet"
 
@@ -140,7 +153,7 @@ msgstr "For any single address providing more than <0>1M USD value of LP in a s
 msgid "Gas price is too low, please adjust in your wallet and try again"
 msgstr "Gas price is too low, please adjust in your wallet and try again"
 
-#: constants/menuList.tsx:37
+#: constants/menuList.tsx:48
 msgid "Get PHRS and start your voyage"
 msgstr "Get PHRS and start your voyage"
 
@@ -148,7 +161,7 @@ msgstr "Get PHRS and start your voyage"
 msgid "Go back"
 msgstr "Go back"
 
-#: constants/menuList.tsx:15
+#: constants/menuList.tsx:16
 msgid "Guiding your trades through DeFi waters"
 msgstr "Guiding your trades through DeFi waters"
 
@@ -175,6 +188,10 @@ msgstr "Invite Friends, <0/>Boost Your Rewards"
 #: components/points/referral.tsx:93
 msgid "Invited users"
 msgstr "Invited users"
+
+#: constants/menuList.tsx:25
+msgid "Launchpad"
+msgstr "Launchpad"
 
 #: components/points/total.tsx:102
 msgid "Liquidity"
@@ -224,7 +241,7 @@ msgstr "No tokens"
 msgid "On-chain transaction records"
 msgstr "On-chain transaction records"
 
-#: submission/module.tsx:92
+#: submission/module.tsx:104
 msgid "Pending"
 msgstr "Pending"
 
@@ -232,15 +249,15 @@ msgstr "Pending"
 msgid "pending..."
 msgstr "pending..."
 
-#: constants/menuList.tsx:24
+#: constants/menuList.tsx:35
 msgid "Points"
 msgstr "Points"
 
-#: constants/menuList.tsx:18
+#: constants/menuList.tsx:19
 msgid "Pool"
 msgstr "Pool"
 
-#: submission/module.tsx:68
+#: submission/module.tsx:69
 msgid "Pool Creation"
 msgstr "Pool Creation"
 
@@ -277,12 +294,16 @@ msgstr "Receiver address"
 msgid "Referral"
 msgstr "Referral"
 
-#: submission/module.tsx:64
+#: submission/module.tsx:89
+msgid "Remove"
+msgstr "Remove"
+
+#: submission/module.tsx:65
 msgid "Remove Liquidity"
 msgstr "Remove Liquidity"
 
-#: submission/module.tsx:40
-#: submission/module.tsx:93
+#: submission/module.tsx:41
+#: submission/module.tsx:105
 msgid "Reset"
 msgstr "Reset"
 
@@ -297,9 +318,13 @@ msgstr "SafeERC20: low-level call failed. Please log a Zendesk support ticket or
 #: components/walletConnect/AccountPage.tsx:193
 #: components/walletConnect/SendTokenPage.tsx:100
 #: components/walletConnect/SendTokenPage.tsx:167
-#: submission/module.tsx:80
+#: submission/module.tsx:92
 msgid "Send"
 msgstr "Send"
+
+#: submission/module.tsx:87
+msgid "Settle"
+msgstr "Settle"
 
 #: components/points/SocialMedia.tsx:19
 msgid "Social Media Missions — How to Join"
@@ -310,17 +335,17 @@ msgstr "Social Media Missions — How to Join"
 msgid "Special Boost"
 msgstr "Special Boost"
 
-#: submission/module.tsx:70
+#: submission/module.tsx:71
 msgid "Stake"
 msgstr "Stake"
 
-#: submission/module.tsx:90
+#: submission/module.tsx:102
 msgid "Succeeded"
 msgstr "Succeeded"
 
 #: components/points/swap.tsx:10
-#: constants/menuList.tsx:12
-#: submission/module.tsx:54
+#: constants/menuList.tsx:13
+#: submission/module.tsx:55
 msgid "Swap"
 msgstr "Swap"
 
@@ -348,11 +373,11 @@ msgstr "Token"
 msgid "Total:"
 msgstr "Total:"
 
-#: constants/menuList.tsx:28
+#: constants/menuList.tsx:39
 msgid "Track your loyalty points & unlock rewards on Pharos mainnet"
 msgstr "Track your loyalty points & unlock rewards on Pharos mainnet"
 
-#: submission/module.tsx:56
+#: submission/module.tsx:57
 msgid "Transfer"
 msgstr "Transfer"
 
