@@ -121,7 +121,7 @@ export default function LeftNav({
                     <ProgressLink
                       href={menu.url}
                       className={clsx(
-                        'relative z-[1] p-3 flex flex-col font-semibold rounded-lg',
+                        'relative z-[1] p-3 flex items-center gap-2 font-semibold rounded-lg',
                         {
                           '[&_.active-color]:fill-[url(#left-nav-linear)]':
                             active,
@@ -135,12 +135,8 @@ export default function LeftNav({
                       onClick={() => onClose?.()}
                     >
                       {menu.icon}
-                      <div className={clsx('mt-2 leading-none font-semibold')}>
+                      <div className={clsx('leading-none font-semibold text-sm')}>
                         {menu.name}
-                      </div>
-                      <div className="mt-1 text-xs text-secondary">
-                        {' '}
-                        {menu.description}
                       </div>
                     </ProgressLink>
                   </li>

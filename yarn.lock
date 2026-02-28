@@ -1355,28 +1355,26 @@
     "@babel/helper-string-parser" "^7.25.9"
     "@babel/helper-validator-identifier" "^7.25.9"
 
-"@binance/w3w-core@1.1.8-alpha.0":
-  version "1.1.8-alpha.0"
-  resolved "https://registry.yarnpkg.com/@binance/w3w-core/-/w3w-core-1.1.8-alpha.0.tgz#422f06cfb988effbb1b67725dcebf3e1db93bc2d"
-  integrity sha512-fLTBqF4Yb7s4zFMhzHnmurQqszbiE9c8ZdmbELSkWgSwEHtEO7DAOAV61X9mCLLeCLpQkwz3sLULg/Agjr5iXA==
+"@binance/w3w-core@1.1.10":
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/@binance/w3w-core/-/w3w-core-1.1.10.tgz#7d56a914a195dc3634a7a7138972a932fb89bb68"
+  integrity sha512-kHOHXJWEjkV+5Uua7hZS28JkwKvRXwiziPl/0NsPEAf10AocEiB+jv2BnIswHRhLHkNX35AZhQqZBIda1j2SMw==
   dependencies:
-    "@binance/w3w-qrcode-modal" "1.1.5"
+    "@binance/w3w-qrcode-modal" "1.1.7"
     "@binance/w3w-socket-transport" "1.1.4"
     "@binance/w3w-types" "1.1.4"
-    "@binance/w3w-utils" "1.1.4"
-    "@ethersproject/abi" "^5.7.0"
-    axios "^1.3.5"
+    "@binance/w3w-utils" "1.1.8"
     js-base64 "^3.7.5"
 
-"@binance/w3w-ethereum-provider@^1.1.8-alpha.0":
-  version "1.1.8-alpha.0"
-  resolved "https://registry.yarnpkg.com/@binance/w3w-ethereum-provider/-/w3w-ethereum-provider-1.1.8-alpha.0.tgz#ee780544c2ae9ea234ef9284980a031db0e4f229"
-  integrity sha512-pmJWrv1npmqYYz1M3wtaXVY4rSJh2GYjNgRXoFb9SUJOklO8zHqKUjRoPWcHtWQTnEHmwzE4e/dIzE3tecRAjg==
+"@binance/w3w-ethereum-provider@^1.1.11":
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/@binance/w3w-ethereum-provider/-/w3w-ethereum-provider-1.1.13.tgz#8c97eede944a29ecf75c00139c4818a52d035176"
+  integrity sha512-U56ycWg+GttnYWMpfQSBJyn4ZgsV+S6Hg7yFrG2l22rgx1NPiwfULY56bG6xdC4lMk7TfSlW3LbKBruYd4c05w==
   dependencies:
     "@binance/w3w-http-client" "1.1.4"
-    "@binance/w3w-sign-client" "1.1.8-alpha.0"
+    "@binance/w3w-sign-client" "1.1.11"
     "@binance/w3w-types" "1.1.4"
-    "@binance/w3w-utils" "1.1.4"
+    "@binance/w3w-utils" "1.1.8"
     eip1193-provider "^1.0.1"
     eventemitter3 "^5.0.0"
 
@@ -1390,27 +1388,27 @@
     cross-fetch "^3.1.5"
     eventemitter3 "^5.0.0"
 
-"@binance/w3w-qrcode-modal@1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@binance/w3w-qrcode-modal/-/w3w-qrcode-modal-1.1.5.tgz#e330035a20c58965a784af5eb19225aad8266b54"
-  integrity sha512-SFwA9PeCAlPBjfgLf9chLoia3D5pWpDjDZOZ6wD3G3Xspd4XKrtQl4UvFpAm6hkrgw6fShtI2zis9PQYAxQjiA==
+"@binance/w3w-qrcode-modal@1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@binance/w3w-qrcode-modal/-/w3w-qrcode-modal-1.1.7.tgz#7a771906b4e0b5b36d7788c5c36907c3d555235a"
+  integrity sha512-asrFKFWE/HOfgC+R2IsWwIebV6Db3Bk7l3R+2bDB5O0tXYnTgQg8YgzSU1JnwNc7rnbnGs/6BN7gxIeTRT2zeQ==
   dependencies:
     "@binance/w3w-types" "1.1.4"
-    "@binance/w3w-utils" "1.1.4"
+    "@binance/w3w-utils" "1.1.7"
     qrcode "^1.5.1"
     qrcode.react "^3.1.0"
     react "18.2.0"
     react-dom "18.2.0"
     tailwindcss "^3.3.1"
 
-"@binance/w3w-sign-client@1.1.8-alpha.0":
-  version "1.1.8-alpha.0"
-  resolved "https://registry.yarnpkg.com/@binance/w3w-sign-client/-/w3w-sign-client-1.1.8-alpha.0.tgz#33d363312b409e794060397be31d403c00ca81f0"
-  integrity sha512-p/p/aN6bwCko6X6SGvHGIEW/8ePx/2FWecnAwZaqWmglOdc3u632MWYgTj814Vn6tM36kntY5GoYbGVPMPtQ2w==
+"@binance/w3w-sign-client@1.1.11":
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/@binance/w3w-sign-client/-/w3w-sign-client-1.1.11.tgz#419a2cd0b6d5e912fb99ce07b656f0d366866853"
+  integrity sha512-iSYiQen0+W8u7UFWKhrfKdz+tqg68KZe/uXgFeY656sCR74S7CW//zPRA4kLR1E62+O6vHImj4On03aVA4O1NQ==
   dependencies:
-    "@binance/w3w-core" "1.1.8-alpha.0"
+    "@binance/w3w-core" "1.1.10"
     "@binance/w3w-types" "1.1.4"
-    "@binance/w3w-utils" "1.1.4"
+    "@binance/w3w-utils" "1.1.8"
 
 "@binance/w3w-socket-transport@1.1.4":
   version "1.1.4"
@@ -1432,6 +1430,26 @@
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@binance/w3w-utils/-/w3w-utils-1.1.4.tgz#91740de5bab84cf9216d0b17160bc4fc8f0f05fb"
   integrity sha512-lWpxCj5IB8XNKmFotZ2MLsK4rP5ECyC5jHxbDuvjseMlZchEaWKRXViUcwIz3XdJPVM3DDArqqweLEyxCcsDtQ==
+  dependencies:
+    "@binance/w3w-types" "1.1.4"
+    eventemitter3 "^5.0.0"
+    hash.js "^1.1.7"
+    js-base64 "^3.7.5"
+
+"@binance/w3w-utils@1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@binance/w3w-utils/-/w3w-utils-1.1.7.tgz#3614e0d8d132a2e8454993cee67c7f66d4f1a650"
+  integrity sha512-dAP/Rh/kYH3D5hwJDvbeD7Zt0lysKyEulmFjCmfN0vcXsoaSFeo3tYQ97bkiJURzhatFRYYGxr7rhw5lr7foWA==
+  dependencies:
+    "@binance/w3w-types" "1.1.4"
+    eventemitter3 "^5.0.0"
+    hash.js "^1.1.7"
+    js-base64 "^3.7.5"
+
+"@binance/w3w-utils@1.1.8":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@binance/w3w-utils/-/w3w-utils-1.1.8.tgz#3487fee86fb68cd3470e934856c2198c87249925"
+  integrity sha512-dImFqeqfOHmrZNo0qmyn4G9uMWGzR8jjjRUfesA7zRh6EmR1gpbnQNBUTtw7NZfJ5SEBzDJMwResxzU5ACwkpQ==
   dependencies:
     "@binance/w3w-types" "1.1.4"
     eventemitter3 "^5.0.0"
@@ -2583,13 +2601,13 @@
   dependencies:
     "@dodoex/message-ws-common" "^0.0.3"
 
-"@dodoex/wallet-web3-react@^0.x":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3-react/-/wallet-web3-react-0.1.0.tgz#dbdf8f6f0ac0246fbdcad39054f941a3ec2d5de4"
-  integrity sha512-w38MVipyDJgcgOiYXkLTJ37kvxMAFOf2wEbQimFfxTMPgb8OVqI51nc9/JonFNdmDaLJ/iQtxg/RWkTxW7uDrA==
+"@dodoex/wallet-web3-react@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3-react/-/wallet-web3-react-0.4.3.tgz#b07db354f61af04309a33e2d54f4e945d960a0cf"
+  integrity sha512-IPZEjkKMbUgm8rSG0VMO+Z6xHGHkA3bSyi4mialnnA3KIXmrOXuuzsFUZDpdQqJgqFwTu9kInNgGv1cyuWx1wA==
   dependencies:
-    "@lingui/macro" "^4.11.4"
-    "@lingui/react" "^4.11.4"
+    "@lingui/macro" "^5"
+    "@lingui/react" "^5"
     "@tanstack/react-query" "^5.18.1"
     bignumber.js "^9.1.2"
     copy-to-clipboard "^3.3.3"
@@ -2598,17 +2616,17 @@
     qrcode.react "^4.2.0"
     react-infinite-scroller "^1.2.6"
 
-"@dodoex/wallet-web3@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3/-/wallet-web3-0.2.1.tgz#9e0402fedc1358a7d7b85a4f4aadd93bd7b6b185"
-  integrity sha512-GhM72OXKNMOEHT1nItwe/3SdSuvbt8k9DdFPToatFZ+ivIxJkOaH2ja667SNuDwSU9swBKV4W1nj/qvVp5m7Tw==
+"@dodoex/wallet-web3@^0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3/-/wallet-web3-0.5.2.tgz#904aa1e10688615a9b7b332819d24915e08ea568"
+  integrity sha512-GWgI60VZkH0xXS5v4TZ0PYLrwgZqsoH+l+Vs/aJuFc2e7DH+LOueM/tNxUBt3MClmJ3K6K8a4j+mc5JupMxA2w==
   dependencies:
     "@alchemy/aa-accounts" "3.18.2"
     "@alchemy/aa-alchemy" "3.18.2"
     "@alchemy/aa-core" "3.18.2"
     "@alchemy/aa-ethers" "3.18.2"
     "@alchemy/aa-signers" "3.18.2"
-    "@binance/w3w-ethereum-provider" "^1.1.8-alpha.0"
+    "@binance/w3w-ethereum-provider" "^1.1.11"
     "@blocto/sdk" "^0.9.1"
     "@coinbase/wallet-sdk" "4.0.2"
     "@cyberlab/cyber-app-sdk" "^2.0.0"
@@ -2637,10 +2655,10 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.10.8-cp.6":
-  version "3.10.8-cp.6"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.10.8-cp.6.tgz#2733bc24b762ac8aef5f47591fec3d53aacc8fdc"
-  integrity sha512-OmdnrEKRdwjs/20OfpadkU0LXybSjMH9M88RYXGtmriJWh6iOzgnmWyMvZNh0R/5bzh1s8iEnGe3vFvZcFtLkg==
+"@dodoex/widgets@3.10.8-cp.7":
+  version "3.10.8-cp.7"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.10.8-cp.7.tgz#d180b53d39af7dc58e3fe6f2e08ad90c77c43633"
+  integrity sha512-zsPNKudKFNctD9nWkE532zTvf+bmQtG9/9Zmd0y/DhR5MMwEuxZUOAo/7SNtwe+42T7CRle4hAPgmeSar2tejg==
   dependencies:
     "@babel/runtime" "^7.17.0"
     "@dodoex/api" "3.5.0-cp.2"
@@ -5013,6 +5031,14 @@
     "@lingui/message-utils" "4.14.1"
     unraw "^3.0.0"
 
+"@lingui/core@5.9.2":
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/@lingui/core/-/core-5.9.2.tgz#63b58a68e1f85970078a8bc3edc92e1d22221763"
+  integrity sha512-2K2lIEiUJ9VNTZU0igiRUubIUvcHu8TEuS4uRrrA5f2DGgCtHD5o7rw6OO9cM1RxZFCC5rpRwIMDeXHrc44W3g==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    "@lingui/message-utils" "5.9.2"
+
 "@lingui/format-po@4.14.1":
   version "4.14.1"
   resolved "https://registry.yarnpkg.com/@lingui/format-po/-/format-po-4.14.1.tgz#30c9c68b8afd1ed181277b5c8c36dcb8982447c4"
@@ -5043,6 +5069,14 @@
     "@lingui/core" "4.14.1"
     "@lingui/message-utils" "4.14.1"
 
+"@lingui/macro@^5":
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/@lingui/macro/-/macro-5.9.2.tgz#2039335a9cc337e1e90597134ec7d6cf26ffc1be"
+  integrity sha512-pa7ySSEUyE+ObOBEqCJet4w2oLm5volBcCKnkiYwtFGBAjQad32CQBk1ptSptd7l8ZQbLVnMCjy1oFyCJ2hBIg==
+  dependencies:
+    "@lingui/core" "5.9.2"
+    "@lingui/react" "5.9.2"
+
 "@lingui/message-utils@4.14.1":
   version "4.14.1"
   resolved "https://registry.yarnpkg.com/@lingui/message-utils/-/message-utils-4.14.1.tgz#dc6816464d15841ebbf71d68fcc66d624e1788cb"
@@ -5050,6 +5084,22 @@
   dependencies:
     "@messageformat/parser" "^5.0.0"
     js-sha256 "^0.10.1"
+
+"@lingui/message-utils@5.9.2":
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/@lingui/message-utils/-/message-utils-5.9.2.tgz#ab4c4cba9eccb29349a65335dc812cf5291778d9"
+  integrity sha512-PQA+bP4TBX7F5nmrEm9eDk+xddepjO7okI6bsOQ+6LIw1eJMvh9w/Xt3AoKTgzBCwd1ZwyqzBOelrX6sa6y+fg==
+  dependencies:
+    "@messageformat/parser" "^5.0.0"
+    js-sha256 "^0.10.1"
+
+"@lingui/react@5.9.2", "@lingui/react@^5":
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/@lingui/react/-/react-5.9.2.tgz#0037fbfa8bad8990d850f866bc9d0fd89f55907b"
+  integrity sha512-rvDBlz9s1AftAgkJnH/5u3YKlAouRZUsUpSoIajFqkXNEcnIcljFH2Lp7i4nQ7XQ4vpOjzpSH03cggvoo4fWKg==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    "@lingui/core" "5.9.2"
 
 "@lingui/react@^4.11.4", "@lingui/react@^4.3.0":
   version "4.14.1"
@@ -10381,7 +10431,7 @@ axios-token-interceptor@^0.2.0:
   dependencies:
     lock "^1.1.0"
 
-axios@*, axios@^1.3.5, axios@^1.3.6, axios@^1.6.0, axios@^1.7.4, axios@^1.7.7, axios@^1.7.8:
+axios@*, axios@^1.3.6, axios@^1.6.0, axios@^1.7.4, axios@^1.7.7, axios@^1.7.8:
   version "1.7.9"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.9.tgz#d7d071380c132a24accda1b2cfc1535b79ec650a"
   integrity sha512-LhLcE7Hbiryz8oMDdDptSrWowmB4Bl6RCt6sIJKpRB4XtVf0iEgewX3au/pJqm+Py1kCASkb/FFKjxQaLtxJvw==
