@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@dodoex/widgets'],
+  // transpilePackages: ['@dodoex/widgets'],
   experimental: {
     serverComponentsExternalPackages: ['grammy'],
     swcPlugins: [

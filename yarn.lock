@@ -2655,10 +2655,10 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.10.8-cp.7":
-  version "3.10.8-cp.7"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.10.8-cp.7.tgz#d180b53d39af7dc58e3fe6f2e08ad90c77c43633"
-  integrity sha512-zsPNKudKFNctD9nWkE532zTvf+bmQtG9/9Zmd0y/DhR5MMwEuxZUOAo/7SNtwe+42T7CRle4hAPgmeSar2tejg==
+"@dodoex/widgets@3.10.8-cp.12":
+  version "3.10.8-cp.12"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.10.8-cp.12.tgz#2793e4039e1cb62318ec5bb75df1237f69d289e1"
+  integrity sha512-z82rHvlsaP8TTUEgdz3zcxqzKec0KZz6q+TlkpmAKppSr8nGxDahjGDk0hApZnZZEqtXCqcLOYkDmo10fIKcuQ==
   dependencies:
     "@babel/runtime" "^7.17.0"
     "@dodoex/api" "3.5.0-cp.2"
