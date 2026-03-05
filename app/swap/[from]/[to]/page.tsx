@@ -6,12 +6,12 @@ import { TokenInfo } from '@dodoex/widgets';
 export default async function Page({
   params,
 }: {
-  params?: {
+  params: Promise<{
     from: string;
     to: string;
-  };
+  }>;
 }) {
-  const { from, to } = params || {};
+  const { from, to } = (await params) || {};
   let defaultFromToken: TokenInfo | undefined;
   let defaultToToken: TokenInfo | undefined;
   const { tokenList } = await fetchTokenList();

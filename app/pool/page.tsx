@@ -7,22 +7,23 @@ import React from 'react';
 export default function PoolPage({
   searchParams,
 }: {
-  searchParams: {
+  searchParams: Promise<{
     tab: string;
-  };
+  }>;
 }) {
+  const resolvedSearchParams = React.use(searchParams);
   React.useEffect(() => {
     if (useRouterStore.getState().page?.type !== PageType.Pool) {
       useRouterStore.getState().push({
         type: PageType.Pool,
-        params: searchParams?.tab
+        params: resolvedSearchParams?.tab
           ? {
-              tab: searchParams.tab,
+              tab: resolvedSearchParams.tab,
             }
           : undefined,
       } as Page<PageType.Pool>);
     }
-  }, [searchParams]);
+  }, [resolvedSearchParams]);
 
   const scrollRef = React.useRef<HTMLDivElement>(null);
   return (
@@ -35,10 +36,10 @@ export default function PoolPage({
         <PoolList
           scrollRef={scrollRef}
           params={
-            searchParams.tab
+            resolvedSearchParams.tab
               ? {
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  tab: searchParams.tab as any,
+                  tab: resolvedSearchParams.tab as any,
                 }
               : undefined
           }

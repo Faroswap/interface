@@ -101,8 +101,8 @@ export default function Tooltip({
 }: TooltipProps) {
   const enterTooltip = useRef(false);
   const enterTrigger = useRef(false);
-  const enterTimer = useRef<NodeJS.Timeout>();
-  const leaveTimer = useRef<NodeJS.Timeout>();
+  const enterTimer = useRef<NodeJS.Timeout | undefined>(undefined);
+  const leaveTimer = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const [childrenRef, setChildrenRef] = useState<HTMLDivElement>();
   const [arrowRef, setArrowRef] = useState<HTMLDivElement>();

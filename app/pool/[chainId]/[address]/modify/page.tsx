@@ -5,14 +5,15 @@ import { PageType, PoolModify, useRouterStore } from '@dodoex/widgets';
 import React from 'react';
 
 export default function Page({
-  params: { address, chainId },
+  params,
 }: {
-  params: {
+  params: Promise<{
     address: string;
     chainId: string;
-  };
+  }>;
 }) {
   const { isMobile } = useMediaDevices();
+  const { address, chainId } = React.use(params);
   React.useEffect(() => {
     const { page, push } = useRouterStore.getState();
     if (page?.type !== PageType.ModifyPool) {

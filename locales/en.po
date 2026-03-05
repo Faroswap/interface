@@ -59,7 +59,7 @@ msgid "Claim Pharos New Testnet Tokens:"
 msgstr "Claim Pharos New Testnet Tokens:"
 
 #: components/points/total.tsx:72
-#: submission/module.tsx:75
+#: submission/module.tsx:77
 msgid "Claim Rewards"
 msgstr "Claim Rewards"
 
@@ -100,7 +100,7 @@ msgstr "Copied"
 msgid "Copy wallet address"
 msgstr "Copy wallet address"
 
-#: submission/module.tsx:77
+#: submission/module.tsx:79
 msgid "Create Liquidity Mining"
 msgstr "Create Liquidity Mining"
 
@@ -108,11 +108,11 @@ msgstr "Create Liquidity Mining"
 msgid "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
 msgstr "Earn corresponding points by performing <0>swaps and trades</0> on FaroSwap."
 
-#: submission/module.tsx:72
+#: submission/module.tsx:74
 msgid "End mining\\n"
 msgstr "End mining\\n"
 
-#: submission/module.tsx:91
+#: submission/module.tsx:93
 msgid "Failed"
 msgstr "Failed"
 
@@ -192,6 +192,10 @@ msgstr "Locked"
 msgid "Maximum <0>0.01 PHRS</0> every 12 hours"
 msgstr "Maximum <0>0.01 PHRS</0> every 12 hours"
 
+#: submission/module.tsx:70
+msgid "Mint Token"
+msgstr "Mint Token"
+
 #: components/reward/index.tsx:49
 msgid "My Airdrop"
 msgstr "My Airdrop"
@@ -224,7 +228,7 @@ msgstr "No tokens"
 msgid "On-chain transaction records"
 msgstr "On-chain transaction records"
 
-#: submission/module.tsx:92
+#: submission/module.tsx:94
 msgid "Pending"
 msgstr "Pending"
 
@@ -282,7 +286,7 @@ msgid "Remove Liquidity"
 msgstr "Remove Liquidity"
 
 #: submission/module.tsx:40
-#: submission/module.tsx:93
+#: submission/module.tsx:95
 msgid "Reset"
 msgstr "Reset"
 
@@ -297,7 +301,7 @@ msgstr "SafeERC20: low-level call failed. Please log a Zendesk support ticket or
 #: components/walletConnect/AccountPage.tsx:193
 #: components/walletConnect/SendTokenPage.tsx:100
 #: components/walletConnect/SendTokenPage.tsx:167
-#: submission/module.tsx:80
+#: submission/module.tsx:82
 msgid "Send"
 msgstr "Send"
 
@@ -310,11 +314,11 @@ msgstr "Social Media Missions — How to Join"
 msgid "Special Boost"
 msgstr "Special Boost"
 
-#: submission/module.tsx:70
+#: submission/module.tsx:72
 msgid "Stake"
 msgstr "Stake"
 
-#: submission/module.tsx:90
+#: submission/module.tsx:92
 msgid "Succeeded"
 msgstr "Succeeded"
 

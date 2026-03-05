@@ -2,11 +2,11 @@ import { increaseArray } from '@/utils/utils';
 import React from 'react';
 
 export function useAnnouncementsAnimate(
-  ref: React.RefObject<HTMLDivElement>,
+  ref: React.RefObject<HTMLDivElement | null>,
   length: number,
 ) {
   const [activeIndex, setActiveIndex] = React.useState(0);
-  const animationRef = React.useRef<Animation>();
+  const animationRef = React.useRef<Animation | undefined>(undefined);
 
   React.useEffect(() => {
     const refCurrent = ref.current;

@@ -2,21 +2,21 @@
 import Widget from '@/components/Widget';
 import { MiningDetail } from '@dodoex/widgets';
 import { useRouter } from 'next/navigation';
-import { useCallback } from 'react';
+import { useCallback, use } from 'react';
 
 export default function Page({
   params,
   searchParams,
 }: {
-  params: {
+  params: Promise<{
     mining: string;
     pool: string;
     chainId: string;
-  };
-  searchParams: { chainId: string };
+  }>;
+  searchParams: Promise<{ chainId: string }>;
 }) {
-  const { mining, pool } = params;
-  const { chainId } = searchParams;
+  const { mining, pool } = use(params);
+  const { chainId } = use(searchParams);
 
   const { push } = useRouter();
 

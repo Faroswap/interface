@@ -66,6 +66,8 @@ export function getSubmitTitleByBrief(brief: string) {
     case 'pool.amm-v2.create.title':
     case 'pool.amm-v3.create.title':
       return t`Pool Creation`;
+    case 'pool.mint-token':
+      return t`Mint Token`
     case 'mining.stake':
       return t`Stake`;
     case 'mining.submit.remove-title':
@@ -142,6 +144,7 @@ export function SubmissionTypeIcon({ brief }: { brief: string }) {
     'pool.amm-v3.add-liquidity.title': PoolIcon,
     'pool.amm-v3.remove-liquidity.title': PoolIcon,
     'pool.amm-v3.receive-reward.title': PoolIcon,
+    'pool.mint-token': PoolIcon,
     'nav.create-mining': MiningIcon,
     'mining.deposit.receive-reward': MiningIcon,
     'mining.stake': MiningIcon,

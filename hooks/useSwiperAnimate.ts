@@ -8,7 +8,7 @@ const defaultParams = {
 };
 
 export function useSwiperAnimate(
-  ref: React.RefObject<HTMLDivElement>,
+  ref: React.RefObject<HTMLDivElement | null>,
   length: number,
   paramsProps?: {
     waitTime?: number;

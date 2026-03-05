@@ -86,6 +86,8 @@ function getSubmitTxKey(metadata: Record<string, any>, brief?: string) {
         return true;
       case MetadataFlagWidget.claimAMMV3Pool:
         result = 'pool.amm-v3.receive-reward.title';
+      case MetadataFlagWidget.mintToken:
+        result = 'pool.mint-token'
         return true;
 
       default:

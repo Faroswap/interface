@@ -1,26 +1,21 @@
 /** @type {import('next').NextConfig} */
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
+
 const nextConfig = {
   transpilePackages: ['@dodoex/widgets'],
-  experimental: {
-    serverComponentsExternalPackages: ['grammy'],
-    swcPlugins: [
-      [
-        // https://github.com/lingui/swc-plugin?tab=readme-ov-file#compatibility
-        '@lingui/swc-plugin',
-        {
-          // the same options as in .swcrc
-        },
-      ],
-    ],
-  },
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  },
+  serverExternalPackages: ['grammy'],
   webpack: (
     config,
-    // { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },
+    { isServer },
   ) => {
+    // Replace @lingui/macro with a runtime shim (SWC plugin not available for this Next.js version)
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@lingui/macro': path.resolve(__dirname, 'lib/lingui-macro-shim.tsx'),
+    };
     // https://react-svgr.com/docs/next/#nextjs
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
