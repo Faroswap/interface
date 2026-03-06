@@ -45,16 +45,6 @@ body {
   background-color: #fff;
 }
 
-.title {
-  width: 100%;
-  text-align: center;
-  height: 40px;
-  line-height: 40px;
-  background-color: #1E80FF;
-  color: #fff;
-  letter-spacing: 1px;
-  font-size: 16px
-}
 
 .code-box {
   display: flex;

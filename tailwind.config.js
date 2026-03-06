@@ -30,7 +30,7 @@ module.exports = {
         paper: '#FFF',
         border: 'rgba(69, 72, 81, 0.1)',
         'primary-contrastText': '#FFF',
-        paperContrast: 'rgba(26, 26, 27, 0.06)',
+        paperContrast: '#DDDDDD',
         paperDarkContrast: 'rgba(26, 26, 27, 0.1)',
       },
       backgroundColor: {
