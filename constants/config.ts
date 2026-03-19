@@ -4,7 +4,7 @@ export const TITLE = 'FaroSwap';
 export const DESCRIPTION = '';
 
 export const SINGLE_CHAIN_ID = 1672;
-export const SINGLE_CHAIN_NAME = 'Pharos Atlantic Testnet';
+export const SINGLE_CHAIN_NAME = 'Pharos';
 export const MESSAGE_SOURCE = 'pharos';
 export const ERC20_DOMAIN = 'faroswap.xyz';
 export const LOGO_URL = `https://${ERC20_DOMAIN}favicon.svg`;
