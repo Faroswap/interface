@@ -17,7 +17,7 @@
   "dependencies": {
     "@dodoex/components": "^3.x",
     "@dodoex/contract-request": "^1.x",
-    "@dodoex/dodo-contract-request": "^1.33.0",
+    "@dodoex/dodo-contract-request": "^1.35.0-alpha.2",
     "@dodoex/icons": "^2.x",
     "@dodoex/wallet-web3": "^0.5.2",
     "@dodoex/wallet-web3-react": "^0.4.3",
