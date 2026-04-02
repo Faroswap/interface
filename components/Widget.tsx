@@ -203,12 +203,12 @@ export default function Widget({
   });
   const tokenList = tokenListClient ?? tokenListProps;
 
-  const documentUrls: WidgetProps['documentUrls'] = {
+  const documentUrls: WidgetProps['documentUrls'] = React.useMemo(() => ({
     termsOfService: 'https://docs.faroswap.xyz/en/introduction/join-our-community',
-    crowdpoolingCreate: '',
-    crowdpoolingList: '',
-    crowdpoolingWhitelist: '',
-  }
+    crowdpoolingCreate: 'https://docs.faroswap.xyz/en/product/how-to-create-a-crowdpooling-event',
+    crowdpoolingList: 'https://docs.faroswap.xyz/en/product/how-to-join-a-crowdpooling-event',
+    crowdpoolingWhitelist: 'https://docs.faroswap.xyz/en/product/how-to-create-a-crowdpooling-event#2-1-configure-whitelist--advanced',
+  }), [])
 
   return (
     <React.Suspense>
