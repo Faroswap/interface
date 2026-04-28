@@ -1,6 +1,7 @@
 import SwapIcon from '@/assets/nav/swap.svg';
 import PoolIcon from '@/assets/nav/pool.svg';
 import PointsIcon from '@/assets/nav/points.svg';
+import FaucetIcon from '@/assets/nav/faucet.svg';
 // import MiningIcon from '@/assets/nav/mining.svg';
 import { MenuItem } from '@/components/nav/type';
 import { Trans } from '@lingui/macro';
@@ -28,6 +29,12 @@ export function getMenuList() {
           Track your loyalty points & unlock rewards on Pharos mainnet
         </Trans>
       ),
+    },
+    {
+      name: <Trans>Faucet</Trans>,
+      url: '/faucet',
+      icon: <FaucetIcon />,
+      description: <Trans>Get PHRS and start your voyage</Trans>,
     },
     // { name: <Trans>Mining</Trans>, url: '/mining', icon: <MiningIcon /> },
   ] as Array<MenuItem>;

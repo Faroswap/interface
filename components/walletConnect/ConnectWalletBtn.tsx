@@ -3,7 +3,7 @@ import WalletIcon from '@/assets/icons/wallet.svg';
 import { truncatePoolAddress } from '@/utils/address';
 import { Trans } from '@lingui/macro';
 import React from 'react';
-import { useWalletStore, WalletType } from '@dodoex/wallet-web3';
+import { useWalletStore } from '@dodoex/wallet-web3';
 import {
   WalletDialog,
   WalletConnectProvider,
@@ -127,7 +127,6 @@ export default function ConnectWalletBtn() {
                   useGlobalStatus.setState({ openConnectWallet: false })
                 }
                 walletWeb3={walletWeb3}
-                priorityWalletType={WalletType.OKX}
               />
             </LangProvider>
           </React.Suspense>
