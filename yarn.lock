@@ -2601,10 +2601,10 @@
   dependencies:
     "@dodoex/message-ws-common" "^0.0.3"
 
-"@dodoex/wallet-web3-react@^0.4.5-beta.0":
-  version "0.4.5-beta.0"
-  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3-react/-/wallet-web3-react-0.4.5-beta.0.tgz#c22934fadfc74b0b9293183f59cfbeba52b41f7f"
-  integrity sha512-VEpFOhSnUig/3+bu4YEmCbvDrCU+PMvqdlpI69opgcs9wNpXkcWbqdB+J387quaHDovQLDCeGFh5tZkBRl/aMg==
+"@dodoex/wallet-web3-react@^0.4.5":
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3-react/-/wallet-web3-react-0.4.5.tgz#0d99d277df62e4e03cd585eec8f1318bb09720ed"
+  integrity sha512-DC9YxCs7d5BL4d/xVBVWxmFuVvaCGTwQMLBmV2+KPwkZqA/OsY8BLVfUm6VaUB7A0I/c/h7ntX+l+F7e4MiMqg==
   dependencies:
     "@lingui/macro" "^5"
     "@lingui/react" "^5"
@@ -2616,10 +2616,10 @@
     qrcode.react "^4.2.0"
     react-infinite-scroller "^1.2.6"
 
-"@dodoex/wallet-web3@^0.5.2":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3/-/wallet-web3-0.5.3.tgz#f6d2ae91b1d906e406b405fc931d4dac1ee508a4"
-  integrity sha512-Drg0qGqaSmgh0FpGVahZ8ugly7Me1j9WaVb5dqp7epCh0nnXaS/JwlfZgBe3QeCAU/L/hb9dJIYUI9G+zr0/EQ==
+"@dodoex/wallet-web3@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3/-/wallet-web3-0.5.4.tgz#a38c73e435bd416bc59ab3f0de293d6c78a0a3b2"
+  integrity sha512-fBGiZtdZ5JaqkPIbJrqqh6q5MBxojtg5rc3811Ls3U+nnYzzpkmRZKRpK/17U5xLrXOrkpkC9x9XoiUGOGppdg==
   dependencies:
     "@alchemy/aa-accounts" "3.18.2"
     "@alchemy/aa-alchemy" "3.18.2"
@@ -2655,10 +2655,10 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.20.0-alpha.2":
-  version "3.20.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.20.0-alpha.2.tgz#2db57feb3efc63c9125e0e673af7b56babd69130"
-  integrity sha512-ud4QvD8XRVeV5MEKIVYtV5AORymko1/Bwi5wWT0POjNWJBA0Bur8Wv9NvV/h7e00olAcTc1wg9ZcNTt3uSHqlA==
+"@dodoex/widgets@3.20.0-alpha.7":
+  version "3.20.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.20.0-alpha.7.tgz#622d2a3709371a31e1afed8de5b037ea7535326a"
+  integrity sha512-Vz4ThiJKNYsKCUSy8WTxVqCXkeHi9VuvrPucNauZGDYu7TJSCOwlL5sX8eonXU8PTWVWyT+FV9zKSCiMTOglHQ==
   dependencies:
     "@babel/runtime" "^7.17.0"
     "@dodoex/api" "^3.9.0-alpha.1"
