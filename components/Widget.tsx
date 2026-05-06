@@ -179,6 +179,11 @@ export default function Widget({
   const { provider, account, chainId } = useWalletStore();
   useWidgetRouterSubscribe();
 
+  const walletState = React.useMemo(
+    () => ({ account, chainId, provider }),
+    [account, chainId, provider],
+  );
+
   const { tokenList: tokenListClient } = useFetchTokenList({
     initialData: initialDataTokenList,
   });
@@ -193,7 +198,7 @@ export default function Widget({
         width="100%"
         height="100%"
         crossChain
-        walletState={{ account, chainId, provider }}
+        walletState={walletState}
         // @ts-ignore
         graphQLRequests={graphQLRequests}
         defaultChainId={SINGLE_CHAIN_ID}
