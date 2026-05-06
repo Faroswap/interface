@@ -176,10 +176,7 @@ export default function Widget({
     initialDataTokenList?: Awaited<ReturnType<typeof fetchTokenList>>['data'];
   }
 >) {
-  const { provider } = useWalletStore();
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const walletProvider = (provider as any)?.provider ?? provider;
+  const { provider, account, chainId } = useWalletStore();
   useWidgetRouterSubscribe();
 
   const { tokenList: tokenListClient } = useFetchTokenList({
@@ -196,7 +193,7 @@ export default function Widget({
         width="100%"
         height="100%"
         crossChain
-        provider={walletProvider}
+        walletState={{ account, chainId, provider }}
         // @ts-ignore
         graphQLRequests={graphQLRequests}
         defaultChainId={SINGLE_CHAIN_ID}
