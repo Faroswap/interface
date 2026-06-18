@@ -19,7 +19,7 @@
     "@dodoex/contract-request": "^1.x",
     "@dodoex/dodo-contract-request": "^1.35.0-alpha.2",
     "@dodoex/icons": "^2.x",
-    "@dodoex/wallet-web3": "^0.6.0",
+    "@dodoex/wallet-web3": "0.6.1",
     "@dodoex/wallet-web3-react": "^0.4.5",
     "@dodoex/widgets": "3.20.0-alpha.7",
     "@lingui/macro": "^4.11.4",
