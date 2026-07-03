@@ -2525,10 +2525,10 @@
     viem "^1.19.11"
     wagmi "^1.4.12"
 
-"@dodoex/api@3.9.0-alpha.1", "@dodoex/api@^3.9.0-alpha.1":
-  version "3.9.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.9.0-alpha.1.tgz#39b891b8e932204368b832791c8f4ce31e67383a"
-  integrity sha512-2Pv8D2FUsZM2EyZPohm5MXx4AxxfLBG+CtvLJPLSpEkKZEK514QLCzmJI5vx/0fBSxl5uDIynxexjM6qIucyVg==
+"@dodoex/api@3.9.0-alpha.2", "@dodoex/api@^3.9.0-alpha.2":
+  version "3.9.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.9.0-alpha.2.tgz#1bb0b5dda295fadc547a3ef2830715852926ee68"
+  integrity sha512-Z8As3B23ikOr8h9Fz1MGIANb0wR/Uzc9XZXGnuDar+HOLbTiF9QgkRoZArjrr5rdirH145vFEYdyhY0hzdAa/g==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/properties" "^5.7.0"
@@ -2655,13 +2655,13 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.20.0-alpha.7":
-  version "3.20.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.20.0-alpha.7.tgz#622d2a3709371a31e1afed8de5b037ea7535326a"
-  integrity sha512-Vz4ThiJKNYsKCUSy8WTxVqCXkeHi9VuvrPucNauZGDYu7TJSCOwlL5sX8eonXU8PTWVWyT+FV9zKSCiMTOglHQ==
+"@dodoex/widgets@3.20.0-alpha.8":
+  version "3.20.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.20.0-alpha.8.tgz#7bd4bc7272687c129b420bb0ec4dbbd1a9a96c64"
+  integrity sha512-VYt2duT8OEBGf7rND4/YFN6B7KjgEfvHPjBz4JnESSu8x0v1WtbUS2aVhlaQ0YZDVs1wWXDe3uCXpSXyE56aNQ==
   dependencies:
     "@babel/runtime" "^7.17.0"
-    "@dodoex/api" "^3.9.0-alpha.1"
+    "@dodoex/api" "^3.9.0-alpha.2"
     "@dodoex/components" "^3.3.0"
     "@dodoex/contract-request" "^1.3.0"
     "@dodoex/dodo-contract-request" "^1.35.0-alpha.2"
@@ -8146,15 +8146,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-reconciler@^0.28.9":
+"@types/react-reconciler@^0.28.0", "@types/react-reconciler@^0.28.2":
   version "0.28.9"
   resolved "https://registry.yarnpkg.com/@types/react-reconciler/-/react-reconciler-0.28.9.tgz#d24b4864c384e770c83275b3fe73fba00269c83b"
   integrity sha512-HHM3nxyUZ3zAylX8ZEyrDNd2XZOnQ0D5XfunJF5FLQnZbHHYq4UWvW1QfelQNXv1ICNkwYhfxjwfnqivYB6bFg==
-
-"@types/react-reconciler@^0.33.0":
-  version "0.33.0"
-  resolved "https://registry.yarnpkg.com/@types/react-reconciler/-/react-reconciler-0.33.0.tgz#d27edab907998b3d9f18bc24e422d9aac34b741d"
-  integrity sha512-HZOXsKT0tGI9LlUw2LuedXsVeB88wFa536vVL0M6vE8zN63nI+sSr1ByxmPToP5K5bukaVscyeCJcF9guVNJ1g==
 
 "@types/react@*":
   version "19.0.2"
@@ -15760,12 +15755,12 @@ iterator.prototype@^1.1.4:
     reflect.getprototypeof "^1.0.8"
     set-function-name "^2.0.2"
 
-its-fine@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/its-fine/-/its-fine-2.0.0.tgz#a90b18a3ee4c211a1fb6faac2abcc2b682ce1f21"
-  integrity sha512-KLViCmWx94zOvpLwSlsx6yOCeMhZYaxrJV87Po5k/FoZzcPSahvK5qJ7fYhS61sZi5ikmh2S3Hz55A2l3U69ng==
+its-fine@^1.1.1:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/its-fine/-/its-fine-1.2.5.tgz#5466c287f86a0a73e772c8d8d515626c97195dc9"
+  integrity sha512-fXtDA0X0t0eBYAGLVM5YsgJGsJ5jEmqZEPrGbzdf5awjv0xE7nqv3TVnvtUF060Tkes15DbDAKW/I48vsb6SyA==
   dependencies:
-    "@types/react-reconciler" "^0.28.9"
+    "@types/react-reconciler" "^0.28.0"
 
 jackspeak@^2.3.5:
   version "2.3.6"
@@ -18970,15 +18965,15 @@ react-is@^19.0.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-19.0.0.tgz#d6669fd389ff022a9684f708cf6fa4962d1fea7a"
   integrity sha512-H91OHcwjZsbq3ClIDHMzBShc1rotbfACdWENsmEf0IFvZ3FgGPtdHMcsv45bQ1hAbgdfiA8SnxTKfDS+x/8m2g==
 
-react-konva@^19.0.0:
-  version "19.2.3"
-  resolved "https://registry.yarnpkg.com/react-konva/-/react-konva-19.2.3.tgz#a3425bb6ac7a4fb12a1fd0aa313da20fbc1ba650"
-  integrity sha512-VsO5CJZwUo12xFa33UEIDOQn6ZZBeE6jlkStGFvpR/3NiDA/9RPQTzw6Ri++C0Pnh3Arco1AehB8qJNv9YCRwg==
+react-konva@18.2.10, react-konva@^19.0.0:
+  version "18.2.10"
+  resolved "https://registry.yarnpkg.com/react-konva/-/react-konva-18.2.10.tgz#5b5edc5e9ed452755d21babc353747828868decc"
+  integrity sha512-ohcX1BJINL43m4ynjZ24MxFI1syjBdrXhqVxYVDw2rKgr3yuS0x/6m1Y2Z4sl4T/gKhfreBx8KHisd0XC6OT1g==
   dependencies:
-    "@types/react-reconciler" "^0.33.0"
-    its-fine "^2.0.0"
-    react-reconciler "0.33.0"
-    scheduler "0.27.0"
+    "@types/react-reconciler" "^0.28.2"
+    its-fine "^1.1.1"
+    react-reconciler "~0.29.0"
+    scheduler "^0.23.0"
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
@@ -19073,12 +19068,13 @@ react-qrcode-logo@^2.9.0:
     lodash.isequal "^4.5.0"
     qrcode-generator "^1.4.1"
 
-react-reconciler@0.33.0:
-  version "0.33.0"
-  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.33.0.tgz#9dd20208d45baa5b0b4701781f858236657f15e1"
-  integrity sha512-KetWRytFv1epdpJc3J4G75I4WrplZE5jOL7Yq0p34+OVOKF4Se7WrdIdVC45XsSSmUTlht2FM/fM1FZb1mfQeA==
+react-reconciler@~0.29.0:
+  version "0.29.2"
+  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.29.2.tgz#8ecfafca63549a4f4f3e4c1e049dd5ad9ac3a54f"
+  integrity sha512-zZQqIiYgDCTP/f1N/mAR10nJGrPD2ZR+jDSEsKWJHYC7Cm2wodlwbR3upZRdC3cjIjSlTLNVyO7Iu0Yy7t2AYg==
   dependencies:
-    scheduler "^0.27.0"
+    loose-envify "^1.1.0"
+    scheduler "^0.23.2"
 
 react-redux@^9.1.2:
   version "9.2.0"
@@ -19778,11 +19774,6 @@ scheduler@0.24.0-canary-efb381bbf-20230505:
   integrity sha512-ABvovCDe/k9IluqSh4/ISoq8tIJnW8euVAWYt5j/bg6dRnqwQwiGO1F/V4AyK96NGF/FB04FhOUDuWj8IKfABA==
   dependencies:
     loose-envify "^1.1.0"
-
-scheduler@0.27.0, scheduler@^0.27.0:
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.27.0.tgz#0c4ef82d67d1e5c1e359e8fc76d3a87f045fe5bd"
-  integrity sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==
 
 scheduler@^0.23.0, scheduler@^0.23.2:
   version "0.23.2"

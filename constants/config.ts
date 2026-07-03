@@ -22,4 +22,12 @@ export const WIDGET_CURRENT_CONFIG = {
   supportAMMV2: true,
   supportAMMV3: true,
   disableConnectedProviderRead: true,
+  lpFeeRewardActivity: {
+    activity: 'pharos_amm_v3_lp_fee_reward',
+    title: 'FBTC Liquidity Mining',
+    description: 'Earn extra $PROS from Jul 01 to Jul 25.',
+    rewardTokenSymbol: 'PROS',
+    myRewardsTooltip: 'Rewards are distributed once a week on [X]. Any unclaimed rewards will be merged into the next distribution.',
+    periodId: undefined,
+  },
 } as Partial<WidgetProps>;
