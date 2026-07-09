@@ -1366,7 +1366,7 @@
     "@binance/w3w-utils" "1.1.8"
     js-base64 "^3.7.5"
 
-"@binance/w3w-ethereum-provider@^1.1.11":
+"@binance/w3w-ethereum-provider@^1.1.13":
   version "1.1.13"
   resolved "https://registry.yarnpkg.com/@binance/w3w-ethereum-provider/-/w3w-ethereum-provider-1.1.13.tgz#8c97eede944a29ecf75c00139c4818a52d035176"
   integrity sha512-U56ycWg+GttnYWMpfQSBJyn4ZgsV+S6Hg7yFrG2l22rgx1NPiwfULY56bG6xdC4lMk7TfSlW3LbKBruYd4c05w==
@@ -2616,17 +2616,17 @@
     qrcode.react "^4.2.0"
     react-infinite-scroller "^1.2.6"
 
-"@dodoex/wallet-web3@0.6.3":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3/-/wallet-web3-0.6.3.tgz#adf4316cdb2e2d176ebfcf6e5238b897fe11b9ee"
-  integrity sha512-Bh0fzurW6cuNqYCKbumlx+Rkj8v16CDMRWyyzA/VHRDgQsJjJ/zPp/b38A4v9+5fYiRmAuPtGTG8ClnYSBxwzQ==
+"@dodoex/wallet-web3@0.6.4":
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3/-/wallet-web3-0.6.4.tgz#a0f2b311a78b101a6081f32eb8c90e661492220f"
+  integrity sha512-bwueET78pjitikjrqXq8xlVRrnhoyzrMbTNtIYJsqTpsKlW6n56a3MTfB+1TqkKUYD8zBmzYoit8DHi6D3Pi2A==
   dependencies:
     "@alchemy/aa-accounts" "3.18.2"
     "@alchemy/aa-alchemy" "3.18.2"
     "@alchemy/aa-core" "3.18.2"
     "@alchemy/aa-ethers" "3.18.2"
     "@alchemy/aa-signers" "3.18.2"
-    "@binance/w3w-ethereum-provider" "^1.1.11"
+    "@binance/w3w-ethereum-provider" "^1.1.13"
     "@blocto/sdk" "^0.9.1"
     "@coinbase/wallet-sdk" "4.0.2"
     "@cyberlab/cyber-app-sdk" "^2.0.0"
