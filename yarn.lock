@@ -2601,10 +2601,10 @@
   dependencies:
     "@dodoex/message-ws-common" "^0.0.3"
 
-"@dodoex/wallet-web3-react@^0.4.5":
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3-react/-/wallet-web3-react-0.4.5.tgz#0d99d277df62e4e03cd585eec8f1318bb09720ed"
-  integrity sha512-DC9YxCs7d5BL4d/xVBVWxmFuVvaCGTwQMLBmV2+KPwkZqA/OsY8BLVfUm6VaUB7A0I/c/h7ntX+l+F7e4MiMqg==
+"@dodoex/wallet-web3-react@0.4.6":
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3-react/-/wallet-web3-react-0.4.6.tgz#e04adc66a1c297b40e631eb2c9eee30802e39325"
+  integrity sha512-qfeGJp/yXg51l1/UXwlJei3ihZLJPv9CVB0MYMMx1bkIg32sKERgpg9owcj4k84TlhqOrPG8hSDSGRGW5qm3NA==
   dependencies:
     "@lingui/macro" "^5"
     "@lingui/react" "^5"
@@ -2616,10 +2616,10 @@
     qrcode.react "^4.2.0"
     react-infinite-scroller "^1.2.6"
 
-"@dodoex/wallet-web3@0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3/-/wallet-web3-0.6.1.tgz#6a227f2ea778df1298bb89b371a97fbb7885fb3c"
-  integrity sha512-eW7RXskfHcI24lyUYl6HLwGB0X9pz2e44++JVcz750+K/Zrpn5H7DLkyjmIHSmwY50pte9jfcgcRJYIN9YVYjg==
+"@dodoex/wallet-web3@0.6.3":
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/@dodoex/wallet-web3/-/wallet-web3-0.6.3.tgz#adf4316cdb2e2d176ebfcf6e5238b897fe11b9ee"
+  integrity sha512-Bh0fzurW6cuNqYCKbumlx+Rkj8v16CDMRWyyzA/VHRDgQsJjJ/zPp/b38A4v9+5fYiRmAuPtGTG8ClnYSBxwzQ==
   dependencies:
     "@alchemy/aa-accounts" "3.18.2"
     "@alchemy/aa-alchemy" "3.18.2"
