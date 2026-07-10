@@ -2,7 +2,7 @@
 import WalletIcon from '@/assets/icons/wallet.svg';
 import { truncatePoolAddress } from '@/utils/address';
 import { Trans } from '@lingui/macro';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useWalletStore, WalletType } from '@dodoex/wallet-web3';
 import {
   WalletDialog,
@@ -69,6 +69,7 @@ export default function ConnectWalletBtn() {
   const account = useWalletStore((state) => state.account);
   const open = useGlobalStatus((state) => state.openConnectWallet);
   const { tokenList } = useFetchTokenList();
+  const priorityWalletTypes = useMemo(() => [WalletType.OKX, WalletType.BinanceChain], [])
 
   return (
     <>
@@ -127,7 +128,7 @@ export default function ConnectWalletBtn() {
                   useGlobalStatus.setState({ openConnectWallet: false })
                 }
                 walletWeb3={walletWeb3}
-                priorityWalletType={WalletType.OKX}
+                priorityWalletType={priorityWalletTypes}
               />
             </LangProvider>
           </React.Suspense>
