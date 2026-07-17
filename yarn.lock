@@ -2525,10 +2525,10 @@
     viem "^1.19.11"
     wagmi "^1.4.12"
 
-"@dodoex/api@3.9.0-alpha.1", "@dodoex/api@^3.9.0-alpha.1":
-  version "3.9.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.9.0-alpha.1.tgz#39b891b8e932204368b832791c8f4ce31e67383a"
-  integrity sha512-2Pv8D2FUsZM2EyZPohm5MXx4AxxfLBG+CtvLJPLSpEkKZEK514QLCzmJI5vx/0fBSxl5uDIynxexjM6qIucyVg==
+"@dodoex/api@3.9.0-alpha.3", "@dodoex/api@^3.9.0-alpha.3":
+  version "3.9.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@dodoex/api/-/api-3.9.0-alpha.3.tgz#78c40048be5e0da79b8dfdb2ccfe7d103f47d5c3"
+  integrity sha512-7otqcB1UVShj9tS3qorfHV+LVxvkM/br5Q/suSNU7wy0rJtNHpa7Mh8SY+TirKE0SijS2yY0aT/kJRikpWEtrg==
   dependencies:
     "@ethersproject/abi" "^5.7.0"
     "@ethersproject/properties" "^5.7.0"
@@ -2655,13 +2655,13 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.20.0-alpha.7":
-  version "3.20.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.20.0-alpha.7.tgz#622d2a3709371a31e1afed8de5b037ea7535326a"
-  integrity sha512-Vz4ThiJKNYsKCUSy8WTxVqCXkeHi9VuvrPucNauZGDYu7TJSCOwlL5sX8eonXU8PTWVWyT+FV9zKSCiMTOglHQ==
+"@dodoex/widgets@3.20.0-alpha.9":
+  version "3.20.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.20.0-alpha.9.tgz#89af9b78c3818855dbb87d823784a348c699f9e9"
+  integrity sha512-5nWPqVEch7IozZNd5otQnUspeKT/4AOaJWU7o4ZYbF6fq9xqTwEz/dTLl5k7QYwAJ3R7iYBt6kK/bz7vij3r2g==
   dependencies:
     "@babel/runtime" "^7.17.0"
-    "@dodoex/api" "^3.9.0-alpha.1"
+    "@dodoex/api" "^3.9.0-alpha.3"
     "@dodoex/components" "^3.3.0"
     "@dodoex/contract-request" "^1.3.0"
     "@dodoex/dodo-contract-request" "^1.35.0-alpha.2"
