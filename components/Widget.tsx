@@ -1,6 +1,6 @@
 'use client';
 
-import { graphQLRequests, TOKEN_LOGO_URL } from '@/constants/api';
+import { graphQLRequests, tokenApi, TOKEN_LOGO_URL } from '@/constants/api';
 import { fetchTokenList } from '@/constants/apiServer';
 import {
   LOGO_URL,
@@ -16,6 +16,7 @@ import { StateText } from '@/submission/types';
 import { generateProxyUrl } from '@/utils/imgProxy';
 import { useGlobalStatus } from '@/utils/useGlobalStatus';
 import { useWalletStore } from '@dodoex/wallet-web3';
+import { useQuery } from '@tanstack/react-query';
 import {
   WidgetProps,
   MetadataFlag as MetadataFlagWidget,
@@ -128,6 +129,13 @@ export function getTokenLogoUrl({
 }
 
 const ShownFollowXKey = 'ShownFollowXKey';
+const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
+
+type WidgetPropsWithUrlTokens = WidgetProps & {
+  urlFromTokenAddress?: string;
+  urlToTokenAddress?: string;
+};
+
 function ExecutionDialogExtra() {
   const shownFollowX = window.localStorage.getItem(ShownFollowXKey);
   if (shownFollowX) {
@@ -170,9 +178,11 @@ export default function Widget({
   children,
   tokenList: tokenListProps,
   initialDataTokenList,
+  urlFromTokenAddress,
+  urlToTokenAddress,
   ...props
 }: React.PropsWithChildren<
-  WidgetProps & {
+  WidgetPropsWithUrlTokens & {
     initialDataTokenList?: Awaited<ReturnType<typeof fetchTokenList>>['data'];
   }
 >) {
@@ -187,7 +197,48 @@ export default function Widget({
   const { tokenList: tokenListClient } = useFetchTokenList({
     initialData: initialDataTokenList,
   });
-  const tokenList = tokenListClient ?? tokenListProps;
+  const urlFromTokenQuery = useQuery({
+    ...tokenApi.getFetchTokenQuery(
+      SINGLE_CHAIN_ID,
+      urlFromTokenAddress,
+      ZERO_ADDRESS,
+    ),
+    enabled: !!urlFromTokenAddress,
+  });
+  const urlToTokenQuery = useQuery({
+    ...tokenApi.getFetchTokenQuery(
+      SINGLE_CHAIN_ID,
+      urlToTokenAddress,
+      ZERO_ADDRESS,
+    ),
+    enabled: !!urlToTokenAddress,
+  });
+  const defaultFromToken =
+    props.defaultFromToken ?? urlFromTokenQuery.data ?? undefined;
+  const defaultToToken =
+    props.defaultToToken ?? urlToTokenQuery.data ?? undefined;
+  const isUrlTokenLoading =
+    (!!urlFromTokenAddress && urlFromTokenQuery.isPending) ||
+    (!!urlToTokenAddress && urlToTokenQuery.isPending);
+  const tokenList = React.useMemo(() => {
+    const tokens = tokenListClient ?? tokenListProps ?? [];
+    const defaultTokens = [defaultFromToken, defaultToToken].filter(
+      (token): token is NonNullable<typeof token> => !!token,
+    );
+
+    return [
+      ...tokens,
+      ...defaultTokens.filter(
+        (defaultToken) =>
+          !tokens.some(
+            (token) =>
+              token.chainId === defaultToken.chainId &&
+              token.address.toLowerCase() ===
+                defaultToken.address.toLowerCase(),
+          ),
+      ),
+    ];
+  }, [defaultFromToken, defaultToToken, tokenListClient, tokenListProps]);
 
   return (
     <React.Suspense>
@@ -314,9 +365,11 @@ export default function Widget({
         executionDialogExtra={<ExecutionDialogExtra />}
         {...props}
         {...WIDGET_CURRENT_CONFIG}
+        defaultFromToken={defaultFromToken}
+        defaultToToken={defaultToToken}
       >
         <Message />
-        {children}
+        {!isUrlTokenLoading && children}
       </UnstyleWidget>
     </React.Suspense>
   );
