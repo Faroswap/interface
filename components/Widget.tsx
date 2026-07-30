@@ -134,6 +134,8 @@ const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 type WidgetPropsWithUrlTokens = WidgetProps & {
   urlFromTokenAddress?: string;
   urlToTokenAddress?: string;
+  urlFromTokenSymbol?: string;
+  urlToTokenSymbol?: string;
 };
 
 function ExecutionDialogExtra() {
@@ -180,6 +182,8 @@ export default function Widget({
   initialDataTokenList,
   urlFromTokenAddress,
   urlToTokenAddress,
+  urlFromTokenSymbol,
+  urlToTokenSymbol,
   ...props
 }: React.PropsWithChildren<
   WidgetPropsWithUrlTokens & {
@@ -194,9 +198,19 @@ export default function Widget({
     [account, chainId, provider],
   );
 
-  const { tokenList: tokenListClient } = useFetchTokenList({
-    initialData: initialDataTokenList,
-  });
+  const { tokenList: tokenListClient, isPending: isTokenListPending } =
+    useFetchTokenList({
+      initialData: initialDataTokenList,
+    });
+  const availableTokenList = React.useMemo(
+    () =>
+      tokenListClient.length > 0
+        ? tokenListClient
+        : Array.isArray(tokenListProps)
+          ? tokenListProps
+          : [],
+    [tokenListClient, tokenListProps],
+  );
   const urlFromTokenQuery = useQuery({
     ...tokenApi.getFetchTokenQuery(
       SINGLE_CHAIN_ID,
@@ -213,15 +227,29 @@ export default function Widget({
     ),
     enabled: !!urlToTokenAddress,
   });
+  const urlFromSymbolToken = availableTokenList.find(
+    (token) => token.symbol.toLowerCase() === urlFromTokenSymbol?.toLowerCase(),
+  );
+  const urlToSymbolToken = availableTokenList.find(
+    (token) => token.symbol.toLowerCase() === urlToTokenSymbol?.toLowerCase(),
+  );
   const defaultFromToken =
-    props.defaultFromToken ?? urlFromTokenQuery.data ?? undefined;
+    props.defaultFromToken ??
+    urlFromTokenQuery.data ??
+    urlFromSymbolToken ??
+    undefined;
   const defaultToToken =
-    props.defaultToToken ?? urlToTokenQuery.data ?? undefined;
+    props.defaultToToken ??
+    urlToTokenQuery.data ??
+    urlToSymbolToken ??
+    undefined;
   const isUrlTokenLoading =
     (!!urlFromTokenAddress && urlFromTokenQuery.isPending) ||
-    (!!urlToTokenAddress && urlToTokenQuery.isPending);
+    (!!urlToTokenAddress && urlToTokenQuery.isPending) ||
+    (!!urlFromTokenSymbol && isTokenListPending) ||
+    (!!urlToTokenSymbol && isTokenListPending);
   const tokenList = React.useMemo(() => {
-    const tokens = tokenListClient ?? tokenListProps ?? [];
+    const tokens = availableTokenList;
     const defaultTokens = [defaultFromToken, defaultToToken].filter(
       (token): token is NonNullable<typeof token> => !!token,
     );
@@ -238,7 +266,7 @@ export default function Widget({
           ),
       ),
     ];
-  }, [defaultFromToken, defaultToToken, tokenListClient, tokenListProps]);
+  }, [availableTokenList, defaultFromToken, defaultToToken]);
 
   return (
     <React.Suspense>

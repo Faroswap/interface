@@ -32,22 +32,20 @@ function resolveTokenFromParam(
   );
 }
 
-function getUnlistedTokenAddress(
+function getUnlistedTokenIdentifier(
   param: string | undefined,
   resolvedToken: TokenInfo | undefined,
 ): string | undefined {
-  if (!param || resolvedToken) {
+  if (!param || param === 'default' || resolvedToken) {
     return undefined;
   }
 
   const paramsArray = param.split('-');
   const hasChainId = paramsArray.length > 1 && Number(paramsArray[0]) > 0;
   const chainId = hasChainId ? Number(paramsArray[0]) : SINGLE_CHAIN_ID;
-  const tokenAddress = hasChainId ? paramsArray.slice(1).join('-') : param;
+  const tokenIdentifier = hasChainId ? paramsArray.slice(1).join('-') : param;
 
-  return chainId === SINGLE_CHAIN_ID && isAddress(tokenAddress)
-    ? tokenAddress
-    : undefined;
+  return chainId === SINGLE_CHAIN_ID ? tokenIdentifier : undefined;
 }
 
 export default async function Page({
@@ -62,13 +60,26 @@ export default async function Page({
   const { tokenList } = await fetchTokenList();
   const defaultFromToken = resolveTokenFromParam(from, tokenList);
   const defaultToToken = resolveTokenFromParam(to, tokenList);
+  const urlFromTokenIdentifier = getUnlistedTokenIdentifier(
+    from,
+    defaultFromToken,
+  );
+  const urlToTokenIdentifier = getUnlistedTokenIdentifier(to, defaultToToken);
+  const urlFromIsAddress = isAddress(urlFromTokenIdentifier ?? '');
+  const urlToIsAddress = isAddress(urlToTokenIdentifier ?? '');
 
   return (
     <WidgetServer
       defaultFromToken={defaultFromToken}
       defaultToToken={defaultToToken}
-      urlFromTokenAddress={getUnlistedTokenAddress(from, defaultFromToken)}
-      urlToTokenAddress={getUnlistedTokenAddress(to, defaultToToken)}
+      urlFromTokenAddress={
+        urlFromIsAddress ? urlFromTokenIdentifier : undefined
+      }
+      urlToTokenAddress={urlToIsAddress ? urlToTokenIdentifier : undefined}
+      urlFromTokenSymbol={
+        !urlFromIsAddress ? urlFromTokenIdentifier : undefined
+      }
+      urlToTokenSymbol={!urlToIsAddress ? urlToTokenIdentifier : undefined}
     >
       <SwapWidget />
     </WidgetServer>
