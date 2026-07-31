@@ -1,6 +1,6 @@
 'use client';
 
-import { graphQLRequests, TOKEN_LOGO_URL } from '@/constants/api';
+import { graphQLRequests, tokenApi, TOKEN_LOGO_URL } from '@/constants/api';
 import { fetchTokenList } from '@/constants/apiServer';
 import {
   LOGO_URL,
@@ -15,12 +15,15 @@ import { submitUserTxTracking } from '@/submission/submitTx/submitUserTxTracking
 import { StateText } from '@/submission/types';
 import { generateProxyUrl } from '@/utils/imgProxy';
 import { useGlobalStatus } from '@/utils/useGlobalStatus';
+import { SwapTokenChangeContext } from './SwapTokenChangeContext';
 import { useWalletStore } from '@dodoex/wallet-web3';
+import { useQuery } from '@tanstack/react-query';
 import {
   WidgetProps,
   MetadataFlag as MetadataFlagWidget,
   UnstyleWidget,
   Message,
+  TokenInfo,
 } from '@dodoex/widgets';
 import React from 'react';
 
@@ -128,6 +131,33 @@ export function getTokenLogoUrl({
 }
 
 const ShownFollowXKey = 'ShownFollowXKey';
+const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
+const LAST_FROM_TOKEN_KEY = 'DODO_WIDGET_LAST_FROM_TOKEN';
+const LAST_TO_TOKEN_KEY = 'DODO_WIDGET_LAST_TO_TOKEN';
+
+function getErrorSummary(error: unknown) {
+  if (!error || typeof error !== 'object') {
+    return { message: String(error) };
+  }
+  const value = error as {
+    code?: string;
+    message?: string;
+    reason?: string;
+  };
+  return {
+    code: value.code,
+    reason: value.reason,
+    message: value.message,
+  };
+}
+
+type WidgetPropsWithUrlTokens = WidgetProps & {
+  urlFromTokenAddress?: string;
+  urlToTokenAddress?: string;
+  urlFromTokenSymbol?: string;
+  urlToTokenSymbol?: string;
+};
+
 function ExecutionDialogExtra() {
   const shownFollowX = window.localStorage.getItem(ShownFollowXKey);
   if (shownFollowX) {
@@ -170,9 +200,13 @@ export default function Widget({
   children,
   tokenList: tokenListProps,
   initialDataTokenList,
+  urlFromTokenAddress,
+  urlToTokenAddress,
+  urlFromTokenSymbol,
+  urlToTokenSymbol,
   ...props
 }: React.PropsWithChildren<
-  WidgetProps & {
+  WidgetPropsWithUrlTokens & {
     initialDataTokenList?: Awaited<ReturnType<typeof fetchTokenList>>['data'];
   }
 >) {
@@ -184,10 +218,280 @@ export default function Widget({
     [account, chainId, provider],
   );
 
-  const { tokenList: tokenListClient } = useFetchTokenList({
-    initialData: initialDataTokenList,
+  const { tokenList: tokenListClient, isPending: isTokenListPending } =
+    useFetchTokenList({
+      initialData: initialDataTokenList,
+    });
+  const availableTokenList = React.useMemo(
+    () =>
+      tokenListClient.length > 0
+        ? tokenListClient
+        : Array.isArray(tokenListProps)
+          ? tokenListProps
+          : [],
+    [tokenListClient, tokenListProps],
+  );
+  const urlFromTokenQueryConfig = tokenApi.getFetchTokenQuery(
+    SINGLE_CHAIN_ID,
+    urlFromTokenAddress,
+    ZERO_ADDRESS,
+  );
+  const urlToTokenQueryConfig = tokenApi.getFetchTokenQuery(
+    SINGLE_CHAIN_ID,
+    urlToTokenAddress,
+    ZERO_ADDRESS,
+  );
+  const urlFromTokenQuery = useQuery({
+    ...urlFromTokenQueryConfig,
+    enabled: !!urlFromTokenAddress,
+    queryFn: async () => {
+      console.info('[swap-url-token] Fetching from address', {
+        address: urlFromTokenAddress,
+      });
+      try {
+        const token = await urlFromTokenQueryConfig.queryFn();
+        console.info('[swap-url-token] Fetched from address', { token });
+        return token;
+      } catch (error) {
+        console.error('[swap-url-token] Failed to fetch from address', {
+          address: urlFromTokenAddress,
+          error: getErrorSummary(error),
+        });
+        throw error;
+      }
+    },
   });
-  const tokenList = tokenListClient ?? tokenListProps;
+  const urlToTokenQuery = useQuery({
+    ...urlToTokenQueryConfig,
+    enabled: !!urlToTokenAddress,
+    queryFn: async () => {
+      console.info('[swap-url-token] Fetching to address', {
+        address: urlToTokenAddress,
+      });
+      try {
+        const token = await urlToTokenQueryConfig.queryFn();
+        console.info('[swap-url-token] Fetched to address', { token });
+        return token;
+      } catch (error) {
+        console.error('[swap-url-token] Failed to fetch to address', {
+          address: urlToTokenAddress,
+          error: getErrorSummary(error),
+        });
+        throw error;
+      }
+    },
+  });
+  const urlFromSymbolToken = availableTokenList.find(
+    (token) => token.symbol.toLowerCase() === urlFromTokenSymbol?.toLowerCase(),
+  );
+  const urlToSymbolToken = availableTokenList.find(
+    (token) => token.symbol.toLowerCase() === urlToTokenSymbol?.toLowerCase(),
+  );
+  const defaultFromToken =
+    props.defaultFromToken ??
+    urlFromTokenQuery.data ??
+    urlFromSymbolToken ??
+    undefined;
+  const defaultToToken =
+    props.defaultToToken ??
+    urlToTokenQuery.data ??
+    urlToSymbolToken ??
+    undefined;
+  const isUrlTokenLoading =
+    (!!urlFromTokenAddress && urlFromTokenQuery.isPending) ||
+    (!!urlToTokenAddress && urlToTokenQuery.isPending) ||
+    (!!urlFromTokenSymbol && isTokenListPending) ||
+    (!!urlToTokenSymbol && isTokenListPending);
+  const hasUrlDefaultFromToken = Boolean(
+    props.defaultFromToken || urlFromTokenAddress || urlFromTokenSymbol,
+  );
+  const hasUrlDefaultToToken = Boolean(
+    props.defaultToToken || urlToTokenAddress || urlToTokenSymbol,
+  );
+  const hasUrlDefaultToken = hasUrlDefaultFromToken || hasUrlDefaultToToken;
+  const tokenList = React.useMemo(() => {
+    const tokens = availableTokenList;
+    const defaultTokens = [defaultFromToken, defaultToToken].filter(
+      (token): token is NonNullable<typeof token> => !!token,
+    );
+
+    return [
+      ...tokens,
+      ...defaultTokens.filter(
+        (defaultToken) =>
+          !tokens.some(
+            (token) =>
+              token.chainId === defaultToken.chainId &&
+              token.address.toLowerCase() ===
+                defaultToken.address.toLowerCase(),
+          ),
+      ),
+    ];
+  }, [availableTokenList, defaultFromToken, defaultToToken]);
+  const fromTokenRef = React.useRef(defaultFromToken);
+  const toTokenRef = React.useRef(defaultToToken);
+  const availableTokenListRef = React.useRef(availableTokenList);
+  const initialTokenChangeSidesRef = React.useRef(new Set<'from' | 'to'>());
+  const preserveInitialUrlRef = React.useRef({ from: false, to: false });
+  const [isSwapReady, setIsSwapReady] = React.useState(!hasUrlDefaultToken);
+
+  React.useEffect(() => {
+    console.info('[swap-url-token] Resolved URL token state', {
+      urlFromTokenAddress,
+      urlToTokenAddress,
+      urlFromTokenSymbol,
+      urlToTokenSymbol,
+      fromQueryStatus: urlFromTokenQuery.status,
+      toQueryStatus: urlToTokenQuery.status,
+      fromQueryData: urlFromTokenQuery.data,
+      toQueryData: urlToTokenQuery.data,
+      fromSymbolToken: urlFromSymbolToken,
+      toSymbolToken: urlToSymbolToken,
+      defaultFromToken,
+      defaultToToken,
+      tokenListSize: tokenList.length,
+      tokenListContainsDefaultFrom: defaultFromToken
+        ? tokenList.some(
+            (token) =>
+              token.chainId === defaultFromToken.chainId &&
+              token.address.toLowerCase() ===
+                defaultFromToken.address.toLowerCase(),
+          )
+        : false,
+      tokenListContainsDefaultTo: defaultToToken
+        ? tokenList.some(
+            (token) =>
+              token.chainId === defaultToToken.chainId &&
+              token.address.toLowerCase() ===
+                defaultToToken.address.toLowerCase(),
+          )
+        : false,
+      isUrlTokenLoading,
+      isSwapReady,
+    });
+  }, [
+    defaultFromToken,
+    defaultToToken,
+    isSwapReady,
+    isUrlTokenLoading,
+    tokenList,
+    urlFromTokenAddress,
+    urlFromTokenQuery.data,
+    urlFromTokenQuery.status,
+    urlFromTokenSymbol,
+    urlFromSymbolToken,
+    urlToTokenAddress,
+    urlToTokenQuery.data,
+    urlToTokenQuery.status,
+    urlToTokenSymbol,
+    urlToSymbolToken,
+  ]);
+
+  React.useEffect(() => {
+    availableTokenListRef.current = availableTokenList;
+  }, [availableTokenList]);
+
+  React.useLayoutEffect(() => {
+    if (hasUrlDefaultFromToken) {
+      window.localStorage.removeItem(LAST_FROM_TOKEN_KEY);
+    }
+    if (hasUrlDefaultToToken) {
+      window.localStorage.removeItem(LAST_TO_TOKEN_KEY);
+    }
+  }, [hasUrlDefaultFromToken, hasUrlDefaultToToken]);
+
+  React.useLayoutEffect(() => {
+    initialTokenChangeSidesRef.current.clear();
+    preserveInitialUrlRef.current = {
+      from: hasUrlDefaultFromToken,
+      to: hasUrlDefaultToToken,
+    };
+  }, [
+    defaultFromToken?.address,
+    defaultFromToken?.chainId,
+    defaultToToken?.address,
+    defaultToToken?.chainId,
+    hasUrlDefaultFromToken,
+    hasUrlDefaultToToken,
+  ]);
+
+  React.useEffect(() => {
+    if (!hasUrlDefaultToken) {
+      setIsSwapReady(true);
+      return;
+    }
+    if (isUrlTokenLoading) {
+      setIsSwapReady(false);
+      return;
+    }
+
+    setIsSwapReady(false);
+    const frame = window.requestAnimationFrame(() => {
+      setIsSwapReady(true);
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [hasUrlDefaultToken, isUrlTokenLoading, tokenList]);
+
+  React.useEffect(() => {
+    if (defaultFromToken) {
+      fromTokenRef.current = defaultFromToken;
+    }
+    if (defaultToToken) {
+      toTokenRef.current = defaultToToken;
+    }
+  }, [defaultFromToken, defaultToToken]);
+
+  const getUrlTokenParam = React.useCallback((token: TokenInfo) => {
+    const isListed = availableTokenListRef.current.some(
+      (listedToken) =>
+        listedToken.chainId === token.chainId &&
+        listedToken.address.toLowerCase() === token.address.toLowerCase(),
+    );
+    return isListed ? token.symbol : token.address;
+  }, []);
+
+  const updateSwapUrl = React.useCallback(() => {
+    const fromToken = fromTokenRef.current;
+    const toToken = toTokenRef.current;
+    if (!fromToken || !toToken) {
+      return;
+    }
+    window.history.replaceState(
+      window.history.state,
+      '',
+      `/swap/${getUrlTokenParam(fromToken)}/${getUrlTokenParam(toToken)}`,
+    );
+  }, [getUrlTokenParam]);
+
+  const handlePayTokenChange = React.useCallback(
+    (token: TokenInfo) => {
+      fromTokenRef.current = token;
+      if (
+        preserveInitialUrlRef.current.from &&
+        !initialTokenChangeSidesRef.current.has('from')
+      ) {
+        initialTokenChangeSidesRef.current.add('from');
+        return;
+      }
+      updateSwapUrl();
+    },
+    [updateSwapUrl],
+  );
+
+  const handleReceiveTokenChange = React.useCallback(
+    (token: TokenInfo) => {
+      toTokenRef.current = token;
+      if (
+        preserveInitialUrlRef.current.to &&
+        !initialTokenChangeSidesRef.current.has('to')
+      ) {
+        initialTokenChangeSidesRef.current.add('to');
+        return;
+      }
+      updateSwapUrl();
+    },
+    [updateSwapUrl],
+  );
 
   return (
     <React.Suspense>
@@ -314,9 +618,18 @@ export default function Widget({
         executionDialogExtra={<ExecutionDialogExtra />}
         {...props}
         {...WIDGET_CURRENT_CONFIG}
+        defaultFromToken={defaultFromToken}
+        defaultToToken={defaultToToken}
       >
         <Message />
-        {children}
+        <SwapTokenChangeContext.Provider
+          value={{
+            onPayTokenChange: handlePayTokenChange,
+            onReceiveTokenChange: handleReceiveTokenChange,
+          }}
+        >
+          {isSwapReady && children}
+        </SwapTokenChangeContext.Provider>
       </UnstyleWidget>
     </React.Suspense>
   );
