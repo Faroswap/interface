@@ -25,6 +25,7 @@ if (typeof window !== 'undefined') {
         'MetamaskWallet',
         'Bitkeep',
         'OKXWallet',
+        'BSC',
         'Bybit',
         'WalletLink',
         'Zerion',
