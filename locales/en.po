@@ -34,7 +34,7 @@ msgstr "Airdrop"
 msgid "Airdrop Rewards"
 msgstr "Airdrop Rewards"
 
-#: constants/menuList.tsx:20
+#: constants/menuList.tsx:21
 msgid "Anchor assets safely in DeFi harbor"
 msgstr "Anchor assets safely in DeFi harbor"
 
@@ -124,6 +124,10 @@ msgstr "FaroSwap will feature <0>special trading pairs / selected</0> pools fr
 msgid "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 msgstr "FaroSwap will feature special trading pairs and selected pools from key partners. Providing liquidity to these pairs will allow participants to earn additional — and in some cases double — points"
 
+#: constants/menuList.tsx:34
+msgid "Faucet"
+msgstr "Faucet"
+
 #: components/faucet.tsx:203
 msgid "Follow<0>FaroSwap</0>to claim"
 msgstr "Follow<0>FaroSwap</0>to claim"
@@ -136,11 +140,15 @@ msgstr "For any single address providing more than <0>1M USD value of LP in a s
 msgid "Gas price is too low, please adjust in your wallet and try again"
 msgstr "Gas price is too low, please adjust in your wallet and try again"
 
+#: constants/menuList.tsx:37
+msgid "Get PHRS and start your voyage"
+msgstr "Get PHRS and start your voyage"
+
 #: components/GoBack.tsx:22
 msgid "Go back"
 msgstr "Go back"
 
-#: constants/menuList.tsx:14
+#: constants/menuList.tsx:15
 msgid "Guiding your trades through DeFi waters"
 msgstr "Guiding your trades through DeFi waters"
 
@@ -224,11 +232,11 @@ msgstr "Pending"
 msgid "pending..."
 msgstr "pending..."
 
-#: constants/menuList.tsx:23
+#: constants/menuList.tsx:24
 msgid "Points"
 msgstr "Points"
 
-#: constants/menuList.tsx:17
+#: constants/menuList.tsx:18
 msgid "Pool"
 msgstr "Pool"
 
@@ -311,7 +319,7 @@ msgid "Succeeded"
 msgstr "Succeeded"
 
 #: components/points/swap.tsx:10
-#: constants/menuList.tsx:11
+#: constants/menuList.tsx:12
 #: submission/module.tsx:54
 msgid "Swap"
 msgstr "Swap"
@@ -340,7 +348,7 @@ msgstr "Token"
 msgid "Total:"
 msgstr "Total:"
 
-#: constants/menuList.tsx:27
+#: constants/menuList.tsx:28
 msgid "Track your loyalty points & unlock rewards on Pharos mainnet"
 msgstr "Track your loyalty points & unlock rewards on Pharos mainnet"
 
