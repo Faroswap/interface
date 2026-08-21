@@ -69,7 +69,10 @@ export default function ConnectWalletBtn() {
   const account = useWalletStore((state) => state.account);
   const open = useGlobalStatus((state) => state.openConnectWallet);
   const { tokenList } = useFetchTokenList();
-  const priorityWalletTypes = useMemo(() => [WalletType.OKX, WalletType.BinanceChain], [])
+  const priorityWalletTypes = useMemo(
+    () => [WalletType.OKX, WalletType.BinanceChain, WalletType.TopNod],
+    [],
+  );
 
   return (
     <>
