@@ -19,7 +19,7 @@ yarn install-optional-dependencies
 2. Start the Project
 
 ```Bash
-yarn dev
+yarn  dev
 ```
 
 ## License
