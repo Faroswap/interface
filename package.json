@@ -31,7 +31,7 @@
     "@unipasswallet/popup-types": "^1.1.11",
     "axios": "^1.7.7",
     "bignumber.js": "^9.1.2",
-    "canvas": "^2.11.2",
+    "canvas": "^3.2.3",
     "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
     "crypto-js": "^4.2.0",
