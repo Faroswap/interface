@@ -19,7 +19,7 @@
     "@dodoex/contract-request": "^1.x",
     "@dodoex/dodo-contract-request": "^1.35.0-alpha.2",
     "@dodoex/icons": "^2.x",
-    "@dodoex/wallet-web3": "0.6.4",
+    "@dodoex/wallet-web3": "0.6.5",
     "@dodoex/wallet-web3-react": "0.4.6",
     "@dodoex/widgets": "3.20.0-alpha.9",
     "@lingui/macro": "^4.11.4",
@@ -31,13 +31,14 @@
     "@unipasswallet/popup-types": "^1.1.11",
     "axios": "^1.7.7",
     "bignumber.js": "^9.1.2",
-    "canvas": "^2.11.2",
+    "canvas": "^3.2.3",
     "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
     "crypto-js": "^4.2.0",
     "dayjs": "^1.11.13",
     "identicon.js": "^2.3.3",
     "jssha": "^3.3.1",
+    "konva": "9.3.22",
     "lodash": "^4.17.21",
     "next": "14.2.35",
     "nprogress": "^0.2.0",
@@ -54,7 +55,8 @@
     "@dodoex/message-ws": "^0.1.5"
   },
   "resolutions": {
-    "@dodoex/api": "3.9.0-alpha.3"
+    "@dodoex/api": "3.9.0-alpha.3",
+    "react-konva": "18.2.16"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.3",
