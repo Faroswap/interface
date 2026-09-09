@@ -1,28 +1,33 @@
 'use client';
 import PoolBanner from '@/components/banner/PoolBanner';
 import Widget from '@/components/Widget';
-import { PageType, PoolList, useRouterStore, Page } from '@dodoex/widgets';
+import { PoolList } from '@dodoex/widgets';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 
-export default function PoolPage({
-  searchParams,
-}: {
-  searchParams: {
-    tab: string;
-  };
-}) {
-  React.useEffect(() => {
-    if (useRouterStore.getState().page?.type !== PageType.Pool) {
-      useRouterStore.getState().push({
-        type: PageType.Pool,
-        params: searchParams?.tab
-          ? {
-              tab: searchParams.tab,
-            }
-          : undefined,
-      } as Page<PageType.Pool>);
-    }
-  }, [searchParams]);
+export default function PoolPage() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const tab = searchParams.get('tab') ?? undefined;
+  const poolAddress = searchParams.get('address') ?? undefined;
+
+  const handlePoolAddressChange = React.useCallback(
+    (address?: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (address) {
+        params.set('address', address);
+      } else {
+        params.delete('address');
+      }
+
+      const query = params.toString();
+      router.replace(query ? `${pathname}?${query}` : pathname, {
+        scroll: false,
+      });
+    },
+    [pathname, router, searchParams],
+  );
 
   const scrollRef = React.useRef<HTMLDivElement>(null);
   return (
@@ -35,13 +40,15 @@ export default function PoolPage({
         <PoolList
           scrollRef={scrollRef}
           params={
-            searchParams.tab
+            tab
               ? {
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  tab: searchParams.tab as any,
+                  tab: tab as any,
                 }
               : undefined
           }
+          poolAddress={poolAddress}
+          onPoolAddressChange={handlePoolAddressChange}
         />
       </Widget>
     </div>
