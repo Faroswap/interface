@@ -163,11 +163,10 @@ export function useSyncOrderPendingList({
       const currentChainPendingList = pendingList?.filter(
         (item) => item?.chainId === chainId,
       );
-      const [pendingOrder] = currentChainPendingList;
-      if (pendingOrder) {
+      currentChainPendingList.forEach((pendingOrder) => {
         const syncOrder = async () => {
           const { tx, nonce } = pendingOrder.extend ?? {};
-          if (nonce !== undefined) {
+          if (tx && nonce !== undefined) {
             const ret = await watchTransaction(tx, nonce, account);
             submitUserTxTracking({
               hash: tx,
@@ -184,7 +183,7 @@ export function useSyncOrderPendingList({
           }
         };
         syncOrder();
-      }
+      });
     }
   }, [pendingList, chainId, account]);
 }

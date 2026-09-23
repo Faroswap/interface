@@ -186,9 +186,14 @@ function useSubmissionExecuteBase({
         console.error(error);
         if (error.code === 'TRANSACTION_REPLACED') {
           useSubmission.getState().onTxWarning(request.tx, request);
+          return ExecutionResult.Submitted;
         }
+        useSubmission.getState().onTxFailed(tx, request);
+        return ExecutionResult.Failed;
       }
     }
+    useSubmission.getState().onTxFailed(tx, request);
+    return ExecutionResult.Failed;
   };
 
   return execute;
