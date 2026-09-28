@@ -2579,7 +2579,7 @@
 
 "@dodoex/auth-web-sdk@1.0.6":
   version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@dodoex/auth-web-sdk/-/auth-web-sdk-1.0.6.tgz#102f595dc1488564ec5af13f81012fee934499e1"
+  resolved "https://registry.npmjs.org/@dodoex/auth-web-sdk/-/auth-web-sdk-1.0.6.tgz#102f595dc1488564ec5af13f81012fee934499e1"
   integrity sha512-oFaRqWfp+r8naIDaDLRA2W5D/jTlnDAr+aK0nbaAYKiEIxI8TJTZKnJtpd2X7gSoyIyCSwicbwb32BYAOsfU4A==
 
 "@dodoex/components@^3.3.0":
@@ -2629,12 +2629,12 @@
 
 "@dodoex/message-ws-common@^0.0.3":
   version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@dodoex/message-ws-common/-/message-ws-common-0.0.3.tgz#39041ecbac83cc65a23cfe7e2ca55562912895c7"
+  resolved "https://registry.npmjs.org/@dodoex/message-ws-common/-/message-ws-common-0.0.3.tgz#39041ecbac83cc65a23cfe7e2ca55562912895c7"
   integrity sha512-p4ballIsdnIHOSAam/oFYSKrb0GrLouRCv8RtvIAT1QAxX5RJx9ku+mMPHureWJXSjuET9tsLFTqDZv2gfoLuA==
 
 "@dodoex/message-ws@^0.1.5":
   version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@dodoex/message-ws/-/message-ws-0.1.5.tgz#97f5b676803d87658a9ec3393211da747682acae"
+  resolved "https://registry.npmjs.org/@dodoex/message-ws/-/message-ws-0.1.5.tgz#97f5b676803d87658a9ec3393211da747682acae"
   integrity sha512-+slns7/zqD/FMls3odz/wGHDl8+AQ5T0bsen9OIos4MK0v87idk27PydUnKmqXEKHFciTYk8r9AVaIXkgHu4sA==
   dependencies:
     "@dodoex/message-ws-common" "^0.0.3"
@@ -2693,10 +2693,10 @@
     json-rpc-engine "^6.1.0"
     viem "^2.13.7"
 
-"@dodoex/widgets@3.20.0-alpha.13":
-  version "3.20.0-alpha.13"
-  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.20.0-alpha.13.tgz#1798413b91b8d6e3199b266ab9b52d827418383f"
-  integrity sha512-c47JR6QI7WrJh9XN20cPEfxIuVJcXcF9SKZ6bpLwxozQPQE5C4cIpfMknT/kloOVAZXQ++ctMEBKCBYS29nFZw==
+"@dodoex/widgets@3.20.0-alpha.14":
+  version "3.20.0-alpha.14"
+  resolved "https://registry.yarnpkg.com/@dodoex/widgets/-/widgets-3.20.0-alpha.14.tgz#6e61117835d5828c43c68c869686824c5830a527"
+  integrity sha512-7EjOBLl5/cawStb0nelrKwsoiMEMN/YcRPO1uqPXAUOaCJazK0APqZ9ihPBK4r9+0ikY0VGPiUPWV2QEvd+S9w==
   dependencies:
     "@babel/runtime" "^7.17.0"
     "@dodoex/api" "^3.9.0-alpha.3"
