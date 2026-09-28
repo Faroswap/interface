@@ -21,7 +21,7 @@
     "@dodoex/icons": "^2.x",
     "@dodoex/wallet-web3": "0.6.5",
     "@dodoex/wallet-web3-react": "0.4.6",
-    "@dodoex/widgets": "3.20.0-alpha.13",
+    "@dodoex/widgets": "3.20.0-alpha.14",
     "@lingui/macro": "^4.11.4",
     "@lingui/react": "^4.11.4",
     "@mui/base": "^5.0.0-beta.58",
