@@ -2579,7 +2579,7 @@
 
 "@dodoex/auth-web-sdk@1.0.6":
   version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@dodoex/auth-web-sdk/-/auth-web-sdk-1.0.6.tgz#102f595dc1488564ec5af13f81012fee934499e1"
+  resolved "https://registry.npmjs.org/@dodoex/auth-web-sdk/-/auth-web-sdk-1.0.6.tgz#102f595dc1488564ec5af13f81012fee934499e1"
   integrity sha512-oFaRqWfp+r8naIDaDLRA2W5D/jTlnDAr+aK0nbaAYKiEIxI8TJTZKnJtpd2X7gSoyIyCSwicbwb32BYAOsfU4A==
 
 "@dodoex/components@^3.3.0":
