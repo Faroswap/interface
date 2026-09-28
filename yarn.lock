@@ -2629,12 +2629,12 @@
 
 "@dodoex/message-ws-common@^0.0.3":
   version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@dodoex/message-ws-common/-/message-ws-common-0.0.3.tgz#39041ecbac83cc65a23cfe7e2ca55562912895c7"
+  resolved "https://registry.npmjs.org/@dodoex/message-ws-common/-/message-ws-common-0.0.3.tgz#39041ecbac83cc65a23cfe7e2ca55562912895c7"
   integrity sha512-p4ballIsdnIHOSAam/oFYSKrb0GrLouRCv8RtvIAT1QAxX5RJx9ku+mMPHureWJXSjuET9tsLFTqDZv2gfoLuA==
 
 "@dodoex/message-ws@^0.1.5":
   version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@dodoex/message-ws/-/message-ws-0.1.5.tgz#97f5b676803d87658a9ec3393211da747682acae"
+  resolved "https://registry.npmjs.org/@dodoex/message-ws/-/message-ws-0.1.5.tgz#97f5b676803d87658a9ec3393211da747682acae"
   integrity sha512-+slns7/zqD/FMls3odz/wGHDl8+AQ5T0bsen9OIos4MK0v87idk27PydUnKmqXEKHFciTYk8r9AVaIXkgHu4sA==
   dependencies:
     "@dodoex/message-ws-common" "^0.0.3"
