@@ -517,6 +517,7 @@ export default function Widget({
         }}
         noPowerBy
         noUI
+        deadLine={24 * 60 * 60}
         noAutoConnect
         showSubmissionSubmittedDialog
         dappMetadata={{
