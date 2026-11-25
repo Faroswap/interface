@@ -518,6 +518,7 @@ export default function Widget({
         noPowerBy
         noUI
         deadLine={24 * 60 * 60}
+        hideCreatePoolTypes={['PMM']}
         noAutoConnect
         showSubmissionSubmittedDialog
         dappMetadata={{
