@@ -25,14 +25,35 @@ export async function submitUserTxTracking(
   if (!isNotInsert) {
     useSubmitTxStore.getState().addSubmitTx(options);
   }
+  const TRACKING_TIMEOUT_MS = 30000;
   return new Promise((resolve) => {
     const newOptions = { ...options };
     const isSafe = useWalletStore.getState().connected?.isSafe;
+    let settled = false;
+    const settle = (ok: boolean) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timeoutId);
+      resolve(ok);
+    };
+    const timeoutId = setTimeout(() => {
+      useSubmitTxStore.getState().addSubmitTxFailed(newOptions);
+      console.error(
+        'messageClient.submitUserTxTracking timeout',
+        newOptions.hash,
+      );
+      settle(false);
+    }, TRACKING_TIMEOUT_MS);
     if (isSafe && options.extra?.transactionReceipt) {
       newOptions.extra.transactionHash =
         options.extra.transactionReceipt.transactionHash;
     }
-    messageClient?.submitUserTxTracking(
+    if (!messageClient) {
+      useSubmitTxStore.getState().addSubmitTxFailed(newOptions);
+      settle(false);
+      return;
+    }
+    messageClient.submitUserTxTracking(
       {
         ...newOptions,
         key: newOptions.key ?? '',
@@ -74,19 +95,22 @@ export async function submitUserTxTracking(
             );
           }
           console.error('api:', api, 'params:', params, 'error:', error);
-          resolve(false);
+          settle(false);
         },
         next: () => {
           // empty
         },
         complete: () => {
-          // empty
+          // completeStatus handles resolve; timeout covers hung requests
         },
         completeStatus: async (res: any) => {
           if (res?.data?.result) {
             useSubmitTxStore.getState().deleteSubmitTx(newOptions);
-            resolve(true);
+            settle(true);
+            return;
           }
+          useSubmitTxStore.getState().addSubmitTxFailed(newOptions);
+          settle(false);
         },
       },
     );
